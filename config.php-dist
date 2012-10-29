@@ -1,0 +1,35 @@
+<?php
+	$iid = "1"; //Instance ID
+	$serverip = "127.0.0.1";  //game-server host
+	$rconpassword = "123456"; //rcon password
+	$serverport = 2302; //server port
+	$hostname = "127.0.0.1";  //Database host
+	$username = "dayz"; //database user
+	$password = "dayz"; //database password
+	$dbName = "dayz"; //database name
+	$sitename = "DayZ Administration"; //Admin panel name
+	$map = "chernarus"; // chernarus or lingor or fallujah or namalsk or takistan or panthera
+	$world = "1"; // 1= cherno, 2= lingor, 3= utes, 4= takistan, 5= panthera2
+	
+	//security
+	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**
+
+	
+	//Social Media
+	$EnableSocialMedia = 1; //Enable social media section (1 yes, 0 no)
+	$socialheader = "Infecting Your Social Media"; // Social Media Header
+	$emailenabled = 1; //Enable media button (1 yes, 0 no)
+	$email = ""; //Contact email
+	$callenabled = 0; //Enable media button (1 yes, 0 no)
+	$call = ""; //Contact us
+	$facebookenabled = 0; //Enable media button (1 yes, 0 no)
+	$facebook = "www.facebook.com"; //Facebook Page
+	$flickrenabled = 0; //Enable media button (1 yes, 0 no)
+	$flickr = ""; //Flickr Page
+	$twitterenabled = 0; //Enable media button (1 yes, 0 no)
+	$twitter = ""; //Twitter Page
+	$vimeoenabled = 0; //Enable media button (1 yes, 0 no)
+	$vimeo = ""; //Vimeo Page
+	$youtubeenabled = 0; //Enable media button (1 yes, 0 no)
+	$youtube = ""; //YouTube 
+?>

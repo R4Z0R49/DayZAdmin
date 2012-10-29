@@ -1,0 +1,13 @@
+[["ItemFlashlight"|"ItemMatchbox"|"NVGoggles"|"ItemToolbox"|"ItemWatch"|"M9SD"|"ItemKnife"|"ItemHatchet"|"ItemEtool"|"Binocular"|"ItemGPS"|"LeeEnfield"|"ItemFlashlightRed"]|[["ItemPainkiller"|14]|"ItemPainkiller"|"ItemPainkiller"|"FoodCanSardines"|"FoodCanSardines"|"10x_303"|"10x_303"|"10x_303"|"FoodCanFrankBeans"|"ItemBandage"|["15Rnd_9x19_M9SD"|9]|"15Rnd_9x19_M9SD"|"15Rnd_9x19_M9SD"]]
+
+["DZ_Backpack_EP1"|[[]|[]]|[["ItemPainkiller"|"ItemMorphine"|"ItemBloodbag"|"ItemSodaPepsi"|"FoodSteakCooked"|"ItemHeatPack"|"10Rnd_127x99_m107"|"ItemTent"|"ItemAntibiotic"|"FoodCanFrankBeans"]|[1|1|1|2|4|1|1|1|1|1]]]
+
+["DZ_Backpack_EP1"|[[]|[]]|[["ItemPainkiller"|"ItemMorphine"|"ItemBloodbag"|"ItemSodaPepsi"|"FoodSteakCooked"|"TrapBear"|"10Rnd_127x99_m107"|"ItemTent"|"ItemAntibiotic"|"FoodCanFrankBeans"]|[1|1|1|2|4|10|1|1|1|1]]]
+
+["DZ_Backpack_EP1"|[[]|[]]|[["ItemTankTrap"]|[24]]]
+
+[["ItemFlashlight"|"M14_EP1"|"Binocular"|"ItemMatchbox"|"ItemCompass"|"ItemMap"|"ItemToolbox"|"NVGoggles"|"glock17_EP1"|"ItemWatch"|"ItemKnife"|"ItemHatchet"|"ItemEtool"|"ItemGPS"]|[["ItemWaterbottle"|3]|["20Rnd_762x51_DMR"|16]|"20Rnd_762x51_DMR"|"20Rnd_762x51_DMR"|"20Rnd_762x51_DMR"|"20Rnd_762x51_DMR"|"20Rnd_762x51_DMR"|"ItemMorphine"|"ItemPainkiller"|"ItemBloodbag"|"ItemEpinephrine"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"ItemBandage"|"ItemBandage"]]
+
+[["glock17_EP1"|"AK_47_M"|"ItemWatch"|"ItemKnife"|"ItemHatchet"|"ItemEtool"|"ItemGPS"|"Binocular"|"NVGoggles"|"ItemMatchbox"|"ItemCompass"|"ItemMap"|"ItemToolbox"]|[["ItemPainkiller"|29]|"ItemBloodbag"|"ItemMorphine"|["30Rnd_762x39_AK47"|22]|"30Rnd_762x39_AK47"|"30Rnd_762x39_AK47"|"30Rnd_762x39_AK47"|"FoodSteakCooked"|"FoodSteakCooked"|"30Rnd_762x39_AK47"|"20Rnd_762x51_DMR"|"20Rnd_762x51_DMR"|"ItemBandage"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"|"17Rnd_9x19_glock17"]]
+
+["DZ_Backpack_EP1"|[["FN_FAL"|"BAF_AS50_scoped"]|[1|1]]|[["ItemEpinephrine"|"20Rnd_762x51_FNFAL"|"5Rnd_127x99_as50"]|[1|1|1]]]

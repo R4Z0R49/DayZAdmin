@@ -1,0 +1,76 @@
+/* Scroll Bar Master Styling Starts Here */
+/* All comments can be freely removed from the css */
+
+.scrollgeneric {line-height: 1px;font-size: 1px;position: absolute;top: 0; left: 0;}
+
+.vscrollerbase {
+width: 15px;
+background: #D7EBDF url(../images/basebarcaps_verticalbarbody.png) 0px 0px repeat-y;
+}
+.vscrollerbar {
+width: 15px;
+background: #99CBCB url(../images/basebarcaps_verticalbarbody.png) -15px 0px repeat-y;
+}
+.hscrollerbase {
+height: 15px;
+background: #D7EBDF url(../images/horizontalbarbody_cornerjog.png) 0px -15px repeat-x;
+}
+.hscrollerbar {
+height: 15px;
+background: #99CBCB url(../images/horizontalbarbody_cornerjog.png) 0px -30px repeat-x;
+}
+.vscrollerbar, .hscrollerbar {
+padding: 10px;
+z-index: 2;
+}
+.vscrollerbarbeg {
+background: url(../images/basebarcaps_verticalbarbody.png) -45px -30px no-repeat;
+width: 15px;
+height: 15px !important;
+}
+.vscrollerbarend {
+background: url(../images/basebarcaps_verticalbarbody.png) -45px 0px no-repeat;
+width: 15px;
+height: 15px;
+}
+.hscrollerbarbeg {
+background: url(../images/basebarcaps_verticalbarbody.png) -60px -15px no-repeat;
+height: 15px;
+width: 15px !important;
+}
+.hscrollerbarend {
+background: url(../images/basebarcaps_verticalbarbody.png) -30px -15px no-repeat;
+height: 15px;
+width: 15px;
+}
+.scrollerjogbox {
+width: 15px;
+height: 15px;
+top: auto; left: auto;
+bottom: 0px; right: 0px;
+background: #4E727C url(../images/horizontalbarbody_cornerjog.png) 0px 0px;
+}
+.vscrollerbasebeg {
+background: url(../images/basebarcaps_verticalbarbody.png) -30px -30px no-repeat;
+width: 15px;
+height: 15px !important;
+}
+.vscrollerbaseend {
+background: url(../images/basebarcaps_verticalbarbody.png) -60px -30px no-repeat;
+height: 15px;
+width: 15px;
+}
+.hscrollerbasebeg {
+background: url(../images/basebarcaps_verticalbarbody.png) -60px 0px no-repeat;
+height: 15px;
+width: 15px !important;
+}
+.hscrollerbaseend {
+height: 15px;
+width: 15px;
+background: url(../images/basebarcaps_verticalbarbody.png) -30px 0px no-repeat;
+}
+.scrollerjogbox:hover {
+background: #5E828C url(../images/basebarcaps_verticalbarbody.png) -45px -15px;
+}
+/* Scroll Bar Master Styling Ends Here */

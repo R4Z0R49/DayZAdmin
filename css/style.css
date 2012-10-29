@@ -1,0 +1,75 @@
+@charset "utf-8";
+body { 
+color:#666666;
+font-family:Verdana;}
+
+.icon {
+	border:none;
+	background-image:url(../images/icon.png);background-position:top;background-repeat:no-repeat;
+	min-height:8px;
+	min-width:8px;
+	text-align:center;
+	color:#FFF;
+	font-size:11px;
+	font-weight:bold;
+	cursor:pointer;
+	width:8px;
+	height:8px;
+	z-index: 10;
+	position: absolute;
+}
+
+a.info{
+    position:relative; /*this is the key*/
+    z-index:1;
+    color:#FFF;
+    text-decoration:none}
+
+a.info:hover{z-index:2; border:0px solid #FFF;}
+
+a.info span{display: none}
+
+a.info:hover span{ /*the span will display just on :hover state*/
+    display:block;
+    position:absolute;
+	z-index:3;
+    top:1em; left:1em; width:15em;
+    border:1px solid #ccc;
+    background-color:#000; color:#FFF;
+	padding-left: 5px;
+    text-align: left}
+
+#wrapper {
+background-image:url(../images/chernarus.png);background-position:top;background-color:#000000;background-repeat:no-repeat;
+width:1540px;
+height:1540px;
+min-height:1540px;
+max-height:1540px;
+min-width:1540px;
+max-width:1540px;
+margin-top:0px;
+margin-left:0px;
+}
+
+img {
+	max-width:256px;
+}
+
+#item {
+min-height:256px;
+min-width:256px;
+margin-top:0px;
+margin-left:0px;
+}
+
+#player {
+background-position:top;background-color:#CCC;background-repeat:no-repeat;
+width:1280px;
+height:auto;
+min-height:1280px;
+max-height:auto;
+min-width:1280px;
+max-width:auto;
+}
+
+
