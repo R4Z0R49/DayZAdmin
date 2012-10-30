@@ -36,12 +36,12 @@ $owneruid = "";
 	//$Backpack  = str_replace('"', "", $Backpack );
 	$Hitpoints  = json_decode($Hitpoints);
 	
-	$xml = file_get_contents('/items.xml', true);
-	require_once('/modules/xml2array.php');
+	$xml = file_get_contents('items.xml', true);
+	require_once('modules/xml2array.php');
 	$items_xml = XML2Array::createArray($xml);
 	
-	$xml = file_get_contents('/vehicles.xml', true);
-	require_once('/modules/xml2array.php');
+	$xml = file_get_contents('vehicles.xml', true);
+	require_once('modules/xml2array.php');
 	$vehicles_xml = XML2Array::createArray($xml);
 ?>	
 	<div id="page-heading">
