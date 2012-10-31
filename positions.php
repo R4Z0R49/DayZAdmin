@@ -164,7 +164,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		echo json_encode($output);
 		break;		
 	case 4:
-		$sql = "select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join vehicle v on iv.vehicle_id = v.id inner join object_classes oc on v.class_name = oc.classname where iv.instance_id = '" . $iid . "'";
+		$sql = "select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join vehicle v on iv.world_vehicle_id = v.id inner join object_classes oc on v.class_name = oc.classname where iv.instance_id = '" . $iid . "'";
 		$pagetitle = "Current Ingame vehicles";
 	$result = mysql_query($sql);
 	$output = array();

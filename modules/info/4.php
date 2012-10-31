@@ -4,7 +4,7 @@ if (isset($_GET['id'])){
 	$id = " AND id ='".$_GET['id']."'";
 }
 
-$query = "SELECT iv.*, v.class_name FROM instance_vehicle iv inner join vehicle v on iv.vehicle_id = v.id WHERE iv.id = ".$_GET["id"]." and instance_id = '" . $iid . "' LIMIT 1"; 
+$query = "SELECT iv.*, v.class_name FROM instance_vehicle iv inner join vehicle v on iv.world_vehicle_id = v.id WHERE iv.id = ".$_GET["id"]." and instance_id = '" . $iid . "' LIMIT 1"; 
 $res = mysql_query($query) or die(mysql_error());
 $number = mysql_num_rows($res);
 while ($row=mysql_fetch_array($res)) {
