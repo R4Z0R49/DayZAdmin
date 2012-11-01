@@ -5,7 +5,7 @@
 
 	$cmd = "Players";
 	
-	$answer = rcon($serverip,$serverport,$rconpassword,$cmd);
+	$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 	$tableheader = header_player(0);
 		
 	
