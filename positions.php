@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id'])) {
 
 	switch($_GET['type']) {
 	case 0:
-	$sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.survival_time as survival_time, s.model as model, s.survivor_kills as survivor_kills, s.zombie_kills as zombie_kills, s.bandit_kills as bandit_kills, '" . $iid . "' as instance, s.is_dead as is_dead, s.unique_id as unique_id from profile p join survivor s on p.unique_id = s.unique_id where s.is_dead = 0 and last_updated > now() - interval 1 minute";
+	$sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.survival_time as survival_time, s.model as model, s.survivor_kills as survivor_kills, s.zombie_kills as zombie_kills, s.bandit_kills as bandit_kills, '" . $iid . "' as instance, s.is_dead as is_dead, s.unique_id as unique_id from profile p join survivor s on p.unique_id = s.unique_id where s.is_dead = 0 and instance = '" . $iid . "' and last_updated > now() - interval 1 minute";
 	$result = mysql_query($sql);
 	$output = array();
 	for ($i = 0; $i < mysql_num_rows($result); $i++) {
@@ -164,7 +164,29 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		echo json_encode($output);
 		break;		
 	case 4:
-		$sql = "select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join vehicle v on iv.vehicle_id = v.id inner join object_classes oc on v.class_name = oc.classname where iv.instance_id = '" . $iid . "'";
+		//$sql = "select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join vehicle v on iv.world_vehicle_id = v.id inner join object_classes oc on v.class_name = oc.classname where iv.instance_id = '" . $iid . "'";
+		$sql = "
+		select 
+iv.id,
+v.class_name, 
+0 owner_id,
+ iv.worldspace, 
+ iv.inventory, 
+ iv.instance_id, 
+ iv.parts, 
+ fuel, 
+ oc.type, 
+ damage 
+ from instance_vehicle iv 
+ inner join 
+ world_vehicle wv on iv.world_vehicle_id = wv.id 
+ inner join 
+ vehicle v on wv.vehicle_id = v.id 
+ inner join 
+ object_classes 
+ oc on v.class_name = oc.classname 
+ where iv.instance_id = '" . $iid . "'";
+		
 		$pagetitle = "Current Ingame vehicles";
 	$result = mysql_query($sql);
 	$output = array();
@@ -309,7 +331,7 @@ select
   'none' as survival_time
 from
   instance_vehicle iv
-  join vehicle v on iv.vehicle_id = v.id
+  join world_vehicle wv on iv.world_vehicle_id = wv.id join vehicle v on wv.vehicle_id = v.id
   join object_classes oc on v.class_name = oc.classname
 where iv.instance_id = '" . $iid . "'
 union
