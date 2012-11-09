@@ -260,7 +260,7 @@ v.class_name,
 
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['instance_id'],
-			'<h2><a href="admin.php?view=info&show=4&id=' . $row['id'] . '">' . $row['class_name'] . '</a></h2>',
+			'<h2><a href="admin.php?view=info&show=6&id=' . $row['id'] . '">' . $row['class_name'] . '</a></h2>',
 			trim($y),
 			trim($x) + 1024,
 			$i,
