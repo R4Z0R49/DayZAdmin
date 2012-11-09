@@ -243,7 +243,7 @@ v.class_name,
 			echo json_encode($output);
 		break;
 	case 6:
-		$sql = "select id.id,worldspace,instance_id,class_name,Type from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname where d.class_name = 'TentStorage' and id.instance_id = '" . $iid . "'";
+        $sql = "select id.id,id.worldspace,instance_id,class_name,Type,p.name,p.unique_id from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname join survivor s on s.id = id.owner_id join profile p on p.unique_id = s.unique_id where d.class_name = 'TentStorage' and id.instance_id = ".$iid;
 					$result = mysql_query($sql);
 	$output = array();
 	for ($i = 0; $i < mysql_num_rows($result); $i++) {
@@ -257,10 +257,11 @@ v.class_name,
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
+        $description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15360-$x)/100))."</td></td>Owner:&nbsp;".htmlspecialchars($row['name'])."</td></tr></table>";
 
 		$output[] = array(
-			$row['class_name'] . ', ' . $row['instance_id'],
-			'<h2><a href="admin.php?view=info&show=6&id=' . $row['id'] . '">' . $row['class_name'] . '</a></h2>',
+			$row['class_name'] . ', ' . $row['instance_id'] . ' - ' . htmlspecialchars($row['name']),
+            $description,
 			trim($y),
 			trim($x) + 1024,
 			$i,
