@@ -28,10 +28,6 @@
         <Type>smallammo</Type>
         <Slots>1</Slots>
     </s15Rnd_9x19_M9SD>
-    <s15Rnd_W1866_Pellet>
-        <Type>heavyammo</Type>
-        <Slots>1</Slots>
-    </s15Rnd_W1866_Pellet>
     <s15Rnd_W1866_Slug>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
@@ -52,10 +48,6 @@
         <Type>heavyammo</Type>
         <Slots>2</Slots>
     </s200Rnd_556x45_M249>
-    <s20Rnd_556x45_Stanag>
-        <Type>heavyammo</Type>
-        <Slots>1</Slots>
-    </s20Rnd_556x45_Stanag>
     <s20Rnd_762x51_DMR>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
@@ -132,10 +124,6 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </s8Rnd_B_Beneli_Pellets>
-    <sAKS_74>
-        <Type>rifle</Type>
-        <Slots>10</Slots>
-    </sAKS_74>
     <sAKS_74_kobra>
         <Type>rifle</Type>
         <Slots>10</Slots>
@@ -148,10 +136,6 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sAK_47_M>
-    <sAK_47_S>
-        <Type>rifle</Type>
-        <Slots>10</Slots>
-    </sAK_47_S>
     <sAK_74>
         <Type>rifle</Type>
         <Slots>10</Slots>
@@ -302,10 +286,6 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </shuntingrifle>
-    <sm107>
-        <Type>rifle</Type>
-        <Slots>10</Slots>
-    </sm107>
     <sMR43>
         <Type>rifle</Type>
         <Slots>10</Slots>
@@ -474,18 +454,10 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sM24>
-    <sM240>
-        <Type>rifle</Type>
-        <Slots>10</Slots>
-    </sM240>
     <sM240_DZ>
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sM240_DZ>
-    <sM249>
-        <Type>rifle</Type>
-        <Slots>10</Slots>
-    </sM249>
     <sM249_DZ>
         <Type>rifle</Type>
         <Slots>10</Slots>
@@ -498,18 +470,10 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sM4A1_Aim>
-    <sM4A1_Aim_camo>
-        <Type>rifle</Type>
-        <Slots>10</Slots>
-    </sM4A1_Aim_camo>
     <sM4A1_AIM_SD_camo>
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sM4A1_AIM_SD_camo>
-    <sM4A1_HWS_GL>
-        <Type>rifle</Type>
-        <Slots>10</Slots>
-    </sM4A1_HWS_GL>
     <sM4A1_HWS_GL_camo>
         <Type>rifle</Type>
         <Slots>10</Slots>
@@ -610,10 +574,6 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </sSkin_Sniper1_DZ>
-    <sSkin_Soldier1_DZ>
-        <Type>heavyammo</Type>
-        <Slots>1</Slots>
-    </sSkin_Soldier1_DZ>
     <sSkin_Survivor2_DZ>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
