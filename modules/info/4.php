@@ -95,10 +95,10 @@ $owneruid = "";
 						</div>
 
 						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-95px">
-							<?php echo 'Damage:&nbsp;'.sprintf("%d%%", $row['damage'] * 100);?>
+							<?php echo 'Damage:&nbsp;'.sprintf("%d%%", round($row['damage'] * 100));?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-75px">
-							<?php echo 'Fuel:&nbsp;'.sprintf("%d%%", $row['fuel'] * 100);?>
+							<?php echo 'Fuel:&nbsp;'.sprintf("%d%%", round($row['fuel'] * 100));?>
 						</div>
 					</div>
 					<!-- Backpack -->
