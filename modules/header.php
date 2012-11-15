@@ -40,8 +40,28 @@ $(function() {
 </script> -->
 
 <script src="js/modalpopup.js" type="text/javascript"></script>
+<?php if($enableclock) { ?>
+<script type="text/javascript" src="jquery.jclock.js"></script>
+<script type="text/javascript">
+    $(function($) {
+        var options = {
+            utc: true,
+            utcOffset: <?php echo $timeoffset; ?>,
+            // seedTime must be a number representing time in milliseconds
+            seedTime: <?php echo time() * 1000; ?>        }
+        $('.jclock').jclock(options);
+    });
+</script>
+<?php } // end if($enableclock) ?>
 </head>
 <body> 
+
+<?php if($enableclock) { ?>
+<div id="clock" style=" font-size: 10pt; color: #ffffff; position: absolute; top: 8px; left: 2px; margin: 0 0 0 0;">
+    <span class="jclock">11:11:11</span>
+</div>
+<?php } // end if($enableclock) ?>
+
 <!-- Start: page-top-outer -->
 <div id="page-top-outer">    
 
