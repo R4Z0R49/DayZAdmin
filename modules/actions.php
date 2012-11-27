@@ -82,7 +82,7 @@ if (isset($_SESSION['user_id']))
 		}
 		if (isset($_GET["resetlocation"])){
 
-			$remquery = "update survivor set pos = '[]' WHERE id='".$_GET["resetlocation"]."'";
+			$remquery = "update survivor set worldspace = '[]' WHERE id='".$_GET["resetlocation"]."'";
 			$result = mysql_query($remquery) or die(mysql_error());
 			$class = mysql_fetch_assoc($result);
 			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Reset Player Location of ID:".$_GET["resetlocation"]."','{$_SESSION['login']}',NOW())";
