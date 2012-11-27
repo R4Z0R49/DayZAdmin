@@ -41,7 +41,8 @@ $(function() {
 
 <script src="js/modalpopup.js" type="text/javascript"></script>
 <?php if($enableclock) { ?>
-<script type="text/javascript" src="jquery.jclock.js"></script>
+<script type="text/javascript" src="js/jquery/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.jclock.js"></script>
 <script type="text/javascript">
     $(function($) {
         var options = {
