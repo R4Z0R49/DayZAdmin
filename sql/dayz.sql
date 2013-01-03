@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `object_classes` (
 /*!40101 SET NAMES utf8 */;
 /*!40014 SET FOREIGN_KEY_CHECKS=0 */;
 
--- Dumping data for table hivemind.object_classes: 54 rows
+-- Dumping data for table hivemind.object_classes: 55 rows
 /*!40000 ALTER TABLE `object_classes` DISABLE KEYS */;
 INSERT INTO `object_classes` (`Classname`, `Type`) VALUES
         ('ATV_CZ_EP1', 'atv'),
@@ -76,6 +76,7 @@ INSERT INTO `object_classes` (`Classname`, `Type`) VALUES
         ('UH1H_DZ', 'helicopter'),
         ('UralCivil2', 'truck'),
         ('V3S_Civ', 'truck'),
+        ('Volha_1_TK_CIV_EP1', 'car'),
         ('Volha_2_TK_CIV_EP1', 'car'),
         ('Ikarus', 'bus'),
         ('ATV_US_EP1', 'atv'),
