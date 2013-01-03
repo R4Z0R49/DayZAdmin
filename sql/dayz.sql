@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `object_classes` (
 
 -- Dumping data for table hivemind.object_classes: 54 rows
 /*!40000 ALTER TABLE `object_classes` DISABLE KEYS */;
-REPLACE INTO `object_classes` (`Classname`, `Type`) VALUES
+INSERT INTO `object_classes` (`Classname`, `Type`) VALUES
         ('ATV_CZ_EP1', 'atv'),
         ('car_hatchback', 'car'),
         ('datsun1_civil_3_open', 'car'),
