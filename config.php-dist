@@ -1,6 +1,7 @@
 <?php
 	$iid = "1"; //Instance ID
 	$serverip = "127.0.0.1";  //game-server host
+	$serverip_internal = "127.0.0.1";  //game-server host internal IP (for hosts behind NAT)
 	$rconpassword = "123456"; //rcon password
 	$serverport = 2302; //server port
 	$hostname = "127.0.0.1";  //Database host
@@ -10,6 +11,8 @@
 	$sitename = "DayZ Administration"; //Admin panel name
 	$map = "chernarus"; // chernarus or lingor or fallujah or namalsk or takistan or panthera
 	$world = "1"; // 1= cherno, 2= lingor, 3= utes, 4= takistan, 5= panthera2
+    $timeoffset = 0; // game time offset from UTC, should match HiveExt.ini
+    $enableclock = 0; // show game time clock in upper left corner
 	
 	//security
 	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**

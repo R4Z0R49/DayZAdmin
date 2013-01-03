@@ -35,8 +35,10 @@ if (isset($_SESSION['user_id']))
 	<a href="javascript:toggleFullScreen();">Full Screen</a>
 	<div id="lingor-map" style="width:99%;height:750px;margin:10px auto;border:2px solid #000;"></div>
 
+    <script type="text/javascript" src="js/jquery/jquery-1.4.1.min.js"></script>
+
     <script type="text/javascript" src="js/jquery.fullscreen.js"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript">
     /* <![CDATA[ */
         // Google Maps Demo
