@@ -50,55 +50,88 @@ CREATE TABLE IF NOT EXISTS `object_classes` (
 -- Дамп данных таблицы `object_classes`
 --
 
-INSERT INTO `object_classes` (`Classname`, `Type`) VALUES
-('ATV_CZ_EP1', 'ATV'),
-('ATV_US_EP1', 'ATV'),
-('BAF_Offroad_W', 'Car'),
-('car_hatchback', 'Car'),
-('car_sedan', 'Car'),
-('datsun1_civil_3_open', 'Car'),
-('Fishing_Boat', 'large Boat'),
-('Hedgehog_DZ', 'Hedgehog'),
-('hilux1_civil_1_open', 'Car'),
-('hilux1_civil_2_covered', 'Car'),
-('hilux1_civil_3_open', 'Car'),
-('HMMWV', 'Car'),
-('Ikarus', 'Bus'),
-('Ikarus_TK_CIV_EP1', 'Bus'),
-('Kamaz', 'Truck'),
-('LandRover_TK_CIV_EP1', 'Car'),
-('MH6J_EP1', 'Helicopter'),
-('Old_bike_TK_CIV_EP1', 'Bike'),
-('Old_bike_TK_INS_EP1', 'Bike'),
-('PBX', 'small Boat'),
-('S1203_TK_CIV_EP1', 'Bus'),
-('Skoda', 'Car'),
-('SkodaBlue', 'Car'),
-('SkodaGreen', 'Car'),
-('Smallboat_1', 'medium Boat'),
-('Smallboat_2', 'medium Boat'),
-('SUV_TK_CIV_EP1', 'Car'),
-('TentStorage', 'Tent'),
-('Tractor', 'Farmvehicle'),
-('TT650_Ins', 'Motorcycle'),
-('TT650_TK_CIV_EP1', 'Motorcycle'),
-('TT650_TK_EP1', 'Motorcycle'),
-('UAZ_INS', 'Car'),
-('UAZ_RU', 'Car'),
-('UAZ_Unarmed_TK_CIV_EP1', 'Car'),
-('UAZ_Unarmed_TK_EP1', 'Car'),
-('UAZ_Unarmed_UN_EP1', 'Car'),
-('UH1H_DZ', 'Helicopter'),
-('UralCivil', 'Truck'),
-('UralCivil2', 'Truck'),
-('V3S_Civ', 'Truck'),
-('V3S_Gue', 'Truck'),
-('V3S_TK_GUE_EP1', 'Truck'),
-('VolhaLimo_TK_CIV_EP1', 'Car'),
-('Volha_1_TK_CIV_EP1', 'Car'),
-('Volha_2_TK_CIV_EP1', 'Car'),
-('VWGolf', 'Car'),
-('Wire_cat1', 'Wire');
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               5.5.22 - MySQL Community Server (GPL)
+-- Server OS:                    Win64
+-- HeidiSQL version:             7.0.0.4053
+-- Date/time:                    2013-01-03 12:22:55
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+
+-- Dumping structure for table hivemind.object_classes_copy
+CREATE TABLE IF NOT EXISTS `object_classes_copy` (
+  `Classname` varchar(32) NOT NULL DEFAULT '',
+  `Type` text NOT NULL,
+  PRIMARY KEY (`Classname`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table hivemind.object_classes_copy: 54 rows
+/*!40000 ALTER TABLE `object_classes_copy` DISABLE KEYS */;
+INSERT INTO `object_classes_copy` (`Classname`, `Type`) VALUES
+	('ATV_CZ_EP1', 'atv'),
+	('car_hatchback', 'car'),
+	('datsun1_civil_3_open', 'car'),
+	('Fishing_Boat', 'largeboat'),
+	('S1203_TK_CIV_EP1', 'bus'),
+	('tractor', 'farmvehicle'),
+	('BAF_Offroad_D', 'car'),
+	('UAZ_Unarmed_TK_EP1', 'car'),
+	('UH1H_DZ', 'helicopter'),
+	('UralCivil2', 'truck'),
+	('V3S_Civ', 'truck'),
+	('Volha_2_TK_CIV_EP1', 'car'),
+	('Ikarus', 'bus'),
+	('ATV_US_EP1', 'atv'),
+	('BAF_Offroad_W', 'car'),
+	('car_sedan', 'car'),
+	('hilux1_civil_1_open', 'car'),
+	('hilux1_civil_2_covered', 'car'),
+	('hilux1_civil_3_open', 'car'),
+	('Ikarus_TK_CIV_EP1', 'bus'),
+	('LandRover_TK_CIV_EP1', 'car'),
+	('MH6J_EP1', 'helicopter'),
+	('Old_bike_TK_CIV_EP1', 'bike'),
+	('Old_bike_TK_INS_EP1', 'bike'),
+	('PBX', 'smallboat'),
+	('Skoda', 'car'),
+	('SkodaBlue', 'car'),
+	('SkodaGreen', 'car'),
+	('Smallboat_1', 'mediumboat'),
+	('Smallboat_2', 'mediumboat'),
+	('SUV_TK_CIV_EP1', 'car'),
+	('TentStorage', 'tent'),
+	('TT650_Ins', 'motorcycle'),
+	('TT650_TK_CIV_EP1', 'motorcycle'),
+	('TT650_TK_EP1', 'motorcycle'),
+	('UAZ_INS', 'car'),
+	('UAZ_RU', 'car'),
+	('UAZ_Unarmed_TK_CIV_EP1', 'car'),
+	('UAZ_Unarmed_UN_EP1', 'car'),
+	('UralCivil', 'truck'),
+	('Mi17_DZ', 'helicopter'),
+	('AN2_DZ', 'plane'),
+	('Hedgehog_DZ', 'Hedgehog'),
+	('Wire_cat1', 'wire'),
+	('Sandbag1_DZ', 'Sandbag'),
+	('AH6X_DZ', 'helicopter'),
+	('datsun1_civil_1_open', 'car'),
+	('Lada1_TK_CIV_EP1', 'car'),
+	('M1030', 'motorcycle'),
+	('SUV_TK_EP1', 'car'),
+	('VolhaLimo_TK_CIV_EP1', 'car'),
+	('Lada2', 'car'),
+	('hilux1_civil_3_open_EP1', 'car'),
+	('LandRover_CZ_EP1', 'car');
+	
+	
+/*!40000 ALTER TABLE `object_classes_copy` ENABLE KEYS */;
+/*!40014 SET FOREIGN_KEY_CHECKS=1 */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
 
 -- --------------------------------------------------------
 
