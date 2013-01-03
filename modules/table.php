@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id']))
 			$pagetitle = "All Ingame Objects";	
 			break;
 		case 5:
-			$query = "SELECT * FROM spawns WHERE world = '" . $map . "'";
+			$query = "select v.class_name as otype,wv.id as id,wv.worldspace as pos from world_vehicle wv join vehicle v on v.id = wv.vehicle_id where world_id = (select id from world where name = '" . $map . "')";
 			$pagetitle = "Vehicle spawn locations";	
 			break;
 		case 6:
