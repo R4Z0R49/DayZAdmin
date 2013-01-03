@@ -202,7 +202,7 @@ function row_online_player($row, $player){
 
 	$icon = '<a href="admin.php?view=actions&kick='.$player[0].'"><img src="images/icons/player.png" title="Kick '.$player[4].'" alt="Kick '.$player[4].'"/></a>';
 	$icon1 = '<a href="admin.php?view=actions&ban='.$player[0].'"><img src="images/icons/player_dead.png" title="Ban '.$player[4].'" alt="Ban '.$player[4].'"/></a>';
-	$icon2 = '<a href="admin.php?view=actions&resetlocation='.$row['id'].'"><img src="images/icons/wire.png" title="ResetLocation '.$player[4].'" alt="ResetLocation '.$row['id'].'"/></a>';
+	$icon2 = '<a href="admin.php?view=actions&resetlocation='.$row['id'].'"><img src="images/icons/Wire.png" title="ResetLocation '.$player[4].'" alt="ResetLocation '.$row['id'].'"/></a>';
 	
 	$tablerow = "<tr>
 				<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$icon.$icon1.$icon2."</td>

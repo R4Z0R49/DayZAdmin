@@ -5,11 +5,11 @@
 
 	$cmd = "Players";
 	
-	$answer = rcon($serverip,$serverport,$rconpassword,$cmd);
+	$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 	$tableheader = header_player(0);
 		
 	
-	if ($answer != ""){
+	if ($answer != "" && !strpos($answer, "0 players")){
 		$k = strrpos($answer, "---");
 		$l = strrpos($answer, "(");
 		$out = substr($answer, $k+4, $l-$k-5);

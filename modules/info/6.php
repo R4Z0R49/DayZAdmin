@@ -4,14 +4,11 @@ if (isset($_GET['id'])){
 	$id = " AND id ='".$_GET['id']."'";
 }
 
-$query = "SELECT 
-iv.*, v.class_name 
-FROM instance_vehicle iv  
-inner join 
- world_vehicle wv on iv.world_vehicle_id = wv.id 
- inner join 
- vehicle v on wv.vehicle_id = v.id
- WHERE iv.id = ".$_GET["id"]." and instance_id = '" . $iid . "' LIMIT 1"; 
+$query = "SELECT id.*,d.class_name,p.name,p.unique_id player_unique_id from instance_deployable id
+ JOIN deployable d on d.id = id.deployable_id
+ JOIN survivor s ON s.id = id.owner_id
+ JOIN profile p on p.unique_id = s.unique_id
+ WHERE id.id = ".$_GET["id"]." and instance_id = '" . $iid . "' LIMIT 1"; 
 $res = mysql_query($query) or die(mysql_error());
 $number = mysql_num_rows($res);
 while ($row=mysql_fetch_array($res)) {
@@ -32,16 +29,12 @@ while ($row=mysql_fetch_array($res)) {
 	$Backpack  = json_decode($Backpack);
 
 	$owner = "";
-$ownerid = "";
-$owneruid = "";
+    $ownerid = "";
+    $owneruid = "";
 
 	
 	
-	$Hitpoints  = $row['parts'];
-	//$Hitpoints  ='[["wheel_1_1_steering",0.2],["wheel_2_1_steering",0],["wheel_1_4_steering",1],["wheel_2_4_steering",1],["wheel_1_3_steering",1],["wheel_2_3_steering",1],["wheel_1_2_steering",0],["wheel_2_2_steering",1],["motor",0.1],["karoserie",0.4]]';
-	$Hitpoints = str_replace("|", ",", $Hitpoints);
-	//$Backpack  = str_replace('"', "", $Backpack );
-	$Hitpoints  = json_decode($Hitpoints);
+	$Hitpoints  = "";
 	
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
@@ -95,10 +88,7 @@ $owneruid = "";
 						</div>
 
 						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-95px">
-							<?php echo 'Damage:&nbsp;'.sprintf("%d%%", round($row['damage'] * 100));?>
-						</div>
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-75px">
-							<?php echo 'Fuel:&nbsp;'.sprintf("%d%%", round($row['fuel'] * 100));?>
+							Owner:&nbsp;<a href="admin.php?view=info&show=1&id=<?php echo $row['player_unique_id'];?>"><?php echo $row['name'];?></a>
 						</div>
 					</div>
 					<!-- Backpack -->
@@ -239,30 +229,6 @@ $owneruid = "";
 						</div>
 					</div>
 					<!-- Backpack -->
-					
-					<!-- Hitpoints -->
-					<div class="vehicle_hitpoints">	
-						<?php
-							$jx = 1;
-							$jy = 48;
-							$jk = 0;
-							$jl = 0;
-							for ($i=0; $i<count($Hitpoints); $i++){
-								if ($jk > 3){ $jk = 0;$jl++;}
-								$hit = '<img style="max-width:90px;max-height:90px;" src="images/hits/'.$Hitpoints[$i][0].'.png" title="'.$Hitpoints[$i][0].' - '.round(100 - ($Hitpoints[$i][1]*100)).'%" alt="'.$Hitpoints[$i][0].' - '.round(100 - ($Hitpoints[$i][1]*100)).'%"/>';
-								//$hit = $Hitpoints[$i][0].' - '.$Hitpoints[$i][1];
-								echo '<div class="hit_slot" style="margin-left:'.($jx+(93*$jk)).'px;margin-top:'.($jy+(93*$jl)).'px;width:91px;height:91px;background-color: rgba(100,'.round((255/100)*(100 - ($Hitpoints[$i][1]*100))).',0,0.8);">'.$hit.'</div>';
-								$jk++;
-							}							
-						?>						
-						<div class="backpackname">
-						<?php
-							echo 'Hitpoints';
-						?>
-						</div>
-					</div>
-					<!-- Hitpoints -->
-			
 				</div>
 			</div>
 			<!--  end table-content  -->
