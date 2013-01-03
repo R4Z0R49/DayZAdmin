@@ -16,7 +16,7 @@ $query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK
 	error_reporting (E_ALL ^ E_NOTICE);
 	
 	//$items_ini = parse_ini_file("/items.ini", true);
-	$xml = file_get_contents('/items.xml', true);
+	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
 	$items_xml = XML2Array::createArray($xml);
 	

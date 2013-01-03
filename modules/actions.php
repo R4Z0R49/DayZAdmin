@@ -7,7 +7,7 @@ if (isset($_SESSION['user_id']))
 			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Player Kicked','{$_SESSION['login']}',NOW())";
 			$sql2 = mysql_query($query) or die(mysql_error());
 				
-			$answer = rcon($serverip,$serverport,$rconpassword,$cmd);
+			$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 			?>
 			<script type="text/javascript">
 				window.location = 'admin.php?view=table&show=0';
@@ -19,7 +19,7 @@ if (isset($_SESSION['user_id']))
 			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Player Banned','{$_SESSION['login']}',NOW())";
 			$sql2 = mysql_query($query) or die(mysql_error());
 				
-			$answer = rcon($serverip,$serverport,$rconpassword,$cmd);
+			$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 			?>
 			<script type="text/javascript">
 				window.location = 'admin.php?view=table&show=0';
@@ -35,7 +35,7 @@ if (isset($_SESSION['user_id']))
 			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Used Global','{$_SESSION['login']}',NOW())";
 			$sql2 = mysql_query($query) or die(mysql_error());
 				
-			$answer = rcon($serverip,$serverport,$rconpassword,$cmd);
+			$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 			?>
 			<script type="text/javascript">
 				window.location = 'admin.php';
