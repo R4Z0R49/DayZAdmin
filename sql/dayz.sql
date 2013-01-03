@@ -62,16 +62,9 @@ CREATE TABLE IF NOT EXISTS `object_classes` (
 /*!40101 SET NAMES utf8 */;
 /*!40014 SET FOREIGN_KEY_CHECKS=0 */;
 
--- Dumping structure for table hivemind.object_classes_copy
-CREATE TABLE IF NOT EXISTS `object_classes_copy` (
-  `Classname` varchar(32) NOT NULL DEFAULT '',
-  `Type` text NOT NULL,
-  PRIMARY KEY (`Classname`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-
--- Dumping data for table hivemind.object_classes_copy: 54 rows
-/*!40000 ALTER TABLE `object_classes_copy` DISABLE KEYS */;
-INSERT INTO `object_classes_copy` (`Classname`, `Type`) VALUES
+-- Dumping data for table hivemind.object_classes: 54 rows
+/*!40000 ALTER TABLE `object_classes` DISABLE KEYS */;
+REPLACE INTO `object_classes` (`Classname`, `Type`) VALUES
 	('ATV_CZ_EP1', 'atv'),
 	('car_hatchback', 'car'),
 	('datsun1_civil_3_open', 'car'),
@@ -128,7 +121,7 @@ INSERT INTO `object_classes_copy` (`Classname`, `Type`) VALUES
 	('LandRover_CZ_EP1', 'car');
 	
 	
-/*!40000 ALTER TABLE `object_classes_copy` ENABLE KEYS */;
+/*!40000 ALTER TABLE `object_classes` ENABLE KEYS */;
 /*!40014 SET FOREIGN_KEY_CHECKS=1 */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 
