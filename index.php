@@ -8,7 +8,7 @@ include ('config.php');
 mysql_connect($hostname, $username, $password) or die (mysql_error());
 mysql_select_db($dbName) or die (mysql_error());
 
-				    $query = "SELECT * FROM survivor";
+				    $query = "SELECT * FROM profile";
 				    $res = mysql_query($query) or die(mysql_error());	
 					//KillsZ
 					if (mysql_num_rows($res) > 0) {
@@ -25,17 +25,17 @@ mysql_select_db($dbName) or die (mysql_error());
 						while ($row=mysql_fetch_array($res))
 						{
 							//KillsZ
-							$KillsZ[] = $row['zombie_kills']; // sum 
-							$totalKillsz = $row['zombie_kills'];
+							$KillsZ[] = $row['total_zombie_kills']; // sum 
+							$totalKillsz = $row['total_zombie_kills'];
 							//KillsB
-							$KillsB[] = $row['bandit_kills']; // sum 
-							$totalKillsB = $row['bandit_kills'];
+							$KillsB[] = $row['total_bandit_kills']; // sum 
+							$totalKillsB = $row['total_bandit_kills'];
 							//KillsH
-							$KillsH[] = $row['survivor_kills']; // sum 
-							$totalKillsH = $row['survivor_kills'];
+							$KillsH[] = $row['total_survivor_kills']; // sum 
+							$totalKillsH = $row['total_survivor_kills'];
 							//HeadshotsZ
-							$HeadshotsZ[] = $row['headshots']; // sum 
-							$totalHeadshotsZ = $row['headshots'];
+							$HeadshotsZ[] = $row['total_headshots']; // sum 
+							$totalHeadshotsZ = $row['total_headshots'];
 							//print "<li>$totalKillsz</li>"; //debug
 						}
 						//Alive
