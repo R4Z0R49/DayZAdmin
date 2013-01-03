@@ -1,5 +1,5 @@
 <?php
-$query = "SELECT * FROM spawns WHERE id = ".$_GET["id"]." LIMIT 1"; 
+$query = "select v.class_name as otype,wv.id as id,wv.worldspace as pos from world_vehicle wv join vehicle v on v.id = wv.vehicle_id where world_id = (select id from world where name = '" . $map . "') and wv.id = ".$_GET["id"]." LIMIT 1"; 
 $res = mysql_query($query) or die(mysql_error());
 $number = mysql_num_rows($res);
 while ($row=mysql_fetch_array($res)) {
