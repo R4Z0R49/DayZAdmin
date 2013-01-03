@@ -70,7 +70,7 @@ INSERT INTO `object_classes` (`Classname`, `Type`) VALUES
         ('datsun1_civil_3_open', 'car'),
         ('Fishing_Boat', 'largeboat'),
         ('S1203_TK_CIV_EP1', 'bus'),
-        ('tractor', 'farmvehicle'),
+        ('Tractor', 'farmvehicle'),
         ('BAF_Offroad_D', 'car'),
         ('UAZ_Unarmed_TK_EP1', 'car'),
         ('UH1H_DZ', 'helicopter'),
