@@ -302,7 +302,7 @@ v.class_name,
 	$sql = "select
   s.id,
   p.name class_name,
-  'Player' as type,
+  'player' as type,
   s.worldspace,
   s.model,
   s.unique_id,
