@@ -43,7 +43,7 @@
 		$tablerows .= "<tr>
 			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".$row['otype']."</a></td>
 			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".$row['id']."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".sprintf("%03d",round($y/100)).sprintf("%03d",round((154-($x/100))))."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".sprintf("%03d",round($Worldspace[1]/100)).sprintf("%03d",round((154-($Worldspace[2]/100))))."</a></td>
 		</tr>";
 		}
 	include ('paging.php');

@@ -260,7 +260,7 @@ v.class_name,
         $description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15360-$x)/100))."</td></td>Owner:&nbsp;".htmlspecialchars($row['name'])."</td></tr></table>";
 
 		$output[] = array(
-			$row['class_name'] . ', ' . $row['instance_id'] . ' - ' . htmlspecialchars($row['name']),
+			$row['class_name'] . ', ' . $row['id'] . ' - ' . htmlspecialchars($row['name']),
             $description,
 			trim($y),
 			trim($x) + 1024,
