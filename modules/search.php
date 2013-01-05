@@ -70,7 +70,7 @@ if (isset($_SESSION['user_id']))
 					$chbox = "";
 					$tableheader = header_vehicle(0, $chbox);
 					echo $tableheader;
-					$query = "select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join vehicle v on iv.world_vehicle_id = v.id inner join object_classes oc on v.class_name = oc.classname where v.class_name like '%". str_replace(" ", "%' OR oc.type LIKE '%", $good). "%'";
+					$query = "select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on v.id = wv.vehicle_id inner join object_classes oc on v.class_name = oc.classname where v.class_name like '%".$good."%' OR oc.type LIKE '%".$good."%'";
 					$res = mysql_query($query) or die(mysql_error());
 					$chbox = "";
 					while ($row=mysql_fetch_array($res)) {
