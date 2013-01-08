@@ -30,11 +30,6 @@ $query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK
 	  echo "<CENTER>Не найдено</CENTER>";
 	} else {
 	  while ($row=mysql_fetch_array($res)) {
-		$Worldspace = str_replace("[", "", $row['pos']);
-		$Worldspace = str_replace("]", "", $Worldspace);
-		$Worldspace = str_replace(",", ",", $Worldspace);
-		$Worldspace = explode(",", $Worldspace);
-		
 		$Inventory = $row['inventory'];	
 		$Inventory = str_replace(",", ",", $Inventory);
 		$Inventory  = json_decode($Inventory);	

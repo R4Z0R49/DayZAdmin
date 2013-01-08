@@ -1,5 +1,6 @@
 <?php
 
+
 function header_player($show){
 	return '<tr>
 		<th class="table-header-repeat line-left" width="5%"><a href="">Control</a></th>
@@ -25,13 +26,12 @@ function header_vehicle($show, $chbox){
 }
 
 function row_player($row){
-	$Worldspace = str_replace("[", "", $row['worldspace']);
-	$Worldspace = str_replace("]", "", $Worldspace);
-	$Worldspace = explode(",", $Worldspace);
+    global $map;
+    $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 	$x = 0;
 	$y = 0;
-	if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
-	if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
+	if(array_key_exists(2,$MapCoords)){$x = $MapCoords[2];}
+	if(array_key_exists(1,$MapCoords)){$y = $MapCoords[1];}
 	$Inventory = $row['inventory'];
 	$Inventory = str_replace(",", ",", $Inventory);
 	$Inventory  = json_decode($Inventory);
@@ -105,7 +105,7 @@ function row_player($row){
 		<td align=\"center\" class=\"gear_preview\">".$icon."</td>
 		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".$row['name']."</a></td>
 		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".$row['unique_id']."</a></td>
-		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".sprintf("%03d",round($y/100)).sprintf("%03d",round((154-($x/100))))."</a></td>
+		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
 		<td align=\"center\" class=\"gear_preview\">".$InventoryPreview."</td>
 		<td align=\"center\" class=\"gear_preview\">".$BackpackPreview. "</td>
 	</tr>";
@@ -113,17 +113,16 @@ function row_player($row){
 }
 
 function row_online_player($row, $player){
+    global $map;
 	//$queryinfo = "SELECT * FROM survivor WHERE is_dead=0 AND unique_id like '" . $row['unique_id'] . "'";
 
 	//$resinfo = mysql_query($queryinfo) or die(mysql_error());								
 	//$rowinfo = mysql_fetch_array($resinfo);
 	$x = 0;
 	$y = 0;
-	$Worldspace = str_replace("[", "", $row['worldspace']);
-	$Worldspace = str_replace("]", "", $Worldspace);
-	$Worldspace = explode(",", $Worldspace);					
-	if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
-	if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
+    $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
+	if(array_key_exists(2,$MapCoords)){$x = $MapCoords[2];}
+	if(array_key_exists(1,$MapCoords)){$y = $MapCoords[1];}
 	$dead = ($row['is_dead'] ? '_dead' : '');
 	$Inventory = $row['inventory'];
 	$Inventory = str_replace("|", ",", $Inventory);
@@ -209,7 +208,7 @@ function row_online_player($row, $player){
 				<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$name."</td>
 				<td align=\"center\" class=\"gear_preview\">".$uid."</td>
 
-				<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".sprintf("%03d",round($y/100)).sprintf("%03d",round((154-($x/100))))."</a></td>
+				<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
 				<td align=\"center\" class=\"gear_preview\">".$InventoryPreview."</td>
 				<td align=\"center\" class=\"gear_preview\">".$BackpackPreview."</td>
 				<tr>";
@@ -217,13 +216,12 @@ function row_online_player($row, $player){
 }
 
 function row_vehicle($row, $chbox){
+    global $map;
 	$x = 0;
 	$y = 0;
-	$Worldspace = str_replace("[", "", $row['worldspace']);
-	$Worldspace = str_replace("]", "", $Worldspace);
-	$Worldspace = explode(",", $Worldspace);					
-	if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
-	if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
+    $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
+	if(array_key_exists(2,$MapCoords)){$x = $MapCoords[2];}
+	if(array_key_exists(1,$MapCoords)){$y = $MapCoords[1];}
 	$Inventory  = $row['inventory'];
 	$Inventory = str_replace("", ",", $Inventory);
 	$Inventory  = json_decode($Inventory);
@@ -291,7 +289,7 @@ function row_vehicle($row, $chbox){
 		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></td>			
 		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['id']."</a></td>
 		<td align=\"center\" class=\"gear_preview\" style=\"background-color: rgba(100,".round((255/100)*(100 - ($row['damage']*100))).",0,0.8);\">".substr($row['damage'], 0, 6)."</td>
-		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".sprintf("%03d",round($y/100)).sprintf("%03d",round((154-($x/100))))."</a></td>
+		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
 		<td align=\"center\" class=\"gear_preview\">".$InventoryPreview."</td>
 		<td align=\"center\" class=\"gear_preview\">".$HitpointsPreview. "</td>
 	</tr>";
