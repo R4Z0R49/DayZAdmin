@@ -201,7 +201,7 @@ v.class_name,
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15360-$x)/100))."</td></td>Instance ID:".$row['instance_id']."</td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15400-$x)/100))."</td></td>Instance ID:".$row['instance_id']."</td></tr></table>";
 
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['id'],
@@ -229,7 +229,7 @@ v.class_name,
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">Position: left:".round(($y/100))." top:".round(((15360-$x)/100))."</td></td>World ID:".$row['world_id']."</td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">Position: left:".round(($y/100))." top:".round(((15400-$x)/100))."</td></td>World ID:".$row['world_id']."</td></tr></table>";
 
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['world_id'],
@@ -257,7 +257,7 @@ v.class_name,
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-        $description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15360-$x)/100))."</td></td>Owner:&nbsp;".htmlspecialchars($row['name'])."</td></tr></table>";
+        $description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15400-$x)/100))."</td></td>Owner:&nbsp;".htmlspecialchars($row['name'])."</td></tr></table>";
 
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['id'] . ' - ' . htmlspecialchars($row['name']),
@@ -368,7 +368,7 @@ where
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$position= " Position:left:".round(($y/100))." top:".round(((15360-$x)/100))."";
+		$position= " Position:left:".round(($y/100))." top:".round(((15400-$x)/100))."";
 		$id = $row['id'];
 		$model = $row['model'];
 		$uid = $row['unique_id'];
@@ -380,11 +380,11 @@ where
 		if($row['type'] == 'Player') 
 		{ 
 		$hover = $row['class_name'] . ', ' . $row['id'] . ', ' . $row['model'] . ', Alive Duration:' . $row['survival_time'];
-		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($row['class_name'], ENT_QUOTES)." - ".$row['id']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">Position:left:".round(($y/100))." top:".round(((15360-$x)/100))."<p>PlayerID: ".$id."<p>CharatcerID: ".$uid."<p>Zed Kills: ".$KillsZ."<p>Bandit Kills: ".$KillsB."<p>Alive Duration: ".$Duration."<p></td></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($row['class_name'], ENT_QUOTES)." - ".$row['id']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">Position:left:".round(($y/100))." top:".round(((15400-$x)/100))."<p>PlayerID: ".$id."<p>CharatcerID: ".$uid."<p>Zed Kills: ".$KillsZ."<p>Bandit Kills: ".$KillsB."<p>Alive Duration: ".$Duration."<p></td></table>";
 
 		} else {
 		$hover = $row['class_name'] . ', ' . $row['id'];
-		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15360-$x)/100))."</td></td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15400-$x)/100))."</td></td></tr></table>";
 
 		}
 		

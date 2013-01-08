@@ -12,10 +12,7 @@ $query = "SELECT id.*,d.class_name,p.name,p.unique_id player_unique_id from inst
 $res = mysql_query($query) or die(mysql_error());
 $number = mysql_num_rows($res);
 while ($row=mysql_fetch_array($res)) {
-	$Worldspace = str_replace("[", "", $row['worldspace']);
-	$Worldspace = str_replace("]", "", $Worldspace);
-	$Worldspace = str_replace(",", ",", $Worldspace);
-	$Worldspace = explode(",", $Worldspace);
+    $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 	/* $Inventory = $row['inventory'];
 	$Inventory = str_replace("[", "", $Inventory);
 	$Inventory = str_replace("]", "", $Inventory);
@@ -72,17 +69,17 @@ while ($row=mysql_fetch_array($res)) {
 						<div id="gps" style="margin-left:46px;margin-top:54px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
-								echo round(($Worldspace[0]/100));
+								echo $MapCoords[0];
 							?>
 							</div>
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:34px">
 							<?php
-								echo round(($Worldspace[3]/100));
+								echo $MapCoords[3];
 							?>
 							</div>
 							<div class="gpstext" style="width:120px;margin-left:13px;margin-top:61px">
 							<?php
-								echo sprintf("%03d",round($Worldspace[1]/100)).sprintf("%03d",round((154-($Worldspace[2]/100))));
+								echo sprintf("%03d",$MapCoords[1]).sprintf("%03d",$MapCoords[2]);
 							?>
 							</div>							
 						</div>
