@@ -1,63 +1,50 @@
 <?php
-$query = "select v.class_name as otype,wv.id as id,wv.worldspace as pos from world_vehicle wv join vehicle v on v.id = wv.vehicle_id where world_id = (select id from world where name = '" . $map . "') and wv.id = ".$_GET["id"]." LIMIT 1"; 
-$res = mysql_query($query) or die(mysql_error());
-$number = mysql_num_rows($res);
-while ($row=mysql_fetch_array($res)) {
-	$Worldspace = str_replace("[", "", $row['pos']);
-	$Worldspace = str_replace("]", "", $Worldspace);
-	$Worldspace = str_replace(",", ",", $Worldspace);
-	$Worldspace = explode(",", $Worldspace);
-?>	
-	<div id="page-heading">
-		<h1><?php echo $row['otype']; ?> - <?php echo $row['id']; ?></h1>
-	</div>
-	<!-- end page-heading -->
-
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
-		<td id="tbl-border-left"></td>
-		<td>
-		<!--  start content-table-inner ...................................................................... START -->
-		<div id="content-table-inner">
-		
-			<!--  start table-content  -->
-			<div id="table-content">
-			
-			<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
-			<tr>
-				<th class="table-header-repeat line-left"><a href="">Preview</a>	</th>
-				<th class="table-header-repeat line-left minwidth-1"><a href="">Info</a></th>
-			</tr>
-			<tr>
-				<td align="center"><img src='images/vehicles/<?php echo $row['otype']; ?>.png'></td>
-				<td>
-					<h2>Position:</h2><h3><?php echo "left:".round(($Worldspace[1]/100))." top:".round((154-($Worldspace[2]/100))); ?></h3>
-				</td>	
-			</tr>				
-			</table>
-			
-			</div>
-			<!--  end table-content  -->
+	error_reporting (E_ALL ^ E_NOTICE);
 	
-			<div class="clear"></div>
-		 
-		</div>
-		<!--  end content-table-inner ............................................END  -->
-		</td>
-		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
-	</tr>
-	</table>
-<?php } ?>
-	<div class="clear">&nbsp;</div>
+	$res = mysql_query($query) or die(mysql_error());
+	$pnumber = mysql_num_rows($res);			
+
+	if(isset($_GET['page']))
+	{
+		$pageNum = $_GET['page'];
+	}
+	$offset = ($pageNum - 1) * $rowsPerPage;
+	$maxPage = ceil($pnumber/$rowsPerPage);			
+
+	for($page = 1; $page <= $maxPage; $page++)
+	{
+	   if ($page == $pageNum)
+	   {
+		  $nav .= " $page "; // no need to create a link to current page
+	   }
+	   else
+	   {
+		  $nav .= "$self&page=$page";
+	   }
+	}
+
+			
+	$query = $query." LIMIT ".$offset.",".$rowsPerPage;
+	$res = mysql_query($query) or die(mysql_error());
+	$number = mysql_num_rows($res);
+
+	$tableheader = '
+		<tr>
+		<th class="table-header-repeat line-left minwidth-1"><a href="">Classname</a>	</th>
+		<th class="table-header-repeat line-left minwidth-1"><a href="">Object UID</a></th>
+		<th class="table-header-repeat line-left"><a href="">Position</a></th>
+		</tr>';
+	while ($row=mysql_fetch_array($res)) {
+		$Worldspace = str_replace("[", "", $row['pos']);
+		$Worldspace = str_replace("]", "", $Worldspace);
+		$Worldspace = str_replace("|", ",", $Worldspace);
+		$Worldspace = explode(",", $Worldspace);
+
+		$tablerows .= "<tr>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".$row['otype']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".$row['id']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".sprintf("%03d",round($Worldspace[1]/100)).sprintf("%03d",round((154-($Worldspace[2]/100))))."</a></td>
+		</tr>";
+		}
+	include ('paging.php');
+?>
