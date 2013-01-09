@@ -10,7 +10,7 @@
 	$dbName = "dayz"; //database name
 	$sitename = "DayZ Administration"; //Admin panel name
 	$map = "chernarus"; // chernarus or lingor or fallujah or namalsk or takistan or panthera
-	$world = "1"; // 1= cherno, 2= lingor, 3= utes, 4= takistan, 5= panthera2
+	$world = "1"; // 1= chernarus, 2= lingor, 3= utes, 4= takistan, 5= panthera2
 	$timeoffset = 0; // game time offset from UTC, should match HiveExt.ini
 	$enableclock = 0; // show game time clock in upper left corner
 	
