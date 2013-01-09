@@ -96,14 +96,12 @@ function print_table($data) {
 				$res = mysql_query($query) or die(mysql_error());
 				$number = mysql_num_rows($res);
 				while ($row=mysql_fetch_array($res)) {
-					$Worldspace = str_replace("[", "", $row['pos']);
-					$Worldspace = str_replace("]", "", $Worldspace);
-					$Worldspace = explode(",", $Worldspace);
+                    $MapCoords = worldspaceToMapCoords($row['pos'], $map);
 					
 					echo "<tr>
 						<td align=\"center\"><a href=\"admin.php?view=info&show=1&id=".$row['uid']."&cid=".$row['id']."\">".$val['player_']."</a></td>
 						<td align=\"center\"><a href=\"admin.php?view=info&show=1&id=".$row['uid']."&cid=".$row['id']."\">".$row["uid"]."</a></td>
-						<td align=\"center\">left:".round(($Worldspace[1]/100))." top:".round((154-($Worldspace[2]/100)))."</td>
+						<td align=\"center\">left:".$MapCoords[1]." top:".$MapCoords[2]."</td>
 						<td align=\"center\">".substr($row['inventory'], 0, 50) . "...</td>
 						<td align=\"center\">".substr($row['backpack'], 0, 50) . "...</td>
 						<tr>";

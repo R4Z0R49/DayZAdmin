@@ -3,10 +3,7 @@ $query = "select v.class_name as otype,wv.id as id,wv.worldspace as pos from wor
 $res = mysql_query($query) or die(mysql_error());
 $number = mysql_num_rows($res);
 while ($row=mysql_fetch_array($res)) {
-	$Worldspace = str_replace("[", "", $row['pos']);
-	$Worldspace = str_replace("]", "", $Worldspace);
-	$Worldspace = str_replace(",", ",", $Worldspace);
-	$Worldspace = explode(",", $Worldspace);
+	$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 ?>	
 	<div id="page-heading">
 		<h1><?php echo $row['otype']; ?> - <?php echo $row['id']; ?></h1>
@@ -38,7 +35,7 @@ while ($row=mysql_fetch_array($res)) {
 			<tr>
 				<td align="center"><img src='images/vehicles/<?php echo $row['otype']; ?>.png'></td>
 				<td>
-					<h2>Position:</h2><h3><?php echo "left:".round(($Worldspace[1]/100))." top:".round((154-($Worldspace[2]/100))); ?></h3>
+					<h2>Position:</h2><h3><?php echo "left:".$MapCoords[1]." top:".$MapCoords[2]; ?></h3>
 				</td>	
 			</tr>				
 			</table>
