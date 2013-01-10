@@ -27,6 +27,12 @@ function worldspaceToMapCoords($ws, $map = "chernarus")
                 $mapcoords[2] = floor($ws[2] / 100);
                 $mapcoords[3] = round($ws[3] / 100);
                 break;
+		case "tavi":
+                $mapcoords[0] = $ws[0];
+                $mapcoords[1] = floor($ws[1] / 100);
+                $mapcoords[2] = floor($ws[2] / 100);
+                $mapcoords[3] = round($ws[3] / 100);
+                break;
             default:
                 break;
         }
