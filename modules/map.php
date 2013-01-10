@@ -102,6 +102,13 @@ if(!isset($map))
 			zoom: 2,
 		<?php
 				break;
+			case 'tavi':
+                ?>
+                        minZoom: 2,
+                        maxZoom: 6,
+                        zoom: 2,
+                <?php
+                                break;
 			default:
 				die("Undefined map: $map");
 				break;
@@ -140,6 +147,12 @@ if(!isset($map))
 				var scaleFactor = 40;
 		<?php
 				break;
+			case 'tavi':
+                ?>
+                                var latOffset = 1024;
+                                var scaleFactor = 100;
+                <?php
+                                break;
 			default:
 				die("Undefined map: $map");
 				break;
