@@ -1,6 +1,7 @@
 <?php
 session_start();
 include ('config.php');
+include ('functions.php');
 
 mysql_connect($hostname, $username, $password) or die (mysql_error());
 mysql_select_db($dbName) or die (mysql_error());
@@ -35,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
 		$KillS = $row['survivor_kills'];
 		$Duration = $row['survival_time'];
 		$icon = "images/icons/player".($row['is_dead'] ? '_dead' : '').".png";
-		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">PlayerID: ".$id."<p>CharatcerID: ".$uid."<p>Zed Kills: ".$KillsZ."<p>Bandit Kills: ".$KillsB."<p>Alive Duration: ".$Duration."<p></td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>PlayerID:</strong> ".$id."<p><strong>CharatcerID:</strong> ".$uid."<p><strong>Zed Kills:</strong> ".$KillsZ."<p><strong>Bandit Kills:</strong> ".$KillsB."<p><strong>Alive Duration:</strong> ".$Duration."<p></td></tr></table>";
 		
 
 		$output[] = array(
@@ -73,7 +74,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$KillS = $row['survivor_kills'];
 		$Duration = $row['survival_time'];
 		$icon = "images/icons/player".($row['is_dead'] ? '_dead' : '').".png";
-		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">PlayerID: ".$id."<p>CharatcerID: ".$uid."<p>Zed Kills: ".$KillsZ."<p>Bandit Kills: ".$KillsB."<p>Alive Duration: ".$Duration."<p></td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>PlayerID:</strong> ".$id."<p><strong>CharatcerID:</strong> ".$uid."<p><strong>Zed Kills:</strong> ".$KillsZ."<p><strong>Bandit Kills:</strong> ".$KillsB."<p><strong>Alive Duration:</strong> ".$Duration."<p></td></tr></table>";
 				
 
 		$output[] = array(
@@ -111,7 +112,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$KillS = $row['survivor_kills'];
 		$Duration = $row['survival_time'];
 		$icon = "images/icons/player".($row['is_dead'] ? '_dead' : '').".png";
-		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">PlayerID: ".$id."<p>CharatcerID: ".$uid."<p>Zed Kills: ".$KillsZ."<p>Bandit Kills: ".$KillsB."<p>Alive Duration: ".$Duration."<p></td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>PlayerID:</strong> ".$id."<p><strong>CharatcerID:</strong> ".$uid."<p><strong>Zed Kills:</strong> ".$KillsZ."<p><strong>Bandit Kills:</strong> ".$KillsB."<p><strong>Alive Duration:</strong> ".$Duration."<p></td></tr></table>";
 		
 
 		$output[] = array(
@@ -149,7 +150,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$KillS = $row['survivor_kills'];
 		$Duration = $row['survival_time'];
 		$icon = "images/icons/player".($row['is_dead'] ? '_dead' : '').".png";
-		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">PlayerID: ".$id."<p>CharatcerID: ".$uid."<p>Zed Kills: ".$KillsZ."<p>Bandit Kills: ".$KillsB."<p>Alive Duration: ".$Duration."<p></td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($name, ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>PlayerID:</strong> ".$id."<p><strong>CharatcerID:</strong> ".$uid."<p><strong>Zed Kills:</strong> ".$KillsZ."<p><strong>Bandit Kills:</strong> ".$KillsB."<p><strong>Alive Duration:</strong> ".$Duration."<p></td></tr></table>";
 		
 
 		$output[] = array(
@@ -192,6 +193,7 @@ v.class_name,
 	$output = array();
 	for ($i = 0; $i < mysql_num_rows($result); $i++) {
 		$row = mysql_fetch_assoc($result);
+		$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 
 		$Worldspace = str_replace("[", "", $row['worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
@@ -201,7 +203,7 @@ v.class_name,
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15400-$x)/100))."</td></td>Instance ID:".$row['instance_id']."</td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2])."<br><strong>Damage:</strong>&nbsp;".sprintf("%d%%", round($row['damage'] * 100))."<br><strong>Fuel:</strong>&nbsp;".sprintf("%d%%", round($row['fuel'] * 100))."</td></tr></table>";
 
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['id'],
@@ -221,6 +223,7 @@ v.class_name,
 	for ($i = 0; $i < mysql_num_rows($result); $i++) {
 		$row = mysql_fetch_assoc($result);
 
+		$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 		$Worldspace = str_replace("[", "", $row['worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = str_replace(",", ",", $Worldspace);
@@ -229,7 +232,7 @@ v.class_name,
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">Position: left:".round(($y/100))." top:".round(((15400-$x)/100))."</td></td>World ID:".$row['world_id']."</td></tr></table>";
+		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2])."</td></tr></table>";
 
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['world_id'],
@@ -249,6 +252,7 @@ v.class_name,
 	for ($i = 0; $i < mysql_num_rows($result); $i++) {
 		$row = mysql_fetch_assoc($result);
 
+		$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 		$Worldspace = str_replace("[", "", $row['worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = str_replace(",", ",", $Worldspace);
@@ -257,7 +261,7 @@ v.class_name,
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-        $description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15400-$x)/100))."</td></td>Owner:&nbsp;".htmlspecialchars($row['name'])."</td></tr></table>";
+                $description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name'].", ".$row['id']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2])."<br><strong>Owner:</strong>&nbsp;".htmlspecialchars($row['name'])."</td></tr></table>";
 
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['id'] . ' - ' . htmlspecialchars($row['name']),
