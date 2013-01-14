@@ -85,7 +85,7 @@ while ($row=mysql_fetch_array($res)) {
 						</div>
 
 						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-95px">
-							Owner:&nbsp;<a href="admin.php?view=info&show=1&id=<?php echo $row['player_unique_id'];?>"><?php echo $row['name'];?></a>
+							Owner:&nbsp;<a href="admin.php?view=info&show=1&id=<?php echo $row['player_unique_id'];?>"><?php echo htmlspecialchars($row['name']);?></a>
 						</div>
 					</div>
 					<!-- Backpack -->
