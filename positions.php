@@ -27,7 +27,7 @@ if (isset($_SESSION['user_id'])) {
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$name = $row['name'];
+		$name = htmlspecialchars($row['name']);
 		$id = $row['id'];
 		$uid = $row['unique_id'];
 		$model = $row['model'];
@@ -40,7 +40,7 @@ if (isset($_SESSION['user_id'])) {
 		
 
 		$output[] = array(
-			$row['name'] . ', ' . $row['id'],
+			htmlspecialchars($row['name']) . ', ' . $row['id'],
 			$description,
 			trim($y),
 			trim($x) + 1024,
@@ -65,7 +65,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$name = $row['name'];
+		$name = htmlspecialchars($row['name']);
 		$id = $row['id'];
 		$uid = $row['unique_id'];
 		$model = $row['model'];
@@ -78,7 +78,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 				
 
 		$output[] = array(
-			$row['name'] . ', ' . $row['unique_id'],
+			htmlspecialchars($row['name']) . ', ' . $row['unique_id'],
 			$description,
 			trim($y),
 			trim($x) + 1024,
@@ -103,7 +103,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$name = $row['name'];
+		$name = htmlspecialchars($row['name']);
 		$id = $row['id'];
 		$uid = $row['unique_id'];
 		$model = $row['model'];
@@ -116,7 +116,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		
 
 		$output[] = array(
-			$row['name'] . ', ' . $row['unique_id'],
+			htmlspecialchars($row['name']) . ', ' . $row['unique_id'],
 			$description,
 			trim($y),
 			trim($x) + 1024,
@@ -141,7 +141,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$name = $row['name'];
+		$name = htmlspecialchars($row['name']);
 		$id = $row['id'];
 		$uid = $row['unique_id'];
 		$model = $row['model'];
@@ -154,7 +154,7 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		
 
 		$output[] = array(
-			$row['name'] . ', ' . $row['unique_id'],
+			htmlspecialchars($row['name']) . ', ' . $row['unique_id'],
 			$description,
 			trim($y),
 			trim($x) + 1024,
