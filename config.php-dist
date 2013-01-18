@@ -13,6 +13,8 @@
 	$world = "1"; // 1= chernarus, 2= lingor, 10= tavi
 	$timeoffset = 0; // game time offset from UTC, should match HiveExt.ini
 	$enableclock = 0; // show game time clock in upper left corner
+	$enableTracking = 1; // show tracks of player/vehicle movement on the map
+	$maxTrackingPositions = 50; // how many positions to keep per player/vehicle when tracking
 	
 	//security
 	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**
