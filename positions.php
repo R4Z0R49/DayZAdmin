@@ -19,6 +19,7 @@ if (isset($_SESSION['user_id'])) {
 	for ($i = 0; $i < mysql_num_rows($result); $i++) {
 		$row = mysql_fetch_assoc($result);
 
+		$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 		$Worldspace = str_replace("[", "", $row['worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = str_replace(",", ",", $Worldspace);
@@ -45,7 +46,9 @@ if (isset($_SESSION['user_id'])) {
 			trim($y),
 			trim($x) + 1024,
 			$i,
-			$icon
+			$icon,
+			$Worldspace[0],
+			$uid
 		);
 	}
 		echo json_encode($output);	
@@ -83,7 +86,9 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 			trim($y),
 			trim($x) + 1024,
 			$i,
-			$icon
+			$icon,
+			$Worldspace[0],
+			$uid
 		);
 	}
 		echo json_encode($output);	
@@ -121,7 +126,8 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 			trim($y),
 			trim($x) + 1024,
 			$i,
-			$icon
+			$icon,
+			$Worldspace[0]
 		);
 	}
 		echo json_encode($output);	
@@ -159,7 +165,8 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 			trim($y),
 			trim($x) + 1024,
 			$i,
-			$icon
+			$icon,
+			$Worldspace[0]
 		);
 	}
 		echo json_encode($output);
@@ -211,7 +218,9 @@ v.class_name,
 			trim($y),
 			trim($x) + 1024,
 			$i,
-			"images/icons/" . $row['type'] . ".png"
+			"images/icons/" . $row['type'] . ".png",
+			$Worldspace[0],
+			$row['id']
 		);
 	}
 		echo json_encode($output);
@@ -240,13 +249,14 @@ v.class_name,
 			trim($y),
 			trim($x) + 1024,
 			$i,
-			"images/icons/" . $row['Type'] . ".png"
+			"images/icons/" . $row['Type'] . ".png",
+			$Worldspace[0]
 		);
 	}
 			echo json_encode($output);
 		break;
 	case 6:
-        $sql = "select id.id,id.worldspace,instance_id,class_name,Type,p.name,p.unique_id from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname join survivor s on s.id = id.owner_id join profile p on p.unique_id = s.unique_id where d.class_name = 'TentStorage' and id.instance_id = ".$iid;
+		$sql = "select id.id,id.worldspace,instance_id,class_name,Type,p.name,p.unique_id from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname join survivor s on s.id = id.owner_id join profile p on p.unique_id = s.unique_id where d.class_name = 'TentStorage' and id.instance_id = ".$iid;
 					$result = mysql_query($sql);
 	$output = array();
 	for ($i = 0; $i < mysql_num_rows($result); $i++) {
@@ -261,15 +271,16 @@ v.class_name,
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-                $description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name'].", ".$row['id']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2])."<br><strong>Owner:</strong>&nbsp;".htmlspecialchars($row['name'])."</td></tr></table>";
+				$description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name'].", ".$row['id']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2])."<br><strong>Owner:</strong>&nbsp;".htmlspecialchars($row['name'])."</td></tr></table>";
 
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['id'] . ' - ' . htmlspecialchars($row['name']),
-            $description,
+			$description,
 			trim($y),
 			trim($x) + 1024,
 			$i,
-			"images/icons/" . $row['Type'] . ".png"
+			"images/icons/" . $row['Type'] . ".png",
+			$Worldspace[0]
 		);
 	}
 			echo json_encode($output);
@@ -364,6 +375,7 @@ where
 	for ($i = 0; $i < mysql_num_rows($result); $i++) {
 		$row = mysql_fetch_assoc($result);
 
+		$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 		$Worldspace = str_replace("[", "", $row['worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = str_replace(",", ",", $Worldspace);
@@ -372,7 +384,6 @@ where
 		$y = 0;
 		if(array_key_exists(2,$Worldspace)){$x = $Worldspace[2];}
 		if(array_key_exists(1,$Worldspace)){$y = $Worldspace[1];}
-		$position= " Position:left:".round(($y/100))." top:".round(((15400-$x)/100))."";
 		$id = $row['id'];
 		$model = $row['model'];
 		$uid = $row['unique_id'];
@@ -381,25 +392,77 @@ where
 		$KillS = $row['survivor_kills'];
 		$Duration = $row['survival_time'];
 		
-		if($row['type'] == 'Player') 
+		switch($row['type'])
 		{ 
-		$hover = $row['class_name'] . ', ' . $row['id'] . ', ' . $row['model'] . ', Alive Duration:' . $row['survival_time'];
-		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($row['class_name'], ENT_QUOTES)." - ".$row['id']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \">Position:left:".round(($y/100))." top:".round(((15400-$x)/100))."<p>PlayerID: ".$id."<p>CharatcerID: ".$uid."<p>Zed Kills: ".$KillsZ."<p>Bandit Kills: ".$KillsB."<p>Alive Duration: ".$Duration."<p></td></table>";
-
-		} else {
-		$hover = $row['class_name'] . ', ' . $row['id'];
-		$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><h2>Position:</h2>left:".round(($y/100))." top:".round(((15400-$x)/100))."</td></td></tr></table>";
-
+			case 'player':
+				$hover = $row['class_name'] . ', ' . $row['id'] . ', ' . $row['model'] . ', Alive Duration:' . $row['survival_time'];
+				$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$uid."\">".htmlspecialchars($row['class_name'], ENT_QUOTES)." - ".$uid."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/models/".str_replace('"', '', $model).".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2])."<p><strong>PlayerID:</strong> ".$id."<p><strong>CharatcerID:</strong> ".$uid."<p><strong>Zed Kills:</strong> ".$KillsZ."<p><strong>Bandit Kills:</strong> ".$KillsB."<p><strong>Alive Duration:</strong> ".$Duration."<p></td></tr></table>";
+				$output[] = array(
+					$hover,
+					$description,
+					trim($y),
+					trim($x) + 1024,
+					$i,
+					"images/icons/everything/" . $row['type'] . ".png",
+					$Worldspace[0],
+					$row['unique_id']
+				);
+				break;
+			case 'atv':
+			case 'bike':
+			case 'bus':
+			case 'car':
+			case 'farmvehicle':
+			case 'helicopter':
+			case 'largeboat':
+			case 'mediumboat':
+			case 'motorcycle':
+			case 'plane':
+			case 'smallboat':
+			case 'truck':
+				$hover = $row['class_name'] . ', ' . $row['id'];
+				$description = "<h2><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2])."</td></tr></table>";
+				$output[] = array(
+					$hover,
+					$description,
+					trim($y),
+					trim($x) + 1024,
+					$i,
+					"images/icons/everything/" . $row['type'] . ".png",
+					$Worldspace[0],
+					$row['id']
+				);
+				break;
+			case 'tent':
+				$hover = $row['class_name'] . ', ' . $row['id'];
+				$description = "<h2><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name'].", ".$row['id']."</a></h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2]);
+				$output[] = array(
+					$hover,
+					$description,
+					trim($y),
+					trim($x) + 1024,
+					$i,
+					"images/icons/everything/" . $row['type'] . ".png",
+					$Worldspace[0]
+				);
+				break;
+			case 'hedgehog':
+			case 'sandbag':
+			case 'wire':
+				$hover = $row['class_name'] . ', ' . $row['id'];
+				$description = "<h2>".$row['class_name']."</h2><table><tr><td><img style=\"max-width: 100px;\" src=\"images/vehicles/".$row['class_name'].".png\"></td><td>&nbsp;</td><td style=\"vertical-align:top; \"><strong>Pos:</strong>&nbsp;".sprintf("%03d%03d", $MapCoords[1], $MapCoords[2]);
+				$output[] = array(
+					$hover,
+					$description,
+					trim($y),
+					trim($x) + 1024,
+					$i,
+					"images/icons/everything/" . $row['type'] . ".png",
+					$Worldspace[0]
+				);
+				break;
+			default:
 		}
-		
-		$output[] = array(
-			$hover,
-			$description,
-			trim($y),
-			trim($x) + 1024,
-			$i,
-			"images/icons/everything/" . $row['type'] . ".png"
-		);
 	}
 		echo json_encode($output);
 
