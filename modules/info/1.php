@@ -3,11 +3,11 @@ $cid = '';
 if (isset($_GET['cid'])){
 	$cid = " AND id ='".$_GET['cid']."'";
 }
-$query = "SELECT * FROM survivor WHERE unique_id like '".$_GET['id']."' AND is_dead=0 LIMIT 1"; 
+$query = "SELECT * FROM survivor WHERE unique_id like '".mysql_real_escape_string($_GET['id'])."' AND is_dead=0 AND world_id = $world LIMIT 1"; 
 $res = mysql_query($query) or die(mysql_error());
 $number = mysql_num_rows($res);
 
-$queryname = "SELECT * FROM profile WHERE unique_id like '".$_GET['id']."' LIMIT 1";
+$queryname = "SELECT * FROM profile WHERE unique_id like '".mysql_real_escape_string($_GET['id'])."' LIMIT 1";
 $resname = mysql_query($queryname) or die(mysql_error());
 $rowname = mysql_fetch_array($resname);
 
