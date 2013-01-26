@@ -83,8 +83,8 @@ while ($row=mysql_fetch_array($res)) {
 
 ?>	
 	<div id="page-heading">
-		<h1><?php echo "<title>".$rowname['name']." - ".$sitename."</title>"; ?></h1>
-		<h1><?php echo $rowname['name']; ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<h1><?php echo "<title>".htmlspecialchars($rowname['name'])." - ".$sitename."</title>"; ?></h1>
+		<h1><?php echo htmlspecialchars($rowname['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
 	</div>
 	<!-- end page-heading -->
 
