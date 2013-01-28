@@ -59,7 +59,6 @@ if (isset($_SESSION['user_id']))
 			break;
 	}
 ?>
-	<div id="debug"></div>
 	<h1><div id="title"><?php echo $title; ?></div></h1>
 <?php
 if(!isset($map))
@@ -68,6 +67,7 @@ if(!isset($map))
 }
 ?>
 	<div id="map_canvas" style="width:99%;height:750px;margin:10px auto;border:2px solid #000;"></div>
+	<div id="debug"></div>
 
 	<script type="text/javascript" src="js/jquery/jquery-1.4.1.min.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -110,7 +110,9 @@ if(!isset($map))
 		// store player/vehicle path
 		var mapMarkersPolylines = [];
 
-		var enableTracking = <?php echo $enableTracking; ?>
+		var enableTracking = <?php echo $enableTracking; ?>;
+		var keepTracksAfterLogout = <?php echo $keepTracksAfterLogout; ?>;
+		var trackinfowindow = new google.maps.InfoWindow({ content: "loading..." });
 
 		function CustomMapType() {
 		}
@@ -151,7 +153,11 @@ if(!isset($map))
 		}
 
 		// add a new point to a marker path
-		function addMarkerCoordToPolyline(m) {
+		function addMarkerCoordToPolyline(m, t) {
+			if(m.getPosition().lng() == -180) {
+				// most likely a debug area coordinate so ignore
+				return;
+			}
 			var found = false;
 			// look for an existing entry in list of paths
 			mapMarkersPolylines.forEach(function(element) {
@@ -172,8 +178,9 @@ if(!isset($map))
 					strokeOpacity: 0.8,
 					strokeWeight: 2,
 					uid: m.uid,
-					map: map,
-					path: pos
+					path: pos,
+					title: m.title,
+					info: m.info
 				});
 
 				var trackMouseOverOptions = {
@@ -187,10 +194,26 @@ if(!isset($map))
 					'strokeColor':'#c00000',
 					'strokeOpacity':'0.8'
 				}
-				google.maps.event.addListener(line, 'mouseover', function(){line.setOptions(trackMouseOverOptions);});
-				google.maps.event.addListener(line, 'mouseout', function(){line.setOptions(trackMouseOutOptions);});
+
+				line.setMap(map);
 				mapMarkersPolylines.push(line);
+
+				google.maps.event.addListener(line, 'mouseover', function(){
+					line.setOptions(trackMouseOverOptions);
+				});
+
+				google.maps.event.addListener(line, 'mouseout', function(){
+					line.setOptions(trackMouseOutOptions);
+				});
+
+				google.maps.event.addListener(line, 'click', showTrackInfoWindow);
 			}
+		}
+
+		function showTrackInfoWindow(event) {
+			trackinfowindow.setContent(this.info);
+			trackinfowindow.setPosition(event.latLng);
+			trackinfowindow.open(map);
 		}
 
 		// remove points from paths if > maxTrackingPositions in config.php
@@ -228,6 +251,7 @@ if(!isset($map))
 						position: new google.maps.LatLng(lat, lng),
 						map: map,
 						title: markers[i][0],
+						info: markers[i][1],
 						clickable: true,
 						icon: markers[i][5],
 /*
@@ -250,7 +274,7 @@ if(!isset($map))
 
 					// add this point to the path if an id is defined and tracking is enabled
 					if(typeof markers[i][7] !== "undefined" && enableTracking) {
-						addMarkerCoordToPolyline(marker);
+						addMarkerCoordToPolyline(marker, markers[i][1]);
 					}
 						
 					google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -265,7 +289,7 @@ if(!isset($map))
 				var elem = document.getElementById('title');
 				elem.innerHTML = '<?php echo $title; ?>&nbsp;(' + mapMarkers.length + ')';
 			});
-			if(enableTracking) { clearPolyLines(); }
+			if(enableTracking && !keepTracksAfterLogout) { clearPolyLines(); }
 		}
 
 		google.maps.Map.prototype.clearMarkers = function() {
