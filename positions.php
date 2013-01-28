@@ -43,8 +43,8 @@ if (isset($_SESSION['user_id'])) {
 		$output[] = array(
 			htmlspecialchars($row['name']) . ', ' . $row['id'],
 			$description,
-			trim($y),
-			trim($x) + 1024,
+			floatval(trim($y)),
+			floatval(trim($x)),
 			$i,
 			$icon,
 			$Worldspace[0],
@@ -83,8 +83,8 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$output[] = array(
 			htmlspecialchars($row['name']) . ', ' . $row['unique_id'],
 			$description,
-			trim($y),
-			trim($x) + 1024,
+			floatval(trim($y)),
+			floatval(trim($x)),
 			$i,
 			$icon,
 			$Worldspace[0],
@@ -123,8 +123,8 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$output[] = array(
 			htmlspecialchars($row['name']) . ', ' . $row['unique_id'],
 			$description,
-			trim($y),
-			trim($x) + 1024,
+			floatval(trim($y)),
+			floatval(trim($x)),
 			$i,
 			$icon,
 			$Worldspace[0]
@@ -162,8 +162,8 @@ $sql = "select s.id, p.name, 'Player' as type, s.worldspace as worldspace, s.sur
 		$output[] = array(
 			htmlspecialchars($row['name']) . ', ' . $row['unique_id'],
 			$description,
-			trim($y),
-			trim($x) + 1024,
+			floatval(trim($y)),
+			floatval(trim($x)),
 			$i,
 			$icon,
 			$Worldspace[0]
@@ -215,8 +215,8 @@ v.class_name,
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['id'],
 			$description,
-			trim($y),
-			trim($x) + 1024,
+			floatval(trim($y)),
+			floatval(trim($x)),
 			$i,
 			"images/icons/" . $row['type'] . ".png",
 			$Worldspace[0],
@@ -246,8 +246,8 @@ v.class_name,
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['world_id'],
 			$description,
-			trim($y),
-			trim($x) + 1024,
+			floatval(trim($y)),
+			floatval(trim($x)),
 			$i,
 			"images/icons/" . $row['Type'] . ".png",
 			$Worldspace[0]
@@ -276,8 +276,8 @@ v.class_name,
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['id'] . ' - ' . htmlspecialchars($row['name']),
 			$description,
-			trim($y),
-			trim($x) + 1024,
+			floatval(trim($y)),
+			floatval(trim($x)),
 			$i,
 			"images/icons/" . $row['Type'] . ".png",
 			$Worldspace[0]
@@ -304,8 +304,8 @@ v.class_name,
 		$output[] = array(
 			$row['class_name'] . ', ' . $row['instance_id'],
 			'<h2><a href="admin.php?view=info&show=4&id=' . $row['id'] . '">' . $row['class_name'] . '</a></h2><br><a href="admin.php?view=actions&delete='.$row['id'].'">Remove: '.$row['id'].'</a>',
-			trim($y),
-			trim($x) + 1024,
+			floatval(trim($y)),
+			floatval(trim($x)),
 			$i,
 			"images/icons/" . $row['Type'] . ".png"
 		);
@@ -400,8 +400,8 @@ where
 				$output[] = array(
 					$hover,
 					$description,
-					trim($y),
-					trim($x) + 1024,
+					floatval(trim($y)),
+					floatval(trim($x)),
 					$i,
 					"images/icons/everything/" . $row['type'] . ".png",
 					$Worldspace[0],
@@ -425,8 +425,8 @@ where
 				$output[] = array(
 					$hover,
 					$description,
-					trim($y),
-					trim($x) + 1024,
+					floatval(trim($y)),
+					floatval(trim($x)),
 					$i,
 					"images/icons/everything/" . $row['type'] . ".png",
 					$Worldspace[0],
@@ -439,8 +439,8 @@ where
 				$output[] = array(
 					$hover,
 					$description,
-					trim($y),
-					trim($x) + 1024,
+					floatval(trim($y)),
+					floatval(trim($x)),
 					$i,
 					"images/icons/everything/" . $row['type'] . ".png",
 					$Worldspace[0]
@@ -454,8 +454,8 @@ where
 				$output[] = array(
 					$hover,
 					$description,
-					trim($y),
-					trim($x) + 1024,
+					floatval(trim($y)),
+					floatval(trim($x)),
 					$i,
 					"images/icons/everything/" . $row['type'] . ".png",
 					$Worldspace[0]
