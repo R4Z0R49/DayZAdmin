@@ -34,22 +34,29 @@ if (isset($_SESSION['user_id']))
 	switch($map)
 	{
 		case 'chernarus':
-			$latOffset = 0;
+			$latOffset = 1024;
 			$scaleFactor = 64;
 			$minZoom = 2;
 			$maxZoom = 6;
 			$zoom = 2;
 			break;
 		case 'lingor':
-			$latOffset = 1024;
+			$latOffset = 0;
 			$scaleFactor = 40;
 			$minZoom = 2;
 			$maxZoom = 6;
 			$zoom = 2;
 			break;
 		case 'tavi':
-			$latOffset = 1024;
+			$latOffset = 0;
 			$scaleFactor = 100;
+			$minZoom = 2;
+			$maxZoom = 6;
+			$zoom = 2;
+			break;
+		case 'namalsk':
+			$latOffset = 3835;
+			$scaleFactor = 65;
 			$minZoom = 2;
 			$maxZoom = 6;
 			$zoom = 2;
@@ -244,7 +251,7 @@ if(!isset($map))
 
 				for (i = 0; i < markers.length; i++) { 
 					var lng = ((markers[i][2]/scaleFactor) - pixelOrigin_.x) / pixelsPerLonDegree_;
-					var latRadians = (((markers[i][3] - latOffset)/scaleFactor) - pixelOrigin_.y) / pixelsPerLonRadian_;
+					var latRadians = (((markers[i][3] + latOffset)/scaleFactor) - pixelOrigin_.y) / pixelsPerLonRadian_;
 					var lat = radiansToDegrees(2 * Math.atan(Math.exp(latRadians)) - Math.PI / 2);
 						
 					marker = new google.maps.Marker({
