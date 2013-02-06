@@ -30,6 +30,16 @@
         <transportmaxbackpacks>10</transportmaxbackpacks>
         <cargo>16</cargo>
     </sMi17_Civilian>
+    <sMi17_DZ>
+        <Type>Air</Type>
+        <Side>CIV</Side>
+        <Faction>CIV</Faction>
+        <Name>Mi-17</Name>
+        <transportmaxweapons>10</transportmaxweapons>
+        <transportmaxmagazines>50</transportmaxmagazines>
+        <transportmaxbackpacks>10</transportmaxbackpacks>
+        <cargo>16</cargo>
+    </sMi17_DZ>
     <sParachuteC>
         <Type>Air</Type>
         <Side>CIV</Side>
@@ -50,6 +60,16 @@
         <transportmaxbackpacks>0</transportmaxbackpacks>
         <cargo>15</cargo>
     </sAn2_TK_EP1>
+    <sAN2_DZ>
+        <Type>Air</Type>
+        <Side>EAST</Side>
+        <Faction>BIS_TK</Faction>
+        <Name>An-2</Name>
+        <transportmaxweapons>10</transportmaxweapons>
+        <transportmaxmagazines>80</transportmaxmagazines>
+        <transportmaxbackpacks>15</transportmaxbackpacks>
+        <cargo>15</cargo>
+    </sAN2_DZ>
     <sL39_TK_EP1>
         <Type>Air</Type>
         <Side>EAST</Side>
@@ -140,6 +160,16 @@
         <transportmaxbackpacks>1</transportmaxbackpacks>
         <cargo>5</cargo>
     </sUH1H_TK_EP1>
+    <sUH1H_DZ>
+        <Type>Air</Type>
+        <Side>EAST</Side>
+        <Faction>BIS_TK</Faction>
+        <Name>UH-1H</Name>
+        <transportmaxweapons>5</transportmaxweapons>
+        <transportmaxmagazines>25</transportmaxmagazines>
+        <transportmaxbackpacks>4</transportmaxbackpacks>
+        <cargo>5</cargo>
+    </sUH1H_DZ>
     <sMi17_Ins>
         <Type>Air</Type>
         <Side>EAST</Side>
@@ -420,6 +450,16 @@
         <transportmaxbackpacks>5</transportmaxbackpacks>
         <cargo>1</cargo>
     </sAH6X_EP1>
+    <sAH6X_DZ>
+        <Type>Air</Type>
+        <Side>WEST</Side>
+        <Faction>BIS_US</Faction>
+        <Name>AH-6X</Name>
+        <transportmaxweapons>3</transportmaxweapons>
+        <transportmaxmagazines>10</transportmaxmagazines>
+        <transportmaxbackpacks>2</transportmaxbackpacks>
+        <cargo>1</cargo>
+    </sAH6X_DZ>
     <sC130J_US_EP1>
         <Type>Air</Type>
         <Side>WEST</Side>
@@ -450,6 +490,16 @@
         <transportmaxbackpacks>1</transportmaxbackpacks>
         <cargo>5</cargo>
     </sMH6J_EP1>
+    <sMH6J_DZ>
+        <Type>Air</Type>
+        <Side>WEST</Side>
+        <Faction>BIS_US</Faction>
+        <Name>MH-6J</Name>
+        <transportmaxweapons>3</transportmaxweapons>
+        <transportmaxmagazines>20</transportmaxmagazines>
+        <transportmaxbackpacks>5</transportmaxbackpacks>
+        <cargo>5</cargo>
+    </sMH6J_DZ>
     <sMQ9PredatorB_US_EP1>
         <Type>Air</Type>
         <Side>WEST</Side>
@@ -3170,6 +3220,16 @@
         <transportmaxbackpacks>4</transportmaxbackpacks>
         <cargo>3</cargo>
     </sHMMWV_DES_EP1>
+    <sHMMWV_DZ>
+        <Type>Car</Type>
+        <Side>WEST</Side>
+        <Faction>BIS_US</Faction>
+        <Name>HMMWV</Name>
+        <transportmaxweapons>4</transportmaxweapons>
+        <transportmaxmagazines>12</transportmaxmagazines>
+        <transportmaxbackpacks>4</transportmaxbackpacks>
+        <cargo>3</cargo>
+    </sHMMWV_DZ>
     <sHMMWV_M1035_DES_EP1>
         <Type>Car</Type>
         <Side>WEST</Side>
