@@ -184,12 +184,34 @@ if(!isset($map))
 			// if we didn't find an entry then we create one
 			if(!found) {
 				var pos = new google.maps.MVCArray([m.getPosition()]);
+				var startSymbol = {
+					path: google.maps.SymbolPath.CIRCLE,
+					fillColor: "green",
+					fillOpacity: 1,
+					scale: 3,
+					strokeColor: "green"
+				};
+				var endSymbol = {
+					path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+					fillColor: "yellow",
+					fillOpacity: 1,
+					scale: 2,
+					strokeColor: "yellow"
+				};
 				var line = new google.maps.Polyline({
 					strokeColor: '#c00000',
 					strokeOpacity: 0.8,
 					strokeWeight: 2,
 					uid: m.uid,
 					path: pos,
+					icons: [{
+						icon: startSymbol,
+						offset: '0%'
+					},
+					{
+						icon: endSymbol,
+						offset: '100%'
+					}],
 					title: m.title,
 					info: m.info
 				});
