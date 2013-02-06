@@ -144,10 +144,6 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sBAF_AS50_scoped>
-    <sBAF_L85A2_RIS_CWS>
-        <Type>rifle</Type>
-        <Slots>10</Slots>
-    </sBAF_L85A2_RIS_CWS>
     <sBinocular>
         <Type>binocular</Type>
         <Slots>1</Slots>
@@ -184,36 +180,54 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sDMR>
-    <sDZ_ALICE_Pack_EP1>
-        <Type>backpack</Type>
-        <Slots>1</Slots>
-        <maxweapons>4</maxweapons>
-        <maxmagazines>20</maxmagazines>
-    </sDZ_ALICE_Pack_EP1>
-    <sDZ_Assault_Pack_EP1>
-        <Type>backpack</Type>
-        <Slots>1</Slots>
-        <maxweapons>2</maxweapons>
-        <maxmagazines>12</maxmagazines>
-    </sDZ_Assault_Pack_EP1>
-    <sDZ_Backpack_EP1>
-        <Type>backpack</Type>
-        <Slots>1</Slots>
-        <maxweapons>6</maxweapons>
-        <maxmagazines>24</maxmagazines>
-    </sDZ_Backpack_EP1>
-    <sDZ_CivilBackpack_EP1>
-        <Type>backpack</Type>
-        <Slots>1</Slots>
-        <maxweapons>3</maxweapons>
-        <maxmagazines>16</maxmagazines>
-    </sDZ_CivilBackpack_EP1>
     <sDZ_Patrol_Pack_EP1>
         <Type>backpack</Type>
         <Slots>1</Slots>
         <maxweapons>1</maxweapons>
         <maxmagazines>8</maxmagazines>
     </sDZ_Patrol_Pack_EP1>
+    <sDZ_Assault_Pack_EP1>
+        <Type>backpack</Type>
+        <Slots>1</Slots>
+        <maxweapons>1</maxweapons>
+        <maxmagazines>12</maxmagazines>
+    </sDZ_Assault_Pack_EP1>
+    <sDZ_Czech_Vest_Puch>
+        <Type>backpack</Type>
+        <Slots>1</Slots>
+        <maxweapons>0</maxweapons>
+        <maxmagazines>12</maxmagazines>
+    </sDZ_Czech_Vest_Puch>
+    <sDZ_ALICE_Pack_EP1>
+        <Type>backpack</Type>
+        <Slots>1</Slots>
+        <maxweapons>2</maxweapons>
+        <maxmagazines>16</maxmagazines>
+    </sDZ_ALICE_Pack_EP1>
+    <sDZ_TK_Assault_Pack_EP1>
+        <Type>backpack</Type>
+        <Slots>1</Slots>
+        <maxweapons>2</maxweapons>
+        <maxmagazines>16</maxmagazines>
+    </sDZ_TK_Assault_Pack_EP1>
+    <sDZ_British_ACU>
+        <Type>backpack</Type>
+        <Slots>1</Slots>
+        <maxweapons>3</maxweapons>
+        <maxmagazines>18</maxmagazines>
+    </sDZ_British_ACU>
+    <sDZ_CivilBackpack_EP1>
+        <Type>backpack</Type>
+        <Slots>1</Slots>
+        <maxweapons>4</maxweapons>
+        <maxmagazines>24</maxmagazines>
+    </sDZ_CivilBackpack_EP1>
+    <sDZ_Backpack_EP1>
+        <Type>backpack</Type>
+        <Slots>1</Slots>
+        <maxweapons>6</maxweapons>
+        <maxmagazines>24</maxmagazines>
+    </sDZ_Backpack_EP1>
     <sFlareGreen_M203>
         <Type>smallammo</Type>
         <Slots>1</Slots>
@@ -246,14 +260,46 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </sFoodCanSardines>
-    <sFoodSteakCooked>
-        <Type>heavyammo</Type>
-        <Slots>1</Slots>
-    </sFoodSteakCooked>
     <sFoodSteakRaw>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </sFoodSteakRaw>
+    <sFoodSteakCooked>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodSteakCooked>
+    <sFoodmuttonRaw>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodmuttonRaw>
+    <sFoodmuttonCooked>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodmuttonCooked>
+    <sFoodchickenRaw>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodchickenRaw>
+    <sFoodchickenCooked>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodchickenCooked>
+    <sFoodbaconRaw>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodbaconRaw>
+    <sFoodbaconCooked>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodbaconCooked>
+    <sFoodrabbitRaw>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodrabbitRaw>
+    <sFoodrabbitCooked>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodrabbitCooked>
     <sglock17_EP1>
         <Type>pistol</Type>
         <Slots>5</Slots>
@@ -414,6 +460,10 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </sItemWaterbottleUnfilled>
+    <sItemWaterbottleBoiled>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemWaterbottleBoiled>
     <sItemWire>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
@@ -610,4 +660,44 @@
         <Type>rifle</Type>
         <Slots>1</Slots>
     </sWinchester1866>
+<sSa58P_EP1>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sSa58P_EP1>
+    <sSa58V_EP1>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sSa58V_EP1>
+    <sSa58V_RCO_EP1>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sSa58V_RCO_EP1>
+    <sSa58V_CCO_EP1>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sSa58V_CCO_EP1>
+    <sG36C>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sG36C>
+    <sG36C_camo>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sG36C_camo>
+    <sG36A_camo>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sG36A_camo>
+    <sG36K_camo>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sG36K_camo>
+    <sM40A3>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sM40A3>
+    <sBAF_L85A2_RIS_Holo>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sBAF_L85A2_RIS_Holo>
 </items>

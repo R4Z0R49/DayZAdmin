@@ -75,6 +75,7 @@ INSERT INTO `object_classes` (`Classname`, `Type`) VALUES
 	('datsun1_civil_2_covered','car'),
 	('Fishing_Boat_DZ','largeboat'),
 	('HMMWV_DES_EP1','truck'),
+	('HMMWV_DZ','truck'),
 	('Lada1','car'),
 	('Lada2_TK_CIV_EP1','car'),
 	('LadaLM','car'),
