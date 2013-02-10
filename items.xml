@@ -80,6 +80,10 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </s30Rnd_762x39_AK47>
+    <s30Rnd_762x39_SA58>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </s30Rnd_762x39_SA58>
     <s30Rnd_9x19_MP5>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
@@ -668,7 +672,7 @@
         <Type>rifle</Type>
         <Slots>1</Slots>
     </sWinchester1866>
-<sSa58P_EP1>
+	<sSa58P_EP1>
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sSa58P_EP1>

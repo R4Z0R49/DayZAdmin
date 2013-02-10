@@ -1,0 +1,44 @@
+/* Map CSS file by Krunch and Crosire */
+
+#map {
+	width: 99%;
+	height: 750px;
+	margin: 10px auto;
+	border: 2px solid #000;
+}
+
+#mapCoords {
+	z-index: 1000;
+	position: absolute;
+	top: 15px;
+	left: 50%;
+	width: 80px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-family: "Lucida Console", monospace;
+	background-color: #404040;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+#mapRefresh {
+	z-index: 1000;
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	width: 120px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-family: "Lucida Console", monospace;
+	background-color: #404040;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}

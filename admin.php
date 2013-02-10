@@ -43,6 +43,12 @@ if (isset($_SESSION['user_id']))
 	include ('modules/header.php');
 	// End page-header
 
+	if (isset($_GET["show"])) {
+		$show = $_GET["show"];
+	} else {
+		$show = 0;
+	}
+
 	if (isset($_GET['view'])){
 		include ('modules/'.$_GET["view"].'.php');
 	} else {
