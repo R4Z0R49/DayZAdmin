@@ -292,6 +292,14 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </sFoodbaconCooked>
+    <sFoodbeefRaw>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodbeefRaw>
+    <sFoodbeefCooked>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodbeefCooked>
     <sFoodrabbitRaw>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
