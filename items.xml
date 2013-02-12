@@ -76,6 +76,10 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </s30Rnd_556x45_StanagSD>
+    <s30Rnd_556x45_G36>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </s30Rnd_556x45_G36>
     <s30Rnd_762x39_AK47>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
