@@ -1,7 +1,7 @@
 <?php
 	$iid = "1"; //Instance ID
 	$serverip = "127.0.0.1";  //game-server host
-	$serverip_internal = "127.0.0.1";  //game-server host internal IP (for hosts behind NAT)
+	$serverip_internal = "127.0.0.1";  //game-server host internal IP (for hosts behind NAT, set to same as $serverip if not behind NAT)
 	$rconpassword = "123456"; //rcon password
 	$serverport = 2302; //server port
 	$hostname = "127.0.0.1";  //Database host
@@ -11,9 +11,9 @@
 	$sitename = "DayZ Administration"; //Admin panel name
 	$map = "chernarus"; // chernarus lingor takistan panthera2 fallujah namalsk tavi
 	$world = "1"; // 1=chernarus 2=lingor 4=takistan 5=panthera2 6=fallujah 8=namalsk 10=tavi
-	$timeoffset = 0; // game time offset from UTC, should match HiveExt.ini
 	$enableclock = 0; // show game time clock in upper left corner
-	$enableTracking = 1; // show tracks of player/vehicle movement on the map
+	$timeoffset = 0; // game time offset from UTC for optional clock, should match HiveExt.ini
+	$enableTracking = 1; // show tracks of player/vehicle movement on the map, green dot = start of track, yellow dot = end
 	$maxTrackingPositions = 50; // how many positions to keep per player/vehicle when tracking
 	$keepTracksAfterLogout = 0; // 0 - remove player tracks after they logout, 1 - keep showing tracks
 	

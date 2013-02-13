@@ -55,49 +55,65 @@ function addMarkerCoordToPolyline(id, pos, desc) {
 			// only add new point to line if position hasn't changed
 			if(!element.getLatLngs()[element.getLatLngs().length - 1].equals(pos)) {
 				element.addLatLng(pos);
+
+				// update end marker
+				trackendlayers.forEach(function(element) {
+					if(element.options.uid == id) {
+						element.setLatLng(pos);
+					}
+				});
 			}
 		}
 	});
 
 	if(!found) {
-	var trackMouseOutOptions = {
-		weight: 2,
-		color: '#c00000',
-		opacity: 0.8
-	}
+		var trackMouseOutOptions = {
+			weight: 2,
+			color: '#c00000',
+			opacity: 0.8
+		}
 
-	var trackMouseOverOptions = {
-		weight: 3,
-		color: '#ff0000',
-		opacity: 1 
-	}
+		var trackMouseOverOptions = {
+			weight: 3,
+			color: '#ff0000',
+			opacity: 1 
+		}
 
-	// if we didn't find an entry above then create one
-	// create a line to hold coords for this track
-	var line = new trackPolyline([], trackMouseOutOptions);
-	line.addLatLng(pos);
-	line.options.uid = id;
-	line.on('mouseover', function(){
-		line.setStyle(trackMouseOverOptions);
-	});
-	line.on('mouseout', function(){
-		line.setStyle(trackMouseOutOptions);
-	});
-	line.bindPopup(desc);
-	// create a start marker to designate this is the beginning of the track
-	var startMarker = new trackCircleMarker(pos, { color: 'green', fill: true, fillColor: 'green', fillOpacity: 1 });
-	startMarker.bindPopup(desc);
-	startMarker.setRadius(4);
-	startMarker.options.uid = id;
+		// if we didn't find an entry above then create one
+		// create a line to hold coords for this track
+		var line = new trackPolyline([], trackMouseOutOptions);
+		line.addLatLng(pos);
+		line.options.uid = id;
+		line.on('mouseover', function(){
+			line.setStyle(trackMouseOverOptions);
+		});
+		line.on('mouseout', function(){
+			line.setStyle(trackMouseOutOptions);
+		});
+		line.bindPopup(desc);
 
-	// add to array for cleanup later
-	mapMarkersPolylines.push(line);
-	tracklayers.push(line);
-	trackstartlayers.push(startMarker);
+		// create a start marker to designate this is the beginning of the track
+		var startMarker = new trackCircleMarker(pos, { color: 'green', fill: true, fillColor: 'green', fillOpacity: 1 });
+		startMarker.bindPopup(desc);
+		startMarker.setRadius(4);
+		startMarker.options.uid = id;
 
-	//add to map layers to render
-	map.addLayer(line);
-	map.addLayer(startMarker);
+		// create an end marker to designate this is the end of the track
+		var endMarker = new trackCircleMarker(pos, { color: 'yellow', fill: true, fillColor: 'yellow', fillOpacity: 1 });
+		endMarker.bindPopup(desc);
+		endMarker.setRadius(4);
+		endMarker.options.uid = id;
+
+		// add to array for cleanup later
+		mapMarkersPolylines.push(line);
+		tracklayers.push(line);
+		trackstartlayers.push(startMarker);
+		trackendlayers.push(endMarker);
+
+		//add to map layers to render
+		map.addLayer(line);
+		map.addLayer(startMarker);
+		map.addLayer(endMarker);
 	}
 }
 
@@ -126,6 +142,11 @@ function clearPolyLines() {
 
 			// find and remove startMarker
 			trackstartlayers.forEach(function(element) {
+				if(element.options.uid == uid) { map.removeLayer(element); }
+			});
+
+			// find and remove endMarker
+			trackendlayers.forEach(function(element) {
 				if(element.options.uid == uid) { map.removeLayer(element); }
 			});
 		}

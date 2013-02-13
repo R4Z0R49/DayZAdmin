@@ -24,7 +24,7 @@ Lists of players and vehicles.
 
 Player/vehicle inventory, states and position.
 
-Google maps API based Cherno map with players and vehicles.
+Google maps API based map with players, vehicles and deployables (optional tracking of players and vehicles).
 
 Inventory check for unknown items.
 
@@ -33,10 +33,6 @@ Search for items, vehicles, players.
 Rcon-based online players list, kick-ban features and global messaging.
 
 Reset Players locations.
-
-Map removeal of deploables.
-
-Live Map view (Cherno, Lingor Added)
 
 
 Installation
