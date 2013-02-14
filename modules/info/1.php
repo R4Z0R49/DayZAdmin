@@ -1,25 +1,10 @@
 <?php
+include ('querys.php');
 $cid = '';
 if (isset($_GET['cid'])){
 	$cid = " AND id ='".$_GET['cid']."'";
 }
-$query = "
-SELECT
-	s.*,p.*
-FROM
-	survivor s
-JOIN
-	profile p
-ON
-	p.unique_id = s.unique_id
-WHERE
-	s.unique_id LIKE '".mysql_real_escape_string($_GET['id'])."'
-AND
-	is_dead=0
-AND
-	world_id = $world
-LIMIT 1"; 
-$res = mysql_query($query) or die(mysql_error());
+$res = mysql_query($info1) or die(mysql_error());
 $number = mysql_num_rows($res);
 
 while ($row=mysql_fetch_array($res)) {

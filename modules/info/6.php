@@ -1,15 +1,11 @@
 <?php
+include ('querys.php');
 $id = '';
 if (isset($_GET['id'])){
 	$id = " AND id ='".$_GET['id']."'";
 }
 
-$query = "SELECT id.*,d.class_name,p.name,p.unique_id player_unique_id from instance_deployable id
- JOIN deployable d on d.id = id.deployable_id
- JOIN survivor s ON s.id = id.owner_id
- JOIN profile p on p.unique_id = s.unique_id
- WHERE id.id = ".$_GET["id"]." and instance_id = '" . $iid . "' LIMIT 1"; 
-$res = mysql_query($query) or die(mysql_error());
+$res = mysql_query($info6) or die(mysql_error());
 $number = mysql_num_rows($res);
 while ($row=mysql_fetch_array($res)) {
     $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);

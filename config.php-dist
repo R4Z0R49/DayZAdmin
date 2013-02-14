@@ -19,6 +19,9 @@
 	
 	//security
 	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**
+	
+	//
+	$sql= "Bliss"; //used to support more then one hive (Bliss or DayZ) DayZ isnt fully active yet.
 
 	
 	//Social Media
