@@ -3,13 +3,24 @@ $cid = '';
 if (isset($_GET['cid'])){
 	$cid = " AND id ='".$_GET['cid']."'";
 }
-$query = "SELECT * FROM survivor WHERE unique_id like '".mysql_real_escape_string($_GET['id'])."' AND is_dead=0 AND world_id = $world LIMIT 1"; 
+$query = "
+SELECT
+	s.*,p.*
+FROM
+	survivor s
+JOIN
+	profile p
+ON
+	p.unique_id = s.unique_id
+WHERE
+	s.unique_id LIKE '".mysql_real_escape_string($_GET['id'])."'
+AND
+	is_dead=0
+AND
+	world_id = $world
+LIMIT 1"; 
 $res = mysql_query($query) or die(mysql_error());
 $number = mysql_num_rows($res);
-
-$queryname = "SELECT * FROM profile WHERE unique_id like '".mysql_real_escape_string($_GET['id'])."' LIMIT 1";
-$resname = mysql_query($queryname) or die(mysql_error());
-$rowname = mysql_fetch_array($resname);
 
 while ($row=mysql_fetch_array($res)) {
 
@@ -17,15 +28,17 @@ while ($row=mysql_fetch_array($res)) {
 	$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 	$Inventory = $row['inventory'];
 	$Inventory = str_replace("|", ",", $Inventory);
-	//$Inventory = str_replace('"', "", $Inventory);
 	$Inventory  = json_decode($Inventory);
 	
 	$Backpack  = $row['backpack'];
 	$Backpack = str_replace("|", ",", $Backpack);
-	//$Backpack  = str_replace('"', "", $Backpack );
 	$Backpack  = json_decode($Backpack);
 	$model = $row['model'];
 	
+	$Medical = $row['medical'];
+	$Medical = str_replace("|", ",", $Medical);
+	$Medical = json_decode($Medical);
+
 	$binocular = array();
 	$rifle = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
 	$pistol = '<img style="max-width:92px;max-height:92px;" src="images/gear/pistol.png" title="" alt=""/>';
@@ -34,8 +47,9 @@ while ($row=mysql_fetch_array($res)) {
 	$heavyammoslots = 0;
 	$smallammo = array();
 	$usableitems = array();
+	$distance = distanceToString($row['DistanceFoot']);
+	$survival_time = survivalTimeToString($row['survival_time']);
 
-	//$items_ini = parse_ini_file("/items.ini", true);
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
 	$items_xml = XML2Array::createArray($xml);
@@ -44,7 +58,6 @@ while ($row=mysql_fetch_array($res)) {
 	
 	for ($i=0; $i<count($Inventory); $i++){
 		if(array_key_exists($i,$Inventory)){
-			//$debug .= 'Debug:&nbsp;'.$Inventory[$i].';<br />';
 			$curitem = $Inventory[$i];
 			$icount = "";
 			if (is_array($curitem)){$curitem = $Inventory[$i][0]; $icount = ' - '.$Inventory[$i][1].' rounds'; }
@@ -63,7 +76,6 @@ while ($row=mysql_fetch_array($res)) {
 						break;
 					case 'heavyammo':
 						$heavyammo[] = array('image' => '<img style="max-width:43px;max-height:43px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.$icount.'" alt="'.$curitem.$icount.'"/>', 'slots' => $items_xml['items']['s'.$curitem]['Slots']);
-						
 						break;
 					case 'smallammo':
 						$smallammo[] = '<img style="max-width:43px;max-height:43px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.$icount.'" alt="'.$curitem.$icount.'"/>';
@@ -83,8 +95,8 @@ while ($row=mysql_fetch_array($res)) {
 
 ?>	
 	<div id="page-heading">
-		<h1><?php echo "<title>".htmlspecialchars($rowname['name'])." - ".$sitename."</title>"; ?></h1>
-		<h1><?php echo htmlspecialchars($rowname['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<h1><?php echo "<title>".htmlspecialchars($row['name'])." - ".$sitename."</title>"; ?></h1>
+		<h1><?php echo htmlspecialchars($row['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
 	</div>
 	<!-- end page-heading -->
 
@@ -107,7 +119,7 @@ while ($row=mysql_fetch_array($res)) {
 				<div id="gear_player">	
 					<div class="gear_info">
 						<img class="playermodel" src='images/models/<?php echo str_replace('"', '', $model); ?>.png'/>
-						<div id="gps" style="margin-left:46px;margin-top:54px">
+						<div id="gps" style="margin-left:10px;margin-top:54px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
 								echo $MapCoords[0];
@@ -125,23 +137,26 @@ while ($row=mysql_fetch_array($res)) {
 							?>
 							</div>							
 						</div>
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-120px">
-							<?php echo 'Zed kills:&nbsp;'.$row['zombie_kills'].' / '.$rowname['total_zombie_kills'];?>
+						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-120px">
+							<?php echo 'Zed kills:&nbsp;'.$row['zombie_kills'].' / '.$row['total_zombie_kills'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-100px">
-							<?php echo 'Zed headshots:&nbsp;'.$row['headshots'].' / '.$rowname['total_headshots'];?>
+						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-105px">
+							<?php echo 'Zed headshots:&nbsp;'.$row['headshots'].' / '.$row['total_headshots'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-80px">
-							<?php echo 'Human killed:&nbsp;'.$row['survivor_kills'].' / '.$rowname['total_survivor_kills'];?>
+						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-90px">
+							<?php echo 'Human killed:&nbsp;'.$row['survivor_kills'].' / '.$row['total_survivor_kills'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-60px">
-							<?php echo 'Bandit killed:&nbsp;'.$row['bandit_kills'].' / '.$rowname['total_bandit_kills'];?>
+						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-75px">
+							<?php echo 'Bandit killed:&nbsp;'.$row['bandit_kills'].' / '.$row['total_bandit_kills'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-40px">
-							<?php echo 'Survival Attempts:&nbsp;'.$rowname['survival_attempts'];?>
+						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-60px">
+							<?php echo 'Survival Attempts:&nbsp;'.$row['survival_attempts'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-20px">
-							<?php echo 'Total Survival Time:&nbsp;'.$rowname['total_survival_time'];?>
+						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-45px">
+							<?php echo 'Survival Time:&nbsp;'.$survival_time;?>
+						</div>
+						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-30px">
+							<?php echo 'Travel Distance:&nbsp;'.$distance; ?>
 						</div>
 					</div>
 					<div class="gear_inventory">
@@ -356,6 +371,29 @@ while ($row=mysql_fetch_array($res)) {
 					<!-- Backpack -->
 				</div>			
 			</div>
+<div id="medical">
+<table id="medical">
+<tr>
+    <th>Alive</th>
+    <th>Unconscious</th>
+    <th>Infected</th>
+    <th>Injured</th>
+    <th>Bleeding</th>
+    <th>Blood level</th>
+    <th>Leg Injury</th>
+</tr>
+<tr>
+    <td><?php echo $Medical[0] ? "No" : "Yes"; ?></td>
+    <td><?php echo $Medical[1] ? "Yes" : "No"; if($Medical[10] > 0) { printf(" (%d)", $Medical[10]); } ?></td>
+    <td><?php echo $Medical[2] ? "Yes" : "No"; ?></td>
+    <td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
+    <td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
+    <td><?php printf("%d (%d%%)", round($Medical[7]), ($Medical[7]/12000) * 100); ?></td>
+    <td><?php printf("%d%%", ($Medical[9][0]/1)*100); ?></td>
+</tr>
+<!-- <tr><td colspan="6">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
+</table>
+</div>
 			<!--  end table-content  -->
 			<?php
 			echo $debug;
@@ -373,5 +411,6 @@ while ($row=mysql_fetch_array($res)) {
 		<th class="sized bottomright"></th>
 	</tr>
 	</table>
+		
 <?php } ?>
 	<div class="clear">&nbsp;</div>
