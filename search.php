@@ -1,28 +1,21 @@
 <?php
-include ('config.php');
+require_once('config.php');
+require_once('db.php');
+require_once('functions.php');
 
-	if (isset($_POST['search'])){
-		$pagetitle = "Stats for ".$_POST['search'];
-	} else {
-		$pagetitle = "New search";
-	}
+if (isset($_POST['search'])){
+	$pagetitle = "Stats for ".$_POST['search'];
+} else {
+	$pagetitle = "New search";
+}
 
-mysql_connect($hostname, $username, $password) or die (mysql_error());
-mysql_select_db($dbName) or die (mysql_error());
+$search = substr($_POST['search'], 0, 64);
+$search = preg_replace("/[^\w\x7F-\xFF\s]/", " ", $search);
+$good = trim(preg_replace("/\s(\S{1,2})\s/", " ", preg_replace("[ +]", "  "," $search ")));
+$good = preg_replace("[ +]", " ", $good);
+$likeString = '%' . $good . '%';
 
-			echo $_POST["search"]."<br />".$_POST['type']."<br />";
-			$search = substr($_POST['search'], 0, 64);
-			$search = preg_replace("/[^\w\x7F-\xFF\s]/", " ", $search);
-			$good = trim(preg_replace("/\s(\S{1,2})\s/", " ", preg_replace("[ +]", "  "," $search ")));
-			$good = preg_replace("[ +]", " ", $good);
-			$logic = "OR";
-			
-//$query = "select * from profile where name Like 'R4Z0R49'";
-$query = "select profile.*, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and name LIKE '%". str_replace(" ", "%' OR name LIKE '%", $good). "%' ORDER BY last_updated DESC"; 
-$result = mysql_query($query) or die(mysql_error());
-$row = mysql_fetch_array($result);
-
-$id = $row['id'];
+$row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survivor WHERE profile.unique_id = survivor.unique_id AND name LIKE ? ORDER BY last_updated DESC LIMIT 1", $likeString);
 
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -50,6 +43,8 @@ $id = $row['id'];
 <?php
 	echo "<center><h1>".$pagetitle."</h1></center>";
 	echo "<br />";
+if($row) {
+	$id = $row['id'];
 ?>
 				<table border="0" cellpadding="0" cellspacing="0">
 <td width="26"><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-unique.gif" width="36" height="27" /></td>
@@ -74,7 +69,7 @@ $id = $row['id'];
   <tr>
     <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-zombies.gif" width="36" height="27" /></td>
     <td><strong>total_survival_time:</strong></td>
-    <td align="right"><?php echo $row['total_survival_time'];?></td>
+    <td align="right"><?php echo survivalTimeToString($row['total_survival_time']);?></td>
   </tr>
   <tr>
     <td><img src="images/zombiehs.png" width="24" height="24" /></td>
@@ -98,6 +93,7 @@ $id = $row['id'];
   </tr>
  
 				</table>
+<?php } else {  echo "No results found\n"; } ?>
 			</div>
 			<div class="clear"></div>
 		</div>

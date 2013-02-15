@@ -9,62 +9,29 @@ if (isset($_SESSION['user_id']))
 
 if (!empty($_POST))
 {
-	$login = (isset($_POST['login'])) ? mysql_real_escape_string($_POST['login']) : '';
+	$login = (isset($_POST['login'])) ? $_POST['login'] : '';
+	$salt = $db->GetOne("SELECT `salt` FROM `users` WHERE `login` = ? LIMIT 1", $login);
 	
-	$query = "SELECT `salt`
-				FROM `users`
-				WHERE `login`='{$login}'
-				LIMIT 1";
-	$sql = mysql_query($query) or die(mysql_error());
-	
-	if (mysql_num_rows($sql) == 1)
+	if ($salt)
 	{
-		$row = mysql_fetch_assoc($sql);
-		
-		// итак, вот она соль, соответствующая этому логину:
-		$salt = $row['salt'];
-		
-		// теперь хешируем введенный пароль как надо и повторям шаги, которые были описаны выше:
 		$password = md5(md5($_POST['password']) . $salt);
-		
-		// и пошло поехало...
+		$user_id = $db->GetOne("SELECT `id` FROM `users` WHERE `login` = ? AND `password` = ? LIMIT 1", array($login, $password));
 
-		// делаем запрос к БД
-		// и ищем юзера с таким логином и паролем
-
-		$query = "SELECT `id`
-					FROM `users`
-					WHERE `login`='{$login}' AND `password`='{$password}'
-					LIMIT 1";
-		$sql = mysql_query($query) or die(mysql_error());
-
-		// если такой пользователь нашелся
-		if (mysql_num_rows($sql) == 1)
+		if ($user_id)
 		{
-			// то мы ставим об этом метку в сессии (допустим мы будем ставить ID пользователя)
-
-			$row = mysql_fetch_assoc($sql);
-			$_SESSION['user_id'] = $row['id'];
+			$_SESSION['user_id'] = $user_id;
 			$_SESSION['login'] = $login;
-			// если пользователь решил "запомнить себя"
-			// то ставим ему в куку логин с хешем пароля
-			
-			$time = 86400; // ставим куку на 24 часа
+			$time = 86400;
 			
 			if (isset($_POST['remember']))
 			{
 				setcookie('login', $login, time()+$time, "/");
 				setcookie('password', $password, time()+$time, "/");
 			}
-			$query = "UPDATE `users` SET `lastlogin`= NOW() WHERE `login`='{$login}' LIMIT 1";
-			$sql2 = mysql_query($query) or die(mysql_error());
-			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('LOGIN','{$login}',NOW())";
-			$sql2 = mysql_query($query) or die(mysql_error());
-			// и перекидываем его на закрытую страницу
+			$db->Execute("UPDATE `users` SET `lastlogin` = NOW() WHERE `login` = ? LIMIT 1", $login);
+			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('LOGIN', ?, NOW())", $login);
 			header('Location: admin.php');
 			exit;
-
-			// не забываем, что для работы с сессионными данными, у нас в каждом скрипте должно присутствовать session_start();
 		}
 		else
 		{

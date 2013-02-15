@@ -3,7 +3,7 @@
 function markers_player($res, $world) {
 	$markers = array();
 
-	while ($row = mysql_fetch_array($res)) {
+	foreach($res as $row) {
 		$Worldspace = str_replace("[", "", $row['worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = explode(",", $Worldspace);
@@ -33,7 +33,7 @@ function markers_vehicle($res, $world) {
 	require_once('modules/xml2array.php');
 	$vehicles_xml = XML2Array::createArray($xml);
 
-	while ($row = mysql_fetch_array($res)) {
+	foreach($res as $row) {
 		$Worldspace = str_replace("[", "", $row['worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = explode(",", $Worldspace);
@@ -66,7 +66,7 @@ function markers_deployable($res, $world) {
 	require_once('modules/xml2array.php');
 	$vehicles_xml = XML2Array::createArray($xml);
 
-	while ($row = mysql_fetch_array($res)) {
+	foreach($res as $row) {
 		$Worldspace = str_replace("[", "", $row['worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = explode(",", $Worldspace);

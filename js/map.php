@@ -7,11 +7,10 @@ $markers = array();
 $callback = "";
 $id = 0;
 
-require_once("config.php");
-require_once("modules/maps/markers.php");
-
-mysql_connect($hostname, $username, $password) or die;
-mysql_select_db($dbName) or die;
+require_once('config.php');
+require_once('db.php');
+require_once('queries.php');
+require_once('modules/maps/markers.php');
 
 if (isset($_GET['id'])) {
 	$tmp = intval($_GET['id']);

@@ -3,8 +3,7 @@ if (isset($_SESSION['user_id']))
 {
 $pagetitle = "Items check";
 
-$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK','{$_SESSION['login']}',NOW())";
-	$sql2 = mysql_query($query) or die(mysql_error());
+$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK',?,NOW())", $_SESSION['login']);
 ?>
 
 <div id="page-heading">
@@ -21,15 +20,14 @@ $query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK
 	$items_xml = XML2Array::createArray($xml);
 	
 	//$query = "SELECT * FROM survivor";
-	$query = "select p.name, s.* from profile p left join survivor s on p.unique_id = s.unique_id where s.is_dead = 0";
-	$res = mysql_query($query) or die(mysql_error());
-	$number = mysql_num_rows($res);
+	$res = $db->GetAll("select p.name, s.* from profile p left join survivor s on p.unique_id = s.unique_id where s.is_dead = 0");
+	$number = sizeof($res);
 	$rows = null;
 	$itemscount = 0;		
 	if ($number == 0) {
-	  echo "<CENTER>Не найдено</CENTER>";
+	  echo "<CENTER>\n";
 	} else {
-	  while ($row=mysql_fetch_array($res)) {
+		foreach($res as $row) {
 		$Inventory = $row['inventory'];	
 		$Inventory = str_replace(",", ",", $Inventory);
 		$Inventory  = json_decode($Inventory);	
