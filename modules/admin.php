@@ -8,13 +8,10 @@ if (isset($_SESSION['user_id']))
 		$N = count($aDoor);
 		for($i=0; $i < $N; $i++)
 		{
-			$query = "SELECT * FROM users WHERE id = ".$aDoor[$i].""; 
-			$res2 = mysql_query($query) or die(mysql_error());
-			while ($row2=mysql_fetch_array($res2)) {
-				$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('DELETE ADMIN: ".$row2['login']."','{$_SESSION['login']}',NOW())";
-				$sql2 = mysql_query($query) or die(mysql_error());
-				$query = "DELETE FROM `users` WHERE id='".$aDoor[$i]."'";
-				$sql2 = mysql_query($query) or die(mysql_error());
+			$res2 = $db->GetAll("SELECT * FROM users WHERE id = ?", $aDoor[$i]); 
+			foreach($res2 as $row2) {
+				$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('DELETE ADMIN: ', ?),?,NOW())", array($row2['login'], $_SESSION['login']));
+				$db->Execute("DELETE FROM `users` WHERE id = ?", $aDoor[$i]);
 				$delresult .= '<div id="message-green">
 				<table border="0" width="100%" cellpadding="0" cellspacing="0">
 				<tr>
@@ -29,21 +26,15 @@ if (isset($_SESSION['user_id']))
 		//echo $_GET["deluser"];
 	}
 	
-	$query = "SELECT * FROM users ORDER BY id ASC"; 
-	$res = mysql_query($query) or die(mysql_error());
-	$number = mysql_num_rows($res);
+	$res = $db->GetAll("SELECT * FROM users ORDER BY id ASC");
+	$number = sizeof($res);
 	
 	$users="";
-	while ($row=mysql_fetch_array($res)) {
+	foreach($res as $row) {
 		$users .= "<tr><td><input name=\"user[]\" value=\"".$row['id']."\" type=\"checkbox\"/></td><td>".$row['id']."</td><td>".$row['login']."</td><td>".$row['lastlogin']."</td></tr>";
 	}
 	
-	$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS','{$_SESSION['login']}',NOW())";
-	$sql2 = mysql_query($query) or die(mysql_error());
-	
-	
-	
-	
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS',?,NOW())", $_SESSION['login']);
 
 ?>
 <div id="dvPopup" style="display:none; width:900px; height: 450px; border:4px solid #000000; background-color:#FFFFFF;">

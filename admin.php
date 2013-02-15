@@ -1,16 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <?php
 session_start();
-include ('config.php');
-include ('functions.php');
-
-mysql_connect($hostname, $username, $password) or die (mysql_error());
-mysql_select_db($dbName) or die (mysql_error());
+require_once('config.php');
+require_once('db.php');
+require_once('functions.php');
 
 if (isset($_GET['logout']))
 {
-	$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('LOGOUT','{$_SESSION['login']}',NOW())";
-	$sql2 = mysql_query($query) or die(mysql_error());
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('LOGOUT',?,NOW())", $_SESSION['login']);
 	
 	if (isset($_SESSION['user_id']))
 		unset($_SESSION['user_id']);
@@ -31,12 +28,6 @@ if (isset($_SESSION['user_id']))
 			foreach($el as $k=>$v)
 				slashes($el[$k]);
 		else $el = stripslashes($el); 
-	}
-
-	if (isset($_GET["show"])){
-		$show = $_GET["show"];
-	}else{
-		$show = 0;
 	}
 
 	// Start: page-header 

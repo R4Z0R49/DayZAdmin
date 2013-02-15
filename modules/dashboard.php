@@ -9,9 +9,8 @@ error_reporting (E_ALL ^ E_NOTICE);
 $pagetitle = "Dashboard";
 
 $logs = "";
-$query = "SELECT * FROM `logs` ORDER BY `timestamp` DESC LIMIT 100";
-$res = mysql_query($query) or die(mysql_error());
-while ($row=mysql_fetch_array($res)) {
+$res = $db->GetAll("SELECT * FROM `logs` ORDER BY `timestamp` DESC LIMIT 100");
+foreach($res as $row) {
 	$logs .= $row['timestamp'].' '.$row['user'].': '.$row['action'].chr(13);
 }
 $xml = file_get_contents('quicklinks.xml', true);

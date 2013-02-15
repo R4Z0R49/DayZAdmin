@@ -40,15 +40,15 @@ if (isset($_SESSION['user_id']))
 			$pagetitle = "All players";	
 			break;
 		case 4:
-			$query = "SELECT iv.*, v.class_name from instance_vehicle iv inner join world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on wv.vehicle_id = v.id WHERE instance_id = '" . $iid . "'";
+			$query = array("SELECT iv.*, v.class_name from instance_vehicle iv inner join world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on wv.vehicle_id = v.id WHERE instance_id = ?", $iid);
 			$pagetitle = "All Ingame Objects";	
 			break;
 		case 5:
-			$query = "select v.class_name as otype,wv.id as id,wv.worldspace as pos from world_vehicle wv join vehicle v on v.id = wv.vehicle_id where world_id = (select id from world where name = '" . $map . "')";
+			$query = array("select v.class_name as otype,wv.id as id,wv.worldspace as pos from world_vehicle wv join vehicle v on v.id = wv.vehicle_id where world_id = (select id from world where name = ?)", $map);
 			$pagetitle = "Vehicle spawn locations";	
 			break;
 		case 6:
-			$query = "SELECT * FROM spawns WHERE world = '" . $map . "'";
+			$query = array("SELECT * FROM spawns WHERE world = ?", $map);
 			$pagetitle = "TEST Online Players";	
 			break;
 		default:
