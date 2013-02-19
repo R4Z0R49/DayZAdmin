@@ -114,10 +114,6 @@ function row_player($row){
 
 function row_online_player($row, $player){
     global $map;
-	//$queryinfo = "SELECT * FROM survivor WHERE is_dead=0 AND unique_id like '" . $row['unique_id'] . "'";
-
-	//$resinfo = mysql_query($queryinfo) or die(mysql_error());								
-	//$rowinfo = mysql_fetch_array($resinfo);
 	$x = 0;
 	$y = 0;
     $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);

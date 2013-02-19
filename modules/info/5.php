@@ -1,9 +1,13 @@
 <?php
-include ('querys.php');
+include ('queries.php');
 
-$res = mysql_query($info5) or die(mysql_error());
-$number = mysql_num_rows($res);
-while ($row=mysql_fetch_array($res)) {
+$query = $info5[0];
+$binds = $info5[1];
+$res = $db->GetAll($query, $binds);
+$number = sizeof($res);
+
+foreach($res as $row) {
+
 	$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 ?>	
 	<div id="page-heading">

@@ -4,9 +4,7 @@ if (isset($_SESSION['user_id']))
 	//if (isset($_GET["url"])){
 		if (isset($_GET["kick"])){
 			$cmd = "kick ".$_GET["kick"];
-			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Player Kicked','{$_SESSION['login']}',NOW())";
-			$sql2 = mysql_query($query) or die(mysql_error());
-				
+			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Player Kicked',?,NOW())", $_SESSION['login']);
 			$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 			?>
 			<script type="text/javascript">
@@ -16,9 +14,7 @@ if (isset($_SESSION['user_id']))
 		}
 		if (isset($_GET["ban"])){
 			$cmd = "ban ".$_GET["ban"];
-			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Player Banned','{$_SESSION['login']}',NOW())";
-			$sql2 = mysql_query($query) or die(mysql_error());
-				
+			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Player Banned',?,NOW())", $_SESSION['login']);
 			$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 			?>
 			<script type="text/javascript">
@@ -32,9 +28,7 @@ if (isset($_SESSION['user_id']))
 				$id = $_GET["id"];
 			}
 			$cmd = "Say ".$id." ".$_POST["say"];
-			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Used Global','{$_SESSION['login']}',NOW())";
-			$sql2 = mysql_query($query) or die(mysql_error());
-				
+			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Used Global',?,NOW())", $_SESSION['login']);
 			$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 			?>
 			<script type="text/javascript">
@@ -44,11 +38,8 @@ if (isset($_SESSION['user_id']))
 		}
 		if (isset($_GET["delete"])){
 
-			$remquery = "Delete FROM objects WHERE id=".$_GET["delete"];
-			$result = mysql_query($remquery) or die(mysql_error());
-			$class = mysql_fetch_assoc($result);
-			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Removed Object ".$_GET["delete"]."','{$_SESSION['login']}',NOW())";
-			$sql2 = mysql_query($query) or die(mysql_error());
+			$db->Execute("Delete FROM objects WHERE id = ?", $_GET["delete"]);
+			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Removed Object ?',?,NOW())", array($db->qstr($_GET["delete"]), $_SESSION['login']));
 			?>
 			<script type="text/javascript">
 				window.location = 'admin.php?view=map&show=7';
@@ -57,12 +48,8 @@ if (isset($_SESSION['user_id']))
 		}
 		if (isset($_GET["deletecheck"])){
 
-			$remquery = "delete from id using instance_deployable id join survivor s on id.owner_id = s.id where s.id = '".$_GET["deletecheck"]."'";
-			$result = mysql_query($remquery) or die(mysql_error());
-			$class = mysql_fetch_assoc($result);
-			$remquery1 = "Delete FROM survivor WHERE id='".$_GET["deletecheck"]."'";
-			$result1 = mysql_query($remquery1) or die(mysql_error());
-			$class1 = mysql_fetch_assoc($result1);
+			$db->Execute("delete from id using instance_deployable id join survivor s on id.owner_id = s.id where s.id = ?", $_GET["deletecheck"]);
+			$db->Execute("Delete FROM survivor WHERE id = ?", $_GET["deletecheck"]);
 			?>
 			<script type="text/javascript">
 				window.location = 'admin.php?view=check';
@@ -71,9 +58,7 @@ if (isset($_SESSION['user_id']))
 		}
 		if (isset($_GET["deletespawns"])){
 
-			$remquery = "Delete FROM spawns WHERE ObjectID=".$_GET["deletespawns"];
-			$result = mysql_query($remquery) or die(mysql_error());
-			$class = mysql_fetch_assoc($result);
+			$db->Execute("Delete FROM spawns WHERE ObjectID = ?", $_GET["deletespawns"]);
 			?>
 			<script type="text/javascript">
 				window.location = 'admin.php?view=map&show=8';
@@ -82,11 +67,8 @@ if (isset($_SESSION['user_id']))
 		}
 		if (isset($_GET["resetlocation"])){
 
-			$remquery = "update survivor set worldspace = '[]' WHERE id='".$_GET["resetlocation"]."'";
-			$result = mysql_query($remquery) or die(mysql_error());
-			$class = mysql_fetch_assoc($result);
-			$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Reset Player Location of ID:".$_GET["resetlocation"]."','{$_SESSION['login']}',NOW())";
-			$sql2 = mysql_query($query) or die(mysql_error());
+			$db->Execute("update survivor set worldspace = '[]' WHERE id = ?", $_GET["resetlocation"]);
+			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Reset Player Location of ID: ?,?,NOW())", array($_GET["resetlocation"], $_SESSION['login']));
 			?>
 			<script type="text/javascript">
 				window.location = 'admin.php?view=table&show=0';

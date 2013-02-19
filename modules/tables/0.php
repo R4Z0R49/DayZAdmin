@@ -62,16 +62,12 @@
 				$playername = trim($new_string);
 
 
-				//echo $playername."<br />";
 				$search = preg_replace("/[^\w\x7F-\xFF\s]/", " ", $playername);
 				$good = trim(preg_replace("/\s(\S{1,2})\s/", " ", preg_replace("[ +]", "  "," $search ")));
 				$good = trim(preg_replace("/\([^\)]+\)/", "", $good));
 				$good = preg_replace("[ +]", " ", $good);
-				//echo $good."<br />";
-				$query = "select * from (SELECT profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id) as T where name LIKE '%". str_replace(" ", "%' OR name LIKE '%", $good). "%' ORDER BY last_updated DESC LIMIT 1"; 				
-				//echo $playername."<br />";
-				$res = null;
-				$res = mysql_query($query) or die(mysql_error());
+				$likeString = '%' . $good . '%';
+				$res = $db->GetRow("SELECT p.name, s.* FROM profile p, survivor s WHERE p.unique_id = s.unique_id AND p.name LIKE ? ORDER BY s.last_updated DESC LIMIT 1", $likeString);
 				$name = $res['name'];
 				$id = $res['unique_id'];
 				$dead = "";
@@ -84,9 +80,7 @@
 				$name = $players[$i][4];
 				$uid = "";
 				
-				while ($row=mysql_fetch_array($res)) {					
-					$tablerows .= row_online_player($row, $players[$i]);
-				}
+				$tablerows .= row_online_player($res, $players[$i]);
 			}
 		}
 	}

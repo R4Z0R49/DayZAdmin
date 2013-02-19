@@ -1,8 +1,10 @@
 <?php
 	error_reporting (E_ALL ^ E_NOTICE);
 	
-	$res = mysql_query($query) or die(mysql_error());
-	$pnumber = mysql_num_rows($res);			
+	$binds = $query[1];
+    $query = $query[0];
+    $res = $db->GetAll($query, $binds);
+    $pnumber = sizeof($res);
 
 	if(isset($_GET['page']))
 	{
@@ -25,8 +27,8 @@
 
 			
 	$query = $query." LIMIT ".$offset.",".$rowsPerPage;
-	$res = mysql_query($query) or die(mysql_error());
-	$number = mysql_num_rows($res);
+    $res = $db->GetAll($query, $binds);
+    $number = sizeof($res);
 
 	$tableheader = '
 		<tr>
@@ -34,7 +36,7 @@
 		<th class="table-header-repeat line-left minwidth-1"><a href="">Object UID</a></th>
 		<th class="table-header-repeat line-left"><a href="">Position</a></th>
 		</tr>';
-	while ($row=mysql_fetch_array($res)) {
+		foreach($res as $row) {
 		$Worldspace = str_replace("[", "", $row['pos']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = str_replace("|", ",", $Worldspace);

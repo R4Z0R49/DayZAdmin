@@ -2,8 +2,7 @@
 if (isset($_SESSION['user_id']))
 {
 	$pagetitle = "Database Admin Coming Soon";
-	$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('DATABASE ADMIN','{$_SESSION['login']}',NOW())";
-	$sql2 = mysql_query($query) or die(mysql_error());
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('DATABASE ADMIN',?,NOW())", $_SESSION['login']);
 ?>
 
 <div id="page-heading">

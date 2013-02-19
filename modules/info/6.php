@@ -1,13 +1,17 @@
 <?php
-include ('querys.php');
+include ('queries.php');
 $id = '';
 if (isset($_GET['id'])){
 	$id = " AND id ='".$_GET['id']."'";
 }
 
-$res = mysql_query($info6) or die(mysql_error());
-$number = mysql_num_rows($res);
-while ($row=mysql_fetch_array($res)) {
+$query = $info6[0];
+$binds = $info6[1];
+$res = $db->GetAll($query, $binds);
+$number = sizeof($res);
+
+foreach($res as $row) {
+
     $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 	/* $Inventory = $row['inventory'];
 	$Inventory = str_replace("[", "", $Inventory);

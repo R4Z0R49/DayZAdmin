@@ -1,12 +1,6 @@
 <?php
 if (isset($_SESSION['user_id']))
 {
-
-/*
-** Функция для генерации соли, используемоей в хешировании пароля
-** возращает 3 случайных символа
-*/
-
 function GenerateSalt($n=3)
 {
 	$key = '';
@@ -116,12 +110,8 @@ if (empty($_POST))
 }
 else
 {
-	// обрабатывае пришедшие данные функцией mysql_real_escape_string перед вставкой в таблицу БД
-	
-	$login = (isset($_POST['login'])) ? mysql_real_escape_string($_POST['login']) : '';
-	$password = (isset($_POST['password'])) ? mysql_real_escape_string($_POST['password']) : '';
-	
-	// проверяем на наличие ошибок (например, длина логина и пароля)
+	$login = (isset($_POST['login'])) ? $_POST['login'] : '';
+	$password = (isset($_POST['password'])) ? $_POST['password'] : '';
 	
 	$error = false;
 	$errort = '';
@@ -137,36 +127,20 @@ else
 		$errort .= 'Password must be at least 6 characters.<br />';
 	}
 	
-	// проверяем, если юзер в таблице с таким же логином
-	$query = "SELECT `id`
-				FROM `users`
-				WHERE `login`='{$login}'
-				LIMIT 1";
-	$sql = mysql_query($query) or die(mysql_error());
-	if (mysql_num_rows($sql)==1)
+	$res = $db->GetAll("SELECT `id` FROM `users` WHERE `login` = ?", $login);
+	if (sizeof($res)==1)
 	{
 		$error = true;
 		$errort .= 'Login already used.<br />';
 	}
 	
-	// если ошибок нет, то добавляем юзаре в таблицу
 	if (!$error)
 	{
-		// генерируем соль и пароль
-		
 		$salt = GenerateSalt();
 		$hashed_password = md5(md5($password) . $salt);
 		
-		$query = "INSERT
-					INTO `users`
-					SET
-						`login`='{$login}',
-						`password`='{$hashed_password}',
-						`salt`='{$salt}'";
-		$sql = mysql_query($query) or die(mysql_error());
-
-		$query = "INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('REGISTER ADMIN: {$login}','{$_SESSION['login']}',NOW())";
-		$sql2 = mysql_query($query) or die(mysql_error());
+		$db->Execute("INSERT INTO `users` SET `login` = ?, `password` = ?, `salt` = ?", array($login, $hashed_password, $salt));
+		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('REGISTER ADMIN: ?',?,NOW())", array($login, $_SESSION['login']));
 		?>
 		<!--  start message-green -->
 		<div id="msg">
