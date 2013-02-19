@@ -5,6 +5,7 @@
 	$rconpassword = "123456"; //rcon password
 	$serverport = 2302; //server port
 	$hostname = "127.0.0.1";  //Database host
+	$dbport = 3306; //database port (MySQL default is 3306)
 	$username = "dayz"; //database user
 	$password = "dayz"; //database password
 	$dbName = "dayz"; //database name
