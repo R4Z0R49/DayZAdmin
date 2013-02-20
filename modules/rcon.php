@@ -1,6 +1,4 @@
 <?php
-if (isset($_SESSION['user_id']))
-{
 
 function strToHex($string)
 {
@@ -111,11 +109,5 @@ function rcon($serverip,$serverport,$rconpassword,$cmd){
 	}
 
 	return $answer;
-}
-
-}
-else
-{
-	header('Location: admin.php');
 }
 ?>
