@@ -125,7 +125,6 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
                 if (array_key_exists($i, $Inventory)) {
                     $curitem = $Inventory[$i];
                     if (is_array($curitem)) { $curitem = $Inventory[$i][0]; }
-                    if (in_array($curitem, $items_banned)) { $Unknown[] = $curitem; }
                     if (!array_key_exists('s'.$curitem, $items_xml['items'])) { $Unknown[] = $curitem; }
                 }
             }
@@ -168,7 +167,6 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
                 if (array_key_exists($i, $Inventory)) {
                     $curitem = $Inventory[$i];
                     if (is_array($curitem)) { $curitem = $Inventory[$i][0]; }
-                    if (in_array($curitem, $items_banned)) { $Unknown[] = $curitem; }
                     if (!array_key_exists('s'.$curitem, $items_xml['items'])) { $Unknown[] = $curitem; }
                 }
             }
