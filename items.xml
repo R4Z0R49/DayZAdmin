@@ -168,6 +168,10 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </sBoltSteel>
+    <sWoodenArrow>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sWoodenArrow>
     <sColt1911>
         <Type>pistol</Type>
         <Slots>5</Slots>
@@ -392,6 +396,10 @@
         <Type>item</Type>
         <Slots>1</Slots>
     </sItemHatchet>
+    <sItemCrowbar>
+        <Type>item</Type>
+        <Slots>1</Slots>
+    </sItemCrowbar>
     <sItemHeatPack>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
@@ -716,4 +724,128 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sBAF_L85A2_RIS_Holo>
+    <sFoodCanBadguy>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanBadguy>
+    <sFoodCanBoneboy>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanBoneboy>
+    <sFoodCanCorn>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanCorn>
+    <sFoodCanCurgon>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanCurgon>
+    <sFoodCanDemon>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanDemon>
+    <sFoodCanFraggleos>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanFraggleos>
+    <sFoodCanGriff>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanGriff>
+    <sFoodCanHerpy>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanHerpy>
+    <sFoodCanOrlok>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanOrlok>
+    <sFoodCanPowell>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanPowell>
+    <sFoodCanTylers>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanTylers>
+    <sFoodCanUnlabeled>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanUnlabeled>
+    <sFoodMRE>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodMRE>
+    <sFoodNutmix>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodNutmix>
+    <sFoodPistachio>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodPistachio>
+    <sItemSodaClays>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaClays>
+    <sItemSodaDrwaste>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaDrwaste>
+    <sItemSodaFranka>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaFranka>
+    <sItemSodaLemonade>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaLemonade>
+    <sItemSodaLirikola>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaLirikola>
+    <sItemSodaLvg>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaLvg>
+    <sItemSodaMtngreen>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaMtngreen>
+    <sItemSodaMzly>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaMzly>
+    <sItemSodaPeppsy>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaPeppsy>
+    <sItemSodaR4z0r>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaR4z0r>
+    <sItemSodaRabbit>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaRabbit>
+    <sItemSodaSacrite>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaSacrite>
+    <sItemSodaSmasht>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemSodaSmasht>
+    <sItemTrashRazor>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemTrashRazor>
+    <sItemTrashToiletpaper>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sItemTrashToiletpaper>
+    <sQuiver>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sQuiver>
 </items>
