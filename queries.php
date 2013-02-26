@@ -14,12 +14,36 @@ switch($sql)
 	
 	
     case 'DayZ':
-		$info1 = "select player_data.*, character_data.* from player_data, character_data as character_data where player_data.PlayerUID like ".$_GET["id"].$cid." AND Alive=1"; 
-		$info4 = "SELECT * FROM object_data WHERE ObjectUID = ".$_GET["id"]." and instance = '" . $iid . "'";
-		$info5 = "SELECT * FROM object_spawns WHERE ObjectUID = ".$_GET["id"]." LIMIT 1"; 
-		$info6 = "";
+		$info1 = array("select 
+	player_data.playerName as name, 
+	player_data.playerUID as unique_id,
+	character_data.Worldspace as worldspace,
+	character_data.Inventory as inventory,
+	character_data.Backpack as backpack,
+	character_data.Model as model,
+	character_data.Medical as medical,
+	character_data.distanceFoot as DistanceFoot,
+	character_data.duration as survival_time,
+	character_data.last_updated as last_updated,
+	character_data.KillsZ as zombie_kills,
+	character_data.KillsZ as total_zombie_kills,
+	character_data.HeadshotsZ as headshots,
+	character_data.HeadshotsZ as total_headshots,
+	character_data.KillsH as survivor_kills,
+	character_data.KillsH as total_survivor_kills,
+	character_data.KillsB as bandit_kills,
+	character_data.KillsB as total_bandit_kills,
+	character_data.Generation as survival_attempts,
+	character_data.duration as survival_time,
+	character_data.distanceFoot as distance
+from player_data, character_data 
+where player_data.PlayerUID like ?
+AND Alive=1", array($_GET["id"])); 
+		$info4 = array("SELECT * FROM object_data WHERE ObjectUID = ".$_GET["id"]." and instance = '" . $iid . "'"); 
+		$info5 = array("SELECT * FROM object_spawns WHERE ObjectUID = ".$_GET["id"]." LIMIT 1"); 
+		$info6 = array(""); 
 		
-		$map0 = "select player_data.*, character_data.* from player_data, character_data as character_data where player_data.PlayerUID = character_data.PlayerUID and character_data.Alive = 1 and character_data.last_updated >= NOW() - INTERVAL 1 minute";
+		$map0 = array("select player_data.playerName as name, player_data.playerUID, character_data.PlayerUID as unique_id, character_data.Worldspace as worldspace, character_data.Model as model, character_data.KillsZ as zombie_kills,character_data.KillsB as bandit_kills, character_data.duration as survival_time from player_data, character_data where player_data.PlayerUID = character_data.PlayerUID and character_data.Alive = 1 and character_data.last_updated >= NOW() - INTERVAL 1 minute", array());
 	break;
-}
+};
 ?>

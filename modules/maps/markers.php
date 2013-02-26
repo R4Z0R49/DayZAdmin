@@ -1,29 +1,28 @@
 <?php
-
+include('config.php');
 require_once('functions.php');
 
 function markers_player($res, $world) {
 	$markers = array();
+		foreach($res as $row) {
+			$Worldspace = str_replace("[", "", $row['worldspace']);
+			$Worldspace = str_replace("]", "", $Worldspace);
+			$Worldspace = explode(",", $Worldspace);
+			$x = 0; if (array_key_exists(1, $Worldspace)) { $x = $Worldspace[1]; }
+			$y = 0; if (array_key_exists(2, $Worldspace)) { $y = $Worldspace[2]; }
 
-	foreach($res as $row) {
-		$Worldspace = str_replace("[", "", $row['worldspace']);
-		$Worldspace = str_replace("]", "", $Worldspace);
-		$Worldspace = explode(",", $Worldspace);
-		$x = 0; if (array_key_exists(1, $Worldspace)) { $x = $Worldspace[1]; }
-		$y = 0; if (array_key_exists(2, $Worldspace)) { $y = $Worldspace[2]; }
-
-		require_once('modules/calc.php');
-		$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."\">".htmlspecialchars($row['name'], ENT_QUOTES)." - ".$row['unique_id']."</a></h2> <table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row['id']."<br> <strong>CharacterID:</strong> ".$row['unique_id']."<br> <strong>Zed Kills:</strong> ".$row['zombie_kills']."<br> <strong>Bandit Kills:</strong> ".$row['bandit_kills']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['survival_time'])."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."</td></tr></table>";	
-		$tmp = array();
-		$tmp["id"] = $row['id'];
-		$tmp["lat"] = (world_y($y, $world) / 10);
-		$tmp["lng"] = (world_x($x, $world) / 10);
-		$tmp["icon"] = "Player".($row['is_dead'] ? "Dead" : "");
-		$tmp["title"] = htmlspecialchars($row['name'], ENT_QUOTES)." (".$row['unique_id'].")";
-		$tmp["description"] = $description;
-		
-		$markers[] = $tmp;
-	}
+			require_once('modules/calc.php');
+			$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."\">".htmlspecialchars($row['name'], ENT_QUOTES)." - ".$row['unique_id']."</a></h2> <table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row['id']."<br> <strong>CharacterID:</strong> ".$row['unique_id']."<br> <strong>Zed Kills:</strong> ".$row['zombie_kills']."<br> <strong>Bandit Kills:</strong> ".$row['bandit_kills']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['survival_time'])."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."</td></tr></table>";	
+			$tmp = array();
+			$tmp["id"] = $row['id'];
+			$tmp["lat"] = (world_y($y, $world) / 10);
+			$tmp["lng"] = (world_x($x, $world) / 10);
+			$tmp["icon"] = "Player".($row['is_dead'] ? "Dead" : "");
+			$tmp["title"] = htmlspecialchars($row['name'], ENT_QUOTES)." (".$row['unique_id'].")";
+			$tmp["description"] = $description;
+			
+			$markers[] = $tmp;
+		}
 
 	return $markers;
 }

@@ -1,5 +1,6 @@
 <?php
 
+include ('queries.php');
 $query = $map0[0];
 $binds = $map0[1];
 $res = $db->GetAll($query, $binds);
