@@ -1,35 +1,39 @@
 <?php
-ini_set( "display_errors", 0);
+//ini_set( "display_errors", 0);
 error_reporting (E_ALL ^ E_NOTICE);
 	
 session_start();
 require_once('config.php');
 require_once('db.php');
+include('queries.php');
 
 $KillsZ = 0;
 $KillsB = 0;
 $KillsH = 0;
 $HeadshotsZ = 0;
+$Killshero = 0;
 
-$res = $db->Execute("SELECT * FROM profile");
+$res = $db->Execute($stats_totalkills);
 foreach($res as $row) {
-	$KillsZ += $row['total_zombie_kills'];
-	$KillsB += $row['total_bandit_kills'];
-	$KillsH += $row['total_survivor_kills'];
-	$HeadshotsZ += $row['total_headshots'];
+	$KillsZ += $row[$stats_totalkills_KillsZ];
+	$KillsB += $row[$stats_totalkills_KillsB];
+	$KillsH += $row[$stats_totalkills_KillsH];
+	$HeadshotsZ += $row[$stats_totalkills_HeadshotsZ];
 }
+	
+$totalAlive = $db->GetOne($stats_totalAlive);
 
-$totalAlive = $db->GetOne("SELECT COUNT(*) FROM survivor WHERE is_dead = 0");
+$num_totalplayers = $db->GetOne($stats_totalplayers);
 
-$num_totalplayers = $db->GetOne("SELECT COUNT(*) FROM profile");
+$num_deaths = $db->GetOne($stats_deaths);
 
-$num_deaths = $db->GetOne("SELECT COUNT(*) FROM survivor WHERE is_dead = 1");
+$num_alivebandits = $db->GetOne($stats_alivebandits);
 
-$num_alivebandits = $db->GetOne("SELECT COUNT(*) FROM survivor WHERE is_dead = 0 AND Model = 'Bandit1_DZ'");
+$num_aliveheros = $db->GetOne($stats_aliveheros);
 
-$num_totalVehicles = $db->GetOne("SELECT COUNT(*) FROM instance_vehicle WHERE instance_id = ?", $iid);
+$num_totalVehicles = $db->GetOne($stats_totalVehicles);
 
-$num_Played24h = $db->GetOne("SELECT COUNT(*) FROM survivor WHERE last_updated > now() - INTERVAL 1 DAY");
+$num_Played24h = $db->GetOne($stats_Played24h);
 
 ?>
 
@@ -89,6 +93,17 @@ $num_Played24h = $db->GetOne("SELECT COUNT(*) FROM survivor WHERE last_updated >
   </tr>
   <tr>
     <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-bandits.gif" width="36" height="27" /></td>
+    <td><strong>Heros Alive:</strong></td>
+    <td align="right"><?php echo $num_aliveheros;?></td>
+  </tr>
+  <tr>
+    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-banditskilled.gif" width="36" height="27" /></td>
+    <td><strong>Heros Killed:</strong></td>
+    <td align="right"><?php echo $Killshero;?></td>
+  </tr>
+  <tr>
+    <tr>
+    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-bandits.gif" width="36" height="27" /></td>
     <td><strong>Bandits Alive:</strong></td>
     <td align="right"><?php echo $num_alivebandits;?></td>
   </tr>
@@ -97,7 +112,6 @@ $num_Played24h = $db->GetOne("SELECT COUNT(*) FROM survivor WHERE last_updated >
     <td><strong>Bandits Killed:</strong></td>
     <td align="right"><?php echo $KillsB;?></td>
   </tr>
-  <tr>
   </tr>
   <tr>
     <td><img src="./images/vehicles.png" width="24" height="24" /></td>
