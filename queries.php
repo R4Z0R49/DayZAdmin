@@ -100,7 +100,7 @@ from player_data, character_data
 where player_data.PlayerUID = character_data.PlayerUID 
 and character_data.Alive = 1 
 and character_data.last_updated >= NOW() - INTERVAL 1 minute");
-		$map8_vehilces = array("SELECT object_classes.*,
+		$map8_vehicles = array("SELECT object_classes.*,
 		object_data.ObjectID as id,
 		object_data.ObjectUID as uid,
 		object_data.Classname as class_name,
@@ -113,6 +113,7 @@ and character_data.last_updated >= NOW() - INTERVAL 1 minute");
 		and object_data.Instance =  '" . $iid . "' and CharacterID = '0'");
 		$map8_objects = array("SELECT object_classes.*,
 		object_data.ObjectID as id,
+		object_data.ObjectID as idid,
 		object_data.ObjectUID as uid,
 		object_classes.Classname as class_name,
 		object_data.Worldspace as worldspace,
