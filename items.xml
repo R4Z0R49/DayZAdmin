@@ -180,6 +180,10 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sCrossbow>
+    <sCrossbow_DZ>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sCrossbow_DZ>
     <scrowbar_swing>
         <Type>none</Type>
         <Slots>1</Slots>
