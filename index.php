@@ -97,11 +97,6 @@ $num_Played24h = $db->GetOne($stats_Played24h);
     <td align="right"><?php echo $num_aliveheros;?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-banditskilled.gif" width="36" height="27" /></td>
-    <td><strong>Heros Killed:</strong></td>
-    <td align="right"><?php echo $Killshero;?></td>
-  </tr>
-  <tr>
     <tr>
     <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-bandits.gif" width="36" height="27" /></td>
     <td><strong>Bandits Alive:</strong></td>
