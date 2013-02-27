@@ -142,9 +142,6 @@ foreach($res as $row) {
 						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-45px">
 							<?php echo 'Survival Time:&nbsp;'.$survival_time;?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-30px">
-							<?php echo 'Travel Distance:&nbsp;'.$distance; ?>
-						</div>
 					</div>
 					<div class="gear_inventory">
 						<div class="gear_slot" style="margin-left:1px;margin-top:48px;width:80px;height:80px;">
