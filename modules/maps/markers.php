@@ -63,8 +63,10 @@ function markers_vehicle($res, $world) {
 function markers_deployable($res, $world) {
 	$markers = array();
 
+    require_once('modules/xml2array.php');
+	$xml = file_get_contents('items.xml', true);
+    $items_xml = XML2Array::createArray($xml);
 	$xml = file_get_contents('vehicles.xml', true);
-	require_once('modules/xml2array.php');
 	$vehicles_xml = XML2Array::createArray($xml);
 
 	foreach($res as $row) {
@@ -78,7 +80,15 @@ function markers_deployable($res, $world) {
 		$type = $row['Type'];
 
 		require_once('modules/calc.php');
-		$description = '<h2><a href="admin.php?view=info&show=6&id='.$row['id'].'">'.$class.'</a></h2><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Owner:</strong>&nbsp;'.htmlspecialchars($row['name']).'</td></tr></table>';
+		$contents = "";
+		if($type == "tent") {
+			$Inventory  = $row['inventory'];
+			$Inventory = str_replace("|", ",", $Inventory);
+			$Inventory  = json_decode($Inventory);
+			$counts = inventoryCounts($Inventory, $items_xml, $vehicles_xml);
+			$contents = "<br><strong>Weapons:</strong>&nbsp;".$counts[0]."<br><strong>Items:</strong>&nbsp;".$counts[1]."<br><strong>Backpacks:</strong>&nbsp;".$counts[2];
+		}
+		$description = '<h2><a href="admin.php?view=info&show=6&id='.$row['id'].'">'.$class.'</a></h2><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Owner:</strong>&nbsp;'.htmlspecialchars($row['name']).$contents.'</td></tr></table>';
 		
 		$tmp = array();
 		$tmp["id"] = $row['idid'];
