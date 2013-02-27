@@ -348,6 +348,14 @@
         <Type>none</Type>
         <Slots>1</Slots>
     </sHatchet_Swing>
+    <sCrowbar_Swing>
+        <Type>none</Type>
+        <Slots>1</Slots>
+    </sCrowbar_Swing>
+    <sMachete_Swing>
+        <Type>none</Type>
+        <Slots>1</Slots>
+    </sMachete_Swing>
     <shuntingrifle>
         <Type>rifle</Type>
         <Slots>10</Slots>
@@ -400,6 +408,10 @@
         <Type>item</Type>
         <Slots>1</Slots>
     </sItemCrowbar>
+    <sItemMachete>
+        <Type>item</Type>
+        <Slots>1</Slots>
+    </sItemMachete>
     <sItemHeatPack>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
@@ -572,6 +584,10 @@
         <Type>rifle</Type>
         <Slots>10</Slots>
     </sMeleeCrowbar>
+    <sMeleeMachete>
+        <Type>rifle</Type>
+        <Slots>10</Slots>
+    </sMeleeMachete>
     <sMeleeFlashlight>
         <Type>pistol</Type>
         <Slots>1</Slots>
