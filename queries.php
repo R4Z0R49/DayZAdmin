@@ -88,7 +88,7 @@ from player_data, character_data
 where player_data.PlayerUID = character_data.PlayerUID 
 and character_data.Alive = 1 
 and character_data.last_updated >= NOW() - INTERVAL 1 minute");
-		$map8_players = array("select player_data.playerName as name, player_data.playerUID, 
+		$map8_players = "select player_data.playerName as name, player_data.playerUID, 
 character_data.PlayerUID as unique_id, 
 character_data.CharacterID as id,
 character_data.Worldspace as worldspace, 
@@ -99,20 +99,9 @@ character_data.duration as survival_time
 from player_data, character_data 
 where player_data.PlayerUID = character_data.PlayerUID 
 and character_data.Alive = 1 
-and character_data.last_updated >= NOW() - INTERVAL 1 minute");
-		$map8_vehilces = array("SELECT object_classes.*,
-		object_data.ObjectID as id,
-		object_data.ObjectUID as uid,
-		object_data.Classname as class_name,
-		object_data.Worldspace as worldspace,
-		object_data.Damage as damage,
-		object_data.last_updated,
-		object_data.Fuel as fuel
-		FROM object_classes, object_data as object_data  
-		where object_data.Classname = object_classes.Classname 
-		and object_data.Instance =  '" . $iid . "' and CharacterID = '0'");
+and character_data.last_updated >= NOW() - INTERVAL 1 minute";
 		$map8_objects = array("SELECT object_classes.*,
-		object_data.ObjectID as id,
+		object_data.ObjectID as idid,
 		object_data.ObjectUID as uid,
 		object_classes.Classname as class_name,
 		object_data.Worldspace as worldspace,
@@ -120,7 +109,7 @@ and character_data.last_updated >= NOW() - INTERVAL 1 minute");
 		object_data.last_updated
 		FROM object_classes, object_data
 		where object_data.Classname = object_classes.Classname
-		and object_data.CharacterID > '0' and object_data.Instance = '" . $iid . "'");
+		and object_data.CharacterID > '0' and object_data.Instance = ?", $iid);
 
 	break;
 };
