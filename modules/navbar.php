@@ -63,6 +63,7 @@ if (isset($_SESSION['user_id']))
 			<div class="table">
 				<ul class="select menutop level1">
 				<li class="li-dashboard root active"><a href="admin.php" style="color:#FFF;" class="dashboard item">Dashboard</a></li>
+				<li class="li-dashboard root active"><a href="index.php" style="color:#FFF;" class="dashboard item">Stats</a></li>
 				<li class="li-users parent root"><span class=" daddy item"><span>Control</span></span>
 					<ul class="level2 parent-users">
 						<li class="li-mass-mail-users"><a href="admin.php?view=vip" class="class:massmail item">Manage VIPs</a></li>

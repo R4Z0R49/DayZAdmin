@@ -58,11 +58,24 @@ $(document).pngFix( );
 </head>
 <body id="login-bg"> 
  
-<div id="login-holder">
-
-	<div id="logo-login">
-		<a href="/"><img src="images/logo.png" width="451px" height="218px" alt="" /></a>
+<div id="topbg"></div>
+<div id="logo">
+		<img src="images/logo.png" width="150px" height="72px" alt=""></a>
+</div>
+<div id="rightlogo">
+		<a href="<?php echo($rightlogoLink); ?>"><img src="<?php echo($rightlogoImg); ?>" width="<?php echo($rightlogoWidth); ?>" height="<?php echo($rightlogoHeight); ?>" alt=""></img></a>
+</div>
+<div id="nav">
+	<div id="nav_middle">
+		<div id="nav_padding">
+			<nav>
+				<a href="index.php">Home</a>
+			</nav>
+		</div>
 	</div>
+</div>
+ 
+<div id="login-holder">
 	
 	<div class="clear"></div>
 	<form action="admin.php" method="post">

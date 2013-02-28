@@ -2,15 +2,10 @@
 	margin: 0;
 	padding: 0;
 	}
-html, body	{
-	height: 100%;
-	}
 body	{
-	background: #fff;
-	color: #393939;
-	font-family: Arial;
-	font-size: 0px;
-	line-height: 0;
+	color: grey;
+	font-family: tahoma;
+	background-color: #fff;
 	}
 #dvPopup{
 	top:expression(eval(document.documentElement.scrollTop)) !important;
@@ -339,8 +334,8 @@ height:15px;
 	margin: 0 0 15px 20px;
 	}
   h1	{
-	color: #4b4b4b;
-	font-family: Tahoma;
+	color: grey;
+	font-family: tahoma;
 	font-size: 22px;
 	line-height: 24px;
 	font-weight: normal;
@@ -451,14 +446,7 @@ h3	{
 .green-right	{
 	width: 55px;
 	}	
-	
-	
-	
-	
-	
-	
-	
-	
+
 a.icon-1	{
 	background: url(../images/table/table_icon_1.gif) no-repeat;
 	display: block;
@@ -623,26 +611,6 @@ th.line-left	{
 		height:17px;
 		background: url(../images/shared/checkbox.gif) 0 0;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 /*  RELATED ACTIVIES BOX */	
 
@@ -1266,47 +1234,56 @@ Copyright (c) 2005-2007 Stu Nicholls. All rights reserved. This stylesheet and t
 
  
 #footer	{
-height: 70px;
-	 
-	margin: 80px auto 0px auto;
-	padding: 0px 0 0 0;
+	position: relative;
+	margin-top: 60px;
 	text-align: left;
-	min-width: 780px;
-	max-width: 1260px;
-	}
-#footer-left	{
-	color: #818181;
-	 
+	width: 100%;
+	height: 40px;
+	clear: both;
+}
+
+#footer-left{
+	color: #fff;
 	font-size: 11px;
 	line-height: 11px;
-	padding: 15px 0 15px 70px;
-	margin: 0 20px;
+	padding: 15px 0 15px 15px;
+	border-top: 1px solid grey;
+	#background: url(../images/lglogo.png) no-repeat 5px 8px;
+	background-color: #3e3e3e;
+} 
 	
-	border-top: 1px solid #dbdbdb;
-	border-bottom: 1px solid #dbdbdb;
-	background: url(../images/lglogo.png) no-repeat 0 7px;
-	} 
 #footer-left a	{
-	color: #818181;
+	color: #fff;
 	text-decoration: none;
-	}
+}
+
 #footer-left 	 a.selected,
 #footer-left 	 a:hover	{
-	color: #000;
+	color: #8a8a8a;
 	text-decoration: none;
-	}
-	
-#social	{
-height: 70px;
-	 
-	margin: auto auto auto auto;
-	padding: auto auto auto auto;
-	text-align: center;
-	min-width: 780px;
-	max-width: 1260px;
 }
-	
- 
+
+#social	{
+	height: 5px;
+	margin-top: 10px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#social_box {
+	margin: 0 auto;
+	min-width: 508px;
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	min-height: 150px;
+/*	background-color: #3e3e3e;
+	background: url(../images/shared/divbg.png) center center fixed;
+	border: 1px solid grey; */
+	margin-top: 10px;
+	position: relative;
+}
+
  
  
 /* GENERAL --------------------------------------------------------*/ 
@@ -1624,75 +1601,82 @@ label	{
 /*  LOGIN -------------------------------------------------------------------------------- */	
 
 #login-bg	{
+	color: grey;
+	background-color: #000;
+	background: url(../images/bg.jpg) no-repeat center center fixed;
+	}
+#login-holder	{
+	margin: 0px auto;
+	width: 960px;
+	}
+#loginbox	{
+	background-color: #3e3e3e;
+	background: url(../images/shared/divbg.png) center center fixed;
+	font-size: 12px;
+	height: 212px;
+	line-height: 12px;
+	padding-top: 60px;
+	position: relative;
+	width: 508px;
+	margin: 0 auto;
+	border: 1px solid grey;
+	}
+	
+#stats-bg	{
 background: url(../images/bg.jpg) no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+	margin: 0 auto;
 	}
-#login-holder	{
-	margin: 0px auto 0 auto;
-	width: 508px;
+#gametracker	{
+	margin: 0 auto;
+	margin-left: 200px;
 	}
-#loginbox	{
-	background: url(../images/login/loginbox_bg.png) no-repeat;
-	font-size: 12px;
-	height: 212px;
-	line-height: 12px;
-	padding-top: 60px;
-	position: relative;
-	width: 508px;
-	}
-	
-#stats-bg	{
-	background: url(../images/bg.jpg) no-repeat center center fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-	}
+#stats-margin {
+	margin: 0 auto;
+	margin-left: 255px;
+}
 #stats-holder	{
-	margin: 0px auto 0 auto;
-	width: 508px;
+	margin: 0px auto;
+	width: 960px;
 	}
 #statsbox	{
-	background: url(../images/login/statsbox_bg.png) no-repeat;
-	font-size: 14px;
-	height: 500px;
+	border-left: 1px solid grey;
+	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
+	background-color: #3e3e3e;
+	background: url(../images/shared/divbg.png) center center fixed;
+	height: auto;
+	line-height: 12px;
+	padding-top: 10px;
+	width: 508px;
+	margin: 0 auto;
+	margin: 0 auto;
+	}
+#forgotbox	{
+	background: url(../images/login/loginbox_bg.png) no-repeat;
+	display: none;
+	height: 212px;
 	line-height: 18px;
 	padding-top: 60px;
 	position: relative;
 	width: 508px;
 	}
-#stats-margin	{
-	float: left;
-	height: 218px;
-	margin: 5px 0 0 15px;
-	}	
-#forgotbox	{
-	background: url(../images/login/loginbox_bg.png) no-repeat;
-	display: none;
-	font-size: 12px;
-	height: 212px;
-	line-height: 12px;
-	padding-top: 60px;
-	position: relative;
-	width: 508px;
-	}
 #login-inner	{
-	color: #161616;
-	font-family: Tahoma;
+	color: grey;
+	font-family: tahoma;
 	font-size: 13px;
 	line-height: 12px;
 	margin: 0 auto;
 	width: 310px;
 	}
 #login-inner label	{
-	color: #161616;
+	color: grey;
 	cursor: pointer;
-	font-family: Tahoma;
+	font-family: tahoma;
 	font-weight: bold;
-	line-height: 12px;
 	padding-left: 10px;
 	 
 	}
@@ -1700,7 +1684,6 @@ background-size: cover;
 	width:13px;
 	height:13px;
 	margin: 5px 0;
-	 
 	}	
 #login-inner th	{
 	padding: 0 0 6px 0;
@@ -1718,11 +1701,6 @@ background-size: cover;
 	height: 28px;
 	padding: 6px 6px 0 10px;
 	width: 204px;
-	}
-#logo-login	{
-	float: left;
-	height: 218px;
-	margin: 145px 0 0 15px;
 	}
 a.forgot-pwd	{
 	bottom: 30px;
@@ -1804,6 +1782,7 @@ list-style-type:none;
 margin:0;
 padding:0;
 }
+
  
 #medical table {
 	width: 500px;
@@ -1820,4 +1799,77 @@ padding:0;
 #medical td {
 	text-align: left;
 	padding-top: 3px;
+}
+
+/* Top */
+#topbar a{
+	text-decoration: none;
+	color: #fff;
+	margin-left: 50px;
+}
+
+#topbg {
+	background: url(../images/shared/top_bg.jpg);
+	position: relative;
+	height: 82px;
+	width: 100%;
+}
+
+#logo {
+	padding-top: 5px;
+	margin-left: 50px;
+	width: auto;
+	margin-top: -82px;
+	z-index: 15;
+	position: relative;
+}
+
+#rightlogo {
+	padding-top: 5px;
+	margin-right: 50px;
+	width: auto;
+	margin-top: -90px;
+	z-index: 20;
+	position: relative;
+	float: right;
+}
+
+#nav{
+	background-image: url(../images/shared/nav/repeat.jpg);
+	border-bottom: 1px solid grey;
+	min-width: 700px;
+	height: 30px;
+	margin-bottom: 50px;
+}
+
+#nav_middle {
+	width: 120px;
+}
+#nav_right {
+	float: right;
+	z-index: 10;
+	margin-top: -30px;
+}
+#nav_padding {
+
+}
+#nav_padding a {
+	font-family: tahoma;
+	font-size: 13px;
+	font-weight: bold;
+	color: #fff;
+	display: inline-block;
+	*display: inline;
+	font-weight: bold;
+	height: 25px;
+	outline: 0;
+	padding-top: 5px;
+	text-align: center;
+	text-decoration: none;
+	width: 115px;
+	*zoom: 1;
+}
+#nav_padding a:hover{
+	background: url(../images/shared/top_bg.jpg);
+	background-color: #f3f3f3;
 }
