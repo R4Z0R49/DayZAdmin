@@ -42,4 +42,13 @@
 	$vimeo = ""; //Vimeo Page
 	$youtubeenabled = 0; //Enable media button (1 yes, 0 no)
 	$youtube = ""; //YouTube 
+	
+	//Top Links
+	$ManuPanelLink = 0; // Enable the admin panel link? (1 yes, 0 no)
+	
+	//Top Right Logo - Leave these settings blank to disable the top right logo
+	$rightlogoImg = ""; // Link to a  logo / image
+	$rightlogoLink = ""; // Put a website link here to lead the user to that page upon clicking the logo
+	$rightlogoWidth = "0px"; // Self explanatory, eg; "200px"
+	$rightlogoHeight = "0px"; // Self explanatory, same as width, but it's height.
 ?>

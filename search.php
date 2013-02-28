@@ -28,14 +28,31 @@ $row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survi
 <script type="text/javascript">
 </script>
 </head>
-<body id="login-bg"> 
+<body id="stats-bg"> 
 
- 
-<div id="login-holder">
-
-	<div id="logo-login">
-		<a href="index.php"><img src="images/logo.png" width="451px" height="218px" alt="" /></a>
+<div id="topbg"></div>
+<div id="logo">
+		<img src="http://www.ninjah-gaming.co.uk/s/DayZ/Chernarus/images/logo.png" width="150px" height="72px" alt=""></a>
+</div>
+<div id="rightlogo">
+		<a href="<?php echo($rightlogoLink); ?>"><img src="<?php echo($rightlogoImg); ?>" width="<?php echo($rightlogoWidth); ?>" height="<?php echo($rightlogoHeight); ?>" alt=""></img></a>
+</div>
+<div id="nav">
+	<div id="nav_middle">
+		<div id="nav_padding">
+			<nav>
+				<a href="index.php">Home</a>
+			</nav>
+		</div>
 	</div>
+</div>
+ 
+ 
+<div id="stats-holder">
+	
+	 	<div id="gametracker">
+		<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_560_95_1.png" border="0" alt=""/></a>
+		</div>
 	
 	<div class="clear"></div>
 		<div id="statsbox">	
@@ -46,7 +63,7 @@ $row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survi
 if($row) {
 	$id = $row['id'];
 ?>
-				<table border="0" cellpadding="0" cellspacing="0">
+				<table border="0" cellpadding="4" cellspacing="0">
 <td width="26"><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-unique.gif" width="36" height="27" /></td>
     <td width="184"><strong>Latest id:</strong></td>
     <td width="12" align="right"><?php echo $row['id'];?></td>
@@ -91,9 +108,8 @@ if($row) {
 	    <td><strong>total_survivor_kills:</strong></td>
     <td align="right"><?php echo $row['total_survivor_kills'];?></td>
   </tr>
- 
 				</table>
-<?php } else {  echo "No results found\n"; } ?>
+    <?php } else {  echo "No results found\n"; } ?>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -112,7 +128,7 @@ if($row) {
 <div id="footer">
 	<!--  start footer-left -->
 	<div id="footer-left">
-<a href="admin.php"><?php echo $sitename ?> &copy; Copyright 2006-2012</a>. All rights reserved. Redesigned By UnclearWall</div>
+	<a href="admin.php"><?php echo $sitename ?> &copy; Copyright 2010-2013. All rights reserved(LeadGames). Redesigned By Marcuz</div>
 	<!--  end footer-left -->
 	<div class="clear">&nbsp;</div>
 </div>
