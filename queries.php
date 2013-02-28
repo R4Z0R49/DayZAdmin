@@ -47,12 +47,14 @@ switch($sql)
 		$stats_totalkills_HeadshotsZ = 'HeadshotsZ';
 	//Info	
 		$info1 = array("select 
-	player_data.playerName as name, 
-	player_data.playerUID as unique_id,
+	player_data.playerName as name,
+	player_data.playerUID as uid,
+	character_data.playerUID as unique_id,
 	character_data.Worldspace as worldspace,
 	character_data.Inventory as inventory,
 	character_data.Backpack as backpack,
 	character_data.Model as model,
+	character_data.Alive,
 	character_data.Medical as medical,
 	character_data.distanceFoot as DistanceFoot,
 	character_data.duration as survival_time,
@@ -70,8 +72,8 @@ switch($sql)
 	character_data.distanceFoot as distance,
 	character_data.Humanity as humanity
 from player_data, character_data 
-where player_data.PlayerUID like ?
-AND Alive=1", array($_GET["id"])); 
+where character_data.playerUID = player_data.playerUID
+and character_data.Alive = '1' and player_data.PlayerUID like ?", array($_GET["id"])); 
 		$info4 = array("SELECT * FROM object_data WHERE ObjectUID = ".$_GET["id"]." and instance = '" . $iid . "'"); 
 		$info5 = array("SELECT * FROM object_spawns WHERE ObjectUID = ".$_GET["id"]." LIMIT 1"); 
 		$info6 = array(""); 
