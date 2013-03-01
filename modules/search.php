@@ -32,13 +32,8 @@ if (isset($_SESSION['user_id']))
 		?><br/><?php
 		if (!empty($_POST))
 		{
-			//echo $_POST['search']."<br />".$_POST['type'];
 			error_reporting (E_ALL ^ E_NOTICE);
-			$search = substr($_POST['search'], 0, 64);
-			$search = preg_replace("/[^\w\x7F-\xFF\s]/", " ", $search);
-			$good = trim(preg_replace("/\s(\S{1,2})\s/", " ", preg_replace("[ +]", "  "," $search ")));
-			$good = preg_replace("[ +]", " ", $good);
-			$logic = "OR";		
+			$search = '%'.substr($_POST['search'], 0, 64).'%';
 
 			?>
 			<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
@@ -48,7 +43,7 @@ if (isset($_SESSION['user_id']))
 					$tableheader = header_player(0);
 					echo $tableheader;
 					$likeString = '%' . $good . '%';
-					$res = $db->GetAll("select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and name LIKE ? ORDER BY last_updated DESC", $likeString);
+					$res = $db->GetAll("select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and name LIKE ? ORDER BY last_updated DESC", $search);
 					$tablerows = "";
 					foreach($res as $row) {
 						$tablerows .= row_player($row);

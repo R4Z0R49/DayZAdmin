@@ -9,13 +9,9 @@ if (isset($_POST['search'])){
 	$pagetitle = "New search";
 }
 
-$search = substr($_POST['search'], 0, 64);
-$search = preg_replace("/[^\w\x7F-\xFF\s]/", " ", $search);
-$good = trim(preg_replace("/\s(\S{1,2})\s/", " ", preg_replace("[ +]", "  "," $search ")));
-$good = preg_replace("[ +]", " ", $good);
-$likeString = '%' . $good . '%';
+$search = '%'.substr($_POST['search'], 0, 64).'%';
 
-$row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survivor WHERE profile.unique_id = survivor.unique_id AND name LIKE ? ORDER BY last_updated DESC LIMIT 1", $likeString);
+$row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survivor WHERE profile.unique_id = survivor.unique_id AND name LIKE ? ORDER BY last_updated DESC LIMIT 1", $search);
 
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
