@@ -50,24 +50,7 @@
 				$k = strrpos($players[$i][4], " (Lobby)");
 				$playername = str_replace(" (Lobby)", "", $players[$i][4]);
 				
-				//$search = substr($playername, 0, 5);
-				$paren_num = 0;
-				$chars = str_split($playername);
-				$new_string = '';
-				foreach($chars as $char) {
-					if($char=='[') $paren_num++;
-					else if($char==']') $paren_num--;
-					else if($paren_num==0) $new_string .= $char;
-				}
-				$playername = trim($new_string);
-
-
-				$search = preg_replace("/[^\w\x7F-\xFF\s]/", " ", $playername);
-				$good = trim(preg_replace("/\s(\S{1,2})\s/", " ", preg_replace("[ +]", "  "," $search ")));
-				$good = trim(preg_replace("/\([^\)]+\)/", "", $good));
-				$good = preg_replace("[ +]", " ", $good);
-				$likeString = '%' . $good . '%';
-				$res = $db->GetRow("SELECT p.name, s.* FROM profile p, survivor s WHERE p.unique_id = s.unique_id AND p.name LIKE ? ORDER BY s.last_updated DESC LIMIT 1", $likeString);
+				$res = $db->GetRow("SELECT p.name, s.* FROM profile p, survivor s WHERE p.unique_id = s.unique_id AND p.name = ? ORDER BY s.last_updated DESC LIMIT 1", $playername);
 				$name = $res['name'];
 				$id = $res['unique_id'];
 				$dead = "";
