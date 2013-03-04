@@ -39,6 +39,7 @@ INSERT INTO `object_classes` (`Classname`, `Type`) VALUES
 	('Ikarus_TK_CIV_EP1', 'bus'),
 	('LandRover_TK_CIV_EP1', 'car'),
 	('MH6J_EP1', 'helicopter'),
+	('MH6J_DZ', 'helicopter'),
 	('Old_bike_TK_CIV_EP1', 'bike'),
 	('Old_bike_TK_INS_EP1', 'bike'),
 	('PBX', 'smallboat'),
