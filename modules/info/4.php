@@ -259,6 +259,10 @@ $owneruid = "";
 			
 				</div>
 			</div>
+			<div>
+				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['id']; ?>">Repair Vehicle</a>&nbsp;&nbsp;--&nbsp;&nbsp;
+				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row['id']; ?>">Destroy Vehicle</a>
+			</div>
 			<!--  end table-content  -->
 	
 			<div class="clear"></div>
