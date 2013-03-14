@@ -75,6 +75,24 @@ if (isset($_SESSION['user_id']))
 			</script>
 			<?php
 		}		
+		if (isset($_GET["repairVehicle"])){
+			$db->Execute("UPDATE instance_vehicle SET parts = '[]', damage = 0 WHERE id = ?", $_GET["repairVehicle"]);
+			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Repaired vehicle id: ?,?,NOW())", array($_GET["repairVehicle"], $_SESSION['login']));
+			?>
+			<script type="text/javascript">
+                window.location = 'admin.php?view=info&show=4&id=<?php echo $_GET["repairVehicle"]; ?>';
+            </script>
+			<?php
+		}
+		if (isset($_GET["destroyVehicle"])){
+            $db->Execute("UPDATE instance_vehicle SET damage = 1 WHERE id = ?", $_GET["destroyVehicle"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Destroyed vehicle id: ?,?,NOW())", array($_GET["destroyVehicle"], $_SESSION['login']));
+            ?>
+            <script type="text/javascript">
+                window.location = 'admin.php?view=info&show=4&id=<?php echo $_GET["destroyVehicle"]; ?>';
+            </script>
+            <?php
+        }
 	//}
 	?>
 	<script type="text/javascript">
