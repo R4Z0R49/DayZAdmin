@@ -40,6 +40,7 @@ $num_Played24h = $db->GetOne($stats_Played24h);
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><?php echo $sitename ?></title>
 <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
@@ -52,12 +53,8 @@ $(document).pngFix( );
 </script>
 
 </head>
-<body id="stats-bg"> 
 
-<<<<<<< HEAD
-	<div id="stats-margin">
-		<a href="index.php"><img src="images/logo.png" width="451px" height="220px" alt="" /></a>
-=======
+<body id="stats-bg"> 
 <div id="topbg"></div>
 <div id="logo">
 		<img src="http://www.ninjah-gaming.co.uk/s/DayZ/Chernarus/images/logo.png" width="150px" height="72px" alt=""></a>
@@ -74,7 +71,6 @@ $(document).pngFix( );
 			</nav>
 <?php } ?>
 		</div>
->>>>>>> Development
 	</div>
 </div>
 
@@ -91,73 +87,65 @@ $(document).pngFix( );
 		<div id="statsbox">	
 			<div id="login-inner">
 				<table border="0" cellpadding="4" cellspacing="0">
-<td width="26"><img src="images\icons\statspage\totalplayers1.png" width="36" height="27" /></td>
-    <td width="184"><strong>Total Players:</strong></td>
-    <td width="129" align="right"><?php echo $num_totalplayers;?></td>
+<td width="26"><img src="images\icons\statspage\totalplayers1.png" width="36" height="36" /></td>
+    <td width="184"><strong>     Total Players:</strong></td>
+    <td align="right"><strong><?php echo $num_totalplayers;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\totalplayerin24h.png" width="36" height="27" /></td>
-    <td><strong> Players in Last 24h:</strong></td>
-    <td align="right"><?php echo $num_Played24h;?></td>
+    <td><img src="images\icons\statspage\totalplayerin24h.png" width="36" height="36" /></td>
+    <td><strong>     Players in Last 24h:</strong></td>
+     <td align="right"><strong><?php echo $num_Played24h;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\alivecharacters1.png" width="36" height="27" /></td>
-    <td><strong>Alive Characters:</strong></td>
-    <td align="right"><?php echo $totalAlive;?></td>
+    <td><img src="images\icons\statspage\alivecharacters1.png" width="36" height="36" /></td>
+    <td><strong>     Alive Characters:</strong></td>
+     <td align="right"><strong><?php echo $totalAlive;?></strong></td>
   </tr>
   <tr>
-      <td><img src="images\icons\statspage\playerdeaths1.png" width="36" height="27" /></td>
-    <td><strong>Player Deaths:</strong></td>
-    <td align="right"><?php echo $num_deaths;?></td>
+      <td><img src="images\icons\statspage\playerdeaths1.png" width="36" height="36" /></td>
+    <td><strong>     Player Deaths:</strong></td>
+     <td align="right"><strong><?php echo $num_deaths;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\infectedkilled1.png" width="36" height="27" /></td>
-    <td><strong>Zombies Killed:</strong></td>
-    <td align="right"><?php echo $KillsZ;?></td>
+    <td><img src="images\icons\statspage\infectedkilled1.png" width="36" height="36" /></td>
+    <td><strong>     Zombies Killed:</strong></td>
+     <td align="right"><strong><?php echo $KillsZ;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\infectedheadshots1.png" width="36" height="27" /></td>
-    <td><strong>Zombies Headshots:</strong></td>
-    <td align="right"><?php echo $HeadshotsZ;?></td>
+    <td><img src="images\icons\statspage\infectedheadshots1.png" width="36" height="36" /></td>
+    <td><strong>    Zombies Headshots:</strong></td>
+    <td align="right"><strong><?php echo $HeadshotsZ;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\murders.png" width="36" height="27" /></td>
-    <td><strong>Murders:</strong></td>
-    <td align="right"><?php echo $KillsH;?></td>
+    <td><img src="images\icons\statspage\murders.png" width="36" height="36" /></td>
+    <td><strong>     Murders:</strong></td>
+    <td align="right"><strong><?php echo $KillsH;?></strong></td>
   </tr>
   <tr>
-<<<<<<< HEAD
-    <td><img src="images\icons\statspage\heroesalive1.png" width="36" height="27" /></td>
-    <td><strong>Heros Alive:</strong></td>
-=======
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-bandits.gif" width="36" height="27" /></td>
-    <td><strong>Heroes Alive:</strong></td>
->>>>>>> Development
-    <td align="right"><?php echo $num_aliveheros;?></td>
+    <td><img src="images\icons\statspage\heroesalive1.png" width="36" height="36" /></td>
+    <td><strong>     Heros Alive:</strong></td>
+    <td align="right"><strong><?php echo $num_aliveheros;?></strong></td>
   </tr>
   <tr>
     <tr>
-    <td><img src="images\icons\statspage\banditsalive1.png" width="36" height="27" /></td>
-    <td><strong>Bandits Alive:</strong></td>
-    <td align="right"><?php echo $num_alivebandits;?></td>
+    <td><img src="images\icons\statspage\banditsalive1.png" width="36" height="36" /></td>
+    <td><strong>     Bandits Alive:</strong></td>
+    <td align="right"><strong><?php echo $num_alivebandits;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\banditskilled1.png" width="36" height="27" /></td>
-    <td><strong>Bandits Killed:</strong></td>
-    <td align="right"><?php echo $KillsB;?></td>
+    <td><img src="images\icons\statspage\banditskilled1.png" width="36" height="36" /></td>
+    <td><strong>     Bandits Killed:</strong></td>
+    <td align="right"><strong><?php echo $KillsB;?></strong></td>
   </tr>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\vehicles.png" width="36" height="27" /></td>
-    <td><strong>Vehicles:</strong></td>
-    <td align="right"><?php echo $num_totalVehicles;?></td>
+    <td><img src="images\icons\statspage\vehicles.png" width="36" height="36" /></td>
+    <td><strong>     Vehicles:</strong></td>
+    <td align="right"><strong><?php echo $num_totalVehicles;?></strong></td>
   </tr>
-				</table>
-<?php
-		include ('playersearch.php');
-?>
+</table>
+<?php include ('playersearch.php'); ?>
 			</div>
-			
 			<div class="clear"></div>
 		</div>
 	</form> 
@@ -193,15 +181,12 @@ $(document).pngFix( );
   <a href="http://<?php echo $vimeo ?>" target="_new"><img src="images/social/icons/vimeo-splatter.png" alt="Vimeo Page" width="150" height="150" /></a>
 <?php } ?>  
 </p>
-	<!--  end social-center -->
-	<div class="clear">&nbsp;</div>
-</div>
-</div>
 <?php } ?>
+	<!--  end social-center -->
 
-<?php include ('modules\footer.php'); ?>
-
-<!-- end footer -->
- 
-</body>
-</html>
+<!-- 
+<?php
+ include ('modules\footer.php');
+ ?>
+ -->
+ <!-- end footer -->
