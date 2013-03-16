@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id']))
 <div id="footer">
 	<!--  start footer-left -->
 	<div id="footer-left">
-	Bliss Administration panel &copy; Copyright 2006-2012 <a href="http://lead-games.com">Lead Games</a>Redesigned by UnclearWall. All rights reserved.</div>
+	<?php echo $sitename ?> Panel &copy; Copyright 2006-2013 Admin-panel. Creator katzsmile, Redesigned by R4Z0R49/Wiley. Theme Redesigned By Marcuz.</div>
 	<!--  end footer-left -->
 	<div class="clear">&nbsp;</div>
 </div>
