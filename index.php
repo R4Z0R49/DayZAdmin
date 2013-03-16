@@ -48,7 +48,7 @@ $num_Played24h = $db->GetOne($stats_Played24h);
 <div id="stats-holder">
 
 	<div id="stats-margin">
-		<a href="index.php"><img src="images/logo.png" width="451px" height="218px" alt="" /></a>
+		<a href="index.php"><img src="images/logo.png" width="451px" height="220px" alt="" /></a>
 	</div>
 	<div class="clear"></div>		
 	
@@ -57,59 +57,59 @@ $num_Played24h = $db->GetOne($stats_Played24h);
 		<div id="statsbox">	
 			<div id="login-inner">
 				<table border="0" cellpadding="4" cellspacing="0">
-<td width="26"><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-unique.gif" width="36" height="27" /></td>
+<td width="26"><img src="images\icons\statspage\totalplayers1.png" width="36" height="27" /></td>
     <td width="184"><strong>Total Players:</strong></td>
     <td width="129" align="right"><?php echo $num_totalplayers;?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-24hr.gif" width="36" height="27" /></td>
+    <td><img src="images\icons\statspage\totalplayerin24h.png" width="36" height="27" /></td>
     <td><strong> Players in Last 24h:</strong></td>
     <td align="right"><?php echo $num_Played24h;?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-alive.gif" width="36" height="27" /></td>
+    <td><img src="images\icons\statspage\alivecharacters1.png" width="36" height="27" /></td>
     <td><strong>Alive Characters:</strong></td>
     <td align="right"><?php echo $totalAlive;?></td>
   </tr>
   <tr>
-      <td><img src="./images/playerdeaths.png" width="24" height="24" /></td>
+      <td><img src="images\icons\statspage\playerdeaths1.png" width="36" height="27" /></td>
     <td><strong>Player Deaths:</strong></td>
     <td align="right"><?php echo $num_deaths;?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-zombies.gif" width="36" height="27" /></td>
+    <td><img src="images\icons\statspage\infectedkilled1.png" width="36" height="27" /></td>
     <td><strong>Zombies Killed:</strong></td>
     <td align="right"><?php echo $KillsZ;?></td>
   </tr>
   <tr>
-    <td><img src="images/zombiehs.png" width="24" height="24" /></td>
+    <td><img src="images\icons\statspage\infectedheadshots1.png" width="36" height="27" /></td>
     <td><strong>Zombies Headshots:</strong></td>
     <td align="right"><?php echo $HeadshotsZ;?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-murders.gif" width="36" height="27" /></td>
+    <td><img src="images\icons\statspage\murders.png" width="36" height="27" /></td>
     <td><strong>Murders:</strong></td>
     <td align="right"><?php echo $KillsH;?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-bandits.gif" width="36" height="27" /></td>
+    <td><img src="images\icons\statspage\heroesalive1.png" width="36" height="27" /></td>
     <td><strong>Heros Alive:</strong></td>
     <td align="right"><?php echo $num_aliveheros;?></td>
   </tr>
   <tr>
     <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-bandits.gif" width="36" height="27" /></td>
+    <td><img src="images\icons\statspage\banditsalive1.png" width="36" height="27" /></td>
     <td><strong>Bandits Alive:</strong></td>
     <td align="right"><?php echo $num_alivebandits;?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-banditskilled.gif" width="36" height="27" /></td>
+    <td><img src="images\icons\statspage\banditskilled1.png" width="36" height="27" /></td>
     <td><strong>Bandits Killed:</strong></td>
     <td align="right"><?php echo $KillsB;?></td>
   </tr>
   </tr>
   <tr>
-    <td><img src="./images/vehicles.png" width="24" height="24" /></td>
+    <td><img src="images\icons\statspage\vehicles.png" width="36" height="27" /></td>
     <td><strong>Vehicles:</strong></td>
     <td align="right"><?php echo $num_totalVehicles;?></td>
   </tr>
