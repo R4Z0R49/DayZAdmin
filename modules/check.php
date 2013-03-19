@@ -1,4 +1,7 @@
 <?php
+include_once ('queries.php');
+include_once ('rowlayout.php');
+
 if (isset($_SESSION['user_id']))
 {
 $pagetitle = "Items check (survivors, tents and vehicles)";
@@ -20,7 +23,7 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
 	$items_xml = XML2Array::createArray($xml);
 	
 	//$query = "SELECT * FROM survivor";
-	$res = $db->GetAll("select p.name, s.* from profile p left join survivor s on p.unique_id = s.unique_id where s.is_dead = 0");
+	$res = $db->GetAll($check_players);
 	$number = sizeof($res);
 	$rows = null;
 	$itemscount = 0;		
@@ -28,11 +31,11 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
 	  	echo "<CENTER>\n";
 	} else {
 		foreach($res as $row) {
-			$Inventory = $row['inventory'];	
+			$Inventory = $row[$row_Inventory];	
 			$Inventory = str_replace(",", ",", $Inventory);
 			$Inventory  = json_decode($Inventory);	
 		
-			$Backpack  = $row['backpack'];
+			$Backpack  = $row[$row_Backpack];
 			$Backpack = str_replace(",", ",", $Backpack);
 			$Backpack  = json_decode($Backpack);
 
@@ -80,8 +83,8 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
 				}
 			}
 			
-			$name = htmlspecialchars($row['name']);	
-			$icon1 = '<a href="admin.php?view=actions&deletecheck='.$row['id'].'"><img src="'.$path.'images/icons/player_dead.png" title="Delete '.$name.'" alt="Delete '.$name.'"/></a>';		
+			$name = htmlspecialchars($row[$row_playerName]);	
+			$icon1 = '<a href="admin.php?view=actions&deletecheck='.$row[$row_CharacterID].'"><img src="'.$path.'images/icons/player_dead.png" title="Delete '.$name.'" alt="Delete '.$name.'"/></a>';		
 			if ($row['is_dead'] == 1) {
 					$status = '<img src="'.$path.'images/icons/player_dead.png" title="'.$name.' is Dead" alt="'.$name.' is Dead"/>';
 			}
@@ -90,10 +93,10 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
 			}
 			if (count($Unknown)>0){
 				$rows .= "<tr>
-					<td align=\"center\" class=\"gear_preview\"><a href=\"amin.php?view=actions&deletecheck=".$row['unique_id']."\">".$icon1."</td>
+					<td align=\"center\" class=\"gear_preview\"><a href=\"amin.php?view=actions&deletecheck=".$row[$row_PlayerUID]."\">".$icon1."</td>
 					<td align=\"center\" class=\"gear_preview\">".$status."</td>
-					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."\">".$name."</a></td>
-					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."\">".$row['unique_id']."</a></td>
+					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row[$row_PlayerUID]."\">".$name."</a></td>
+					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row[$row_PlayerUID]."\">".$row[$row_PlayerUID]."</a></td>
 					<td align=\"center\" class=\"gear_preview\">";
 					foreach($Unknown as $uitem => $uval)
 					{
@@ -105,10 +108,10 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
 		}
 	}
 	
-	$res = $db->GetAll("SELECT * FROM v_deployable");
+	$res = $db->GetAll($check_objects);
     if (sizeof($res) > 0) {
 		foreach($res as $row) {
-            $Inventory = $row['inventory'];
+            $Inventory = $row[$row_ObjectInventory];
             $Inventory = json_decode($Inventory);
             $Unknown = array();
 
@@ -147,10 +150,10 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
         }
     }
 
-	$res = $db->GetAll("SELECT * FROM v_vehicle");
+	$res = $db->GetAll($check_vehicles);
     if (sizeof($res) > 0) {
         foreach($res as $row) {
-            $Inventory = $row['inventory'];
+            $Inventory = $row[$row_ObjectInventory];
             $Inventory = json_decode($Inventory);
             $Unknown = array();
 
@@ -174,9 +177,9 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
             if (count($Unknown) > 0) {
                 $rows .= '<tr>
 					<td class="gear_preview">&nbsp;</td>
-                    <td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row['instance_vehicle_id'].'"><img src="images/icons/car.png" /></a></td>
-                    <td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row['instance_vehicle_id'].'">'.$row['class_name'].'</a></td>
-                    <td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row['instance_vehicle_id'].'">'.$row['instance_vehicle_id'].'</a></td>
+                    <td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row[$row_ObjectID].'"><img src="images/icons/car.png" /></a></td>
+                    <td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row[$row_ObjectID].'">'.$row[$row_ObjectClassname].'</a></td>
+                    <td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row[$row_ObjectID].'">'.$row[$row_ObjectID].'</a></td>
                     <td align="center" class="gear_preview">';
 
                 foreach ($Unknown as $item) {
