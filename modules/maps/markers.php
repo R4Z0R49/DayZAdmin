@@ -16,7 +16,7 @@ function markers_player($res, $world) {
 			require_once('modules/calc.php');
 			$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$row[$row_PlayerUID]."\">".htmlspecialchars($row[$row_playerName], ENT_QUOTES)." - ".$row[$row_PlayerUID]."</a></h2> <table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row[$row_Model]).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row[$row_PlayerID]."<br> <strong>CharacterID:</strong> ".$row[$row_PlayerUID]."<br> <strong>Zed Kills:</strong> ".$row[$row_KillsZ]."<br> <strong>Bandit Kills:</strong> ".$row[$row_KillsB]."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row[$row_duration])."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row[$row_Humanity]."</td></tr></table>";	
 			$tmp = array();
-			$tmp["id"] = $row[$row_id];
+			$tmp["id"] = $row[$row_PlayerUID];
 			$tmp["lat"] = (world_y($y, $world) / 10);
 			$tmp["lng"] = (world_x($x, $world) / 10);
 			$tmp["icon"] = "Player".($row[$row_Alive] ? "Dead" : "");
