@@ -49,31 +49,7 @@ switch($sql)
 		$stats_totalkills_KillsH = 'KillsH';
 		$stats_totalkills_HeadshotsZ = 'HeadshotsZ';
 	//Info	
-		$info1 = array("select 
-	player_data.playerName as name,
-	player_data.playerUID as uid,
-	character_data.playerUID as unique_id,
-	character_data.Worldspace as worldspace,
-	character_data.Inventory as inventory,
-	character_data.Backpack as backpack,
-	character_data.Model as model,
-	character_data.Alive,
-	character_data.Medical as medical,
-	character_data.distanceFoot as DistanceFoot,
-	character_data.duration as survival_time,
-	character_data.last_updated as last_updated,
-	character_data.KillsZ as zombie_kills,
-	character_data.KillsZ as total_zombie_kills,
-	character_data.HeadshotsZ as headshots,
-	character_data.HeadshotsZ as total_headshots,
-	character_data.KillsH as survivor_kills,
-	character_data.KillsH as total_survivor_kills,
-	character_data.KillsB as bandit_kills,
-	character_data.KillsB as total_bandit_kills,
-	character_data.Generation as survival_attempts,
-	character_data.duration as survival_time,
-	character_data.distanceFoot as distance,
-	character_data.Humanity as humanity
+		$info1 = array("select player_data.*, character_data.*
 from player_data, character_data 
 where character_data.playerUID = player_data.playerUID
 and character_data.Alive = '1' and player_data.PlayerUID like ?", array($_GET["id"])); 
@@ -81,7 +57,7 @@ and character_data.Alive = '1' and player_data.PlayerUID like ?", array($_GET["i
 		$info5 = array("SELECT * FROM object_spawns WHERE ObjectUID = ".$_GET["id"]." LIMIT 1"); 
 		$info6 = array(""); 
 	//Map	
-		$map0 = array("select player_data.*, character_data.*
+		$map0 = array("select player_data.playerName, player_data.playerUID, character_data.*
 from player_data, character_data 
 where player_data.PlayerUID = character_data.PlayerUID 
 and character_data.Alive = 1 

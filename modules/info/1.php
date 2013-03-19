@@ -1,5 +1,6 @@
 <?php
 include ('queries.php');
+include ('rowlayout.php');
 $cid = '';
 if (isset($_GET['cid'])){
 	$cid = " AND id ='".$_GET['cid']."'";
@@ -11,18 +12,17 @@ $res = $db->GetAll($query, $binds);
 $number = sizeof($res);
 
 foreach($res as $row) {	
-
-	$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
-	$Inventory = $row['inventory'];
+	$MapCoords = worldspaceToMapCoords($row[$row_Worldspace], $map);
+	$Inventory = $row[$row_Inventory];
 	$Inventory = str_replace("|", ",", $Inventory);
 	$Inventory  = json_decode($Inventory);
 	
-	$Backpack  = $row['backpack'];
+	$Backpack  = $row[$row_Backpack];
 	$Backpack = str_replace("|", ",", $Backpack);
 	$Backpack  = json_decode($Backpack);
-	$model = $row['model'];
+	$model = $row[$row_Model];
 	
-	$Medical = $row['medical'];
+	$Medical = $row[$row_Medical];
 	$Medical = str_replace("|", ",", $Medical);
 	$Medical = json_decode($Medical);
 
@@ -34,8 +34,8 @@ foreach($res as $row) {
 	$heavyammoslots = 0;
 	$smallammo = array();
 	$usableitems = array();
-	$distance = distanceToString($row['DistanceFoot']);
-	$survival_time = survivalTimeToString($row['survival_time']);
+	$distance = distanceToString($row[$row_distanceFoot]);
+	$survival_time = survivalTimeToString($row[$row_duration]);
 
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
@@ -82,8 +82,8 @@ foreach($res as $row) {
 
 ?>	
 	<div id="page-heading">
-		<h1><?php echo "<title>".htmlspecialchars($row['name'])." - ".$sitename."</title>"; ?></h1>
-		<h1><?php echo htmlspecialchars($row['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<h1><?php echo "<title>".htmlspecialchars($row[$row_playerName])." - ".$sitename."</title>"; ?></h1>
+		<h1><?php echo htmlspecialchars($row[$row_playerName]); ?> - <?php echo $row[$row_PlayerUID]; ?> - Last save: <?php echo $row[$row_last_updated]; ?></h1>
 	</div>
 	<!-- end page-heading -->
 
@@ -125,25 +125,25 @@ foreach($res as $row) {
 							</div>							
 						</div>
 						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-120px">
-							<?php echo 'Zed kills:&nbsp;'.$row['zombie_kills'].' / '.$row['total_zombie_kills'];?>
+							<?php echo 'Zed kills:&nbsp;'.$row[$row_KillsZ].' / '.$row[$row_total_zombie_kills];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-105px">
-							<?php echo 'Zed headshots:&nbsp;'.$row['headshots'].' / '.$row['total_headshots'];?>
+							<?php echo 'Zed headshots:&nbsp;'.$row[$row_HeadshotsZ].' / '.$row[$row_total_headshots];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-90px">
-							<?php echo 'Human killed:&nbsp;'.$row['survivor_kills'].' / '.$row['total_survivor_kills'];?>
+							<?php echo 'Human killed:&nbsp;'.$row[$row_KillsH].' / '.$row[$row_total_survivor_kills];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-75px">
-							<?php echo 'Bandit killed:&nbsp;'.$row['bandit_kills'].' / '.$row['total_bandit_kills'];?>
+							<?php echo 'Bandit killed:&nbsp;'.$row[$row_KillsB].' / '.$row[$row_total_bandit_kills];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-60px">
-							<?php echo 'Survival Attempts:&nbsp;'.$row['survival_attempts'];?>
+							<?php echo 'Survival Attempts:&nbsp;'.$row[$row_Generation];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-45px">
 							<?php echo 'Survival Time:&nbsp;'.$survival_time;?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-30px">
-							<?php echo 'Humanity:&nbsp;'.$row['humanity'];?>
+							<?php echo 'Humanity:&nbsp;'.$row[$row_Humanity];?>
 						</div>
 					</div>
 					<div class="gear_inventory">

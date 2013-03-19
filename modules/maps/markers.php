@@ -1,28 +1,43 @@
 <?php
-include('config.php');
+//include_once('config.php');
 require_once('functions.php');
+include ('rowlayout.php');
 
 
 function markers_player($res, $world) {
 	$markers = array();
-		foreach($res as $row) {
-			include('rowlayout.php');
+	
+	global $row_playerName;
+	global $row_Worldspace;
+	global $row_CharacterID;
+	global $row_PlayerID;
+	global $row_PlayerUID;
+	global $row_Alive;
+	global $row_Model;
+	global $row_KillsZ;
+	global $row_KillsB;
+	global $row_duration;
+	global $row_Humanity;
+	
+		foreach($res as $row) {	
+
 			$Worldspace = str_replace("[", "", $row[$row_Worldspace]);
 			$Worldspace = str_replace("]", "", $Worldspace);
 			$Worldspace = explode(",", $Worldspace);
+		
 			$x = 0; if (array_key_exists(1, $Worldspace)) { $x = $Worldspace[1]; }
 			$y = 0; if (array_key_exists(2, $Worldspace)) { $y = $Worldspace[2]; }
 
 			require_once('modules/calc.php');
 			$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$row[$row_PlayerUID]."\">".htmlspecialchars($row[$row_playerName], ENT_QUOTES)." - ".$row[$row_PlayerUID]."</a></h2> <table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row[$row_Model]).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row[$row_PlayerID]."<br> <strong>CharacterID:</strong> ".$row[$row_PlayerUID]."<br> <strong>Zed Kills:</strong> ".$row[$row_KillsZ]."<br> <strong>Bandit Kills:</strong> ".$row[$row_KillsB]."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row[$row_duration])."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row[$row_Humanity]."</td></tr></table>";	
 			$tmp = array();
-			$tmp["id"] = $row[$row_PlayerUID];
+			$tmp["id"] = $row[$row_CharacterID];
 			$tmp["lat"] = (world_y($y, $world) / 10);
 			$tmp["lng"] = (world_x($x, $world) / 10);
-			$tmp["icon"] = "Player".($row[$row_Alive] ? "Dead" : "");
+			$tmp["icon"] = "Player".($row[$row_Alive] == 'is_dead' ? $row[$row_Alive] : !$row[$row_Alive]);
 			$tmp["title"] = htmlspecialchars($row[$row_playerName], ENT_QUOTES)." (".$row[$row_PlayerUID].")";
 			$tmp["description"] = $description;
-			
+
 			$markers[] = $tmp;
 		}
 
@@ -36,8 +51,16 @@ function markers_vehicle($res, $world) {
 	require_once('modules/xml2array.php');
 	$vehicles_xml = XML2Array::createArray($xml);
 
+	global $row_ObjectWorldspace;
+	global $row_ObjectClassname;
+	global $row_ObjectType;
+	global $row_ObjectID;
+	global $row_ObjectUID;
+	global $row_Objectlast_updated;
+	global $row_ObjectDamage;
+	global $row_ObjectFuel;
+	
 	foreach($res as $row) {
-		include('rowlayout.php');
 		$Worldspace = str_replace("[", "", $row[$row_ObjectWorldspace]);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = explode(",", $Worldspace);
@@ -50,7 +73,7 @@ function markers_vehicle($res, $world) {
 		$description = '<h2><a href="admin.php?view=info&show=4&id='.$row[$row_ObjectID].'">'.$class.' ('.$row[$row_ObjectID].')</a></h2><strong>Last updated:</strong>&nbsp;'.$row[$row_Objectlast_updated].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Damage:</strong>&nbsp;'.sprintf("%d%%", round($row[$row_ObjectDamage] * 100))."<br><strong>Fuel:</strong>&nbsp;".sprintf("%d%%", round($row[$row_ObjectFuel] * 100)).'</td></tr></table><br>';
 		
 		$tmp = array();
-		$tmp["id"] = $row[$row_ObjectID];
+		$tmp["id"] = $row[$row_ObjectUID];
 		$tmp["lat"] = (world_y($y, $world) / 10);
 		$tmp["lng"] = (world_x($x, $world) / 10);
 		$tmp["icon"] = $type;
@@ -72,8 +95,16 @@ function markers_deployable($res, $world) {
 	$xml = file_get_contents('vehicles.xml', true);
 	$vehicles_xml = XML2Array::createArray($xml);
 
+	global $row_ObjectWorldspace;
+	global $row_ObjectClassname;
+	global $row_ObjectType;
+	global $row_ObjectInventory;
+	global $row_ObjectID;
+	global $row_ObjectUID;
+	global $row_playerName;
+	global $row_Objectlast_updated;
+	
 	foreach($res as $row) {
-		include('rowlayout.php');
 		$Worldspace = str_replace("[", "", $row[$row_ObjectWorldspace]);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = explode(",", $Worldspace);
@@ -95,7 +126,7 @@ function markers_deployable($res, $world) {
 		$description = '<h2><a href="admin.php?view=info&show=6&id='.$row[$row_ObjectID].'">'.$class.' ('.$row[$row_ObjectID].')</a> - '.htmlspecialchars($row[$row_playerName]).'</h2><strong>Last updated:</strong>&nbsp;'.$row[$row_Objectlast_updated].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br>'.$contents.'</td></tr></table>';
 		
 		$tmp = array();
-		$tmp["id"] = $row[$row_ObjectID];
+		$tmp["id"] = $row[$row_ObjectUID];
 		$tmp["lat"] = (world_y($y, $world) / 10);
 		$tmp["lng"] = (world_x($x, $world) / 10);
 		$tmp["icon"] = $type;

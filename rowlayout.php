@@ -1,7 +1,8 @@
 <?php
 include('config.php');
 switch($sql)
-{		
+{	
+			
    	case 'Bliss':
 	//char
 		$row_playerName = 'name';
@@ -18,19 +19,24 @@ switch($sql)
 		$row_Worldspace = 'worldspace';
 		$row_Medical = 'medical';
 		$row_Alive = 'is_dead';
-		$row_Generation = '';
+		$row_Generation = 'survival_attempts';
 		$row_LastAte = '';
 		$row_LastDrank = '';
 		$row_KillsZ = 'zombie_kills';
-		$row_HeadshotsZ = '';
-		$row_distanceFoot = '';
+		$row_HeadshotsZ = 'headshots';
+		$row_distanceFoot = 'DistanceFoot';
 		$row_duration = 'survival_time';
 		$row_currentState = '';
-		$row_KillsH = '';
+		$row_KillsH = 'survivor_kills';
 		$row_Model = 'model';
 		$row_KillsB = 'bandit_kills';
 		$row_Humanity = 'humanity';
 		$row_last_updated = '';
+		//bliss
+		$row_total_zombie_kills = 'total_zombie_kills';
+		$row_total_headshots = 'total_headshots';
+		$row_total_survivor_kills = 'total_survivor_kills';
+		$row_total_bandit_kills = 'total_bandit_kills';
 	//object
 		$row_ObjectID = 'id';
 		$row_ObjectUID = 'uid';
@@ -68,7 +74,7 @@ switch($sql)
 		$row_LastDrank = '';
 		$row_KillsZ = 'KillsZ';
 		$row_HeadshotsZ = 'HeadshotsZ';
-		$row_distanceFoot = '';
+		$row_distanceFoot = 'distanceFoot';
 		$row_duration = 'duration';
 		$row_currentState = '';
 		$row_KillsH = 'KillsH';
@@ -76,6 +82,10 @@ switch($sql)
 		$row_KillsB = 'KillsB';
 		$row_Humanity = 'Humanity';
 		$row_last_updated = 'last_updated';
+		$row_total_zombie_kills = 'KillsZ';
+		$row_total_headshots = 'HeadshotsZ';
+		$row_total_survivor_kills = 'KillsH';
+		$row_total_bandit_kills = 'KillsB';
 	//object
 		$row_ObjectID = 'ObjectID';
 		$row_ObjectUID = 'ObjectUID';

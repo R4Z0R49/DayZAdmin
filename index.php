@@ -184,9 +184,9 @@ $(document).pngFix( );
 <?php } ?>
 	<!--  end social-center -->
 
-<!-- 
+
 <?php
  include ('modules\footer.php');
  ?>
- -->
+
  <!-- end footer -->
