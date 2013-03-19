@@ -77,89 +77,33 @@ switch($sql)
 from player_data, character_data 
 where character_data.playerUID = player_data.playerUID
 and character_data.Alive = '1' and player_data.PlayerUID like ?", array($_GET["id"])); 
-		$info4 = array("SELECT * FROM object_data WHERE ObjectUID = ".$_GET["id"]." and instance = '" . $iid . "'"); 
+		$info4 = array("SELECT * FROM object_data WHERE ObjectID = ? and Instance = ?", array($_GET["id"], $iid)); 
 		$info5 = array("SELECT * FROM object_spawns WHERE ObjectUID = ".$_GET["id"]." LIMIT 1"); 
 		$info6 = array(""); 
 	//Map	
-		$map0 = array("
-select player_data.playerName as name, player_data.playerUID, 
-character_data.PlayerUID as unique_id, 
-character_data.CharacterID as id,
-character_data.Worldspace as worldspace, 
-character_data.Model as model, 
-character_data.KillsZ as zombie_kills,
-character_data.KillsB as bandit_kills, 
-character_data.duration as survival_time,
-character_data.Humanity as humanity
+		$map0 = array("select player_data.*, character_data.*
 from player_data, character_data 
 where player_data.PlayerUID = character_data.PlayerUID 
 and character_data.Alive = 1 
 and character_data.last_updated >= NOW() - INTERVAL 1 minute");
-		$map4 = array("SELECT object_classes.*,
-		object_data.ObjectID as id,
-		object_data.ObjectUID as uid,
-		object_data.Classname as class_name,
-		object_data.Worldspace as worldspace,
-		object_data.Damage as damage,
-		object_data.last_updated,
-		object_data.Fuel as fuel
-		FROM object_classes, object_data as object_data  
-		where object_data.Classname = object_classes.Classname 
-		and object_data.Instance =  '" . $iid . "' and CharacterID = '0'");
-		$map6 = array("SELECT object_classes.*,
-		object_data.ObjectID as id,
-		object_data.ObjectID as idid,
-		object_data.ObjectUID as uid,
-		object_classes.Classname as class_name,
-		object_data.Worldspace as worldspace,
-		object_data.Inventory as inventory,
-		object_data.last_updated
-		FROM object_classes, object_data
-		where object_data.Classname = 'TentStorage'
-		and object_data.CharacterID > '0' and object_data.Instance = '" . $iid . "'");
-		$map7 = array("SELECT object_classes.*,
-		object_data.ObjectID as id,
-		object_data.ObjectID as idid,
-		object_data.ObjectUID as uid,
-		object_classes.Classname as class_name,
-		object_data.Worldspace as worldspace,
-		object_data.Inventory as inventory,
-		object_data.last_updated
+		$map4 = array("SELECT object_classes.*, object_data.*  FROM object_classes, object_data as object_data where object_data.Classname = object_classes.Classname and object_data.Instance =  '" . $iid . "' and CharacterID = '0'");
+		$map6 = array("SELECT object_classes.*, object_data.* FROM object_classes, object_data as object_data where object_data.Classname = object_classes.Classname and object_data.Classname = 'TentStorage' and object_data.Instance = ?", array($iid));
+		$map7 = array("SELECT object_classes.*, object_data.*
 		FROM object_classes, object_data
 		where object_data.Classname = object_classes.Classname
-		and object_data.CharacterID > '0' and object_data.Instance = '" . $iid . "'");
-		$map8_players = array("select player_data.playerName as name, player_data.playerUID, 
-character_data.PlayerUID as unique_id, 
-character_data.CharacterID as id,
-character_data.Worldspace as worldspace, 
-character_data.Model as model, 
-character_data.KillsZ as zombie_kills,
-character_data.KillsB as bandit_kills, 
-character_data.duration as survival_time,
-character_data.Humanity as humanity
+		and object_data.CharacterID > '0' and object_data.Classname = 'Wire_cat1' OR object_data.Classname = 'Hedgehog_DZ' OR object_data.Classname = 'Sandbag1_DZ' OR object_data.Classname = 'TrapBear' and object_data.Instance = '" . $iid . "'");
+		$map8_players = array("select player_data.*, character_data.*
 from player_data, character_data 
 where player_data.PlayerUID = character_data.PlayerUID 
 and character_data.Alive = 1 
 and character_data.last_updated >= NOW() - INTERVAL 1 minute");
 		$map8_vehicles = array("SELECT object_classes.*,
-		object_data.ObjectID as id,
-		object_data.ObjectUID as uid,
-		object_data.Classname as class_name,
-		object_data.Worldspace as worldspace,
-		object_data.Damage as damage,
-		object_data.last_updated,
-		object_data.Fuel as fuel
+		object_data.*
 		FROM object_classes, object_data as object_data  
 		where object_data.Classname = object_classes.Classname 
 		and object_data.Instance =  '" . $iid . "' and CharacterID = '0'");
 		$map8_objects = array("SELECT object_classes.*,
-		object_data.ObjectID as id,
-		object_data.ObjectID as idid,
-		object_data.ObjectUID as uid,
-		object_classes.Classname as class_name,
-		object_data.Worldspace as worldspace,
-		object_data.Inventory as inventory,
-		object_data.last_updated
+		object_data.*
 		FROM object_classes, object_data
 		where object_data.Classname = object_classes.Classname
 		and object_data.CharacterID > '0' and object_data.Instance = '" . $iid . "'");

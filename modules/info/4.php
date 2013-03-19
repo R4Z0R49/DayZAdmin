@@ -11,8 +11,8 @@ $res = $db->GetAll($query, $binds);
 $number = sizeof($res);
 
 foreach($res as $row) {
-
-    $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
+include('rowlayout.php');
+    $MapCoords = worldspaceToMapCoords($row[$row_ObjectWorldspace], $map);
 	/* $Inventory = $row['inventory'];
 	$Inventory = str_replace("[", "", $Inventory);
 	$Inventory = str_replace("]", "", $Inventory);
@@ -20,7 +20,7 @@ foreach($res as $row) {
 	$Inventory = str_replace("|", ",", $Inventory);
 	$Inventory = explode(",", $Inventory); */
 	
-	$Backpack  = $row['inventory'];
+	$Backpack  = $row[$row_ObjectInventory];
 	$Backpack = str_replace("|", ",", $Backpack);
 	//$Backpack  = str_replace('"', "", $Backpack );
 	$Backpack  = json_decode($Backpack);
@@ -31,7 +31,7 @@ $owneruid = "";
 
 	
 	
-	$Hitpoints  = $row['parts'];
+	$Hitpoints  = $row[$row_ObjectHitpoints];
 	//$Hitpoints  ='[["wheel_1_1_steering",0.2],["wheel_2_1_steering",0],["wheel_1_4_steering",1],["wheel_2_4_steering",1],["wheel_1_3_steering",1],["wheel_2_3_steering",1],["wheel_1_2_steering",0],["wheel_2_2_steering",1],["motor",0.1],["karoserie",0.4]]';
 	$Hitpoints = str_replace("|", ",", $Hitpoints);
 	//$Backpack  = str_replace('"', "", $Backpack );
@@ -46,8 +46,8 @@ $owneruid = "";
 	$vehicles_xml = XML2Array::createArray($xml);
 ?>	
 	<div id="page-heading">
-		<h1><?php echo "<title>".$row['class_name']." - ".$sitename."</title>"; ?></h1>
-		<h1><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<h1><?php echo "<title>".$row[$row_ObjectClassname]." - ".$sitename."</title>"; ?></h1>
+		<h1><?php echo $row[$row_ObjectClassname]; ?> - <?php echo $row[$row_ObjectID]; ?> - Last save: <?php echo $row[$row_Objectlast_updated]; ?></h1>
 	</div>
 	<!-- end page-heading -->
 
@@ -69,7 +69,7 @@ $owneruid = "";
 			<div id="table-content">
 				<div id="gear_vehicle">
 					<div class="gear_info">
-						<img class="playermodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
+						<img class="playermodel" src='images/vehicles/<?php echo $row[$row_ObjectClassname]; ?>.png'/>
 						<div id="gps" style="margin-left:46px;margin-top:54px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
@@ -89,10 +89,10 @@ $owneruid = "";
 						</div>
 
 						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-95px">
-							<?php echo 'Damage:&nbsp;'.sprintf("%d%%", round($row['damage'] * 100));?>
+							<?php echo 'Damage:&nbsp;'.sprintf("%d%%", round($row[$row_ObjectDamage] * 100));?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-75px">
-							<?php echo 'Fuel:&nbsp;'.sprintf("%d%%", round($row['fuel'] * 100));?>
+							<?php echo 'Fuel:&nbsp;'.sprintf("%d%%", round($row[$row_ObjectFuel] * 100));?>
 						</div>
 					</div>
 					<!-- Backpack -->
@@ -106,12 +106,12 @@ $owneruid = "";
 							$freeslots = 0;
 							$freeweaps = 0;
 							$freebacks = 0;
-							$BackpackName = $row['class_name'];
-							if(array_key_exists('s'.$row['class_name'],$vehicles_xml['vehicles'])){
-								$maxmagazines = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxmagazines'];
-								$maxweaps = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxweapons'];
-								$maxbacks = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxbackpacks'];
-								$BackpackName = $vehicles_xml['vehicles']['s'.$row['class_name']]['Name'];
+							$BackpackName = $row[$row_ObjectClassname];
+							if(array_key_exists('s'.$row[$row_ObjectClassname],$vehicles_xml['vehicles'])){
+								$maxmagazines = $vehicles_xml['vehicles']['s'.$row[$row_ObjectClassname]]['transportmaxmagazines'];
+								$maxweaps = $vehicles_xml['vehicles']['s'.$row[$row_ObjectClassname]]['transportmaxweapons'];
+								$maxbacks = $vehicles_xml['vehicles']['s'.$row[$row_ObjectClassname]]['transportmaxbackpacks'];
+								$BackpackName = $vehicles_xml['vehicles']['s'.$row[$row_ObjectClassname]]['Name'];
 							}
 							if (count($Backpack) >0){
 							$bpweaponscount = count($Backpack[0][0]);
@@ -260,8 +260,8 @@ $owneruid = "";
 				</div>
 			</div>
 			<div>
-				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['id']; ?>">Repair Vehicle</a>&nbsp;&nbsp;--&nbsp;&nbsp;
-				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row['id']; ?>">Destroy Vehicle</a>
+				<a href="admin.php?view=actions&repairVehicle=<?php echo $row[$row_ObjectID]; ?>">Repair Vehicle</a>&nbsp;&nbsp;--&nbsp;&nbsp;
+				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row[$row_ObjectID]; ?>">Destroy Vehicle</a>
 			</div>
 			<!--  end table-content  -->
 	
