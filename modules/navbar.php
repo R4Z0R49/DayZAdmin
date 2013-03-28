@@ -17,6 +17,15 @@ if (isset($_SESSION['user_id']))
 	    case 'namalsk':
 			$mapName = "Namalsk";
 			break;
+	    case 'takistan':
+			$mapName = "Takistan";
+			break;
+	    case 'panthera2':
+			$mapName = "Panthera";
+			break;
+	    case 'fallujah':
+			$mapName = "Fallujah";
+			break;
 	}
 ?>
 <!--  start nav-outer-repeat................................................................................................. START -->
