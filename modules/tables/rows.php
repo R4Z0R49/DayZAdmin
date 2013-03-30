@@ -195,12 +195,12 @@ function row_online_player($row, $player){
 	$uid = "<a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."\">".$row["unique_id"]."</a>";
 	
 
-	$icon = '<a href="admin.php?view=actions&kick='.$player[0].'"><img src="images/icons/player.png" title="Kick '.$player[4].'" alt="Kick '.$player[4].'"/></a>';
-	$icon1 = '<a href="admin.php?view=actions&ban='.$player[0].'"><img src="images/icons/player_dead.png" title="Ban '.$player[4].'" alt="Ban '.$player[4].'"/></a>';
-	$icon2 = '<a href="admin.php?view=actions&resetlocation='.$row['id'].'"><img src="images/icons/wire.png" title="ResetLocation '.$player[4].'" alt="ResetLocation '.$row['id'].'"/></a>';
+	$kick = '<a href="admin.php?view=actionreason&kick='.$player[0].'&player='.$player[4].'">Kick</a>';
+	$ban = '<a href="admin.php?view=actionreason&ban='.$player[0].'&player='.$player[4].'">Ban</a>';
+	$reset = '<a href="admin.php?view=actions&resetlocation='.$row['id'].'">ResetLocation</a>';
 
 	$tablerow = "<tr>
-				<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$icon.$icon1.$icon2."</td>
+				<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$kick."&nbsp;&nbsp;&nbsp;&nbsp;".$ban."<br><br>".$reset."</td>
 				<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$name."</td>
 				<td align=\"center\" class=\"gear_preview\">".$uid."</td>
 
