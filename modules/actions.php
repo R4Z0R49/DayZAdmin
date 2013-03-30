@@ -2,8 +2,8 @@
 if (isset($_SESSION['user_id']))
 {	
 	//if (isset($_GET["url"])){
-		if (isset($_GET["kick"])){
-			$cmd = "kick ".$_GET["kick"];
+		if (isset($_GET["kick"]) && isset($_GET["reason"])){
+			$cmd = "kick ".$_GET["kick"]." ".$_GET["reason"];
 			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Player Kicked',?,NOW())", $_SESSION['login']);
 			$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 			?>
@@ -12,8 +12,8 @@ if (isset($_SESSION['user_id']))
 			</script>
 			<?php
 		}
-		if (isset($_GET["ban"])){
-			$cmd = "ban ".$_GET["ban"];
+		if (isset($_GET["ban"]) && isset($_GET["minutes"]) && isset($_GET["reason"])){
+			$cmd = "ban ".$_GET["ban"]." ".$_GET["minutes"]." ".$_GET["reason"];
 			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Player Banned',?,NOW())", $_SESSION['login']);
 			$answer = rcon($serverip_internal,$serverport,$rconpassword,$cmd);
 			?>
