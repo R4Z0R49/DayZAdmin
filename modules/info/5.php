@@ -8,7 +8,7 @@ $number = sizeof($res);
 
 foreach($res as $row) {
 
-	$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
+	$MapCoords = worldspaceToMapCoords($row['worldspace']);
 ?>	
 	<div id="page-heading">
 		<h1><?php echo $row['otype']; ?> - <?php echo $row['id']; ?></h1>
