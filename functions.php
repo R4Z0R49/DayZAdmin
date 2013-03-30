@@ -27,16 +27,34 @@ function worldspaceToMapCoords($ws, $map = "chernarus")
                 $mapcoords[2] = floor($ws[2] / 100);
                 $mapcoords[3] = round($ws[3] / 100);
                 break;
-		case "tavi":
+			case "tavi":
                 $mapcoords[0] = $ws[0];
                 $mapcoords[1] = floor($ws[1] / 100);
                 $mapcoords[2] = floor($ws[2] / 100);
                 $mapcoords[3] = round($ws[3] / 100);
                 break;
-		case "namalsk":
+			case "namalsk":
                 $mapcoords[0] = $ws[0];
                 $mapcoords[1] = round($ws[1] / 100);
                 $mapcoords[2] = round(128 - ($ws[2] / 100));
+                $mapcoords[3] = round($ws[3] / 100);
+                break;
+            case "takistan":
+                $mapcoords[0] = $ws[0];
+                $mapcoords[1] = floor($ws[1] / 100);
+                $mapcoords[2] = floor($ws[2] / 100);
+                $mapcoords[3] = round($ws[3] / 100);
+                break;
+            case "panthera2":
+                $mapcoords[0] = $ws[0];
+                $mapcoords[1] = floor($ws[1] / 100);
+                $mapcoords[2] = floor(102 - ($ws[2] / 100));
+                $mapcoords[3] = round($ws[3] / 100);
+                break;
+            case "fallujah":
+                $mapcoords[0] = $ws[0];
+                $mapcoords[1] = floor($ws[1] / 100);
+                $mapcoords[2] = floor($ws[2] / 100);
                 $mapcoords[3] = round($ws[3] / 100);
                 break;
             default:
