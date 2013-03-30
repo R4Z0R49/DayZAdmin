@@ -12,7 +12,7 @@ $number = sizeof($res);
 
 foreach($res as $row) {	
 
-	$MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
+	$MapCoords = worldspaceToMapCoords($row['worldspace']);
 	$Inventory = $row['inventory'];
 	$Inventory = str_replace("|", ",", $Inventory);
 	$Inventory  = json_decode($Inventory);
