@@ -128,8 +128,9 @@ function clearPolyLines() {
 		});
 
 		if(found) {
+			// trim path to maxTrackingPositions
 			while(mapMarkersPolylines[i].getLatLngs().length > maxTrackingPositions) {
-				mapMarkersPolylines[i].getLatLngs().removeAt(0);
+				mapMarkersPolylines[i].getLatLngs().splice(0, 1);
 			}
 		} else if(!keepTracksAfterLogout) {
 			// remove path
