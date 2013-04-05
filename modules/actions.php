@@ -93,6 +93,15 @@ if (isset($_SESSION['user_id']))
             </script>
             <?php
         }
+		if (isset($_GET["healPlayer"])){
+            $db->Execute("UPDATE survivor SET medical = '[false,false,false,false,false,false,false,12000,[],[0,0],0,[0,0]]' WHERE unique_id = ? and is_dead = 0", $_GET["healPlayer"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Healed player id: ?,?,NOW())", array($_GET["healPlayer"], $_SESSION['login']));
+            ?>
+            <script type="text/javascript">
+                window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["healPlayer"]; ?>';
+            </script>
+            <?php
+        }
 	//}
 	?>
 	<script type="text/javascript">

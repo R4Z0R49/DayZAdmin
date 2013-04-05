@@ -377,7 +377,9 @@ foreach($res as $row) {
     <td><?php printf("%d (%d%%)", round($Medical[7]), ($Medical[7]/12000) * 100); ?></td>
     <td><?php printf("%d%%", ($Medical[9][0]/1)*100); ?></td>
 </tr>
-<!-- <tr><td colspan="6">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
+<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
+<tr><td colspan="7">&nbsp;</td></tr>
+<tr><td colspan="7"><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>">Heal Player</a></td></tr>
 </table>
 </div>
 			<!--  end table-content  -->
