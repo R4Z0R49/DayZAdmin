@@ -20,6 +20,7 @@ function markers_player($res, $world) {
 			$tmp["icon"] = "Player".($row['is_dead'] ? "Dead" : "");
 			$tmp["title"] = htmlspecialchars($row['name'], ENT_QUOTES)." (".$row['unique_id'].")";
 			$tmp["description"] = $description;
+			$tmp["zIndexOffset"] = 21000;
 			
 			$markers[] = $tmp;
 		}
@@ -53,6 +54,7 @@ function markers_vehicle($res, $world) {
 		$tmp["icon"] = $type;
 		$tmp["title"] = $class." (".$row['id'].")";
 		$tmp["description"] = $description;
+		$tmp["zIndexOffset"] = 20000;
 		
 		$markers[] = $tmp;
 	};
@@ -97,6 +99,7 @@ function markers_deployable($res, $world) {
 		$tmp["icon"] = $type;
 		$tmp["title"] = $class." (".$row['id'].") - ".htmlspecialchars($row['name']);
 		$tmp["description"] = $description;
+		$tmp["zIndexOffset"] = 10000;
 		
 		$markers[] = $tmp;
 	};
