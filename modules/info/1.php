@@ -34,7 +34,6 @@ foreach($res as $row) {
 	$heavyammoslots = 0;
 	$smallammo = array();
 	$usableitems = array();
-	$distance = distanceToString($row['DistanceFoot']);
 	$survival_time = survivalTimeToString($row['survival_time']);
 
 	$xml = file_get_contents('items.xml', true);
