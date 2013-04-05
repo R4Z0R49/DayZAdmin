@@ -23,7 +23,8 @@ function getData(id) {
 			plotlayers = [];
 			for (i = 0; i < data.length; i++) {
 				var pos = new L.LatLng(data[i].lat, data[i].lng);
-				var plotmark = new mapMarker(pos, { icon: eval(data[i].icon), title: data[i].title });
+				var plotmark = new mapMarker(pos, { icon: eval(data[i].icon), title: data[i].title, zIndexOffset: data[i].zIndexOffset });
+				plotmark.options.draggable = true;
 				plotmark.options.uid = data[i].id;
 				map.addLayer(plotmark);
 				plotmark.bindPopup(data[i].description);
