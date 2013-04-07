@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 //ini_set( "display_errors", 0);
 error_reporting (E_ALL ^ E_NOTICE);
@@ -37,7 +36,7 @@ $num_totalVehicles = $db->GetOne($stats_totalVehicles);
 $num_Played24h = $db->GetOne($stats_Played24h);
 
 ?>
-
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
