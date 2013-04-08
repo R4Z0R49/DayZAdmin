@@ -31,7 +31,7 @@ function getData(id) {
 				plotlayers.push(plotmark);	
 
 				if(enableTracking && (id == 0 || id == 4 || id == 8)) {
-					addMarkerCoordToPolyline(data[i].id, pos, data[i].description);
+					addMarkerCoordToPolyline(data[i].id, pos, data[i].description, data[i].icon);
 				}
 			}
 		}
@@ -43,7 +43,7 @@ function getData(id) {
 }
 
 // add a new point to a marker path
-function addMarkerCoordToPolyline(id, pos, desc) {
+function addMarkerCoordToPolyline(id, pos, desc, icon) {
 	if(pos.lng == 0) {
 		// most likely a debug area coordinate so ignore
 		return;
@@ -70,13 +70,13 @@ function addMarkerCoordToPolyline(id, pos, desc) {
 	if(!found) {
 		var trackMouseOutOptions = {
 			weight: 2,
-			color: '#c00000',
+			color: icon.match(/^Player/) ? '#c00000' : '#0000c0',
 			opacity: 0.8
 		}
 
 		var trackMouseOverOptions = {
 			weight: 3,
-			color: '#ff0000',
+			color: icon.match(/^Player/) ? '#ff0000' : '#0000ff',
 			opacity: 1 
 		}
 
