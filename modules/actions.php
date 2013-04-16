@@ -120,7 +120,7 @@ if (isset($_SESSION['user_id']))
             </script>
             <?php
         }
-		if (isset($_GET["clearHumanity"])){
+		if (isset($_GET["resetHumanity"])){
             $db->Execute("UPDATE profile SET humanity = '2500' WHERE unique_id = ?", $_GET["resetHumanity"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Reset humanity for player id: ?,?,NOW())", array($_GET["resetHumanity"], $_SESSION['login']));
             ?>
