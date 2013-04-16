@@ -406,7 +406,7 @@ foreach($res as $row) {
 </tr>
 <!-- Row 4 -->
 <tr>
-<td><a href="admin.php?view=actions&clearHumanity=<?php echo $row['unique_id']; ?>">Clear Humanity</a></td>
+<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>">Reset Humanity</a></td>
 <td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>">Cherno</a></td>
 </tr>
 <!-- Row 5 -->

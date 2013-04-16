@@ -121,11 +121,11 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["clearHumanity"])){
-            $db->Execute("UPDATE profile SET humanity = '0' WHERE unique_id = ?", $_GET["clearHumanity"]);
-            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Revived player id: ?,?,NOW())", array($_GET["clearHumanity"], $_SESSION['login']));
+            $db->Execute("UPDATE profile SET humanity = '2500' WHERE unique_id = ?", $_GET["resetHumanity"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Reset humanity for player id: ?,?,NOW())", array($_GET["resetHumanity"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
-                window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["clearHumanity"]; ?>';
+                window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["resetHumanity"]; ?>';
             </script>
             <?php
         }
