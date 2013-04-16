@@ -6,6 +6,7 @@ session_start();
 require_once('config.php');
 require_once('db.php');
 include('queries.php');
+include ('modules/footer.php');
 
 $KillsZ = 0;
 $KillsB = 0;
@@ -56,7 +57,7 @@ $(document).pngFix( );
 <body id="stats-bg"> 
 <div id="topbg"></div>
 <div id="logo">
-		<img src="http://www.ninjah-gaming.co.uk/s/DayZ/Chernarus/images/logo.png" width="150px" height="72px" alt=""></a>
+		<img src="images/logo.png" width="150px" height="72px" alt=""></a>
 </div>
 <div id="rightlogo">
 		<a href="<?php echo($rightlogoLink); ?>"><img src="<?php echo($rightlogoImg); ?>" width="<?php echo($rightlogoWidth); ?>" height="<?php echo($rightlogoHeight); ?>" alt=""></img></a>
@@ -183,9 +184,8 @@ $(document).pngFix( );
 <?php } ?>
 	<!--  end social-center -->
 
-<!-- 
+<!-- start footer -->         
 <?php
- include ('modules\footer.php');
- ?>
- -->
- <!-- end footer -->
+echo ($footer);
+?>
+<!-- end footer -->
