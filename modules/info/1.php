@@ -1,9 +1,5 @@
 <?php
 include ('queries.php');
-$cid = '';
-if (isset($_GET['cid'])){
-	$cid = " AND id ='".$_GET['cid']."'";
-}
 
 $query = $info1[0];
 $binds = $info1[1];
@@ -35,6 +31,13 @@ foreach($res as $row) {
 	$smallammo = array();
 	$usableitems = array();
 	$survival_time = survivalTimeToString($row['survival_time']);
+
+	$cid = '';
+	if (isset($_GET['cid'])){
+		$cid = $_GET['cid'];
+	} else {
+		$cid = $row['cid'];
+	}
 
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
@@ -369,7 +372,7 @@ foreach($res as $row) {
     <th>Leg Injury</th>
 </tr>
 <tr>
-    <td><?php echo $Medical[0] ? "No" : "Yes"; ?></td>
+    <td><?php echo $row['is_dead'] == 1 ? "No" : "Yes"; ?></td>
     <td><?php echo $Medical[1] ? "Yes" : "No"; if($Medical[10] > 0) { printf(" (%d)", $Medical[10]); } ?></td>
     <td><?php echo $Medical[2] ? "Yes" : "No"; ?></td>
     <td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
@@ -391,48 +394,48 @@ foreach($res as $row) {
 </tr>
 <!-- Row 1 -->
 <tr>
-<td><a href="admin.php?view=actions&RevivePlayer=<?php echo $row['unique_id']; ?>">Revive Player</a></td>
-<td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>">North East Airfield</a></td>
+<td><a href="admin.php?view=actions&revivePlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Revive Player</a></td>
+<td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North East Airfield</a></td>
 </tr>
 <!-- Row 2 -->
 <tr>
-<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>">Heal Player</a></td>
-<td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>">North West Airfield</a></td>
+<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Heal Player</a></td>
+<td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North West Airfield</a></td>
 </tr>
 <!-- Row 3 -->
 <tr>
-<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>">Kill Player</a></td>
-<td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>">Stary Tents</a></td>
+<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
+<td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
 </tr>
 <!-- Row 4 -->
 <tr>
-<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>">Reset Humanity</a></td>
-<td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>">Cherno</a></td>
+<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Reset Humanity</a></td>
+<td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Cherno</a></td>
 </tr>
 <!-- Row 5 -->
 <tr>
 <td></td>
-<td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>">Elektro</a></td>
+<td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Elektro</a></td>
 </tr>
 <!-- Row 6 -->
 <tr>
 <td></td>
-<td><a href="admin.php?view=actions&teleportSkalisti=<?php echo $row['unique_id']; ?>">Skalisti</a></td>
+<td><a href="admin.php?view=actions&teleportSkalisty=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Skalisty</a></td>
 </tr>
 <!-- Row 7 -->
 <tr>
 <td></td>
-<td><a href="admin.php?view=actions&teleportBerezino=<?php echo $row['unique_id']; ?>">Berezino</a></td>
+<td><a href="admin.php?view=actions&teleportBerezino=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Berezino</a></td>
 </tr>
 <!-- Row 8 -->
 <tr>
 <td></td>
-<td><a href="admin.php?view=actions&teleportSolnichny=<?php echo $row['unique_id']; ?>">Solnichny</a></td>
+<td><a href="admin.php?view=actions&teleportSolnichniy=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Solnichniy</a></td>
 </tr>
 <!-- Row 9 -->
 <tr>
 <td></td>
-<td><a href="admin.php?view=actions&teleportPolana=<?php echo $row['unique_id']; ?>">Polana</a></td>
+<td><a href="admin.php?view=actions&teleportPolana=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Polana</a></td>
 </tr>
 </table>
 </div>
