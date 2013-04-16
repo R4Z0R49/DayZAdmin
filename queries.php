@@ -18,7 +18,11 @@ switch($sql)
 		$stats_totalkills_KillsH = 'total_survivor_kills';
 		$stats_totalkills_HeadshotsZ = 'total_headshots';
 	//Info
-		$info1 = array("SELECT s.*,p.* FROM survivor s JOIN profile p ON p.unique_id = s.unique_id WHERE s.unique_id = ? AND is_dead=0 AND world_id = ? LIMIT 1", array($_GET['id'], $world)); 
+		if(isset($_GET['cid'])) {
+			$info1 = array("SELECT s.id as cid,s.*,p.* FROM survivor s JOIN profile p ON p.unique_id = s.unique_id WHERE s.unique_id = ? AND s.id = ? AND world_id = ? LIMIT 1", array($_GET['id'], $_GET['cid'], $world)); 
+		} else {
+			$info1 = array("SELECT s.id as cid,s.*,p.* FROM survivor s JOIN profile p ON p.unique_id = s.unique_id WHERE s.unique_id = ? AND is_dead = 0 AND world_id = ? LIMIT 1", array($_GET['id'], $world)); 
+		}
 		$info4 = array("SELECT iv.*, v.class_name FROM instance_vehicle iv inner join  world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on wv.vehicle_id = v.id WHERE iv.id = ? and instance_id = ? LIMIT 1", array($_GET["id"], $iid));
 		$info5 = array("select v.class_name as otype,wv.id as id,wv.worldspace as pos from world_vehicle wv join vehicle v on v.id = wv.vehicle_id where world_id = (select id from world where name = ?) and wv.id = ? LIMIT 1", array($map, $_GET['id']));
 		$info6 = array("SELECT id.*,d.class_name,p.name,p.unique_id player_unique_id from instance_deployable id JOIN deployable d on d.id = id.deployable_id JOIN survivor s ON s.id = id.owner_id JOIN profile p on p.unique_id = s.unique_id WHERE id.id = ? and instance_id = ? LIMIT 1", array($_GET["id"], $iid) );
