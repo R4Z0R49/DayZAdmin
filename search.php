@@ -2,6 +2,7 @@
 require_once('config.php');
 require_once('db.php');
 require_once('functions.php');
+include ('modules/footer.php');
 
 if (isset($_POST['search'])){
 	$pagetitle = "Stats for ".$_POST['search'];
@@ -21,6 +22,7 @@ $row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survi
 	echo "<title>".$pagetitle." - ".$sitename."</title>";
 ?>
 <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
+<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
 <script type="text/javascript">
 </script>
 </head>
@@ -60,47 +62,47 @@ if($row) {
 	$id = $row['id'];
 ?>
 				<table border="0" cellpadding="4" cellspacing="0">
-<td width="26"><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-unique.gif" width="36" height="27" /></td>
+<td width="26"><img src="images/icons/statspage/alivecharacters1.png" width="36" height="36" /></td>
     <td width="184"><strong>Latest id:</strong></td>
     <td width="12" align="right"><?php echo $row['id'];?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-alive.gif" width="36" height="27" /></td>
+    <td><img src="images/icons/statspage/totalplayers1.png" width="36" height="36" /></td>
     <td><strong>uid:</strong></td>
     <td align="right"><?php echo $row['unique_id'];?></td>
   </tr>
     <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-alive.gif" width="36" height="27" /></td>
+    <td><img src="images/icons/statspage/totalplayers1.png" width="36" height="36" /></td>
     <td><strong>humanity:</strong></td>
     <td align="right"><?php echo $row['humanity'];?></td>
   </tr>
   <tr>
-      <td><img src="./images/playerdeaths.png" width="24" height="24" /></td>
+      <td><img src="images/icons/statspage/playerdeaths1.png" width="24" height="36" /></td>
     <td><strong>survival_attempts:</strong></td>
     <td align="right"><?php echo $row['survival_attempts'];?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-zombies.gif" width="36" height="27" /></td>
+    <td><img src="images/icons/statspage/totalplayerin24h.png" width="36" height="36" /></td>
     <td><strong>total_survival_time:</strong></td>
     <td align="right"><?php echo survivalTimeToString($row['total_survival_time']);?></td>
   </tr>
   <tr>
-    <td><img src="images/zombiehs.png" width="24" height="24" /></td>
+    <td><img src="images/icons/statspage/infectedheadshots1.png" width="24" height="36" /></td>
     <td><strong>total_headshots:</strong></td>
     <td align="right"><?php echo $row['total_headshots'];?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-murders.gif" width="36" height="27" /></td>
+    <td><img src="images/icons/statspage/banditskilled1.png" width="36" height="36" /></td>
     <td><strong>total_bandit_kills:</strong></td>
     <td align="right"><?php echo $row['total_bandit_kills'];?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-bandits.gif" width="36" height="27" /></td>
+    <td><img src="images/icons/statspage/infectedkilled1.png" width="36" height="36" /></td>
     <td><strong>total_zombie_kills:</strong></td>
     <td align="right"><?php echo $row['total_zombie_kills'];?></td>
   </tr>
   <tr>
-    <td><img src="http://www.dayzmod.com/images/icons/sidebar/staticon-banditskilled.gif" width="36" height="27" /></td>
+    <td><img src="images/icons/statspage/murders.png" width="36" height="36" /></td>
 	    <td><strong>total_survivor_kills:</strong></td>
     <td align="right"><?php echo $row['total_survivor_kills'];?></td>
   </tr>
@@ -120,14 +122,36 @@ if($row) {
 <!--  end content-outer........................................................END -->
 
 <div class="clear">&nbsp;</div>
+
+<?php if ($EnableSocialMedia == 1) { ?> 
+<div id="social_box">
+<div id="social">
+	<!--  start social-center -->
+	<h1 class="Topleveltext"><?php echo $socialheader ?></h1>
+<p>
+<?php if ($callenabled == 1) { ?>  
+ <a href="http://<?php echo $call ?>" target="_new"><img src="images/social/icons/call-splatter.png" alt="Phone Call" width="150" height="150" /></a>
+<?php } if ($emailenabled == 1) { ?>   
+  <a href="mailto:<?php echo $email ?>"><img src="images/social/icons/email-splatter.png" alt="Email Us" width="150" height="150" /></a>
+<?php } if ($facebookenabled == 1) { ?>
+  <a href="http://<?php echo $facebook ?>" target="_new"><img src="images/social/icons/facebook-splatter.png" alt="Facebook Page" width="150" height="150" /></a>
+<?php } if ($flickrenabled == 1) { ?>
+  <a href="http://<?php echo $flickr ?>" target="_new"><img src="images/social/icons/flickr-splatter.png" alt="Flickr Page" width="150" height="150" /></a>
+<?php } if ($youtubeenabled == 1) { ?>
+  <a href="http://<?php echo $youtube ?>" target="_new"><img src="images/social/icons/youtube-splatter.png" alt="YouTube Page" width="150" height="150" /></a>
+<?php } if ($twitterenabled == 1) { ?>
+  <a href="http://<?php echo $twitter ?>" target="_new"><img src="images/social/icons/twitter-splatter.png" alt="Twitter Page" width="150" height="150" /></a>
+<?php } if ($vimeoenabled == 1) { ?>
+  <a href="http://<?php echo $vimeo ?>" target="_new"><img src="images/social/icons/vimeo-splatter.png" alt="Vimeo Page" width="150" height="150" /></a>
+<?php } ?>  
+</p>
+<?php } ?>
+	<!--  end social-center -->
+
 <!-- start footer -->         
-<div id="footer">
-	<!--  start footer-left -->
-	<div id="footer-left">
-	<a href="admin.php"><?php echo $sitename ?> &copy; Copyright 2010-2013. All rights reserved(LeadGames). Redesigned By Marcuz</div>
-	<!--  end footer-left -->
-	<div class="clear">&nbsp;</div>
-</div>
+<?php
+echo ($footer);
+?>
 <!-- end footer -->
  
 </body>
