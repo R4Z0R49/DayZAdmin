@@ -379,7 +379,61 @@ foreach($res as $row) {
 </tr>
 <!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
 <tr><td colspan="7">&nbsp;</td></tr>
-<tr><td colspan="7"><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>">Heal Player</a></td></tr>
+</table>
+<table>
+<tr>
+	<th>
+	Options
+	</th>
+	<th>
+	Teleport
+	</th>
+</tr>
+<!-- Row 1 -->
+<tr>
+<td><a href="admin.php?view=actions&RevivePlayer=<?php echo $row['unique_id']; ?>">Revive Player</a></td>
+<td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>">North East Airfield</a></td>
+</tr>
+<!-- Row 2 -->
+<tr>
+<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>">Heal Player</a></td>
+<td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>">North West Airfield</a></td>
+</tr>
+<!-- Row 3 -->
+<tr>
+<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>">Kill Player</a></td>
+<td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>">Stary Tents</a></td>
+</tr>
+<!-- Row 4 -->
+<tr>
+<td><a href="admin.php?view=actions&clearHumanity=<?php echo $row['unique_id']; ?>">Clear Humanity</a></td>
+<td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>">Cherno</a></td>
+</tr>
+<!-- Row 5 -->
+<tr>
+<td></td>
+<td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>">Elektro</a></td>
+</tr>
+<!-- Row 6 -->
+<tr>
+<td></td>
+<td><a href="admin.php?view=actions&teleportSkalisti=<?php echo $row['unique_id']; ?>">Skalisti</a></td>
+</tr>
+<!-- Row 7 -->
+<tr>
+<td></td>
+<td><a href="admin.php?view=actions&teleportBerezino=<?php echo $row['unique_id']; ?>">Berezino</a></td>
+</tr>
+<!-- Row 8 -->
+<tr>
+<td></td>
+<td><a href="admin.php?view=actions&teleportSolnichny=<?php echo $row['unique_id']; ?>">Solnichny</a></td>
+</tr>
+<!-- Row 9 -->
+<tr>
+<td></td>
+<td><a href="admin.php?view=actions&teleportPolana=<?php echo $row['unique_id']; ?>">Polana</a></td>
+</tr>
 </table>
 </div>
 			<!--  end table-content  -->
