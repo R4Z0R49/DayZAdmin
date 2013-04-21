@@ -18,7 +18,7 @@ switch($sql)
 		$stats_totalkills_KillsH = 'total_survivor_kills';
 		$stats_totalkills_HeadshotsZ = 'total_headshots';
 	//Info
-		if(isset($_GET['cid'])) {
+		if(isset($_GET['cid']) && $_GET['cid'] > 0) {
 			$info1 = array("SELECT s.id as cid,s.*,p.* FROM survivor s JOIN profile p ON p.unique_id = s.unique_id WHERE s.unique_id = ? AND s.id = ? AND world_id = ? LIMIT 1", array($_GET['id'], $_GET['cid'], $world)); 
 		} else {
 			$info1 = array("SELECT s.id as cid,s.*,p.* FROM survivor s JOIN profile p ON p.unique_id = s.unique_id WHERE s.unique_id = ? AND is_dead = 0 AND world_id = ? LIMIT 1", array($_GET['id'], $world)); 

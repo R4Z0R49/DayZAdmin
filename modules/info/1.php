@@ -33,7 +33,7 @@ foreach($res as $row) {
 	$survival_time = survivalTimeToString($row['survival_time']);
 
 	$cid = '';
-	if (isset($_GET['cid'])){
+	if (isset($_GET['cid']) && $_GET['cid'] > 0){
 		$cid = $_GET['cid'];
 	} else {
 		$cid = $row['cid'];
