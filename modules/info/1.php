@@ -391,22 +391,22 @@ foreach($res as $row) {
 </tr>
 <!-- Row 1 -->
 <tr>
-<td></td>
+<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>">Heal Player</a></td>
 <td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>">North East Airfield</a></td>
 </tr>
 <!-- Row 2 -->
 <tr>
-<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>">Heal Player</a></td>
+<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>">Kill Player</a></td>
 <td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>">North West Airfield</a></td>
 </tr>
 <!-- Row 3 -->
 <tr>
-<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>">Kill Player</a></td>
+<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>">Reset Humanity</a></td>
 <td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>">Stary Tents</a></td>
 </tr>
 <!-- Row 4 -->
 <tr>
-<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>">Reset Humanity</a></td>
+<td></td>
 <td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>">Cherno</a></td>
 </tr>
 <!-- Row 5 -->
