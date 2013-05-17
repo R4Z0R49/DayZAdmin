@@ -1,6 +1,9 @@
 <?php
+
+
 if (isset($_SESSION['user_id']))
 {	
+$cid = $_GET["cid"];
 	//if (isset($_GET["url"])){
 		if (isset($_GET["kick"]) && isset($_GET["reason"])){
 			$cmd = "kick ".$_GET["kick"]." ".$_GET["reason"];
@@ -103,7 +106,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["killPlayer"])){
-            $db->Execute("UPDATE survivor SET is_dead = '1' WHERE unique_id = ? AND is_dead = 0", $_GET["killPlayer"]);
+            $db->Execute("UPDATE survivor SET is_dead = '1' WHERE unique_id = ? AND id = $cid AND is_dead = 0", $_GET["killPlayer"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Killed player id: ?,?,NOW())", array($_GET["killPlayer"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -112,7 +115,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["revivePlayer"])){
-            $db->Execute("UPDATE survivor SET is_dead = '0' WHERE unique_id = ? AND is_dead = 1", $_GET["revivePlayer"]);
+            $db->Execute("UPDATE survivor SET is_dead = '0' WHERE unique_id = ? AND id = $cid AND is_dead = 1", $_GET["revivePlayer"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Revived player id: ?,?,NOW())", array($_GET["revivePlayer"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
