@@ -391,7 +391,7 @@ foreach($res as $row) {
 </tr>
 <!-- Row 1 -->
 <tr>
-<td><a href="admin.php?view=actions&RevivePlayer=<?php echo $row['unique_id']; ?>">Revive Player</a></td>
+<td></td>
 <td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>">North East Airfield</a></td>
 </tr>
 <!-- Row 2 -->
