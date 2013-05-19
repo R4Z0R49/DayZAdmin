@@ -391,31 +391,39 @@ foreach($res as $row) {
 	<th>
 	Teleport
 	</th>
+	<th>
+	Skin
+	</th>
 </tr>
 <!-- Row 1 -->
 <tr>
 <td><a href="admin.php?view=actions&revivePlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Revive Player</a></td>
 <td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North East Airfield</a></td>
+<td><a href="admin.php?view=actions&skinNormal=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Normal Clothing</a></td>
 </tr>
 <!-- Row 2 -->
 <tr>
 <td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Heal Player</a></td>
 <td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North West Airfield</a></td>
+<td><a href="admin.php?view=actions&skinCamo=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Camo Clothing</a></td>
 </tr>
 <!-- Row 3 -->
 <tr>
 <td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
 <td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
+<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Gillie Suit</a></td>
 </tr>
 <!-- Row 4 -->
 <tr>
 <td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Reset Humanity</a></td>
 <td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Cherno</a></td>
+<td><a href="admin.php?view=actions&skinSoldier=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Soldier Clothing</a></td>
 </tr>
 <!-- Row 5 -->
 <tr>
 <td></td>
 <td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Elektro</a></td>
+<td><a href="admin.php?view=actions&skinBandit=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Bandit Skin</a></td>
 </tr>
 <!-- Row 6 -->
 <tr>
