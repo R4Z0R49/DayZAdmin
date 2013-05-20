@@ -1,6 +1,9 @@
 <?php
+
+
 if (isset($_SESSION['user_id']))
 {	
+$cid = $_GET["cid"];
 	//if (isset($_GET["url"])){
 		if (isset($_GET["kick"]) && isset($_GET["reason"])){
 			$cmd = "kick ".$_GET["kick"]." ".$_GET["reason"];
@@ -94,7 +97,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["healPlayer"])){
-            $db->Execute("UPDATE survivor SET medical = '[false,false,false,false,false,false,false,12000,[],[0,0],0,[0,0]]' WHERE unique_id = ? AND is_dead = 0", $_GET["healPlayer"]);
+            $db->Execute("UPDATE survivor SET medical = '[false,false,false,false,false,false,false,12000,[],[0,0],0,[0,0]]' WHERE unique_id = ? AND id = $cid AND is_dead = 0", $_GET["healPlayer"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Healed player id: ?,?,NOW())", array($_GET["healPlayer"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -103,7 +106,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["killPlayer"])){
-            $db->Execute("UPDATE survivor SET is_dead = '1' WHERE unique_id = ? AND is_dead = 0", $_GET["killPlayer"]);
+            $db->Execute("UPDATE survivor SET is_dead = '1' WHERE unique_id = ? AND id = $cid AND is_dead = 0", $_GET["killPlayer"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Killed player id: ?,?,NOW())", array($_GET["killPlayer"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -112,7 +115,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["revivePlayer"])){
-            $db->Execute("UPDATE survivor SET is_dead = '0' WHERE unique_id = ? AND is_dead = 1", $_GET["revivePlayer"]);
+            $db->Execute("UPDATE survivor SET is_dead = '0' WHERE unique_id = ? AND id = $cid AND is_dead = 1", $_GET["revivePlayer"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Revived player id: ?,?,NOW())", array($_GET["revivePlayer"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -129,8 +132,9 @@ if (isset($_SESSION['user_id']))
             </script>
             <?php
         }
+// TELLEPORTS
 		if (isset($_GET["teleportNE"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[12509.9,12602.2,0.00144958]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportNE"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[12509.9,12602.2,0.00144958]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportNE"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(NEAF) player id: ?,?,NOW())", array($_GET["teleportNE"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -139,7 +143,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["teleportStary"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[6421.79,7745.49,0.00115967]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportStary"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[6421.79,7745.49,0.00115967]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportStary"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(Stary) playerid: ?,?,NOW())", array($_GET["teleportStary"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -148,7 +152,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["teleportNW"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[4937.24,9709.31,0.00143433]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportNW"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[4937.24,9709.31,0.00143433]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportNW"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(NWAF) playerid: ?,?,NOW())", array($_GET["teleportNW"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -157,7 +161,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["teleportCherno"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[7072.14,2166.65,0.00130177]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportCherno"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[7072.14,2166.65,0.00130177]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportCherno"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(Cherno) playerid: ?,?,NOW())", array($_GET["teleportCherno"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -166,7 +170,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["teleportElektro"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[10017.2,1634.3,0.00123644]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportElektro"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[10017.2,1634.3,0.00123644]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportElektro"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(Elektro) playerid: ?,?,NOW())", array($_GET["teleportElektro"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -175,7 +179,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["teleportSkalisty"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[13686.5,2911.2,0.00140381]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportSkalisty"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[13686.5,2911.2,0.00140381]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportSkalisty"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(Skalisty) playerid: ?,?,NOW())", array($_GET["teleportSkalisty"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -184,7 +188,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["teleportBerezino"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[11796.5,8846.02,0.00179291]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportBerezino"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[11796.5,8846.02,0.00179291]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportBerezino"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(Berezino) playerid: ?,?,NOW())", array($_GET["teleportBerezino"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -193,7 +197,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["teleportSolnichniy"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[13225.4,7177.08,0.00147486]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportSolnichniy"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[13225.4,7177.08,0.00147486]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportSolnichniy"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(Solnichniy) playerid: ?,?,NOW())", array($_GET["teleportSolnichniy"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -202,7 +206,7 @@ if (isset($_SESSION['user_id']))
             <?php
         }
 		if (isset($_GET["teleportPolana"])){
-            $db->Execute("UPDATE survivor SET worldspace = '[0,[11463.8,7484.06,0.00140381]]' WHERE is_dead = 0 AND unique_id = ?", $_GET["teleportPolana"]);
+            $db->Execute("UPDATE survivor SET worldspace = '[0,[11463.8,7484.06,0.00140381]]' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["teleportPolana"]);
             $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Teleported(Polana) playerid: ?,?,NOW())", array($_GET["teleportPolana"], $_SESSION['login']));
             ?>
             <script type="text/javascript">
@@ -210,7 +214,52 @@ if (isset($_SESSION['user_id']))
             </script>
             <?php
         }
-		
+//SKINS
+		if (isset($_GET["skinNormal"])){
+            $db->Execute("UPDATE survivor SET model = 'Survivor2_DZ' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["skinNormal"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Changed skin(Normal) playerid: ?,?,NOW())", array($_GET["skinNormal"], $_SESSION['login']));
+            ?>
+            <script type="text/javascript">
+                window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["skinNormal"]; ?>';
+            </script>
+            <?php
+        }
+		if (isset($_GET["skinCamo"])){
+            $db->Execute("UPDATE survivor SET model = 'Camo1_DZ' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["skinCamo"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Changed skin(Camo) playerid: ?,?,NOW())", array($_GET["skinCamo"], $_SESSION['login']));
+            ?>
+            <script type="text/javascript">
+                window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["skinCamo"]; ?>';
+            </script>
+            <?php
+        }
+		if (isset($_GET["skinGillie"])){
+            $db->Execute("UPDATE survivor SET model = 'Sniper1_DZ' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["skinGillie"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Changed skin(Gillie) playerid: ?,?,NOW())", array($_GET["skinGillie"], $_SESSION['login']));
+            ?>
+            <script type="text/javascript">
+                window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["skinGillie"]; ?>';
+            </script>
+            <?php
+        }
+		if (isset($_GET["skinSoldier"])){
+            $db->Execute("UPDATE survivor SET model = 'Soldier1_DZ' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["skinSoldier"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Changed skin(Soldier) playerid: ?,?,NOW())", array($_GET["skinGillie"], $_SESSION['login']));
+            ?>
+            <script type="text/javascript">
+                window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["skinSoldier"]; ?>';
+            </script>
+            <?php
+        }
+		if (isset($_GET["skinBandit"])){
+            $db->Execute("UPDATE survivor SET model = 'Bandit1_DZ' WHERE is_dead = 0 AND unique_id = ? AND id = $cid", $_GET["skinBandit"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Changed skin(Bandit) playerid: ?,?,NOW())", array($_GET["skinBandit"], $_SESSION['login']));
+            ?>
+            <script type="text/javascript">
+                window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["skinBandit"]; ?>';
+            </script>
+            <?php
+        }
 		
 	//}
 	?>
