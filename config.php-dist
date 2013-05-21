@@ -44,7 +44,7 @@
 	$youtube = ""; //YouTube 
 	
 	//Top Links
-	$ManuPanelLink = 0; // Enable the admin panel link? (1 yes, 0 no)
+	$ManuPanelLink = 1; // Enable the admin panel link? (1 yes, 0 no)
 	
 	//Top Right Logo - Leave these settings blank to disable the top right logo
 	$rightlogoImg = ""; // Link to a  logo / image

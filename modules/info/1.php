@@ -1,5 +1,6 @@
 <?php
 include ('queries.php');
+require_once ('config.php');
 
 $query = $info1[0];
 $binds = $info1[1];
@@ -391,31 +392,39 @@ foreach($res as $row) {
 	<th>
 	Teleport
 	</th>
+	<th>
+	Skin
+	</th>
 </tr>
 <!-- Row 1 -->
 <tr>
 <td><a href="admin.php?view=actions&revivePlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Revive Player</a></td>
 <td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North East Airfield</a></td>
+<td><a href="admin.php?view=actions&skinNormal=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Normal Clothing</a></td>
 </tr>
 <!-- Row 2 -->
 <tr>
 <td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Heal Player</a></td>
 <td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North West Airfield</a></td>
+<td><a href="admin.php?view=actions&skinCamo=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Camo Clothing</a></td>
 </tr>
 <!-- Row 3 -->
 <tr>
 <td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
 <td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
+<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Gillie Suit</a></td>
 </tr>
 <!-- Row 4 -->
 <tr>
 <td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Reset Humanity</a></td>
 <td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Cherno</a></td>
+<td><a href="admin.php?view=actions&skinSoldier=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Soldier Clothing</a></td>
 </tr>
 <!-- Row 5 -->
 <tr>
 <td></td>
 <td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Elektro</a></td>
+<td><a href="admin.php?view=actions&skinBandit=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Bandit Skin</a></td>
 </tr>
 <!-- Row 6 -->
 <tr>
@@ -439,7 +448,52 @@ foreach($res as $row) {
 </tr>
 </table>
 </div>
-			<!--  end table-content  -->
+<!--  end table-content  -->
+
+<!-- Start inventory management -->
+
+<?php
+mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
+mysql_select_db($dbName);
+
+
+if ($_POST['submit_inv']) {
+	$inv =  mysql_real_escape_string($_POST['inv']);
+	$dbQuery="UPDATE survivor SET inventory = '$inv' WHERE id = $cid AND is_dead = 0";
+	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
+}
+
+if ($_POST['submit_bck']) {
+	$bck =  mysql_real_escape_string($_POST['bck']);
+	$dbQuery="UPDATE survivor SET backpack = '$bck' WHERE id = $cid AND is_dead = 0";
+	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
+}
+
+?>
+
+<div id="inventoryString">
+	<form method="post">
+		<textarea name="inv" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
+<?php
+echo $row['inventory'];
+?>
+		</textarea><br>
+	<input name="submit_inv" type="submit" value="Submit" />
+	</form>
+
+	<form method="post">
+		<textarea name="bck" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
+<?php 
+echo $row['backpack'];
+?>
+		</textarea><br>
+	<input name="submit_bck" type="submit" value="Submit" />
+	</form>
+</div>
+
+
+<!-- End inventory management -->
+
 			<?php
 			echo $debug;
 			?>

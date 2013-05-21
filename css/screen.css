@@ -1783,7 +1783,7 @@ margin:0;
 padding:0;
 }
 
- 
+/* Survivor page misc */
 #medical table {
 	width: 500px;
 	position: relative;
@@ -1799,6 +1799,16 @@ padding:0;
 #medical td {
 	text-align: left;
 	padding-top: 3px;
+}
+
+#inventoryString {
+	margin-left: 550px;
+	margin-top: -190px;
+}
+
+#inventoryString  textarea{
+	width: 600px;
+	height: 125px;
 }
 
 /* Top */
