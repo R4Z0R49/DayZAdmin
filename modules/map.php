@@ -38,7 +38,7 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 		break;
 	}
 	echo '<div id="page-heading"><title>'.$title.' - '.$sitename.'</title><h2>'.$title.'&nbsp;(<span id="count">0</span>)</h2></div>';
-
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Viewing map',?,NOW())", $_SESSION['login']);
 	include('modules/leaf.php');
 }
 else
