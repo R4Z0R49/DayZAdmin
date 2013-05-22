@@ -7,6 +7,17 @@ $binds = $info1[1];
 $res = $db->GetAll($query, $binds);
 $number = sizeof($res);
 
+	$cid = '';
+	if (isset($_GET['cid']) && $_GET['cid'] > 0){
+		$cid = $_GET['cid'];
+	} else {
+		$cid = $row['cid'];
+	}
+
+if (isset($_SESSION['user_id'])) {
+$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Viewing player: $cid',?,NOW())", $_SESSION['login']);
+}
+
 foreach($res as $row) {	
 
 	$MapCoords = worldspaceToMapCoords($row['worldspace']);
@@ -32,13 +43,6 @@ foreach($res as $row) {
 	$smallammo = array();
 	$usableitems = array();
 	$survival_time = survivalTimeToString($row['survival_time']);
-
-	$cid = '';
-	if (isset($_GET['cid']) && $_GET['cid'] > 0){
-		$cid = $_GET['cid'];
-	} else {
-		$cid = $row['cid'];
-	}
 
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
