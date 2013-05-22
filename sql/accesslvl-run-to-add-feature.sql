@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD COLUMN `accesslvl` VARCHAR(16) NULL AFTER `password`;

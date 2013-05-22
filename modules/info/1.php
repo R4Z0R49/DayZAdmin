@@ -412,7 +412,7 @@ foreach($res as $row) {
 <tr>
 <td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
 <td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
-<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Gillie Suit</a></td>
+<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Ghillie Suit</a></td>
 </tr>
 <!-- Row 4 -->
 <tr>
@@ -456,10 +456,12 @@ foreach($res as $row) {
 mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
 mysql_select_db($dbName);
 
+$login = $_SESSION['login'];
 
 if ($_POST['submit_inv']) {
 	$inv =  mysql_real_escape_string($_POST['inv']);
 	$dbQuery="UPDATE survivor SET inventory = '$inv' WHERE id = $cid AND is_dead = 0";
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited inventory on user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 }
 
@@ -473,6 +475,7 @@ if ($_POST['submit_bck']) {
 
 <div id="inventoryString">
 	<form method="post">
+	<h2>Inventory String</h2>
 		<textarea name="inv" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php
 echo $row['inventory'];
@@ -482,6 +485,7 @@ echo $row['inventory'];
 	</form>
 
 	<form method="post">
+	<br><h2>Backpack String</h2>
 		<textarea name="bck" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php 
 echo $row['backpack'];
