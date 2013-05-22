@@ -24,6 +24,14 @@ Lists of players and vehicles.
 
 Player/vehicle inventory, states and position.
 
+Inventory and backpack string editors.
+
+Teleportation, skin changes, reset humanity, reviving, killing, healing and medical status options via the panel.
+
+Reset humanity, reviving, killing, healing and medical status options via the panel.
+
+Two access ranks to the panel, one with full access, one with a bit more restricted access.
+
 Google maps API based map with players, vehicles and deployables (optional tracking of players and vehicles).
 
 Inventory check for unknown items.
@@ -45,3 +53,12 @@ Rename config.php-dist to config.php
 Edit config.php to set right values. That is highly important!
 
 Default login: admin/123456
+
+Updating
+=========
+
+Check for any new files to run in the sql folder
+
+Check that your config.php is up to date with the new config.php-dist if it has been edited
+
+
