@@ -1,47 +1,64 @@
-BlissAdmin for the Bliss hive
+BlissAdmin for the Reality private-hive & DayZ hive(soon)
 =========
 
-DayZ Administration panel.
+BlissAdmin is a DayZ Administration panel that was originally coded for the server pack Bliss. Bliss then got abandoned and Reality was born. We now use reality as a base but however are planning to add support for the regular DayZ hive structure.
 
 Requirements
 =========
 
-MySQL 5.4 or higher
+*MySQL 5.4 or higher
 
-Apache 2.2 or higher
+*Apache 2.2 or higher
 
-PHP 5.3 
+*PHP 5.3 
 
-Correctly installed and configured Battleye RCON
+*Correctly installed and configured Battleye RCON
 
-Linux Support (Close pending path issues)
+*Linux Support (Close pending path issues)
 
 
 Features
 =========
 
-Lists of players and vehicles.
+*Lists of players and vehicles.
 
-Player/vehicle inventory, states and position.
+*Player/vehicle inventory, states and position.
 
-Google maps API based map with players, vehicles and deployables (optional tracking of players and vehicles).
+*Inventory and backpack string editors.
 
-Inventory check for unknown items.
+*Teleportation, skin changes, reset humanity, reviving, killing, healing and medical status options via the panel.
 
-Search for items, vehicles, players.
+*Reset humanity, reviving, killing, healing and medical status options via the panel.
 
-Rcon-based online players list, kick-ban features and global messaging.
+*Two access ranks to the panel, one with full access, one with a bit more restricted access.
 
-Reset Players locations.
+*Google maps API based map with players, vehicles and deployables (optional tracking of players and vehicles).
+
+*Inventory check for unknown items.
+
+*Search for items, vehicles, players.
+
+*Rcon-based online players list, kick-ban features and global messaging.
+
+*Reset Players locations.
 
 
 Installation
 =========
 
-Import dayz.sql to your database
+*Import dayz.sql in the sql folder to your database.
 
-Rename config.php-dist to config.php
+*Rename config.php-dist to config.php.
 
-Edit config.php to set right values. That is highly important!
+*Edit config.php and set to the right values. This is highly important!
 
-Default login: admin/123456
+*The default login is: admin/123456
+
+Updating
+=========
+
+*Check for any new files to run in the sql/updates folder.
+
+*Check that your config.php is up to date with the new config.php-dist if it has been edited
+
+

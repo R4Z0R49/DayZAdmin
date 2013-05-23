@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <items>
+	<s100Rnd_762x54_PK>
+		<Type>heavyammo</Type>
+		<Slots>2</Slots>
+	</s100Rnd_762x54_PK>
 	<s5Rnd_127x99_as50>
 		<Type>heavyammo</Type>
 		<Slots>1</Slots>

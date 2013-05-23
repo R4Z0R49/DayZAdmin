@@ -113,11 +113,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` smallint(8) unsigned NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL DEFAULT '',
   `password` varchar(32) NOT NULL DEFAULT '',
+  `accesslvl` varchar(16) NULL DEFAULT '', 
   `salt` char(3) NOT NULL DEFAULT '',
   `lastlogin` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
-INSERT INTO `users` (`id`, `login`, `password`, `salt`, `lastlogin`) VALUES
-(1, 'admin', 'e818f0d38a7dadb1ec1d839d46e0b5ca', '5yu', NULL);
+INSERT INTO `users` (`id`, `login`, `password`, `accesslvl`, `salt`, `lastlogin`) VALUES
+(1, 'admin', 'e818f0d38a7dadb1ec1d839d46e0b5ca', 'full','5yu', NULL);

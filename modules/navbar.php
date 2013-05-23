@@ -2,6 +2,11 @@
 include ('config.php');
 if (isset($_SESSION['user_id']))
 {
+mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
+mysql_select_db($dbName);
+
+$user_id = $_SESSION['user_id'];
+$accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 
 	switch($map)
 	{
@@ -119,7 +124,8 @@ if (isset($_SESSION['user_id']))
 						<li class="li-mass-mail-users"><a href="admin.php?view=search" class="class:massmail item">Search</a></li>
 					</ul>
 				</li>
-				<li class="li-users parent root"><span class=" daddy item"><span><?php echo $mapName; ?></span></span>
+				
+				<li class='li-users parent root'><span class=' daddy item'><span><?php echo $mapName; ?></span></span>
 					<ul class="level2 parent-users">
 						<li class="li-user-manager parent"><a href="#nogo" class="class:user daddy item">Instance ID:<?php echo $iid?></a>
 							<ul class="level3 parent-user-manager">
