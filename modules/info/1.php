@@ -472,6 +472,7 @@ if ($_POST['submit_inv']) {
 if ($_POST['submit_bck']) {
 	$bck =  mysql_real_escape_string($_POST['bck']);
 	$dbQuery="UPDATE survivor SET backpack = '$bck' WHERE id = $cid AND is_dead = 0";
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited backpack on user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 }
 
