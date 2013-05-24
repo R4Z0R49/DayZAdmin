@@ -1,5 +1,8 @@
 <?php
-if (isset($_SESSION['user_id']))
+$user_id = $_SESSION['user_id'];
+$accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
+
+if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 {
 	$pagetitle = "Manage admins";
 	$delresult = "";
@@ -31,7 +34,7 @@ if (isset($_SESSION['user_id']))
 	
 	$users="";
 	foreach($res as $row) {
-		$users .= "<tr><td><input name=\"user[]\" value=\"".$row['id']."\" type=\"checkbox\"/></td><td>".$row['id']."</td><td>".$row['login']."</td><td>".$row['lastlogin']."</td></tr>";
+		$users .= "<tr><td><input name=\"user[]\" value=\"".$row['id']."\" type=\"checkbox\"/></td><td>".$row['id']."</td><td>".$row['login']."</td><td>".$row['lastlogin']."</td><td>".$row['accesslvl']."</td></tr>";
 	}
 	
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS',?,NOW())", $_SESSION['login']);
@@ -88,8 +91,9 @@ if (isset($_SESSION['user_id']))
 				<tr>
 					<th class="table-header-repeat line-left"><a href="">Delete</a></th>
 					<th class="table-header-repeat line-left" width="5%"><a href="">Id</a>	</th>
-					<th class="table-header-repeat line-left minwidth-1" width="75%"><a href="">Login</a></th>
+					<th class="table-header-repeat line-left minwidth-1" width="55%"><a href="">Login</a></th>
 					<th class="table-header-repeat line-left minwidth-1" width="20%"><a href="">Last access</a></th>
+					<th class="table-header-repeat line-left minwidth-1" width="20%"><a href="">Access level</a></th>
 				</tr>
 				<?php echo $users; ?>				
 				</table>
@@ -116,6 +120,8 @@ if (isset($_SESSION['user_id']))
 }
 else
 {
-	header('Location: admin.php');
+	if ($accesslvl != 'full') {
+	echo 'You dont have enough access to view this';
+	}
 }
 ?>

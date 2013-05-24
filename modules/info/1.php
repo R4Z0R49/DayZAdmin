@@ -7,6 +7,17 @@ $binds = $info1[1];
 $res = $db->GetAll($query, $binds);
 $number = sizeof($res);
 
+	$cid = '';
+	if (isset($_GET['cid']) && $_GET['cid'] > 0){
+		$cid = $_GET['cid'];
+	} else {
+		$cid = $row['cid'];
+	}
+
+if (isset($_SESSION['user_id'])) {
+$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Viewing player: $cid',?,NOW())", $_SESSION['login']);
+}
+
 foreach($res as $row) {	
 
 	$MapCoords = worldspaceToMapCoords($row['worldspace']);
@@ -32,13 +43,6 @@ foreach($res as $row) {
 	$smallammo = array();
 	$usableitems = array();
 	$survival_time = survivalTimeToString($row['survival_time']);
-
-	$cid = '';
-	if (isset($_GET['cid']) && $_GET['cid'] > 0){
-		$cid = $_GET['cid'];
-	} else {
-		$cid = $row['cid'];
-	}
 
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
@@ -412,7 +416,7 @@ foreach($res as $row) {
 <tr>
 <td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
 <td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
-<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Gillie Suit</a></td>
+<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Ghillie Suit</a></td>
 </tr>
 <!-- Row 4 -->
 <tr>
@@ -456,16 +460,19 @@ foreach($res as $row) {
 mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
 mysql_select_db($dbName);
 
+$login = $_SESSION['login'];
 
 if ($_POST['submit_inv']) {
 	$inv =  mysql_real_escape_string($_POST['inv']);
 	$dbQuery="UPDATE survivor SET inventory = '$inv' WHERE id = $cid AND is_dead = 0";
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited inventory on user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 }
 
 if ($_POST['submit_bck']) {
 	$bck =  mysql_real_escape_string($_POST['bck']);
 	$dbQuery="UPDATE survivor SET backpack = '$bck' WHERE id = $cid AND is_dead = 0";
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited backpack on user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 }
 
@@ -473,6 +480,7 @@ if ($_POST['submit_bck']) {
 
 <div id="inventoryString">
 	<form method="post">
+	<h2>Inventory String</h2>
 		<textarea name="inv" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php
 echo $row['inventory'];
@@ -482,6 +490,7 @@ echo $row['inventory'];
 	</form>
 
 	<form method="post">
+	<br><h2>Backpack String</h2>
 		<textarea name="bck" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php 
 echo $row['backpack'];

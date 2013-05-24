@@ -52,6 +52,17 @@ if (empty($_POST))
 						<td></td>
 					</tr>
 					<tr>
+						<th valign="top">Access level:</th>
+						<td>
+						<select name="accesslvl">
+						<option value="" selected="selected">Access Level</option>
+						<option value="full">Full</option>
+						<option value="semi">Semi</option>
+						</select>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
 						<th>&nbsp;</th>
 						<td valign="top">
 							<input type="submit" value="" class="form-submit" />
@@ -59,6 +70,10 @@ if (empty($_POST))
 						<td></td>
 					</tr>
 					</table>
+						<h2>Access level</h2>
+						<br>
+						* Full = Has access to all of the functions on the control panel.
+						<br>* Semi = Does not have access to admin registration or the map.
 				</form>		
 			</div>
 			<div id="result"></div>
@@ -74,6 +89,7 @@ if (empty($_POST))
 					var $form = $( this ),
 						term = $form.find( 'input[name="login"]' ).val(),
 						term2 = $form.find( 'input[name="password"]' ).val(),
+						term3 = $form.find( 'select[name="accesslvl"]' ).val(),
 						url = $form.attr( 'action' );
 						
 					var d = document.getElementById('content-table-inner');
@@ -85,7 +101,7 @@ if (empty($_POST))
 					d.removeChild(olddiv);
 
 					/* Send the data using post and put the results in a div */
-					$.post( url, { login: term, password: term2 },
+					$.post( url, { login: term, password: term2, accesslvl: term3 },
 					  function( data ) {
 						  var content = $( data ).find( '#content' );
 						  $( "#result" ).empty().append( content );
@@ -110,11 +126,18 @@ if (empty($_POST))
 }
 else
 {
+
 	$login = (isset($_POST['login'])) ? $_POST['login'] : '';
 	$password = (isset($_POST['password'])) ? $_POST['password'] : '';
+	$accesslvl = (isset($_POST['accesslvl'])) ? $_POST['accesslvl'] : '';
 	
 	$error = false;
 	$errort = '';
+	
+	if(!isset($_POST['accesslvl'])){
+		$error = true;
+		$errort .= 'Select the access level of the user! <br />';
+	}
 	
 	if (strlen($login) < 2)
 	{
@@ -139,8 +162,8 @@ else
 		$salt = GenerateSalt();
 		$hashed_password = md5(md5($password) . $salt);
 		
-		$db->Execute("INSERT INTO `users` SET `login` = ?, `password` = ?, `salt` = ?", array($login, $hashed_password, $salt));
-		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('REGISTER ADMIN: ?',?,NOW())", array($login, $_SESSION['login']));
+		$db->Execute("INSERT INTO users SET login = ?, password = ?, accesslvl = ?, salt = ?", array($login, $hashed_password, $accesslvl, $salt));
+		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`,) VALUES ('REGISTER ADMIN: ?',?,NOW())", array($login, $_SESSION['login']));
 		?>
 		<!--  start message-green -->
 		<div id="msg">
@@ -148,6 +171,7 @@ else
 			<table border="0" width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td class="green-left">New admin is succesfully registered!</td>
+				<?php echo $access_level; ?>
 				<td class="green-right"><a href="#" onclick="window.location.href = 'admin.php?view=admin';" class="close-green"><img src="<?php echo $path;?>images/table/icon_close_green.gif" alt="" /></a></td>
 			</tr>
 			</table>
