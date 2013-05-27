@@ -29,11 +29,11 @@ $row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survi
 <body id="stats-bg"> 
 
 <div id="topbg"></div>
-<div id="logo">
+<div id="logo_home">
 		<img src="images/logo.png" width="150px" height="72px" alt=""></a>
 </div>
 <div id="rightlogo">
-		<a href="<?php echo($rightlogoLink); ?>"><img src="<?php echo($rightlogoImg); ?>" width="<?php echo($rightlogoWidth); ?>" height="<?php echo($rightlogoHeight); ?>" alt=""></img></a>
+		<a href="<?php echo($rightlogoLink); ?>"><img src="<?php echo($rightlogoImg); ?>" width="<?php echo($rightlogoWidth); ?>" height="<?php echo($rightlogoHeight); ?>" style="margin-top: <?php echo ($rightlogoMarginTop); ?>;" alt=""></img></a>
 </div>
 <div id="nav">
 	<div id="nav_middle">

@@ -1623,11 +1623,11 @@ label	{
 	}
 	
 #stats-bg	{
-background: url(../images/bg.jpg) no-repeat center center fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+	background: url(../images/bg.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	margin: 0 auto;
 	}
 #gametracker	{
@@ -1651,9 +1651,9 @@ background-size: cover;
 	height: auto;
 	line-height: 12px;
 	padding-top: 10px;
-	width: 508px;
+	width: 557px;
 	margin: 0 auto;
-	margin: 0 auto;
+	margin-top: -10px;
 	}
 #forgotbox	{
 	background: url(../images/login/loginbox_bg.png) no-repeat;
@@ -1811,6 +1811,16 @@ padding:0;
 	height: 125px;
 }
 
+#vehicleString {
+	margin-left: 550px;
+	margin-top: -75px;
+}
+
+#vehicleString  textarea{
+	width: 600px;
+	height: 125px;
+}
+
 /* Top */
 #topbar a{
 	text-decoration: none;
@@ -1825,7 +1835,7 @@ padding:0;
 	width: 100%;
 }
 
-#logo {
+#logo_home {
 	padding-top: 5px;
 	margin-left: 50px;
 	width: auto;

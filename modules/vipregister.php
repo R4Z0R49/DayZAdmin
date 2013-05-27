@@ -1,23 +1,12 @@
 <?php
 if (isset($_SESSION['user_id']))
 {
-function GenerateSalt($n=3)
-{
-	$key = '';
-	$pattern = '1234567890abcdefghijklmnopqrstuvwxyz.,*_-=+';
-	$counter = strlen($pattern)-1;
-	for($i=0; $i<$n; $i++)
-	{
-		$key .= $pattern{rand(0,$counter)};
-	}
-	return $key;
-}
 
 if (empty($_POST))
 {
 	?>
 	<div id="page-heading">
-		<h1>Registration</h1>
+		<h1>VIP Adding</h1>
 	</div>
 	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
 	<tr>
@@ -36,30 +25,19 @@ if (empty($_POST))
 			<!--  start table-content  -->
 			
 			<div id="table-content">
-				<h2>Enter login and password for new admin</h2>
+				<h2>Enter unique ID and package for new VIP</h2>
 				
-				<form id="regform" action="admin.php?view=register">
+				<form id="regformvip" action="admin.php?view=register">
 				
 					<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
 					<tr>
-						<th valign="top">Login:</th>
-						<td><input type="text" class="inp-form" name="login" /></td>
+						<th valign="top">Unique ID:</th>
+						<td><input type="text" class="inp-form" name="unique_id" /></td>
 						<td></td>
 					</tr>
 					<tr>
-						<th valign="top">Password:</th>
-						<td><input type="text" class="inp-form" name="password" /></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th valign="top">Access level:</th>
-						<td>
-						<select name="accesslvl">
-						<option value="" selected="selected">Access Level</option>
-						<option value="full">Full</option>
-						<option value="semi">Semi</option>
-						</select>
-						</td>
+						<th valign="top">Package:</th>
+						<td><input type="text" class="inp-form" name="package" /></td>
 						<td></td>
 					</tr>
 					<tr>
@@ -70,26 +48,21 @@ if (empty($_POST))
 						<td></td>
 					</tr>
 					</table>
-						<h2>Access level</h2>
-						<br>
-						* Full = Has access to all of the functions on the control panel.
-						<br>* Semi = Does not have access to admin registration or the map.
 				</form>		
 			</div>
 			<div id="result"></div>
 			<!--  end table-content  -->
 			<script>
 				  /* attach a submit handler to the form */
-				  $("#regform").submit(function(event) {
+				  $("#regformvip").submit(function(event) {
 
 					/* stop form from submitting normally */
 					event.preventDefault(); 
 						
 					/* get some values from elements on the page: */
 					var $form = $( this ),
-						term = $form.find( 'input[name="login"]' ).val(),
-						term2 = $form.find( 'input[name="password"]' ).val(),
-						term3 = $form.find( 'select[name="accesslvl"]' ).val(),
+						term = $form.find( 'input[name="unique_id"]' ).val(),
+						term2 = $form.find( 'input[name="package"]' ).val(),
 						url = $form.attr( 'action' );
 						
 					var d = document.getElementById('content-table-inner');
@@ -101,7 +74,7 @@ if (empty($_POST))
 					d.removeChild(olddiv);
 
 					/* Send the data using post and put the results in a div */
-					$.post( url, { login: term, password: term2, accesslvl: term3 },
+					$.post( url, { unique_id: term, cust_loadout_id: term2 },
 					  function( data ) {
 						  var content = $( data ).find( '#content' );
 						  $( "#result" ).empty().append( content );
@@ -127,51 +100,31 @@ if (empty($_POST))
 else
 {
 
-	$login = (isset($_POST['login'])) ? $_POST['login'] : '';
-	$password = (isset($_POST['password'])) ? $_POST['password'] : '';
-	$accesslvl = (isset($_POST['accesslvl'])) ? $_POST['accesslvl'] : '';
+	$unique_id = (isset($_POST['unique_id'])) ? $_POST['unique_id'] : '';
+	$cust_loadout_id = (isset($_POST['cust_loadout_id'])) ? $_POST['cust_loadout_id'] : '';
 	
 	$error = false;
 	$errort = '';
 	
-	if(!isset($_POST['accesslvl'])){
-		$error = true;
-		$errort .= 'Select the access level of the user! <br />';
-	}
-	
-	if (strlen($login) < 2)
-	{
-		$error = true;
-		$errort .= 'Login must be at least 2х characters.<br />';
-	}
-	if (strlen($password) < 6)
-	{
-		$error = true;
-		$errort .= 'Password must be at least 6 characters.<br />';
-	}
-	
-	$res = $db->GetAll("SELECT `id` FROM `users` WHERE `login` = ?", $login);
+	$res = $db->GetAll("SELECT `unique_id` FROM `cust_loadout_profile` WHERE `cust_loadout_id` = ?", $cust_loadout_id);
 	if (sizeof($res)==1)
 	{
 		$error = true;
-		$errort .= 'Login already used.<br />';
+		$errort .= 'Unique_ID already used.<br />';
 	}
 	
 	if (!$error)
-	{
-		$salt = GenerateSalt();
-		$hashed_password = md5(md5($password) . $salt);
-		
-		$db->Execute("INSERT INTO users SET login = ?, password = ?, accesslvl = ?, salt = ?", array($login, $hashed_password, $accesslvl, $salt));
-		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`,) VALUES ('REGISTER ADMIN: ?',?,NOW())", array($login, $_SESSION['login']));
+	{		
+		$db->Execute("INSERT INTO cust_loadout_profile SET unique_id = ?, cust_loadout_id = ?", array($unique_id, $cust_loadout_id));
+		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`,) VALUES ('ADDED VIP: ?',?,NOW())", array($login, $_SESSION['login']));
 		?>
 		<!--  start message-green -->
 		<div id="msg">
 			<div id="message-green">
 			<table border="0" width="100%" cellpadding="0" cellspacing="0">
 			<tr>
-				<td class="green-left">New admin is succesfully registered!</td>
-				<td class="green-right"><a href="#" onclick="window.location.href = 'admin.php?view=admin';" class="close-green"><img src="<?php echo $path;?>images/table/icon_close_green.gif" alt="" /></a></td>
+				<td class="green-left">New VIP is succesfully added!</td>
+				<td class="green-right"><a href="#" onclick="window.location.href = 'admin.php?view=vip';" class="close-green"><img src="<?php echo $path;?>images/table/icon_close_green.gif" alt="" /></a></td>
 			</tr>
 			</table>
 			</div>
@@ -186,8 +139,8 @@ else
 			<div id="message-red">
 			<table border="0" width="100%" cellpadding="0" cellspacing="0">
 			<tr>
-				<td class="red-left">Error in registration process!</td>
-				<td class="red-right"><a href="#" onclick="window.location.href = 'admin.php?view=admin';" class="close-red"><img src="<?echo $path;?>images/table/icon_close_red.gif" alt="" /></a></td>
+				<td class="red-left">Error in adding process!</td>
+				<td class="red-right"><a href="#" onclick="window.location.href = 'admin.php?view=vip';" class="close-red"><img src="<?echo $path;?>images/table/icon_close_red.gif" alt="" /></a></td>
 			</tr>
 			</table>
 			</div>
