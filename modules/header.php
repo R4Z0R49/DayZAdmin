@@ -71,7 +71,7 @@ $(function() {
 
 	<!-- start logo -->
 	<div id="logo">
-		<a href=""><img src="images/logo.png" width="150px" height="72px" alt="" /></a>
+		<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
 	</div>
 	<!-- end logo -->
 	

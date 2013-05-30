@@ -60,7 +60,7 @@ $(document).pngFix( );
  
 <div id="topbg"></div>
 <div id="logo_home">
-		<img src="images/logo.png" width="150px" height="72px" alt=""></a>
+		<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
 </div>
 <div id="rightlogo">
 		<a href="<?php echo($rightlogoLink); ?>"><img src="<?php echo($rightlogoImg); ?>" width="<?php echo($rightlogoWidth); ?>" height="<?php echo($rightlogoHeight); ?>" style="margin-top: <?php echo ($rightlogoMarginTop); ?>;" alt=""></img></a>

@@ -23,7 +23,7 @@ body	{
 	}
 #logo	{
 	float: left;
-	margin: 15px 0 0 15px;
+	margin: 10px 0 0 15px;
 	}
 #logo	a	{
 	display: block;
@@ -1831,7 +1831,7 @@ padding:0;
 #topbg {
 	background: url(../images/shared/top_bg.jpg);
 	position: relative;
-	height: 82px;
+	height: 88px;
 	width: 100%;
 }
 
@@ -1839,7 +1839,7 @@ padding:0;
 	padding-top: 5px;
 	margin-left: 50px;
 	width: auto;
-	margin-top: -82px;
+	margin-top: -88px;
 	z-index: 15;
 	position: relative;
 }
