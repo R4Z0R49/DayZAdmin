@@ -461,20 +461,28 @@ mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error(
 mysql_select_db($dbName);
 
 $login = $_SESSION['login'];
+$accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 
 if ($_POST['submit_inv']) {
 	$inv =  mysql_real_escape_string($_POST['inv']);
 	$dbQuery="UPDATE survivor SET inventory = '$inv' WHERE id = $cid AND is_dead = 0";
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited inventory on user: $cid',?,NOW())", $_SESSION['login']);
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited inventory of user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 }
 
 if ($_POST['submit_bck']) {
 	$bck =  mysql_real_escape_string($_POST['bck']);
 	$dbQuery="UPDATE survivor SET backpack = '$bck' WHERE id = $cid AND is_dead = 0";
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited backpack on user: $cid',?,NOW())", $_SESSION['login']);
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited backpack of user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 }
+
+if ($_POST['submit_loc']) {
+	$loc =  mysql_real_escape_string($_POST['loc']);
+	$dbQuery="UPDATE survivor SET worldspace = '$loc' WHERE id = $cid AND is_dead = 0";
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited location of user: $cid',?,NOW())", $_SESSION['login']);
+	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
+} 
 
 ?>
 
@@ -486,7 +494,7 @@ if ($_POST['submit_bck']) {
 echo $row['inventory'];
 ?>
 		</textarea><br>
-	<input name="submit_inv" type="submit" value="Submit" />
+	<br><input name="submit_inv" class="submit-login" type="submit" value="Submit" />
 	</form>
 
 	<form method="post">
@@ -496,7 +504,17 @@ echo $row['inventory'];
 echo $row['backpack'];
 ?>
 		</textarea><br>
-	<input name="submit_bck" type="submit" value="Submit" />
+	<br><input name="submit_bck" class="submit-login" type="submit" value="Submit" />
+	</form>
+
+	<form method="post">
+	<br><h2>Location String</h2>
+		<textarea name="loc" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
+<?php 
+echo $row['worldspace'];
+?>
+		</textarea><br>
+	<br><input name="submit_loc" class="submit-login" type="submit" value="Submit" />
 	</form>
 </div>
 

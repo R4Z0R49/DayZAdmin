@@ -51,4 +51,5 @@
 	$rightlogoLink = ""; // Put a website link here to lead the user to that page upon clicking the logo
 	$rightlogoWidth = "0px"; // Self explanatory, eg; "200px"
 	$rightlogoHeight = "0px"; // Self explanatory, same as width, but it's height.
+	$rightlogoMarginTop = "0px"; // Padding from the top of the page, usefull to position the image.
 ?>

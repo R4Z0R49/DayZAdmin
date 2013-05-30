@@ -78,6 +78,7 @@ $cid = $_GET["cid"];
 			</script>
 			<?php
 		}		
+// VEHICLES
 		if (isset($_GET["repairVehicle"])){
 			$db->Execute("UPDATE instance_vehicle SET parts = '[]', damage = 0 WHERE id = ?", $_GET["repairVehicle"]);
 			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Repaired a vehicle',?,NOW())", $_SESSION['login']);
@@ -96,6 +97,16 @@ $cid = $_GET["cid"];
             </script>
             <?php
         }
+		if (isset($_GET["refuelVehicle"])){
+            $db->Execute("UPDATE instance_vehicle SET fuel = 1 WHERE id = ?", $_GET["refuelVehicle"]);
+            $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Destroyed vehicle id: ?,?,NOW())", array($_GET["refuelVehicle"], $_SESSION['login']));
+            ?>
+            <script type="text/javascript">
+                window.location = 'admin.php?view=info&show=4&id=<?php echo $_GET["refuelVehicle"]; ?>';
+            </script>
+            <?php
+        }
+//PLAYERS
 		if (isset($_GET["healPlayer"])){
             $db->Execute("UPDATE survivor SET medical = '[false,false,false,false,false,false,false,12000,[],[0,0],0,[0,0]]' WHERE unique_id = ? AND id = $cid AND is_dead = 0", $_GET["healPlayer"]);
 			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Healed player: $cid',?,NOW())", $_SESSION['login']);
@@ -258,6 +269,13 @@ $cid = $_GET["cid"];
             <script type="text/javascript">
                 window.location = 'admin.php?view=info&show=1&id=<?php echo $_GET["skinBandit"]; ?>';
             </script>
+            <?php
+        }
+//ADMIN ACTIONS
+		if (isset($_GET["clearLogs"])){
+            $db->Execute("DELETE FROM logs", $_GET["clearLogs"]);
+			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Cleared logs',?,NOW())", $_SESSION['login']);
+            ?>
             <?php
         }
 		

@@ -72,12 +72,19 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 				</div>
 				<div id="related-act-bottom">
 					<div id="related-act-inner">
-						<div class="left"><a href="#" onclick="ShowModalPopup('dvPopup'); return false;">
+						<div class="left">
+							<a href="#" onclick="ShowModalPopup('dvPopup'); return false;">
 							<img width="21" height="21" alt="" src="images/forms/icon_plus.gif"></a>
+							<br><br>
+							<a href="#" onclick="">
+							<img width="21" height="21" alt="" style="margin-top: 5px;" src="images/forms/icon_plus.gif"></a>
 						</div>
 						<div class="right">
 							<h5><a href="#" onclick="ShowModalPopup('dvPopup'); return false;">Add admin</a></h5>
 							Add new administrator
+							<br><br>
+							<h5><a href="admin.php?view=actions&clearLogs">Clear logs</a></h5>
+							Clears the action logs
 						</div>
 						<div class="clear"></div>
 					</div>
