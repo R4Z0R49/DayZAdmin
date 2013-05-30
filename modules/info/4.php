@@ -259,13 +259,66 @@ $owneruid = "";
 			
 				</div>
 			</div>
-			<div>
-				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['id']; ?>">Repair Vehicle</a>&nbsp;&nbsp;--&nbsp;&nbsp;
+<div id="medical">
+<table>
+<tr>
+	<th>
+	Options
+	</th>
+</tr>
+<tr>
+<td>
+				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['id']; ?>">Repair Vehicle</a>
+</td>
+</tr>
+<tr>
+<td>
 				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row['id']; ?>">Destroy Vehicle</a>
-			</div>
-			<!--  end table-content  -->
-	
+</td>
+</tr>
+<tr>
+<td>
+				<a href="admin.php?view=actions&refuelVehicle=<?php echo $row['id']; ?>">Refuel Vehicle</a>
+</td>
+</tr>
+</table>
+</div>
 			<div class="clear"></div>
+			
+			
+<?php
+mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
+mysql_select_db($dbName);
+
+$login = $_SESSION['login'];
+
+	$id = '';
+	if (isset($_GET['id']) && $_GET['id'] > 0){
+		$id = $_GET['id'];
+	} else {
+		$id = $row['id'];
+	}
+
+if ($_POST['submit_loc']) {
+	$loc =  mysql_real_escape_string($_POST['loc']);
+	$dbQuery="UPDATE instance_vehicle SET worldspace = '$loc' WHERE id = $id";
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited location of user: $cid',?,NOW())", $_SESSION['login']);
+	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
+} 
+
+?>
+
+<div id="vehicleString">
+	<form method="post">
+	<br><h2>Location String</h2>
+		<textarea name="loc" action="">
+<?php 
+echo $row['worldspace'];
+?>
+		</textarea><br>
+	<br><input name="submit_loc" class="submit-login" type="submit" value="Submit" />
+	</form>
+</div>
 		 
 		</div>
 		<!--  end content-table-inner ............................................END  -->
