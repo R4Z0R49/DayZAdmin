@@ -316,7 +316,7 @@ if ($_POST['submit_loc']) {
 echo $row['worldspace'];
 ?>
 		</textarea><br>
-	<input name="submit_loc" type="submit" value="Submit" />
+	<br><input name="submit_loc" class="submit-login" type="submit" value="Submit" />
 	</form>
 </div>
 		 

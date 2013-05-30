@@ -80,8 +80,8 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 				<li class="li-dashboard root active"><a href="index.php" style="color:#FFF;" class="dashboard item">Stats</a></li>
 				<li class="li-users parent root"><span class=" daddy item"><span>Control</span></span>
 					<ul class="level2 parent-users">
-						<li class="li-mass-mail-users"><a href="admin.php?view=vip" class="class:massmail item">Manage VIPs</a></li>
-						<li class="li-mass-mail-users"><a href="admin.php?view=admin" class="class:massmail item">Manage admins</a></li>
+						<li class="li-mass-mail-users"><a href="admin.php?view=admin" class="class:massmail item">Admin Options</a></li>
+						<li class="li-mass-mail-users"><a href="admin.php?view=vip" class="class:massmail item">VIP Management</a></li>
 						<li class="li- separator"><span></span></li>
 						<li class="li-mass-mail-users"><a href="admin.php?view=database" class="class:massmail item">Database Admin</a></li>
 					</ul>

@@ -8,7 +8,7 @@ mysql_select_db($dbName);
 if (isset($_SESSION['user_id']))
 {
 	$user_id = $_SESSION['user_id'];
-	$pagetitle = "Manage VIPS(Coming soon!)";
+	$pagetitle = "Manage VIPS( Coming soon! Not quite here™ )";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Manage VIPS',?,NOW())", $_SESSION['login']);
 
 	$unique_id = $db->GetOne("SELECT unique_id FROM users WHERE id = ?");
@@ -128,6 +128,32 @@ if (isset($_SESSION['user_id']))
 				<input type="submit" class="submit-login" name="packages" />
 				</div>
 			</form>
+		
+<?php
+mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
+mysql_select_db($dbName);
+
+$inv = $db->GetOne("SELECT inventory FROM instance WHERE id = 1");
+$bck = $db->GetOne("SELECT backpack FROM instance WHERE id = 1");
+
+if ($_POST['submit_load']) {
+	$load_inv =  mysql_real_escape_string($_POST['load_inv']);
+	$load_bck =  mysql_real_escape_string($_POST['load_bck']);
+	$db->Execute("UPDATE instance SET inventory = '$load_inv' WHERE id = 1");
+	$db->Execute("UPDATE instance SET backpack = '$load_bck' WHERE id = 1");
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited instance loadout',?,NOW())", $_SESSION['login']);
+} 
+?>		
+		<div id="vipString">
+			<form method="post">
+			<br><h2>Loadout Inventory</h2>
+				<textarea name="load_inv" action=""><?php echo $inv; ?></textarea><br>
+
+			<br><h2>Loadout Backpack</h2>
+				<textarea name="load_bck" action=""><?php echo $bck; ?></textarea><br>
+			<input name="submit_load" type="submit" class="submit-login" value="Submit" />
+			</form>
+		</div>
 			<!--  end table-content  -->
 	
 			<div class="clear"></div>

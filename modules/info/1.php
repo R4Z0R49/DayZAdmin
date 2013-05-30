@@ -494,7 +494,7 @@ if ($_POST['submit_loc']) {
 echo $row['inventory'];
 ?>
 		</textarea><br>
-	<input name="submit_inv" type="submit" value="Submit" />
+	<br><input name="submit_inv" class="submit-login" type="submit" value="Submit" />
 	</form>
 
 	<form method="post">
@@ -504,7 +504,7 @@ echo $row['inventory'];
 echo $row['backpack'];
 ?>
 		</textarea><br>
-	<input name="submit_bck" type="submit" value="Submit" />
+	<br><input name="submit_bck" class="submit-login" type="submit" value="Submit" />
 	</form>
 
 	<form method="post">
@@ -514,7 +514,7 @@ echo $row['backpack'];
 echo $row['worldspace'];
 ?>
 		</textarea><br>
-	<input name="submit_loc" type="submit" value="Submit" />
+	<br><input name="submit_loc" class="submit-login" type="submit" value="Submit" />
 	</form>
 </div>
 
