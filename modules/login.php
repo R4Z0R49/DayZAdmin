@@ -57,6 +57,7 @@ $(document).pngFix( );
 </script>
 </head>
 <body id="login-bg"> 
+<div id="page-wrap">
  
 <div id="topbg"></div>
 <div id="logo_home">
@@ -74,7 +75,6 @@ $(document).pngFix( );
 		</div>
 	</div>
 </div>
- 
 <div id="login-holder">
 	
 	<div class="clear"></div>
@@ -104,5 +104,12 @@ $(document).pngFix( );
 		</div>
 	</form>
 </div>
+</div>
 </body>
+
+<!-- start footer -->         
+<?php
+echo ($footer);
+?>
+<!-- end footer -->
 </html>
