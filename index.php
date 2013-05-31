@@ -53,8 +53,8 @@ $(document).pngFix( );
 </script>
 
 </head>
-
 <body id="stats-bg"> 
+<div id="page-wrap">
 <div id="topbg"></div>
 <div id="logo_home">
 		<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
@@ -74,8 +74,6 @@ $(document).pngFix( );
 	</div>
 </div>
 
-<div id="stats-wrap">
-
 <div id="stats-holder">
 	
 		<div id="gametracker">
@@ -87,59 +85,59 @@ $(document).pngFix( );
 		<div id="statsbox">	
 			<div id="login-inner">
 				<table border="0" cellpadding="4" cellspacing="0">
-<td width="26"><img src="images\icons\statspage\totalplayers1.png" width="36" height="36" /></td>
+<td width="26"><img src="images/icons/statspage/totalplayers1.png" width="36" height="36" /></td>
     <td width="184"><strong>     Total Players:</strong></td>
     <td align="right"><strong><?php echo $num_totalplayers;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\totalplayerin24h.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/totalplayerin24h.png" width="36" height="36" /></td>
     <td><strong>     Players in Last 24h:</strong></td>
      <td align="right"><strong><?php echo $num_Played24h;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\alivecharacters1.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/alivecharacters1.png" width="36" height="36" /></td>
     <td><strong>     Alive Characters:</strong></td>
      <td align="right"><strong><?php echo $totalAlive;?></strong></td>
   </tr>
   <tr>
-      <td><img src="images\icons\statspage\playerdeaths1.png" width="36" height="36" /></td>
+      <td><img src="images/icons/statspage/playerdeaths1.png" width="36" height="36" /></td>
     <td><strong>     Player Deaths:</strong></td>
      <td align="right"><strong><?php echo $num_deaths;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\infectedkilled1.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/infectedkilled1.png" width="36" height="36" /></td>
     <td><strong>     Zombies Killed:</strong></td>
      <td align="right"><strong><?php echo $KillsZ;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\infectedheadshots1.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/infectedheadshots1.png" width="36" height="36" /></td>
     <td><strong>    Zombies Headshots:</strong></td>
     <td align="right"><strong><?php echo $HeadshotsZ;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\murders.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/murders.png" width="36" height="36" /></td>
     <td><strong>     Murders:</strong></td>
     <td align="right"><strong><?php echo $KillsH;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\heroesalive1.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/heroesalive1.png" width="36" height="36" /></td>
     <td><strong>     Heros Alive:</strong></td>
     <td align="right"><strong><?php echo $num_aliveheros;?></strong></td>
   </tr>
   <tr>
     <tr>
-    <td><img src="images\icons\statspage\banditsalive1.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/banditsalive1.png" width="36" height="36" /></td>
     <td><strong>     Bandits Alive:</strong></td>
     <td align="right"><strong><?php echo $num_alivebandits;?></strong></td>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\banditskilled1.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/banditskilled1.png" width="36" height="36" /></td>
     <td><strong>     Bandits Killed:</strong></td>
     <td align="right"><strong><?php echo $KillsB;?></strong></td>
   </tr>
   </tr>
   <tr>
-    <td><img src="images\icons\statspage\vehicles.png" width="36" height="36" /></td>
+    <td><img src="images/icons/statspage/vehicles.png" width="36" height="36" /></td>
     <td><strong>     Vehicles:</strong></td>
     <td align="right"><strong><?php echo $num_totalVehicles;?></strong></td>
   </tr>
@@ -152,11 +150,6 @@ $(document).pngFix( );
 </div>
 </body>
 </html>
-
-</div>
-<!--  end content -->
-</div>
-<!--  end content-outer........................................................END -->
 
 <div class="clear">&nbsp;</div>
 <?php if ($EnableSocialMedia == 1) { ?> 
@@ -183,6 +176,11 @@ $(document).pngFix( );
 </p>
 <?php } ?>
 	<!--  end social-center -->
+</div>
+</div>
+
+</div>
+<!--  end content -->
 
 <!-- start footer -->         
 <?php
