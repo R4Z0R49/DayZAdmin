@@ -15,19 +15,25 @@ $search = '%'.substr($_POST['search'], 0, 64).'%';
 $row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survivor WHERE profile.unique_id = survivor.unique_id AND name LIKE ? ORDER BY last_updated DESC LIMIT 1", $search);
 
 ?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<?php
-	echo "<title>".$pagetitle." - ".$sitename."</title>";
-?>
+<title><?php echo $sitename ?></title>
 <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
 <link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
+<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+$(document).pngFix( );
+});
 </script>
-</head>
-<body id="stats-bg"> 
 
+</head>
+
+<body id="stats-bg"> 
+<div id="page-wrap">
 <div id="topbg"></div>
 <div id="logo_home">
 		<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
@@ -38,22 +44,23 @@ $row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survi
 <div id="nav">
 	<div id="nav_middle">
 		<div id="nav_padding">
+<?php if ($ManuPanelLink == 1) { ?>
 			<nav>
-				<a href="index.php">Home</a>
+				<a href="admin.php">Dashboard</a>
 			</nav>
+<?php } ?>
 		</div>
 	</div>
 </div>
- 
-<div id="stats-wrap">
- 
+
 <div id="stats-holder">
 	
-	 	<div id="gametracker">
-		<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_560_95_1.png" border="0" alt=""/></a>
+		<div id="gametracker">
+			<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_560_95_1.png" border="0" alt=""/></a>
 		</div>
 	
-	<div class="clear"></div>
+	<div class="clear"></div>		
+	
 		<div id="statsbox">	
 			<div id="login-inner">
 <?php
@@ -114,17 +121,10 @@ if($row) {
 		</div>
 	</form>
 </div>
-</div>
 </body>
 </html>
 
-</div>
-<!--  end content -->
-</div>
-<!--  end content-outer........................................................END -->
-
 <div class="clear">&nbsp;</div>
-
 <?php if ($EnableSocialMedia == 1) { ?> 
 <div id="social_box">
 <div id="social">
@@ -149,12 +149,14 @@ if($row) {
 </p>
 <?php } ?>
 	<!--  end social-center -->
+</div>
+</div>
+
+</div>
+<!--  end content -->
 
 <!-- start footer -->         
 <?php
 echo ($footer);
 ?>
 <!-- end footer -->
- 
-</body>
-</html>
