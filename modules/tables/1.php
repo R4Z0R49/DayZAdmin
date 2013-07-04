@@ -1,6 +1,7 @@
 <?php
 	error_reporting (E_ALL ^ E_NOTICE);
 	
+    $query = $table1[0];
 	$res = $db->GetAll($query);
 	$pnumber = sizeof($res);
 

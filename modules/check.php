@@ -8,6 +8,7 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
 
 <div id="page-heading">
 <?php
+    include('queries.php');
 	//ini_set('max_execution_time', 300);
 	echo "<title>".$pagetitle." - ".$sitename."</title>";
 	echo "<h1>".$pagetitle."</h1>";
@@ -20,7 +21,7 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
 	$items_xml = XML2Array::createArray($xml);
 	
 	//$query = "SELECT * FROM survivor";
-	$res = $db->GetAll("select p.name, s.* from profile p left join survivor s on p.unique_id = s.unique_id where s.is_dead = 0");
+	$res = $db->GetAll($check_player);
 	$number = sizeof($res);
 	$rows = null;
 	$itemscount = 0;		
@@ -105,7 +106,9 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
 		}
 	}
 	
-	$res = $db->GetAll("SELECT * FROM v_deployable");
+    $query = $check_deployable[0];
+    $binds = $check_deployable[1];
+	$res = $db->GetAll($query, $binds);
     if (sizeof($res) > 0) {
 		foreach($res as $row) {
             $Inventory = $row['inventory'];
@@ -147,7 +150,9 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS C
         }
     }
 
-	$res = $db->GetAll("SELECT * FROM v_vehicle");
+    $query = $check_vehicle[0];
+    $binds = $check_vehicle[1];
+	$res = $db->GetAll($query, $binds);
     if (sizeof($res) > 0) {
         foreach($res as $row) {
             $Inventory = $row['inventory'];
