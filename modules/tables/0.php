@@ -1,4 +1,5 @@
 <?php
+    require_once('queries.php');
 	//ini_set( "display_errors", 0);
 	//error_reporting (E_ALL ^ E_NOTICE);		<th class="table-header-repeat line-left" width="15%"><a href="">IP Address</a></th>
 		//<th class="table-header-repeat line-left" width="5%"><a href="">Ping</a></th>
@@ -50,7 +51,8 @@
 				$k = strrpos($players[$i][4], " (Lobby)");
 				$playername = str_replace(" (Lobby)", "", $players[$i][4]);
 				
-				$res = $db->GetRow("SELECT p.name, s.* FROM profile p, survivor s WHERE p.unique_id = s.unique_id AND p.name = ? ORDER BY s.last_updated DESC LIMIT 1", $playername);
+                $query = $table0[0];
+                $res = $db->GetRow($query, array($playername));
 				$name = $res['name'];
 				$id = $res['unique_id'];
 				$dead = "";
