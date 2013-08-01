@@ -5,59 +5,46 @@ if (isset($_SESSION['user_id']))
 if (empty($_POST))
 {
 	?>
-	<div id="page-heading">
-		<h1>VIP Package Adding</h1>
-	</div>
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
-		<td id="tbl-border-left"></td>
-		<td>
-		<!--  start content-table-inner ...................................................................... START -->
-		<div id="content-table-inner">
-		
-			<!--  start table-content  -->
-			
-			<div id="table-content">
-				<h2>Enter inventory, backpack and skin of package</h2>
-				
+<div class="custom-container-popup">
+				<h2 class="custom-h2">Enter Details</h2>
 				<form id="regformvip" action="admin.php?view=register">
-				
 					<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
 					<tr>
-						<th valign="top">Inventory:</th>
-						<td><input type="text" class="inp-form" name="inv" /></td>
+						<th>Inventory:</th>
+						<td><input type="text" class="form-control" name="inv" /></td>
 						<td></td>
 					</tr>
 					<tr>
-						<th valign="top">Backpack:</th>
-						<td><input type="text" class="inp-form" name="bck" /></td>
+						<th>Backpack:</th>
+						<td><input type="text" class="form-control" name="bck" /></td>
 						<td></td>
 					</tr>
 					<tr>
-						<th valign="top">Skin:</th>
-						<td><input type="text" class="inp-form" name="skin" /></td>
+						<th>Skin:</th>
+						<td><input type="text" class="form-control" name="skin" /></td>
 						<td></td>
 					</tr>
 					<tr>
-						<th valign="top">Description:</th>
-						<td><input type="text" class="inp-form" name="desc" /></td>
+						<th>Description:</th>
+						<td><input type="text" class="form-control" name="desc" /></td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>&nbsp;</th>
-						<td valign="top">
-							<input type="submit" value="" class="form-submit" />
+						<td>
+							<input type="submit" value="Submit" class="btn btn-default pulll-right" />
 						</td>
 						<td></td>
 					</tr>
 					</table>
+					<br>
+					* Inventory = The inventory sql string
+					<br>
+					* Backpack = The backpack sql string
+					<br>
+					* Skin = The skin sql model
+					<br>
+					* Description = A brief description
 				</form>		
 			</div>
 			<div id="result"></div>
@@ -93,20 +80,8 @@ if (empty($_POST))
 					  }
 					);
 				  });
-			</script>
-			<div class="clear"></div>
-		 
+			</script> 
 		</div>
-		<!--  end content-table-inner ............................................END  -->
-		</td>
-		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
-	</tr>
-	</table>
 <?php
 }
 else

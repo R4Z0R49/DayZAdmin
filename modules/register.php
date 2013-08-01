@@ -16,45 +16,24 @@ function GenerateSalt($n=3)
 if (empty($_POST))
 {
 	?>
-	<div id="page-heading">
-		<h1>Registration</h1>
-	</div>
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
-		<td id="tbl-border-left"></td>
-		<td>
-		<!--  start content-table-inner ...................................................................... START -->
-		<div id="content-table-inner">
-		
-			<!--  start table-content  -->
-			
-			<div id="table-content">
-				<h2>Enter login and password for new admin</h2>
-				
+<div class="custom-container-popup">
+				<h2 class="custom-h2">Enter Details</h2><br>
 				<form id="regform" action="admin.php?view=register">
-				
-					<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
+				<table border="0">
 					<tr>
-						<th valign="top">Login:</th>
-						<td><input type="text" class="inp-form" name="login" /></td>
+						<th class="custom-th-popup">Login:</th>
+						<td><input type="text" class="form-control" name="login" /></td>
 						<td></td>
 					</tr>
 					<tr>
-						<th valign="top">Password:</th>
-						<td><input type="text" class="inp-form" name="password" /></td>
+						<th>Password:</th>
+						<td><input type="text" class="form-control" name="password" /></td>
 						<td></td>
 					</tr>
 					<tr>
-						<th valign="top">Access level:</th>
+						<th>Access level:</th>
 						<td>
-						<select name="accesslvl">
+						<select name="accesslvl" class="form-control">
 						<option value="" selected="selected">Access Level</option>
 						<option value="full">Full</option>
 						<option value="semi">Semi</option>
@@ -65,18 +44,18 @@ if (empty($_POST))
 					<tr>
 						<th>&nbsp;</th>
 						<td valign="top">
-							<input type="submit" value="" class="form-submit" />
+							<input type="submit" value="Submit" class="btn btn-default pull-right" />
 						</td>
 						<td></td>
 					</tr>
 					</table>
-						<h2>Access level</h2>
+						<h2 class="custom-h2">Access level</h2>
 						<br>
 						* Full = Has access to all of the functions on the control panel.
 						<br>* Semi = Does not have access to admin registration or the map.
 				</form>		
-			</div>
 			<div id="result"></div>
+			</body>
 			<!--  end table-content  -->
 			<script>
 				  /* attach a submit handler to the form */
@@ -109,19 +88,7 @@ if (empty($_POST))
 					);
 				  });
 			</script>
-			<div class="clear"></div>
-		 
-		</div>
-		<!--  end content-table-inner ............................................END  -->
-		</td>
-		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
-	</tr>
-	</table>
+</div>
 <?php
 }
 else

@@ -3,7 +3,6 @@ session_start();
 require_once('config.php');
 require_once('db.php');
 require_once('functions.php');
-include ('modules/footer.php');
 
 if (isset($_GET['logout']))
 {
@@ -45,17 +44,17 @@ if (isset($_SESSION['user_id']))
 	} else {
 		include ('modules/dashboard.php');
 	}
-
-	// Start: page-footer 
-	echo ($footer);
-	// End page-footer
 ?>
 </div>
 <!--  end content -->
 </div>
 <!--  end content-outer........................................................END -->
 
-<div class="clear">&nbsp;</div>
+<?php
+	// Start: page-footer 
+	include('modules/footer.php');
+	// End page-footer
+?>
  
 </body>
 </html>

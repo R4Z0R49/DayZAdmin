@@ -90,18 +90,11 @@ foreach($res as $row) {
 ?>	
 	<div id="page-heading">
 		<h1><?php echo "<title>".htmlspecialchars($row['name'])." - ".$sitename."</title>"; ?></h1>
-		<h1><?php echo htmlspecialchars($row['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<h1 class="custom-h1"><?php echo htmlspecialchars($row['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
 	</div>
 	<!-- end page-heading -->
 
 	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
 	<tr>
 		<td id="tbl-border-left"></td>
 		<td>
@@ -110,7 +103,7 @@ foreach($res as $row) {
 		
 			<!--  start table-content  -->
 			<div id="table-content">
-				<div id="gear_player">	
+				<div id="gear_player" style="margin-left: 10px;">	
 					<div class="gear_info">
 						<img class="playermodel" src='images/models/<?php echo str_replace('"', '', $model); ?>.png'/>
 						<div id="gps" style="margin-left:10px;margin-top:54px">
@@ -365,93 +358,93 @@ foreach($res as $row) {
 					<!-- Backpack -->
 				</div>			
 			</div>
-<div id="medical">
-<table id="medical">
-<tr>
-    <th>Alive</th>
-    <th>Unconscious</th>
-    <th>Infected</th>
-    <th>Injured</th>
-    <th>Bleeding</th>
-    <th>Blood level</th>
-    <th>Leg Injury</th>
-</tr>
-<tr>
-    <td><?php echo $row['is_dead'] == 1 ? "No" : "Yes"; ?></td>
-    <td><?php echo $Medical[1] ? "Yes" : "No"; if($Medical[10] > 0) { printf(" (%d)", $Medical[10]); } ?></td>
-    <td><?php echo $Medical[2] ? "Yes" : "No"; ?></td>
-    <td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
-    <td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
-    <td><?php printf("%d (%d%%)", round($Medical[7]), ($Medical[7]/12000) * 100); ?></td>
-    <td><?php printf("%d%%", ($Medical[9][0]/1)*100); ?></td>
-</tr>
-<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
-<tr><td colspan="7">&nbsp;</td></tr>
-</table>
-<table>
-<tr>
-	<th>
-	Options
-	</th>
-	<th>
-	Teleport
-	</th>
-	<th>
-	Skin
-	</th>
-</tr>
-<!-- Row 1 -->
-<tr>
-<td><a href="admin.php?view=actions&revivePlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Revive Player</a></td>
-<td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North East Airfield</a></td>
-<td><a href="admin.php?view=actions&skinNormal=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Normal Clothing</a></td>
-</tr>
-<!-- Row 2 -->
-<tr>
-<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Heal Player</a></td>
-<td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North West Airfield</a></td>
-<td><a href="admin.php?view=actions&skinCamo=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Camo Clothing</a></td>
-</tr>
-<!-- Row 3 -->
-<tr>
-<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
-<td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
-<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Ghillie Suit</a></td>
-</tr>
-<!-- Row 4 -->
-<tr>
-<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Reset Humanity</a></td>
-<td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Cherno</a></td>
-<td><a href="admin.php?view=actions&skinSoldier=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Soldier Clothing</a></td>
-</tr>
-<!-- Row 5 -->
-<tr>
-<td></td>
-<td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Elektro</a></td>
-<td><a href="admin.php?view=actions&skinBandit=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Bandit Skin</a></td>
-</tr>
-<!-- Row 6 -->
-<tr>
-<td></td>
-<td><a href="admin.php?view=actions&teleportSkalisty=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Skalisty</a></td>
-</tr>
-<!-- Row 7 -->
-<tr>
-<td></td>
-<td><a href="admin.php?view=actions&teleportBerezino=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Berezino</a></td>
-</tr>
-<!-- Row 8 -->
-<tr>
-<td></td>
-<td><a href="admin.php?view=actions&teleportSolnichniy=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Solnichniy</a></td>
-</tr>
-<!-- Row 9 -->
-<tr>
-<td></td>
-<td><a href="admin.php?view=actions&teleportPolana=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Polana</a></td>
-</tr>
-</table>
-</div>
+	<div id="medical">
+	<table id="medical">
+	<tr>
+		<th class="custom-th">Alive</th>
+		<th class="custom-th">Unconscious</th>
+		<th class="custom-th">Infected</th>
+		<th class="custom-th">Injured</th>
+		<th class="custom-th">Bleeding</th>
+		<th class="custom-th">Blood</th>
+		<th class="custom-th">Leg</th>
+	</tr>
+	<tr>
+		<td><?php echo $row['is_dead'] == 1 ? "No" : "Yes"; ?></td>
+		<td><?php echo $Medical[1] ? "Yes" : "No"; if($Medical[10] > 0) { printf(" (%d)", $Medical[10]); } ?></td>
+		<td><?php echo $Medical[2] ? "Yes" : "No"; ?></td>
+		<td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
+		<td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
+		<td><?php printf("%d (%d%%)", round($Medical[7]), ($Medical[7]/12000) * 100); ?></td>
+		<td><?php printf("%d%%", ($Medical[9][0]/1)*100); ?></td>
+	</tr>
+	<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
+	<tr><td colspan="7">&nbsp;</td></tr>
+	</table>
+	<table>
+	<tr>
+		<th class="custom-th">
+		Options
+		</th>
+		<th class="custom-th">
+		Teleport
+		</th>
+		<th class="custom-th">
+		Skin
+		</th>
+	</tr>
+	<!-- Row 1 -->
+	<tr>
+	<td><a href="admin.php?view=actions&revivePlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Revive Player</a></td>
+	<td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North East Airfield</a></td>
+	<td><a href="admin.php?view=actions&skinNormal=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Normal Clothing</a></td>
+	</tr>
+	<!-- Row 2 -->
+	<tr>
+	<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Heal Player</a></td>
+	<td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North West Airfield</a></td>
+	<td><a href="admin.php?view=actions&skinCamo=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Camo Clothing</a></td>
+	</tr>
+	<!-- Row 3 -->
+	<tr>
+	<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
+	<td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
+	<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Ghillie Suit</a></td>
+	</tr>
+	<!-- Row 4 -->
+	<tr>
+	<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Reset Humanity</a></td>
+	<td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Cherno</a></td>
+	<td><a href="admin.php?view=actions&skinSoldier=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Soldier Clothing</a></td>
+	</tr>
+	<!-- Row 5 -->
+	<tr>
+	<td></td>
+	<td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Elektro</a></td>
+	<td><a href="admin.php?view=actions&skinBandit=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Bandit Skin</a></td>
+	</tr>
+	<!-- Row 6 -->
+	<tr>
+	<td></td>
+	<td><a href="admin.php?view=actions&teleportSkalisty=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Skalisty</a></td>
+	</tr>
+	<!-- Row 7 -->
+	<tr>
+	<td></td>
+	<td><a href="admin.php?view=actions&teleportBerezino=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Berezino</a></td>
+	</tr>
+	<!-- Row 8 -->
+	<tr>
+	<td></td>
+	<td><a href="admin.php?view=actions&teleportSolnichniy=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Solnichniy</a></td>
+	</tr>
+	<!-- Row 9 -->
+	<tr>
+	<td></td>
+	<td><a href="admin.php?view=actions&teleportPolana=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Polana</a></td>
+	</tr>
+	</table>
+	</div>
 <!--  end table-content  -->
 
 <!-- Start inventory management -->
@@ -488,33 +481,33 @@ if ($_POST['submit_loc']) {
 
 <div id="inventoryString">
 	<form method="post">
-	<h2>Inventory String</h2>
+	<h2 class="custom-h2">Inventory String</h2>
 		<textarea name="inv" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php
 echo $row['inventory'];
 ?>
 		</textarea><br>
-	<br><input name="submit_inv" class="submit-login" type="submit" value="Submit" />
+	<br><input name="submit_inv" class="btn btn-default" type="submit" value="Submit" />
 	</form>
 
 	<form method="post">
-	<br><h2>Backpack String</h2>
+	<br><h2 class="custom-h2">Backpack String</h2>
 		<textarea name="bck" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php 
 echo $row['backpack'];
 ?>
 		</textarea><br>
-	<br><input name="submit_bck" class="submit-login" type="submit" value="Submit" />
+	<br><input name="submit_bck" class="btn btn-default" type="submit" value="Submit" />
 	</form>
 
 	<form method="post">
-	<br><h2>Location String</h2>
+	<br><h2 class="custom-h2">Location String</h2>
 		<textarea name="loc" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php 
 echo $row['worldspace'];
 ?>
 		</textarea><br>
-	<br><input name="submit_loc" class="submit-login" type="submit" value="Submit" />
+	<br><input name="submit_loc" class="btn btn-default" type="submit" value="Submit" />
 	</form>
 </div>
 

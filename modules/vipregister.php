@@ -5,51 +5,32 @@ if (isset($_SESSION['user_id']))
 if (empty($_POST))
 {
 	?>
-	<div id="page-heading">
-		<h1>VIP Adding</h1>
-	</div>
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
-		<td id="tbl-border-left"></td>
-		<td>
-		<!--  start content-table-inner ...................................................................... START -->
-		<div id="content-table-inner">
-		
-			<!--  start table-content  -->
-			
-			<div id="table-content">
-				<h2>Enter unique ID and package for new VIP</h2>
-				
+<div class="custom-container-popup">
+				<h2 class="custom-h2">Enter Details</h2>
 				<form id="regformvip" action="admin.php?view=register">
-				
-					<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
+					<table border="0">
 					<tr>
-						<th valign="top">Unique ID:</th>
-						<td><input type="text" class="inp-form" name="unique_id" /></td>
+						<th>Unique ID:</th>
+						<td><input type="text" class="form-control" name="unique_id" /></td>
 						<td></td>
 					</tr>
 					<tr>
-						<th valign="top">Package:</th>
-						<td><input type="text" class="inp-form" name="package" /></td>
+						<th>PackageID:</th>
+						<td><input type="text" class="form-control" name="package" /></td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>&nbsp;</th>
-						<td valign="top">
-							<input type="submit" value="" class="form-submit" />
+						<td>
+							<input type="submit" value="Submit" class="btn btn-default pull-right" />
 						</td>
 						<td></td>
 					</tr>
 					</table>
+					<br>
+					* UniqueID = The unique id of the player.
+					<br>* PackageID = The id of the package.
 				</form>		
-			</div>
 			<div id="result"></div>
 			<!--  end table-content  -->
 			<script>
@@ -82,19 +63,9 @@ if (empty($_POST))
 					);
 				  });
 			</script>
-			<div class="clear"></div>
 		 
 		</div>
 		<!--  end content-table-inner ............................................END  -->
-		</td>
-		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
-	</tr>
-	</table>
 <?php
 }
 else

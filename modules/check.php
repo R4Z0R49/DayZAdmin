@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 	//ini_set('max_execution_time', 300);
 	echo "<div id=\"page-heading\">";
 	echo "<title>".$pagetitle." - ".$sitename."</title>";
-	echo "<h1>".$pagetitle."</h1>";
+	echo "<h1 class='custom-h1'>".$pagetitle."</h1>";
 	
 	error_reporting (E_ALL ^ E_NOTICE);
 	
@@ -208,13 +208,6 @@ if (!isset($_SESSION['user_id'])) {
 </div>
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
 	<tr>
-		<th rowspan="3" class="sized"><img src="<?php echo $path;?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="<?php echo $path;?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
 		<td id="tbl-border-left"></td>
 		<td>
 		<!--  start content-table-inner ...................................................................... START -->
@@ -226,8 +219,12 @@ if (!isset($_SESSION['user_id'])) {
 					<div id="message-red">
 						<table border="0" width="100%" cellpadding="0" cellspacing="0">
 							<tr>
-								<td class="red-left">WARNING! <?php echo $itemscount;?> unknown items found!</td>
-								<td class="red-right"><a class="close-red"><img src="<?php echo $path;?>images/table/icon_close_red.gif"   alt="" /></a></td>
+								<td>
+									<div class="alert alert-danger">
+										<button type="button" class="close" data-dismiss="alert">&times;</button>
+										<b>WARNING! <?php echo $itemscount;?> unknown items found!</b>
+									</div>
+								</td>
 							</tr>
 						</table>
 					</div>			
@@ -250,7 +247,12 @@ if (!isset($_SESSION['user_id'])) {
 						<div id="message-green">
 							<table border="0" width="100%" cellpadding="0" cellspacing="0">
 								<tr>
-									<td class="green-left">No banned items found!</td>
+									<td>
+									<div class="alert alert-success">
+										<button type="button" class="close" data-dismiss="alert">&times;</button>
+										<b>No banned items found!</b>
+									</div>
+									</td>
 								</tr>
 							</table>
 						</div>
@@ -261,12 +263,6 @@ if (!isset($_SESSION['user_id'])) {
 			</div>
 		<!--  end content-table-inner ............................................END  -->
 		</td>
-		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
 	</tr>
 </table>
 <div class="clear">&nbsp;</div>

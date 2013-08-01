@@ -42,74 +42,71 @@ if (!empty($_POST))
 		header('Location: admin.php');
 	}
 }
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Login - DayZ Administration</title>
-<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
-<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-$(document).pngFix( );
-});
-</script>
-</head>
-<body id="login-bg"> 
-<div id="page-wrap">
- 
-<div id="topbg"></div>
-<div id="logo_home">
-		<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
-</div>
-<div id="rightlogo">
-		<a href="<?php echo($rightlogoLink); ?>"><img src="<?php echo($rightlogoImg); ?>" width="<?php echo($rightlogoWidth); ?>" height="<?php echo($rightlogoHeight); ?>" style="margin-top: <?php echo ($rightlogoMarginTop); ?>;" alt=""></img></a>
-</div>
-<div id="nav">
-	<div id="nav_middle">
-		<div id="nav_padding">
-			<nav>
-				<a href="index.php">Home</a>
-			</nav>
-		</div>
-	</div>
-</div>
-<div id="login-holder">
-	
-	<div class="clear"></div>
-	<form action="admin.php" method="post">
-		<div id="loginbox">	
-			<div id="login-inner">
-				<table border="0" cellpadding="0" cellspacing="0">
-				<tr>
-					<th>Username</th>
-					<td><input type="text" name="login" class="login-inp" /></td>
-				</tr>
-				<tr>
-					<th>Password</th>
-					<td><input type="password" name="password" value="************"  onfocus="this.value=''" class="login-inp" /></td>
-				</tr>
-				<tr>
-					<th></th>
-					<td valign="top"><input type="checkbox" name="remember" class="checkbox-size" id="login-check" /><label for="login-check">Remember me</label></td>
-				</tr>
-				<tr>
-					<th></th>
-					<td><input type="submit" class="submit-login"  /></td>
-				</tr>
-				</table>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</form>
-</div>
-</div>
-</body>
 
-<!-- start footer -->         
-<?php
-echo ($footer);
+$page = 'dashboard';
 ?>
-<!-- end footer -->
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+	<title><?php echo $sitename ?></title>
+	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
+	<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
+	<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$(document).pngFix( );
+		});
+	</script>
+	
+	<!-- New design (Bootstrap - font-awesome) -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body class="stats-bg"> 
+<?php include('modules/stats-header.php'); ?>
+
+
+	<div class="container custom-container">
+	<div class="content">
+		<form action="admin.php" method="post">
+			<div class="login-box">	
+				<div class="login-box-inner">
+					<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<th>Username: </th>
+						<td><input type="text" name="login" value="Username" onfocus="this.value=''" class="form-control" /></td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+					<tr>
+						<th>Password: </th>
+						<td><input type="password" name="password" value="Password" onfocus="this.value=''" class="form-control" /></td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+					<tr>
+						<th></th>
+						<td valign="top"><input type="checkbox" name="remember" class="checkbox-size" id="login-check" /><label for="login-check">Remember me</label></td>
+					</tr>
+					<tr>
+						<th></th>
+						<td><input type="submit" class="btn btn-default"  /></td>
+					</tr>
+					</table>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
+	<!--  end content -->
+	</div>
+
+		<!-- start footer -->         
+		<?php
+			include('modules/footer.php');
+		?>
+		<!-- end footer -->
+	</body>
 </html>
