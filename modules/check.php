@@ -6,6 +6,12 @@ if (!isset($_SESSION['user_id'])) {
 	$pagetitle = "Items check (survivors, tents and vehicles)";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK',?,NOW())", $_SESSION['login']);
 
+<<<<<<< HEAD
+<div id="page-heading">
+<?php
+    include('queries.php');
+=======
+>>>>>>> master
 	//ini_set('max_execution_time', 300);
 	echo "<div id=\"page-heading\">";
 	echo "<title>".$pagetitle." - ".$sitename."</title>";
@@ -19,10 +25,20 @@ if (!isset($_SESSION['user_id'])) {
 	$items_xml = XML2Array::createArray($xml);
 	
 	//$query = "SELECT * FROM survivor";
+<<<<<<< HEAD
+	$res = $db->GetAll($check_player);
+	$number = sizeof($res);
+	$rows = null;
+	$itemscount = 0;		
+	if ($number == 0) {
+	  	echo "<CENTER>\n";
+	} else {
+=======
 	$rows = "";
 	$itemscount = 0;
 	$res = $db->GetAll("select p.name, s.* from profile p left join survivor s on p.unique_id = s.unique_id where s.is_dead = 0");	
 	if (is_array($res) && count($res) > 0) {
+>>>>>>> master
 		foreach($res as $row) {
 			$Inventory = $row['inventory'];	
 			$Inventory = str_replace(",", ",", $Inventory);
@@ -101,8 +117,15 @@ if (!isset($_SESSION['user_id'])) {
 		}
 	}
 	
+<<<<<<< HEAD
+    $query = $check_deployable[0];
+    $binds = $check_deployable[1];
+	$res = $db->GetAll($query, $binds);
+    if (sizeof($res) > 0) {
+=======
 	$res = $db->GetAll("SELECT * FROM v_deployable");
 	if (is_array($res) && count($res) > 0) {
+>>>>>>> master
 		foreach($res as $row) {
 			$Inventory = $row['inventory'];
 			$Inventory = json_decode($Inventory);
@@ -155,12 +178,14 @@ if (!isset($_SESSION['user_id'])) {
 		}
 	}
 
-	$res = $db->GetAll("SELECT * FROM v_vehicle");
-	if (is_array($res) && count($res) > 0) {
-		foreach($res as $row) {
-			$Inventory = $row['inventory'];
-			$Inventory = json_decode($Inventory);
-			$Unknown = array();
+    $query = $check_vehicle[0];
+    $binds = $check_vehicle[1];
+	$res = $db->GetAll($query, $binds);
+    if (sizeof($res) > 0) {
+        foreach($res as $row) {
+            $Inventory = $row['inventory'];
+            $Inventory = json_decode($Inventory);
+            $Unknown = array();
 
 			$bpweaponscount = count($Inventory[1][0]);
 			$bpweapons = array();

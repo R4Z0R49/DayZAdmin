@@ -1,8 +1,8 @@
 <?php
 	error_reporting (E_ALL ^ E_NOTICE);
 	
-	$binds = $query[1];
-    $query = $query[0];
+	$binds = $table5[1];
+    $query = $table5[0];
     $res = $db->GetAll($query, $binds);
     $pnumber = sizeof($res);
 
