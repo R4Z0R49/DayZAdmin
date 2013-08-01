@@ -8,7 +8,7 @@ mysql_select_db($dbName);
 if (isset($_SESSION['user_id']))
 {
 	$user_id = $_SESSION['user_id'];
-	$pagetitle = "Manage VIPS( Coming soon! Not quite here™ )";
+	$pagetitle = "Manage VIPS( Coming soon™ )";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Manage VIPS',?,NOW())", $_SESSION['login']);
 
 	$unique_id = $db->GetOne("SELECT unique_id FROM users WHERE id = ?");
@@ -48,86 +48,61 @@ if (isset($_SESSION['user_id']))
 <div id="page-heading">
 <?php
 	echo "<title>".$pagetitle." - ".$sitename."</title>";
-	echo "<h1>".$pagetitle."</h1>";
+	echo "<h1 class='custom-h1'>".$pagetitle."</h1>";
 ?>
-<div id="dvPopup" style="display:none; width:900px; height: 450px; border:4px solid #000000; background-color:#FFFFFF;">
+<div id="dvPopup" class="container custom-container" style="display:none; width:900px; height: 600px;">
 				<a id="closebutton" style="float:right;" href="#" onclick="HideModalPopup('dvPopup'); return false;"><img src="images/table/action_delete.gif" alt="" /></a><br />
 				<?php include ('modules/vipregister.php'); ?>
 </div>
-<div id="dvPopup2" style="display:none; width:900px; height: 450px; border:4px solid #000000; background-color:#FFFFFF;">
+<div id="dvPopup2" class="container custom-container" style="display:none; width:900px; height: 600px;">
 				<a id="closebutton" style="float:right;" href="#" onclick="HideModalPopup('dvPopup2'); return false;"><img src="images/table/action_delete.gif" alt="" /></a><br />
 				<?php include ('modules/vippackage.php'); ?>
 </div>
 </div>
-<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
-		<td id="tbl-border-left"></td>
-		<td>
-		<!--  start content-table-inner ...................................................................... START -->
-		<div id="content-table-inner">		
-			<div id="related-activities">
-				<div id="related-act-top">
-					<img width="271" height="43" alt="" src="images/forms/header_related_act.gif">
-				</div>
-				<div id="related-act-bottom">
-					<div id="related-act-inner">
-						<div class="left">
-							<a href="#" onclick="ShowModalPopup('dvPopup'); return false;">
-							<img width="21" height="21" alt="" src="images/forms/icon_plus.gif"></a>
-							<br><br>
-							<a href="#" onclick="ShowModalPopup('dvPopup2'); return false;">
-							<img width="21" height="21" alt="" style="margin-top: 5px;" src="images/forms/icon_plus.gif"></a>
-						</div>
-						<div class="right">
-							<h5><a href="vipregister.php" onclick="ShowModalPopup('dvPopup'); return false;">Add VIP</a></h5>
-							Add new VIP
-							<br><br>
-							<h5><a href="vipregister.php" onclick="ShowModalPopup('dvPopup2'); return false;">Add Package</a></h5>
-							Add new Package
-						</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
-			
-			<!--  start table-content  -->
-			<div id="table-content">
-			<form action="admin.php?view=vip" method="post">
-			<h2>VIPS</h2>
-				<table border="0" width="75%" cellpadding="0" cellspacing="0" id="product-table">
-				<tr>
-					<th class="table-header-repeat line-left"><a href="">Delete</a></th>
-					<th class="table-header-repeat line-left" width="20%"><a href="">Unique ID</a>	</th>
-					<th class="table-header-repeat line-left minwidth-1" width="80%"><a href="">Package</a></th
-				</tr>
-				<?php echo $vips; ?>				
-				</table>
-				<input type="submit" class="submit-login" name="vip" />
-				</div>
-			</form>
-			
-			<form action="admin.php?view=addPackage" method="post">
-			<h2>Packages</h2>
-				<table border="0" width="75%" cellpadding="0" cellspacing="0" id="product-table">
-				<tr>
-					<th class="table-header-repeat line-left" width="5%"><a href="">Delete</a></th>
-					<th class="table-header-repeat line-left minwidth-1" width="10%"><a href="">Package</a></th>
-					<th class="table-header-repeat line-left minwidth-1" width="35%"><a href="">Inventory</a></th>
-					<th class="table-header-repeat line-left minwidth-1" width="35%"><a href="">Backpack</a></th>
-					<th class="table-header-repeat line-left minwidth-1" width="15%"><a href="">Skin</a></th>
-				</tr>
-				<?php echo $packages; ?>				
-				</table>
-				<input type="submit" class="submit-login" name="packages" />
-				</div>
-			</form>
+
+<table class="table" style="width: 25%; float: right;">
+<tr>
+	<th class="custom-th"><h4>Related Activities <i class="icon-arrow-down"></i></h4></th>
+</tr>
+<tr class="custom-tr">
+	<td><a href="vippackage.php" onclick="ShowModalPopup('dvPopup'); return false;"><h4>Add VIP</h4></a>
+	Adds a new VIP
+	</td>
+</tr>
+<tr class="custom-tr">
+	<td><a href="vipregister.php" onclick="ShowModalPopup('dvPopup2'); return false;"><h4>Add Package</h4></a>
+	Adds a package
+	</td>
+</tr>
+</table>
+
+<form action="admin.php?view=removeVIP" method="post">
+<table class="table" style="width: 70%; margin-left: 10px;">
+<tr>
+	<th class="custom-th"><h4>Delete <i class="icon-arrow-down"></i></h4></th>
+	<th class="custom-th"><h4>Unique ID <i class="icon-arrow-down"></i></h4></th>
+	<th class="custom-th"><h4>Package <i class="icon-arrow-down"></i></h4></th>
+</tr>
+	<?php echo $vips; ?>	
+</table>
+<input type="submit" value="Submit" style="margin-left: 10px;" class="btn btn-default" name="packages" />
+</form>
+
+<form action="admin.php?view=removePackage" method="post">
+<br><br>
+<table class="table" style="width: 70%; margin-left: 10px;">
+<tr>
+	<th class="custom-th"><h4>Delete <i class="icon-arrow-down"></i></h4></th>
+	<th class="custom-th"><h4>Package <i class="icon-arrow-down"></i></h4></th>
+	<th class="custom-th"><h4>Inventory <i class="icon-arrow-down"></i></h4></th>
+	<th class="custom-th"><h4>Backpack <i class="icon-arrow-down"></i></h4></th>
+	<th class="custom-th"><h4>Skin <i class="icon-arrow-down"></i></h4></th>
+</tr>
+	<?php echo $packages; ?>	
+</table>
+<input type="submit" value="Submit" style="margin-left: 10px;" class="btn btn-default" name="packages" />
+<br><br>
+</form>
 		
 <?php
 mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
@@ -144,32 +119,19 @@ if ($_POST['submit_load']) {
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited instance loadout',?,NOW())", $_SESSION['login']);
 } 
 ?>		
-		<div id="vipString">
-			<form method="post">
-			<br><h2>Loadout Inventory</h2>
-				<textarea name="load_inv" action=""><?php echo $inv; ?></textarea><br>
 
-			<br><h2>Loadout Backpack</h2>
-				<textarea name="load_bck" action=""><?php echo $bck; ?></textarea><br>
-			<input name="submit_load" type="submit" class="submit-login" value="Submit" />
-			</form>
-		</div>
-			<!--  end table-content  -->
-	
-			<div class="clear"></div>
+<div id="vipString">
+	<form method="post">
+	<br><h2 class="custom-h2" style="margin-left: 10px;">Loadout Inventory</h2>
+		<textarea name="load_inv" action="" style="margin-left: 10px;"><?php echo $inv; ?></textarea><br>
 
-		</div>
-		<!--  end content-table-inner ............................................END  -->
-		</td>
-		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
-	</tr>
-	</table>
-	<div class="clear">&nbsp;</div>
+	<br><h2 class="custom-h2" style="margin-left: 10px;">Loadout Backpack</h2>
+		<textarea name="load_bck" action="" style="margin-left: 10px;"><?php echo $bck; ?></textarea><br>
+	<br>
+	<input name="submit_load" type="submit" class="btn btn-default" style="margin-left: 10px; margin-bottom: 10px;" value="Submit" />
+	</form>
+</div>
+
 <?php
 }
 else

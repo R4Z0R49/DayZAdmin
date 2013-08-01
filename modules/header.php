@@ -1,59 +1,38 @@
 <?php
 if (isset($_SESSION['user_id'])) {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="EN">
 <head>
-<meta http-equiv="Content-Type" content="text/html;" />
-<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
-<link rel="stylesheet" href="css/menu.css" />	
-<link rel="stylesheet" href="css/watch.css" />	
-<link rel="stylesheet" href="css/flexcrollstyles.css" />	
-<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>	
-<script src="js/flexcroll.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/jquery.fullscreen.js"></script>
-<!--<script src="js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
-<script src="js/jquery/ui.core.js" type="text/javascript"></script>
-<script src="js/jquery/ui.checkbox.js" type="text/javascript"></script>
-<script src="js/jquery/jquery.bind.js" type="text/javascript"></script>
-<script src="js/prototype.js" type="text/javascript"></script>
-<script src="js/scriptaculous.js" type="text/javascript"></script>
+	<meta http-equiv="Content-Type" content="text/html;" />
+	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
+	<link rel="stylesheet" href="css/watch.css" />	
+	<link rel="stylesheet" href="css/flexcrollstyles.css" />	
+	<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>	
+	<script src="js/flexcroll.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery.fullscreen.js"></script>
 
- Custom jquery scripts 
-<script src="js/jquery/custom_jquery.js" type="text/javascript"></script>-->
- 
-<!-- Tooltips
-<script src="js/jquery/jquery.tooltip.js" type="text/javascript"></script>
-<script src="js/jquery/jquery.dimensions.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(function() {
-	$('a.info-tooltip ').tooltip({
-		track: true,
-		delay: 0,
-		fixPNG: true, 
-		showURL: false,
-		showBody: " - ",
-		top: -35,
-		left: 5
-	});
-});
-</script> -->
-
-<script src="js/modalpopup.js" type="text/javascript"></script>
-<?php if($enableclock) { ?>
-<script type="text/javascript" src="js/jquery/jquery-1.4.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.jclock.js"></script>
-<script type="text/javascript">
-    $(function($) {
-        var options = {
-            utc: true,
-            utcOffset: <?php echo $timeoffset; ?>,
-            // seedTime must be a number representing time in milliseconds
-            seedTime: <?php echo time() * 1000; ?>        }
-        $('.jclock').jclock(options);
-    });
-</script>
-<?php } // end if($enableclock) ?>
+	<!-- New design (Bootstrap - font-awesome) -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+	
+	<script src="js/modalpopup.js" type="text/javascript"></script>
+	<?php if($enableclock) { ?>
+	<script type="text/javascript" src="js/jquery/jquery-1.4.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jclock.js"></script>
+	<script type="text/javascript">
+		$(function($) {
+			var options = {
+				utc: true,
+				utcOffset: <?php echo $timeoffset; ?>,
+				// seedTime must be a number representing time in milliseconds
+				seedTime: <?php echo time() * 1000; ?>        }
+			$('.jclock').jclock(options);
+		});
+	</script>
+	<?php } // end if($enableclock) ?>
 </head>
 <body> 
 
@@ -61,50 +40,28 @@ $(function() {
 <div id="clock" style=" font-size: 10pt; color: #ffffff; position: absolute; top: 8px; left: 2px; margin: 0 0 0 0;">
     <span class="jclock">11:11:11</span>
 </div>
-<?php } // end if($enableclock) ?>
+<?php } // end if($enableclock) ?>  
 
-<!-- Start: page-top-outer -->
-<div id="page-top-outer">    
-
-<!-- Start: page-top -->
-<div id="page-top">
-
-	<!-- start logo -->
-	<div id="logo">
-		<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
+<div id="logo-stats-bg">
+	<div id="logo-stats-centerer">
+		<div id="logo-stats-left">
+			<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
+		</div>
+		<div id="top-search">
+		<?php
+			include ('searchbar.php');
+		?>
+		</div>
 	</div>
-	<!-- end logo -->
-	
-	<!-- start watch -->
-
-	<!-- end watch -->
-	
-	<!--  start top-search -->
-	<div id="top-search">
-	<?php
-	include ('searchbar.php');
-	?>
-	</div>
- 	<!--  end top-search -->
- 	<div class="clear"></div>
-
 </div>
-<!-- End: page-top -->
-
-</div>
-<!-- End: page-top-outer -->
-	
-<div class="clear">&nbsp;</div>
  
 <?php
 include ('navbar.php');
 ?>
- <div class="clear"></div>
  
-<!-- start content-outer ........................................................................................................................START -->
-<div id="content-outer">
-<!-- start content -->
-<div id="content">
+<body class="stats-bg">
+<div class="container custom-container">
+<div class="content">
 <?php
 }else{
 	header('Location: admin.php');

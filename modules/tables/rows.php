@@ -3,25 +3,25 @@
 
 function header_player($show){
 	return '<tr>
-		<th class="table-header-repeat line-left" width="5%"><a href="">Control</a></th>
-		<th class="table-header-repeat line-left" width="13%"><a href="">Player Name</a></th>
-		<th class="table-header-repeat line-left" width="7%"><a href="">Player UID</a></th>
-		<th class="table-header-repeat line-left" width="10%"><a href="">Position</a></th>
-		<th class="table-header-repeat line-left" width="22%"><a href="">Inventory preview</a></th>
-		<th class="table-header-repeat line-left" width="22%"><a href="">Backpack preview</a></th>
+		<th width="5%" class="custom-th"><a href=""><h4>Control</h4></a></th>
+		<th width="13%" class="custom-th"><a href=""><h4>Player Name</h4></a></th>
+		<th width="7%" class="custom-th"><a href=""><h4>UID</h4></a></th>
+		<th width="10%" class="custom-th"><a href=""><h4>Position</h4></a></th>
+		<th width="22%" class="custom-th"><a href=""><h4>Inventory preview</h4></a></th>
+		<th width="22%" class="custom-th"><a href=""><h4>Backpack preview</h4></a></th>
 		</tr>';
 }
 
 function header_vehicle($show, $chbox){
 	return '
 		<tr>'.$chbox.'
-		<th class="table-header-repeat line-left" width="5%"><a href="">ID</a></th>
-		<th class="table-header-repeat line-left" width="13%"><a href="">Classname</a>	</th>
-		<th class="table-header-repeat line-left" width="7%"><a href="">Object UID</a></th>
-		<th class="table-header-repeat line-left" width="5%"><a href="">Damage</a></th>
-		<th class="table-header-repeat line-left" width="10%"><a href="">Position</a></th>
-		<th class="table-header-repeat line-left" width="22%"><a href="">Inventory</a></th>
-		<th class="table-header-repeat line-left" width="22%"><a href="">Hitpoints</a></th>
+		<th width="5%" class="custom-th"><a href=""><h4>ID</h4></a></th>
+		<th width="13%" class="custom-th"><a href=""><h4>Classname</h4></a></th>
+		<th width="7%" class="custom-th"><a href=""><h4>UID</h4></a></th>
+		<th width="5%" class="custom-th"><a href=""><h4>Damage</h4></a></th>
+		<th width="10%" class="custom-th"><a href=""><h4>Position</h4></a></th>
+		<th width="22%" class="custom-th"><a href=""><h4>Inventory</h4></a></th>
+		<th width="22%" class="custom-th"><a href=""><h4>Hitpoints</h4></a></th>
 		</tr>';
 }
 

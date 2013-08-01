@@ -25,11 +25,13 @@ $paging = '
 <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
 <tr>
 <td>
-<a href="'.$first.'" class="page-far-left"></a>
-<a href="'.$prev.'" class="page-left"></a>
-<div id="page-info">Page <strong>'.$pageNum.'</strong> / '.$maxPage.'</div>
-<a href="'.$next.'" class="page-right"></a>
-<a href="'.$last.'" class="page-far-right"></a>
+<ul class="pagination">
+  <li><a href="'.$first.'">&laquo;</a></li>
+  <li><a href="'.$prev.'">&laquo;</a></li>
+	<div id="page-info">Page <strong>'.$pageNum.'</strong> / '.$maxPage.'</div>
+  <li><a href="'.$next.'">&raquo;</a></li>
+  <li><a href="'.$last.'">&raquo;</a></li>
+</ul>
 </td>
 </tr>
 </table>';

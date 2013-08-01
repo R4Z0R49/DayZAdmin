@@ -22,55 +22,33 @@ $quicklinks = XML2Array::createArray($xml);
 <div id="page-heading">
 <?php
 	echo "<title>".$pagetitle." - ".$sitename."</title>";
-	echo "<h1>".$pagetitle."</h1>";
+	echo "<h1 class='custom-h1'>".$pagetitle."</h1>";
 
 ?>
 </div>
-<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+
+<table class="table">
+	<th class="custom-th"><h4>Global Chat</h4></th>
+	<th class="custom-th"><h4>Admin Logs</h4></th>
 	<tr>
-		<th rowspan="3" class="sized"><img src="<?php echo $path;?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="<?php echo $path;?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
-		<td id="tbl-border-left"></td>
-		<td>
-		<div id="content-table-inner">	
-		<!--  start content-table-inner ...................................................................... START -->
-		<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
-			<tr>
-				<th class="table-header-repeat line-left minwidth-1"><a href="">Say to global chat</a>	</th>
-				<th class="table-header-repeat line-left minwidth-1"><a href="">Actions log</a></th>
-			</tr>
-			<tr>
-				<td align="center" width="50%">
-					<div id="quicklinks">
-						<ul>
-					<?php
-						include ('say.php');
-					?>
-						</ul>
-					</div>
-				</td>
-				<td align="center" width="50%">
-					<textarea cols="68" rows="12" readonly><?php echo $logs; ?></textarea>
-				</td>	
-			</tr>				
-		</table>		
-		<!--  end content-table-inner ............................................END  -->
-		</div>
+		<td align="center" width="50%">
+			<form action="admin.php?view=actions" method="post">
+			<textarea name="say" cols="89" rows="10" >Type something to Global Chat</textarea>
 		</td>
-		<td id="tbl-border-right"></td>
+		<td align="center" width="50%">
+			<textarea cols="89" rows="10" readonly><?php echo $logs; ?></textarea>
+		</td>
 	</tr>
 	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
+		<td align="right" style="">
+			<input type="submit" class="btn btn-default" style=""/>
+			</form>
+		</td>
+		<td>
+		</td>
 	</tr>
-	</table>
-	<div class="clear">&nbsp;</div>
+</table>
+</body>
 <?php
 }
 else
