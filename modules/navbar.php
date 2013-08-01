@@ -33,145 +33,137 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 			break;
 	}
 ?>
-<!--  start nav-outer-repeat................................................................................................. START -->
-<div class="nav-outer-repeat"> 
-<!--  start nav-outer -->
-<div class="nav-outer"> 
 
-		<!-- start nav-right -->
-		<div id="nav-right">
-		
-			<div class="nav-divider">&nbsp;</div>
-			<!-- <div class="showhide-account"><img src="images/shared/nav/nav_myaccount.gif" width="93" height="14" alt="" /></div>
-			<a href="/admin.php?view=register" id="logout"><img src="images/shared/nav/nav_myaccount.gif" width="64" height="14" alt="" /></a>
-			<div class="nav-divider">&nbsp;</div>-->
-			<a href="admin.php?logout" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
-			<div class="clear">&nbsp;</div>
-		
-			<!--  start account-content -->	
-			<div class="account-content">
-			<div class="account-drop-inner">
-				<a href="" id="acc-settings">Settings</a>
-				<div class="clear">&nbsp;</div>
-				<div class="acc-line">&nbsp;</div>
-				<a href="" id="acc-details">Personal details </a>
-				<div class="clear">&nbsp;</div>
-				<div class="acc-line">&nbsp;</div>
-				<a href="" id="acc-project">Project details</a>
-				<div class="clear">&nbsp;</div>
-				<div class="acc-line">&nbsp;</div>
-				<a href="" id="acc-inbox">Inbox</a>
-				<div class="clear">&nbsp;</div>
-				<div class="acc-line">&nbsp;</div>
-				<a href="" id="acc-stats">Statistics</a> 
-			</div>
-			</div>
-			<!--  end account-content -->
-		
-		</div>
-		<!-- end nav-right -->
-
-
-		<!--  start nav -->
-		<div class="mc-nav">
-			<div class="table">
-				<ul class="select menutop level1">
-				<li class="li-dashboard root active"><a href="admin.php" style="color:#FFF;" class="dashboard item">Dashboard</a></li>
-				<li class="li-dashboard root active"><a href="index.php" style="color:#FFF;" class="dashboard item">Stats</a></li>
-				<li class="li-users parent root"><span class=" daddy item"><span>Control</span></span>
-					<ul class="level2 parent-users">
-						<li class="li-mass-mail-users"><a href="admin.php?view=admin" class="class:massmail item">Admin Options</a></li>
-						<li class="li-mass-mail-users"><a href="admin.php?view=vip" class="class:massmail item">VIP Management</a></li>
-						<li class="li- separator"><span></span></li>
-						<li class="li-mass-mail-users"><a href="admin.php?view=database" class="class:massmail item">Database Admin</a></li>
-					</ul>
-				</li>
-				<li class="li-users parent root"><span class=" daddy item"><span>Entities</span></span>
-					<ul class="level2 parent-users">
-					<li class="li-user-manager parent"><a href="#nogo" class="class:user daddy item">Instance ID:<?php echo $iid?></a>
-						<ul class="level3 parent-user-manager">
-						<li class="li-user-manager parent"><a href="#nogo" class="class:user daddy item">Players</a>
-							<ul class="level3 parent-user-manager">
-								<li class="li-add-new-user"><a href="admin.php?view=table&show=0" class="class:newarticle item">Online</a></li>
+<div class="navbar navbar-inverse navbar-static-top navbar-custom">
+	<div class="navbar-middle">
+		<ul class="nav navbar-nav">
+			<li <?php echo ($page == 'dashboard' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../admin.php ' : ' admin.php '); ?>"><i class="icon-cog"></i> Dashboard</a></li> 
+			<li <?php echo ($page == 'home' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php ' : ' index.php '); ?>"><i class="icon-home"></i> Stats</a></li>
+			<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Control<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="admin.php?view=admin">Admin Options</a></li>
+				<li><a href="admin.php?view=vip">VIP Manager</a></li>
+				<li><a href="admin.php?view=database">Database Manager</a></li>
+			</ul>
+			</li>
+			<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Entities<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a href="#">Entities <i class="icon-arrow-right"></i></a>
+					<ul class="dropdown-menu sub-menu">
+						<li>
+							<a href="#">Players <i class="icon-arrow-right"></i></a>
+							<ul class="dropdown-menu sub-menu">
+								<li><a href="admin.php?view=table&show=0">Online</a></li>
 							</ul>
 						</li>
-						<li class="li-groups parent"><a href="#nogo" class="class:groups daddy item">Vehicles</a>
-							<ul class="level3 parent-groups">
-								<li class="li-add-new-group"><a href="admin.php?view=table&show=4" class="class:newarticle item">Ingame</a></li>
-							</ul>
-						</li>
-					</ul>
-					<li class="li-user-manager parent"><a href="#nogo" class="class:user daddy item">Database</a>
-						<ul class="level3 parent-user-manager">
-						<li class="li-user-manager parent"><a href="#nogo" class="class:user daddy item">Players</a>
-							<ul class="level3 parent-user-manager">
-								<li class="li-add-new-user"><a href="admin.php?view=table&show=1" class="class:newarticle item">Alive</a></li>
-								<li class="li-add-new-user"><a href="admin.php?view=table&show=2" class="class:newarticle item">Dead</a></li>
-								<li class="li-add-new-user"><a href="admin.php?view=table&show=3" class="class:newarticle item">All</a></li>
-							</ul>
-						</li>
-						<li class="li-groups parent"><a href="#nogo" class="class:groups daddy item">Vehicles</a>
-							<ul class="level3 parent-groups">
-							<li class="li-add-new-group"><a href="admin.php?view=table&show=4" class="class:newarticle item">All Vehicles</a></li>
-								<li class="li-add-new-group"><a href="admin.php?view=table&show=5" class="class:newarticle item">Spawn locations</a></li>
+						<li>
+							<a href="#">Vehicles <i class="icon-arrow-right"></i></a>
+							<ul class="dropdown-menu sub-menu">
+								<li><a href="#"><br></a></li>
+								<li><a href="admin.php?view=table&show=4">Ingame</a></li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-						<li class="li- separator"><span></span></li>
-						<li class="li-mass-mail-users"><a href="admin.php?view=check" class="class:massmail item">Check items</a></li>
-						<li class="li- separator"><span></span></li>
-						<li class="li-mass-mail-users"><a href="admin.php?view=search" class="class:massmail item">Search</a></li>
+				<li>
+					<a href="#">Database <i class="icon-arrow-right"></i></a>
+					<ul class="dropdown-menu sub-menu">
+						<li><a href="#"><br></a></li>
+						<li>
+							<a href="#">Players <i class="icon-arrow-right"></i></a>
+							<ul class="dropdown-menu sub-menu">
+								<li><a href="#"><br></a></li>
+								<li><a href="admin.php?view=table&show=1">Alive</a></li>
+								<li><a href="admin.php?view=table&show=2">Dead</a></li>
+								<li><a href="admin.php?view=table&show=3">All</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Vehicles <i class="icon-arrow-right"></i></a>
+							<ul class="dropdown-menu sub-menu">
+								<li><a href="#"><br></a></li>
+								<li><a href="#"><br></a></li>
+								<li><a href="admin.php?view=table&show=4">All Vehicles</a></li>
+								<li><a href="admin.php?view=table&show=5">Spawn Locations</a></li>
+							</ul>
+						</li>
 					</ul>
 				</li>
-				
-				<li class='li-users parent root'><span class=' daddy item'><span><?php echo $mapName; ?></span></span>
-					<ul class="level2 parent-users">
-						<li class="li-user-manager parent"><a href="#nogo" class="class:user daddy item">Instance ID:<?php echo $iid?></a>
-							<ul class="level3 parent-user-manager">
-								<li class="li-groups parent"><a href="#nogo" class="class:groups daddy item">Recent Players</a>
-								<ul class="level3 parent-groups">
-									<li class="li-add-new-user"><a href="admin.php?view=map&show=0" class="class:newarticle item">Within 1 Min</a></li>
-								</ul>					
-						<li class="li-groups parent"><a href="#nogo" class="class:groups daddy item">Deployables</a>
-							<ul class="level3 parent-groups">
-								<li class="li-add-new-group"><a href="admin.php?view=map&show=4" class="class:newarticle item">Vehicles Ingame</a></li>
-								<li class="li-add-new-group"><a href="admin.php?view=map&show=6" class="class:newarticle item">All Ingame Tents</a></li>
-								<li class="li-add-new-group"><a href="admin.php?view=map&show=7" class="class:newarticle item">Other Deployables</a></li>
-							</ul>
-							<li class="li-add-new-user"><a href="admin.php?view=map&show=8" class="class:newarticle item">Everything</a></li>
-						</li>
-							</ul>
-						</li>
-						<li class="li-user-manager parent"><a href="#nogo" class="class:user daddy item">Database</a>
-							<ul class="level3 parent-user-manager">
-							<li class="li-groups parent"><a href="#nogo" class="class:groups daddy item">Players</a>
-							<ul class="level3 parent-groups">
-								<li class="li-add-new-user"><a href="admin.php?view=map&show=1" class="class:newarticle item">Alive</a></li>
-								<li class="li-add-new-user"><a href="admin.php?view=map&show=2" class="class:newarticle item">Dead</a></li>
-								<li class="li-add-new-user"><a href="admin.php?view=map&show=3" class="class:newarticle item">All</a></li>
-							</ul>
-							<li class="li-groups parent"><a href="#nogo" class="class:groups daddy item">Deployables</a>
-							<ul class="level3 parent-groups">
-								<li class="li-add-new-group"><a href="admin.php?view=map&show=5" class="class:newarticle item">Spawn locations</a></li>
-							
-							</ul>
-						</li>
-					</ul>	
+				<li class="divider"></li>
+				<li>
+					<a href="admin.php?view=check">Check Items</a>
+				</li>
+				<li class="divider"></li>
+				<li>
+					<a href="admin.php?view=search">Search</a>
+				</li>
+			</ul>
+			</li>
+			<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $mapName; ?><b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li>
+					<a href="#">Instance ID: <?php echo $iid?> <i class="icon-arrow-right"></i></a>
+						<ul class="dropdown-menu sub-menu">
+							<li>
+								<li>
+								<a href="#">Recent Players <i class="icon-arrow-right"></i></a>
+								<ul class="dropdown-menu sub-menu">
+									<li><a href="admin.php?view=map&show=0">Within 1 Min</a></li>
+								</ul>
+								</li>
+								<li>
+								<a href="#">Deployables <i class="icon-arrow-right"></i></a>
+								<ul class="dropdown-menu sub-menu">
+									<li><a href="#"><br></li>
+									<li><a href="admin.php?view=map&show=4">Vehicles Ingame</a></li>
+									<li><a href="admin.php?view=map&show=6">All Ingame Tents</a></li>
+									<li><a href="admin.php?view=map&show=7">Other Deployables</a></li>
+								</ul>
+								</li>
+								<li>
+									<a href="admin.php?view=map&show=8">Everything</a>
+								</li>
+							</li>
+						</ul>
+					</li>
+					<li>
+					<a href="#">Database <i class="icon-arrow-right"></i></a>	
+						<ul class="dropdown-menu sub-menu">
+							<li>
+								<li><a href="#"><br></a></li>
+								<li>
+									<a href="#">Players <i class="icon-arrow-right"></i></a>
+									<ul class="dropdown-menu sub-menu">
+										<li><a href="#"><br></a></li>
+										<li><a href="admin.php?view=map&show=1">Alive</a></li>
+										<li><a href="admin.php?view=map&show=2">Dead</a></li>
+										<li><a href="admin.php?view=map&show=3">All</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Deployables <i class="icon-arrow-right"></i></a>
+									<ul class="dropdown-menu sub-menu">
+										<li><a href="#"><br></a></li>
+										<li><a href="#"><br></a></li>
+										<li><a href="admin.php?view=map&show=5">Spawn Locations</a></li>
+									</ul>
+								</li>
+							</li>
+						</ul>
+					</li>
 				</ul>
-				<div class="clear"></div>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<!--  start nav -->
-
-
-
+			</li> 
+			</ul>
+			<ul class="nav navbar-nav pull-right">
+			<li><a href="admin.php?logout"><i class="icon-arrow-left"></i> Logout</a></li>
+			</ul>
+	</div>
 </div>
-<div class="clear"></div>
-<!--  start nav-outer -->
-</div>
-<!--  start nav-outer-repeat................................................... END -->
+
 <?php
 }
 else

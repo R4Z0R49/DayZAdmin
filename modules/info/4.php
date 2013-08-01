@@ -47,18 +47,11 @@ $owneruid = "";
 ?>	
 	<div id="page-heading">
 		<h1><?php echo "<title>".$row['class_name']." - ".$sitename."</title>"; ?></h1>
-		<h1><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<h1 class="custom-h1"><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
 	</div>
 	<!-- end page-heading -->
 
 	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
 	<tr>
 		<td id="tbl-border-left"></td>
 		<td>
@@ -67,7 +60,7 @@ $owneruid = "";
 		
 			<!--  start table-content  -->
 			<div id="table-content">
-				<div id="gear_vehicle">
+				<div id="gear_vehicle" style="margin-left: 10px;">
 					<div class="gear_info">
 						<img class="playermodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
 						<div id="gps" style="margin-left:46px;margin-top:54px">
@@ -262,7 +255,7 @@ $owneruid = "";
 <div id="medical">
 <table>
 <tr>
-	<th>
+	<th class="custom-th">
 	Options
 	</th>
 </tr>
@@ -310,7 +303,7 @@ if ($_POST['submit_loc']) {
 
 <div id="vehicleString">
 	<form method="post">
-	<br><h2>Location String</h2>
+	<br><h2 class="custom-h2">Location String</h2>
 		<textarea name="loc" action="">
 <?php 
 echo $row['worldspace'];

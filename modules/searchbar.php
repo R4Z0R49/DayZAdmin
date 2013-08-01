@@ -8,9 +8,9 @@ if (isset($_SESSION['user_id']))
 	<form action="admin.php?view=search" method="post">
 		<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
-		<td><input name="search" type="text" value="<?php if(isset($_POST['search'])){ echo $_POST['search']; } else { echo 'Search'; }?>" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" /></td>
+		<td><input name="search" type="text" value="<?php if(isset($_POST['search'])){ echo $_POST['search']; } else { echo 'Search'; }?>" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="form-control" /></td>
 		<td>
-		<select name="type" class="styledselect">
+		<select name="type" class="form-control">
 			<option value="player" <?php if(isset($_POST['type']) && $_POST['type'] == "player"){?> selected<?php }?>>Player</option>
 			<option value="item" <?php if(isset($_POST['type']) && $_POST['type'] == "item"){?> selected<?php }?>>Item</option>
 			<option value="vehicle" <?php if(isset($_POST['type']) && $_POST['type'] == "vehicle"){?> selected<?php }?>>Vehicle</option>
@@ -18,7 +18,7 @@ if (isset($_SESSION['user_id']))
 		</select> 
 		</td>
 		<td>
-		<input type="submit" class="submit-login"  />
+		<input type="submit" class="btn btn-default"  />
 		</td>
 		</tr>
 		</table>
