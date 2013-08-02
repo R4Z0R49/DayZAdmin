@@ -59,17 +59,9 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </s2Rnd_shotgun_74Pellets>
-  <s2Rnd_shotgun_74Pellets>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </s2Rnd_shotgun_74Pellets>
   <s2Rnd_shotgun_74Slug>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
-  </s2Rnd_shotgun_74Slug>
-  <s2Rnd_shotgun_74Slug>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
   </s2Rnd_shotgun_74Slug>
   <s30Rnd_545x39_AK>
     <Slots>1</Slots>
@@ -127,10 +119,6 @@
     <Slots>1</Slots>
     <Type>smallammo</Type>
   </s6Rnd_45ACP>
-  <s75Rnd_545x39_RPK>
-    <Slots>2</Slots>
-    <Type>heavyammo</Type>
-  </s75Rnd_545x39_RPK>
   <s7Rnd_45ACP_1911>
     <Slots>1</Slots>
     <Type>smallammo</Type>
@@ -139,25 +127,13 @@
     <Slots>1</Slots>
     <Type>smallammo</Type>
   </s8Rnd_9x18_Makarov>
-  <s8Rnd_9x18_MakarovSD>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </s8Rnd_9x18_MakarovSD>
   <s8Rnd_B_Beneli_74Slug>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </s8Rnd_B_Beneli_74Slug>
-  <s8Rnd_B_Beneli_74Slug>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </s8Rnd_B_Beneli_74Slug>
   <s8Rnd_B_Beneli_Pellets>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
-  </s8Rnd_B_Beneli_Pellets>
-  <s8Rnd_B_Beneli_Pellets>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
   </s8Rnd_B_Beneli_Pellets>
   <sAKS_74_U>
     <Slots>10</Slots>
@@ -219,10 +195,6 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sDMR>
-  <sDMR_DZ>
-    <Slots>10</Slots>
-    <Type>rifle</Type>
-  </sDMR_DZ>
   <sDZ_ALICE_Pack_EP1>
     <Slots>1</Slots>
     <Type>backpack</Type>
@@ -299,14 +271,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sFoodCanBakedBeans>
-  <sFoodCanBeef>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanBeef>
-  <sFoodCanBeefEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanBeefEmpty>
   <sFoodCanBoneboy>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -339,14 +303,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sFoodCanDemonEmpty>
-  <sFoodCanDerpy>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanDerpy>
-  <sFoodCanDerpyEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanDerpyEmpty>
   <sFoodCanFraggleos>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -375,14 +331,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sFoodCanHerpyEmpty>
-  <sFoodCanLongSprats>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanLongSprats>
-  <sFoodCanLongSpratsEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanLongSpratsEmpty>
   <sFoodCanOrlok>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -395,14 +343,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sFoodCanPasta>
-  <sFoodCanPotatoes>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanPotatoes>
-  <sFoodCanPotatoesEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanPotatoesEmpty>
   <sFoodCanPowell>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -411,70 +351,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sFoodCanPowellEmpty>
-  <sFoodCanRusCorn>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sFoodCanRusCorn>
-  <sFoodCanRusCorn>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusCorn>
-  <sFoodCanRusCornEmpty>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sFoodCanRusCornEmpty>
-  <sFoodCanRusCornEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusCornEmpty>
-  <sFoodCanRusMilk>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusMilk>
-  <sFoodCanRusMilkEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusMilkEmpty>
-  <sFoodCanRusPeas>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusPeas>
-  <sFoodCanRusPeasEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusPeasEmpty>
-  <sFoodCanRusPork>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusPork>
-  <sFoodCanRusPorkEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusPorkEmpty>
-  <sFoodCanRusStew>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusStew>
-  <sFoodCanRusStewEmpty>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sFoodCanRusStewEmpty>
-  <sFoodCanRusStewEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusStewEmpty>
-  <sFoodCanRusUnlabeled>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sFoodCanRusUnlabeled>
-  <sFoodCanRusUnlabeled>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusUnlabeled>
-  <sFoodCanRusUnlabeledEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCanRusUnlabeledEmpty>
   <sFoodCanSardines>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -495,50 +371,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sFoodCanUnlabeledEmpty>
-  <sFoodCandyAnders>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCandyAnders>
-  <sFoodCandyChubby>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCandyChubby>
-  <sFoodCandyLegacys>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCandyLegacys>
-  <sFoodCandyMintception>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodCandyMintception>
-  <sFoodChipsChocolate>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodChipsChocolate>
-  <sFoodChipsChocolateEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodChipsChocolateEmpty>
-  <sFoodChipsMysticales>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodChipsMysticales>
-  <sFoodChipsMysticalesEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodChipsMysticalesEmpty>
-  <sFoodChipsSulahoops>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sFoodChipsSulahoops>
-  <sFoodChipsSulahoops>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodChipsSulahoops>
-  <sFoodChipsSulahoopsEmpty>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodChipsSulahoopsEmpty>
   <sFoodMRE>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -583,18 +415,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sFoodchickenRaw>
-  <sFoodgoatCooked>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sFoodgoatCooked>
-  <sFoodgoatCooked>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodgoatCooked>
-  <sFoodgoatRaw>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sFoodgoatRaw>
   <sFoodmuttonCooked>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -665,11 +485,11 @@
   </sItemBloodbag>
   <sItemBookBible>
     <Slots>1</Slots>
-    <Type>heavyammo</Type>
+    <Type>smallammo</Type>
   </sItemBookBible>
   <sItemCards>
     <Slots>1</Slots>
-    <Type>heavyammo</Type>
+    <Type>smallammo</Type>
   </sItemCards>
   <sItemCompass>
     <Slots>1</Slots>
@@ -679,6 +499,10 @@
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemCrowbar>
+  <sItemDomeTent>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemDomeTent>
   <sItemEpinephrine>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -697,15 +521,11 @@
   </sItemFlashlightRed>
   <sItemFuelcan>
     <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sItemFuelcan>
-  <sItemFuelcan>
-    <Slots>1</Slots>
     <Type>smallammo</Type>
   </sItemFuelcan>
   <sItemFuelcanEmpty>
     <Slots>1</Slots>
-    <Type>heavyammo</Type>
+    <Type>smallammo</Type>
   </sItemFuelcanEmpty>
   <sItemGPS>
     <Slots>1</Slots>
@@ -747,10 +567,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemMorphine>
-  <sItemNails>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sItemNails>
   <sItemPainkiller>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -763,17 +579,33 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSandbag>
+  <sItemSandbag>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSandbag>
   <sItemSodaClays>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaClays>
+  <sItemSodaClays>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaClays>
   <sItemSodaClaysEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaClaysEmpty>
+  <sItemSodaClaysEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaClaysEmpty>
   <sItemSodaCoke>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaCoke>
+  <sItemSodaCoke>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaCoke>
   <sItemSodaCokeEmpty>
     <Slots>1</Slots>
@@ -787,9 +619,17 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaDrwaste>
+  <sItemSodaDrwaste>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaDrwaste>
   <sItemSodaDrwasteEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaDrwasteEmpty>
+  <sItemSodaDrwasteEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaDrwasteEmpty>
   <sItemSodaEmpty>
     <Slots>1</Slots>
@@ -799,6 +639,14 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaFranka>
+  <sItemSodaFranka>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaFranka>
+  <sItemSodaFrankaEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaFrankaEmpty>
   <sItemSodaGrapeDrink>
     <Slots>1</Slots>
     <Type>smallammo</Type>
@@ -811,10 +659,22 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaLemonade>
+  <sItemSodaLemonade>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaLemonade>
   <sItemSodaLemonadeEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaLemonadeEmpty>
+  <sItemSodaLemonadeEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaLemonadeEmpty>
+  <sItemSodaLirikEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaLirikEmpty>
   <sItemSodaLirikola>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -823,9 +683,17 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaLvg>
+  <sItemSodaLvg>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaLvg>
   <sItemSodaLvgEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaLvgEmpty>
+  <sItemSodaLvgEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaLvgEmpty>
   <sItemSodaMdew>
     <Slots>1</Slots>
@@ -843,22 +711,46 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaMtngreen>
+  <sItemSodaMtngreen>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaMtngreen>
   <sItemSodaMtngreenEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaMtngreenEmpty>
+  <sItemSodaMtngreenEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaMtngreenEmpty>
   <sItemSodaMzly>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaMzly>
+  <sItemSodaMzly>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaMzly>
   <sItemSodaMzlyEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaMzlyEmpty>
+  <sItemSodaMzlyEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaMzlyEmpty>
   <sItemSodaPeppsy>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaPeppsy>
+  <sItemSodaPeppsy>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaPeppsy>
+  <sItemSodaPeppsyEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaPeppsyEmpty>
   <sItemSodaPepsi>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -875,17 +767,33 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaR4z0r>
+  <sItemSodaR4z0r>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaR4z0r>
   <sItemSodaR4z0rEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaR4z0rEmpty>
+  <sItemSodaR4z0rEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaR4z0rEmpty>
   <sItemSodaRabbit>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaRabbit>
+  <sItemSodaRabbit>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaRabbit>
   <sItemSodaRabbitEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaRabbitEmpty>
+  <sItemSodaRabbitEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaRabbitEmpty>
   <sItemSodaRocketFuel>
     <Slots>1</Slots>
@@ -899,21 +807,45 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaSacrite>
+  <sItemSodaSacrite>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaSacrite>
+  <sItemSodaSacriteEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaSacriteEmpty>
   <sItemSodaSmasht>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemSodaSmasht>
+  <sItemSodaSmasht>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemSodaSmasht>
   <sItemSodaSmashtEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaSmashtEmpty>
+  <sItemSodaSmashtEmpty>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemSodaSmashtEmpty>
   <sItemTankTrap>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemTankTrap>
+  <sItemTankTrap>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemTankTrap>
   <sItemTent>
     <Slots>3</Slots>
     <Type>heavyammo</Type>
+  </sItemTent>
+  <sItemTent>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemTent>
   <sItemToolbox>
     <Slots>1</Slots>
@@ -923,9 +855,17 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemTrashRazor>
+  <sItemTrashRazor>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemTrashRazor>
   <sItemTrashToiletpaper>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemTrashToiletpaper>
+  <sItemTrashToiletpaper>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemTrashToiletpaper>
   <sItemWatch>
     <Slots>1</Slots>
@@ -935,9 +875,17 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemWaterbottle>
+  <sItemWaterbottle>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </sItemWaterbottle>
   <sItemWaterbottleBoiled>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemWaterbottleBoiled>
+  <sItemWaterbottleBoiled>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemWaterbottleBoiled>
   <sItemWaterbottleUnfilled>
     <Slots>1</Slots>
@@ -946,6 +894,10 @@
   <sItemWire>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
+  </sItemWire>
+  <sItemWire>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
   </sItemWire>
   <sLeeEnfield>
     <Slots>10</Slots>
@@ -1039,14 +991,6 @@
     <Slots>5</Slots>
     <Type>pistol</Type>
   </sMakarov>
-  <sMakarovSD>
-    <Slots>5</Slots>
-    <Type>pistol</Type>
-  </sMakarovSD>
-  <sMeleeBaseBallBat>
-    <Slots>10</Slots>
-    <Type>rifle</Type>
-  </sMeleeBaseBallBat>
   <sMeleeCrowbar>
     <Slots>10</Slots>
     <Type>rifle</Type>
