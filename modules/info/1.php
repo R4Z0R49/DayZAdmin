@@ -481,7 +481,7 @@ if ($_POST['submit_loc']) {
 
 <div id="inventoryString">
 	<form method="post">
-	<h2 class="custom-h2">Inventory String</h2>
+	<h2 class="custom-h2-string">Inventory String</h2>
 		<textarea name="inv" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php
 echo $row['inventory'];
@@ -491,7 +491,7 @@ echo $row['inventory'];
 	</form>
 
 	<form method="post">
-	<br><h2 class="custom-h2">Backpack String</h2>
+	<br><h2 class="custom-h2-string">Backpack String</h2>
 		<textarea name="bck" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php 
 echo $row['backpack'];
@@ -501,7 +501,7 @@ echo $row['backpack'];
 	</form>
 
 	<form method="post">
-	<br><h2 class="custom-h2">Location String</h2>
+	<br><h2 class="custom-h2-string">Location String</h2>
 		<textarea name="loc" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
 <?php 
 echo $row['worldspace'];

@@ -302,7 +302,7 @@ if ($_POST['submit_loc']) {
 
 <div id="vehicleString">
 	<form method="post">
-	<br><h2 class="custom-h2">Location String</h2>
+	<br><h2 class="custom-h2-string">Location String</h2>
 		<textarea name="loc" action="">
 <?php 
 echo $row['worldspace'];
