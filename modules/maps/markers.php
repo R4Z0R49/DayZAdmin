@@ -12,7 +12,7 @@ function markers_player($res, $world) {
 			$y = 0; if (array_key_exists(2, $Worldspace)) { $y = $Worldspace[2]; }
 
 			require_once('modules/calc.php');
-			$description = "<h2><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".htmlspecialchars($row['name'], ENT_QUOTES)." - ".$row['unique_id']."</a></h2> <table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row['id']."<br> <strong>CharacterID:</strong> ".$row['unique_id']."<br> <strong>Zed Kills:</strong> ".$row['zombie_kills']."<br> <strong>Bandit Kills:</strong> ".$row['bandit_kills']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['survival_time'])."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row['humanity']."</td></tr></table>";	
+			$description = "<h2 class='custom-h2-map'><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".htmlspecialchars($row['name'], ENT_QUOTES)." - ".$row['unique_id']."</a></h2> <table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row['id']."<br> <strong>CharacterID:</strong> ".$row['unique_id']."<br> <strong>Zed Kills:</strong> ".$row['zombie_kills']."<br> <strong>Bandit Kills:</strong> ".$row['bandit_kills']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['survival_time'])."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row['humanity']."</td></tr></table>";	
 			$tmp = array();
 			$tmp["id"] = $row['unique_id'];
 			$tmp["lat"] = (world_y($y, $world) / 10);
@@ -45,7 +45,7 @@ function markers_vehicle($res, $world) {
 		$class = $row['class_name'];
 		$type = $row['Type'];
 		require_once('modules/calc.php');
-		$description = '<h2><a href="admin.php?view=info&show=4&id='.$row['id'].'">'.$class.' ('.$row['id'].')</a></h2><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Damage:</strong>&nbsp;'.sprintf("%d%%", round($row['damage'] * 100))."<br><strong>Fuel:</strong>&nbsp;".sprintf("%d%%", round($row['fuel'] * 100)).'</td></tr></table><br>';
+		$description = '<h2 class="custom-h2-map"><a href="admin.php?view=info&show=4&id='.$row['id'].'">'.$class.' ('.$row['id'].')</a></h2><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Damage:</strong>&nbsp;'.sprintf("%d%%", round($row['damage'] * 100))."<br><strong>Fuel:</strong>&nbsp;".sprintf("%d%%", round($row['fuel'] * 100)).'</td></tr></table><br>';
 		
 		$tmp = array();
 		$tmp["id"] = $row['id'];
@@ -90,7 +90,7 @@ function markers_deployable($res, $world) {
 			$counts = inventoryCounts($Inventory, $items_xml, $vehicles_xml);
 			$contents = "<strong>Weapons:</strong>&nbsp;".$counts[0]."<br><strong>Items:</strong>&nbsp;".$counts[1]."<br><strong>Backpacks:</strong>&nbsp;".$counts[2];
 		}
-		$description = '<h2><a href="admin.php?view=info&show=6&id='.$row['id'].'">'.$class.' ('.$row['id'].')</a> - '.htmlspecialchars($row['name']).'</h2><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br>'.$contents.'</td></tr></table>';
+		$description = '<h2 class="custom-h2-map"><a href="admin.php?view=info&show=6&id='.$row['id'].'">'.$class.' ('.$row['id'].')</a> - '.htmlspecialchars($row['name']).'</h2><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br>'.$contents.'</td></tr></table>';
 		
 		$tmp = array();
 		$tmp["id"] = $row['idid'];
