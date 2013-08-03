@@ -30,7 +30,10 @@ if (empty($_POST))
 					</table>
 						<br>
 						* UniqueID = The unique id of the user.
-						<br>* LoadoutID = The id of the loadout.	
+						<br>
+						* LoadoutID = The id of the loadout.
+						<br><br>
+						<b>This works, but doesn't tell you it has been done. Exit the window and refresh!</b>	
 				</form>	
 		</div>
 			<div id="result"></div>
