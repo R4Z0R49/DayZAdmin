@@ -1272,6 +1272,19 @@ label	{
 	color: grey;
 }
 
+#content {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	color: grey;
+}
+
+#content-table {
+	width: 1170px;
+	background-color: #1b1b1b;
+}
+
 .gametracker{
 	margin: 0 auto;
 	width: 560px;

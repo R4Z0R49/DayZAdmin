@@ -16,10 +16,11 @@ function GenerateSalt($n=3)
 if (empty($_POST))
 {
 	?>
-<div class="custom-container-popup">
+<div class="custom-container-popup" id="content-table-inner">
+	<div id="table-content">
 				<h2 class="custom-h2">Enter Details</h2><br>
 				<form id="regform" action="admin.php?view=register">
-				<table border="0">
+				<table border="0" id="id-form">
 					<tr>
 						<th class="custom-th-popup">Login:</th>
 						<td><input type="text" class="form-control" name="login" /></td>
@@ -43,8 +44,8 @@ if (empty($_POST))
 					</tr>
 					<tr>
 						<th>&nbsp;</th>
-						<td valign="top">
-							<input type="submit" value="Submit" class="btn btn-default pull-right" />
+						<td>
+							<input type="submit" value="Submit" class="btn btn-default pull-right">
 						</td>
 						<td></td>
 					</tr>
@@ -52,8 +53,9 @@ if (empty($_POST))
 						<h2 class="custom-h2">Access level</h2>
 						<br>
 						* Full = Has access to all of the functions on the control panel.
-						<br>* Semi = Does not have access to admin registration or the map.
-				</form>		
+						<br>* Semi = Does not have access to admin registration or the map.	
+				</form>	
+		</div>
 			<div id="result"></div>
 			</body>
 			<!--  end table-content  -->
@@ -101,7 +103,8 @@ else
 	$error = false;
 	$errort = '';
 	
-	if(!isset($_POST['accesslvl'])){
+	if(!isset($_POST['accesslvl']))
+	{
 		$error = true;
 		$errort .= 'Select the access level of the user! <br />';
 	}
