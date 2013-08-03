@@ -1183,11 +1183,11 @@ label	{
 
 #inventoryString {
 	margin-left: 550px;
-	margin-top: -375px;
+	margin-top: -300px;
 }
 
 #inventoryString  textarea{
-	width: 600px;
+	width: 580px;
 	height: 125px;
 }
 
@@ -1268,6 +1268,7 @@ label	{
 	padding-top: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-bottom: 10px;
 	color: grey;
 }
 
@@ -1379,4 +1380,12 @@ label	{
 }
 .custom-h2 {
 	color: #fff;
+}
+.custom-h2-map {
+	color: #fff;
+	font-size: 19px;
+}
+.custom-h2-string {
+	color: #fff;
+	font-size: 19px;
 }
