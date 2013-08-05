@@ -65,7 +65,9 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 </tr>
 </table>
 
-<table class="table table-hover" style="width: 70%;">
+<div id="table-content">
+<form action="admin.php?view=admin" method="post">
+<table class="table" style="width: 70%;">
 <tr>
 	<th class="custom-th"><h4>Delete <i class="icon-arrow-down"></i></h4></th>
 	<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
@@ -76,6 +78,9 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 
 	<?php echo $users; ?>	
 </table>
+<input type="submit" class="btn btn-default"  />
+</div>
+</form>
 
 
 <?php

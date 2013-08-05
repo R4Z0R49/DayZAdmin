@@ -61,7 +61,7 @@ include ('navbar.php');
  
 <body class="stats-bg">
 <div class="container custom-container">
-<div class="content">
+<div class="content" id="content">
 <?php
 }else{
 	header('Location: admin.php');
