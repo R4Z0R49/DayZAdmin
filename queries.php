@@ -183,17 +183,7 @@ and Character_DATA.last_updated >= NOW() - INTERVAL 1 minute");
 		FROM Object_CLASSES, Object_DATA as Object_DATA  
 		where Object_DATA.Classname = Object_CLASSES.Classname 
 		and Object_DATA.Instance =  " . $iid . " and CharacterID = 0");
-		$map8_objects = array("SELECT Object_CLASSES.*,
-		Object_DATA.ObjectID as id,
-		Object_DATA.ObjectID as idid,
-		Object_DATA.ObjectUID as uid,
-		Object_CLASSES.Classname as class_name,
-		Object_DATA.Worldspace as worldspace,
-		Object_DATA.Inventory as inventory,
-		Object_DATA.last_updated
-		FROM Object_CLASSES, Object_DATA
-		where Object_DATA.Classname = Object_CLASSES.Classname
-		and Object_DATA.CharacterID > 0 and Object_DATA.Instance = " . $iid);
+		$map8_objects = array("SELECT od.ObjectID as id, od.ObjectUID as idid, od.Classname, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace, od.last_updated,pd.playerName AS name, pd.playerUID AS unique_id,oc.Type FROM Object_DATA od LEFT OUTER JOIN Character_DATA cd ON cd.CharacterID = od.CharacterID LEFT OUTER JOIN Player_DATA pd ON pd.PlayerUID = cd.playerUID JOIN Object_CLASSES oc on oc.Classname = od.Classname WHERE od.Classname IN ('TentStorage','StashSmall','StashMedium') AND od.Instance = ". $iid);
         // Tables
         $table0 = array("SELECT pd.playerName as name, pd.playerUID as unique_id, cd.CharacterID as id, cd.Backpack as backpack, cd.Inventory as inventory, cd.Worldspace as worldspace FROM Player_DATA pd JOIN Character_DATA cd ON cd.PlayerUID = pd.PlayerUID WHERE pd.playerName = ? ORDER BY cd.last_updated DESC LIMIT 1");
         $table1 = array("SELECT pd.playerName as name, pd.playerUID as unique_id, cd.CharacterID as id, cd.Backpack as backpack, cd.Inventory as inventory, cd.Worldspace as worldspace FROM Player_DATA pd JOIN Character_DATA cd ON cd.PlayerUID = pd.PlayerUID WHERE cd.Alive = 1");
