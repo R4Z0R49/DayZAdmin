@@ -1,6 +1,10 @@
 <?php
 
-$res = $db->GetAll("select wv.*, v.*, oc.* from world_vehicle wv inner join vehicle v on wv.vehicle_id = v.id inner join object_classes oc on v.class_name = oc.classname where wv.world_id = ?", $world);
+include ('queries.php');
+$query = $map5[0];
+$binds = $map5[1];
+
+$res = $db->GetAll($query, $binds);
 $markers = markers_vehicle($res, $map);
 
 ?>

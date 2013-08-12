@@ -120,7 +120,7 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 								<ul class="dropdown-menu sub-menu">
 									<li><a href="#"><br></li>
 									<li><a href="admin.php?view=map&show=4">Vehicles Ingame</a></li>
-									<li><a href="admin.php?view=map&show=6">All Ingame Tents</a></li>
+									<li><a href="admin.php?view=map&show=6">All Ingame Tents/Stashes</a></li>
 									<li><a href="admin.php?view=map&show=7">Other Deployables</a></li>
 								</ul>
 								</li>
