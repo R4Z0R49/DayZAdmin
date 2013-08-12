@@ -251,7 +251,8 @@ $owneruid = "";
 			
 				</div>
 			</div>
-<div id="medical">
+<?php if($sql == 'Bliss') { ?>
+<div id="repair">
 <table>
 <tr>
 	<th class="custom-th">
@@ -311,6 +312,7 @@ echo $row['worldspace'];
 	<br><input name="submit_loc" class="submit-login" type="submit" value="Submit" />
 	</form>
 </div>
+<?php } ?>
 		 
 		</div>
 		<!--  end content-table-inner ............................................END  -->

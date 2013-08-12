@@ -381,6 +381,7 @@ foreach($res as $row) {
 	<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
 	<tr><td colspan="7">&nbsp;</td></tr>
 	</table>
+<?php if($sql == 'Bliss') { ?>
 	<table>
 	<tr>
 		<th class="custom-th">
@@ -513,7 +514,7 @@ echo $row['worldspace'];
 
 
 <!-- End inventory management -->
-
+<?php } ?>
 			<?php
 			echo $debug;
 			?>
