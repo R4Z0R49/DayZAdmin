@@ -471,6 +471,10 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sHandGrenade_West>
+  <sHandGrenade_west>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sHandGrenade_west>
   <sHandRoadFlare>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1059,6 +1063,10 @@
     <Slots>2</Slots>
     <Type>heavyammo</Type>
   </sPipeBomb>
+  <sPipebomb>
+    <Slots>2</Slots>
+    <Type>heavyammo</Type>
+  </sPipebomb>
   <sQuiver>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1195,6 +1203,22 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </sFoodgoatCooked>
+    <sFoodgoatRaw>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodgoatRaw>
+    <sFoodCanRusPork>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanRusPork>
+    <sFoodCandyMintception>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCandyMintception>
+    <sFoodCandyAnders>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCandyAnders>
     <sItemNails>
         <Type>heavyammo</Type>
         <Slots>1</Slots>
