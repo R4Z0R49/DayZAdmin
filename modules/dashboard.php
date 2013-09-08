@@ -27,16 +27,16 @@ $quicklinks = XML2Array::createArray($xml);
 ?>
 </div>
 
-<table class="table">
+<table class="table" style="margin: 0 auto;">
 	<th class="custom-th"><h4>Global Chat</h4></th>
 	<th class="custom-th"><h4>Admin Logs</h4></th>
 	<tr>
 		<td align="center" width="50%">
 			<form action="admin.php?view=actions" method="post">
-			<textarea name="say" cols="89" rows="10" >Type something to Global Chat</textarea>
+			<textarea name="say" cols="85" rows="10" >Type something to Global Chat</textarea>
 		</td>
 		<td align="center" width="50%">
-			<textarea cols="89" rows="10" readonly><?php echo $logs; ?></textarea>
+			<textarea cols="85" rows="10" readonly><?php echo $logs; ?></textarea>
 		</td>
 	</tr>
 	<tr>
