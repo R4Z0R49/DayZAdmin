@@ -64,6 +64,4 @@ else
 {
 	include ('modules/login.php');
 }
-
-$db->Close();
 ?>
