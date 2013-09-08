@@ -53,6 +53,7 @@ switch($sql)
         $leaderboard_Deaths = "survival_attempts";
         $leaderboard_KillsZ = "total_zombie_kills";
         $leaderboard_KillsB = "total_bandit_kills";
+        $leaderboard_Headshots = "total_headshots";
         $leaderboard_KillsH = "total_survivor_kills";
         $leaderboard_Humanity = "humanity";
 
@@ -210,6 +211,7 @@ and Character_DATA.last_updated >= NOW() - INTERVAL 1 minute");
         $leaderboard_KillsZ = "KillsZ";
         $leaderboard_KillsB = "KillsB";
         $leaderboard_KillsH = "KillsH";
+        $leaderboard_Headshots = "HeadshotsZ";
         $leaderboard_Humanity = "Humanity";
 
 	break;
