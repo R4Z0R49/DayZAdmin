@@ -47,6 +47,15 @@ switch($sql)
         $check_player = "select p.name, s.* from profile p left join survivor s on p.unique_id = s.unique_id where s.is_dead = 0";
         $check_deployable = "SELECT * FROM v_deployable";
         $check_vehicle = "SELECT * FROM v_vehicle";
+    //Leaderboard
+        $leaderboard = "profile";
+        $leaderboard_Playername = "name";
+        $leaderboard_Deaths = "survival_attempts";
+        $leaderboard_KillsZ = "total_zombie_kills";
+        $leaderboard_KillsB = "total_bandit_kills";
+        $leaderboard_Headshots = "total_headshots";
+        $leaderboard_KillsH = "total_survivor_kills";
+        $leaderboard_Humanity = "humanity";
 
 	break;
 	
@@ -195,6 +204,15 @@ and Character_DATA.last_updated >= NOW() - INTERVAL 1 minute");
         $check_player = "SELECT pd.playerName as name, pd.playerUID as unique_id, cd.CharacterID as id, cd.Backpack as backpack, cd.Inventory as inventory, cd.Worldspace as worldspace FROM Player_DATA pd JOIN Character_DATA cd ON cd.PlayerUID = pd.PlayerUID";
         $check_deployable = array("SELECT od.ObjectID as id, od.ObjectUID as instance_deployable_id, od.Classname AS class_name, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace, pd.playerName AS owner_name, pd.playerUID AS owner_unique_id FROM Object_DATA od LEFT OUTER JOIN Character_DATA cd ON cd.CharacterID = od.CharacterID LEFT OUTER JOIN Player_DATA pd ON pd.PlayerUID = cd.playerUID WHERE od.Classname IN ('TentStorage','SmallStash','MediumStash') AND od.Instance = ?", $iid);
         $check_vehicle = array("SELECT od.ObjectID as id, od.ObjectUID as instance_vehicle_id, od.Classname AS class_name, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace FROM Object_DATA od JOIN Object_CLASSES oc on oc.Classname = od.Classname WHERE oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck') AND od.Instance = ?", $iid);
+    //Leaderboard
+        $leaderboard = "Character_DATA";
+        $leaderboard_Playername = "playerName";
+        $leaderboard_Deaths = "Generation";
+        $leaderboard_KillsZ = "KillsZ";
+        $leaderboard_KillsB = "KillsB";
+        $leaderboard_KillsH = "KillsH";
+        $leaderboard_Headshots = "HeadshotsZ";
+        $leaderboard_Humanity = "Humanity";
 
 	break;
 };

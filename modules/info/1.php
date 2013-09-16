@@ -387,9 +387,11 @@ foreach($res as $row) {
 		<th class="custom-th">
 		Options
 		</th>
+		<?php if($map == 'chernarus') {?>
 		<th class="custom-th">
 		Teleport
 		</th>
+		<?php } ?>
 		<th class="custom-th">
 		Skin
 		</th>
@@ -397,52 +399,70 @@ foreach($res as $row) {
 	<!-- Row 1 -->
 	<tr>
 	<td><a href="admin.php?view=actions&revivePlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Revive Player</a></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North East Airfield</a></td>
+	<?php } ?>
 	<td><a href="admin.php?view=actions&skinNormal=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Normal Clothing</a></td>
 	</tr>
 	<!-- Row 2 -->
 	<tr>
 	<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Heal Player</a></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North West Airfield</a></td>
+	<?php } ?>
 	<td><a href="admin.php?view=actions&skinCamo=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Camo Clothing</a></td>
 	</tr>
 	<!-- Row 3 -->
 	<tr>
 	<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
+	<?php } ?>
 	<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Ghillie Suit</a></td>
 	</tr>
 	<!-- Row 4 -->
 	<tr>
 	<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Reset Humanity</a></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Cherno</a></td>
+	<?php } ?>
 	<td><a href="admin.php?view=actions&skinSoldier=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Soldier Clothing</a></td>
 	</tr>
 	<!-- Row 5 -->
 	<tr>
 	<td></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Elektro</a></td>
+	<?php } ?>
 	<td><a href="admin.php?view=actions&skinBandit=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Bandit Skin</a></td>
 	</tr>
 	<!-- Row 6 -->
 	<tr>
 	<td></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportSkalisty=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Skalisty</a></td>
+	<?php } ?>
 	</tr>
 	<!-- Row 7 -->
 	<tr>
 	<td></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportBerezino=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Berezino</a></td>
+	<?php } ?>
 	</tr>
 	<!-- Row 8 -->
 	<tr>
 	<td></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportSolnichniy=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Solnichniy</a></td>
+	<?php } ?>
 	</tr>
 	<!-- Row 9 -->
 	<tr>
 	<td></td>
+	<?php if($map == 'chernarus') {?>
 	<td><a href="admin.php?view=actions&teleportPolana=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Polana</a></td>
+	<?php } ?>
 	</tr>
 	</table>
 	</div>
