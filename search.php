@@ -2,6 +2,7 @@
 require_once('config.php');
 require_once('db.php');
 require_once('functions.php');
+$page == 'home';
 
 if (isset($_POST['search'])){
 	$pagetitle = "Stats for ".$_POST['search'];
