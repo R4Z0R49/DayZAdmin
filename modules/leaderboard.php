@@ -1,5 +1,4 @@
 <?php
-include_once('functions.php');
 	//Sortby
 	if(!isset($_GET['value'])){
 		$sortby = $leaderboard_KillsZ;
