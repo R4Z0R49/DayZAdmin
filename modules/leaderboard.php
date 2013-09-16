@@ -1,4 +1,5 @@
 <?php
+include_once('functions.php');
 	//Sortby
 	if(!isset($_GET['value'])){
 		$sortby = $leaderboard_KillsZ;
@@ -57,11 +58,11 @@
 		</thead>
 		<tbody>
 			<?php
-		        $result = $con->query("SELECT * FROM $leaderboard ORDER BY $sortby $sorttype LIMIT $limit");
+		        $result = $db->GetAll($leaderboard_query . " ORDER BY $sortby $sorttype LIMIT $limit");
 		        $rank = 1;
 
-		        if ($result->num_rows != 0) {
-		            while ($rowl = $result->fetch_assoc()) {
+		        if (sizeof($result) != 0) {
+                    foreach($result as $rowl) {
 		            	$points = $rowl[$leaderboard_KillsZ]+$rowl[$leaderboard_KillsB]-$rowl[$leaderboard_KillsH]-$rowl[$leaderboard_Deaths];
 		                echo "<tr>
 		                	  <td>{$rank}</td>

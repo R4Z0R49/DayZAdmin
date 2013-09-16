@@ -48,7 +48,7 @@ switch($sql)
         $check_deployable = "SELECT * FROM v_deployable";
         $check_vehicle = "SELECT * FROM v_vehicle";
     //Leaderboard
-        $leaderboard = "profile";
+        $leaderboard_query = "SELECT * FROM profile";
         $leaderboard_Playername = "name";
         $leaderboard_Deaths = "survival_attempts";
         $leaderboard_KillsZ = "total_zombie_kills";
@@ -205,7 +205,7 @@ and Character_DATA.last_updated >= NOW() - INTERVAL 1 minute");
         $check_deployable = array("SELECT od.ObjectID as id, od.ObjectUID as instance_deployable_id, od.Classname AS class_name, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace, pd.playerName AS owner_name, pd.playerUID AS owner_unique_id FROM Object_DATA od LEFT OUTER JOIN Character_DATA cd ON cd.CharacterID = od.CharacterID LEFT OUTER JOIN Player_DATA pd ON pd.PlayerUID = cd.playerUID WHERE od.Classname IN ('TentStorage','SmallStash','MediumStash') AND od.Instance = ?", $iid);
         $check_vehicle = array("SELECT od.ObjectID as id, od.ObjectUID as instance_vehicle_id, od.Classname AS class_name, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace FROM Object_DATA od JOIN Object_CLASSES oc on oc.Classname = od.Classname WHERE oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck') AND od.Instance = ?", $iid);
     //Leaderboard
-        $leaderboard = "Character_DATA";
+        $leaderboard_query = "SELECT pd.playerName,cd.Generation,cd.KillsZ,cd.KillsB,cd.KillsH,cd.HeadshotsZ,Humanity FROM Character_DATA cd LEFT JOIN Player_DATA pd ON pd.playerUID = cd.playerUID";
         $leaderboard_Playername = "playerName";
         $leaderboard_Deaths = "Generation";
         $leaderboard_KillsZ = "KillsZ";
