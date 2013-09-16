@@ -89,7 +89,7 @@
 		<option>40</option>
 		<option>50</option>
 	</select>
-	<select class="form-control pull-right" style="width:150px; margin-top: 20px; margin-bottom: 20px;" onChange='window.location="index.php<?php if(isset($_GET['value'])) { echo '&value=' . $_GET['value']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sorttype=" + this.value;'>
+	<select class="form-control pull-right" style="width:150px; margin-top: 20px; margin-bottom: 20px;" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['value'])) { echo '&value=' . $_GET['value']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sorttype=" + this.value;'>
 		<option>Sort type:</option>
 		<option>Descending</option>
 		<option>Ascending</option>
