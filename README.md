@@ -1,4 +1,4 @@
-BlissAdmin for the Reality private-hive & DayZ hive(soon)
+BlissAdmin for the Reality private-hive & DayZ hive
 =========
 
 BlissAdmin is a DayZ Administration panel that was originally coded for the server pack Bliss. Bliss then got abandoned and Reality was born. We now use reality as a base but however are planning to add support for the regular DayZ hive structure.
@@ -41,6 +41,10 @@ Features
 *Rcon-based online players list, kick-ban features and global messaging.
 
 *Reset Players locations.
+
+*Leaderboard
+
+*Stats and player search
 
 
 Installation

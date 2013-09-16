@@ -56,42 +56,42 @@ $row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survi
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/totalplayers1.png" width="36" height="36" /></td>
-			<td><strong>uid:</strong></td>
+			<td><strong>UID:</strong></td>
 			<td align="right"><?php echo $row['unique_id'];?></td>
 		  </tr>
 			<tr>
 			<td><img src="images/icons/statspage/totalplayers1.png" width="36" height="36" /></td>
-			<td><strong>humanity:</strong></td>
+			<td><strong>Humanity:</strong></td>
 			<td align="right"><?php echo $row['humanity'];?></td>
 		  </tr>
 		  <tr>
 			  <td><img src="images/icons/statspage/playerdeaths1.png" width="24" height="36" /></td>
-			<td><strong>survival_attempts:</strong></td>
+			<td><strong>Survival Attempts:</strong></td>
 			<td align="right"><?php echo $row['survival_attempts'];?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/totalplayerin24h.png" width="36" height="36" /></td>
-			<td><strong>total_survival_time:</strong></td>
+			<td><strong>Total Survival Time:</strong></td>
 			<td align="right"><?php echo survivalTimeToString($row['total_survival_time']);?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/infectedheadshots1.png" width="24" height="36" /></td>
-			<td><strong>total_headshots:</strong></td>
+			<td><strong>Total Headshots:</strong></td>
 			<td align="right"><?php echo $row['total_headshots'];?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/banditskilled1.png" width="36" height="36" /></td>
-			<td><strong>total_bandit_kills:</strong></td>
+			<td><strong>Total Bandit Kills:</strong></td>
 			<td align="right"><?php echo $row['total_bandit_kills'];?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/infectedkilled1.png" width="36" height="36" /></td>
-			<td><strong>total_zombie_kills:</strong></td>
+			<td><strong>Total Zombie Kills:</strong></td>
 			<td align="right"><?php echo $row['total_zombie_kills'];?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/murders.png" width="36" height="36" /></td>
-				<td><strong>total_survivor_kills:</strong></td>
+				<td><strong>Total Survivor Kills:</strong></td>
 			<td align="right"><?php echo $row['total_survivor_kills'];?></td>
 		  </tr>
 		</table>

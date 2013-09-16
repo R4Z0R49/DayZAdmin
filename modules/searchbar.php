@@ -18,7 +18,7 @@ if (isset($_SESSION['user_id']))
 		</select> 
 		</td>
 		<td>
-		<input type="submit" class="btn btn-default"  />
+		<input type="submit" style="height: 39px;" class="btn btn-default"  />
 		</td>
 		</tr>
 		</table>
