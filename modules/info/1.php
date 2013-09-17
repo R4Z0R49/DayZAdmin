@@ -51,7 +51,6 @@ foreach($res as $row) {
 
 	$InvCarry = array($Inventory[2], "Placeholder"); 
 	$Inventory = (array_merge($Inventory[0], $Inventory[1], $InvCarry));
-	var_dump($Inventory);
 	for ($i=0; $i<count($Inventory); $i++){
 		if(array_key_exists($i,$Inventory)){
 			$curitem = $Inventory[$i];
