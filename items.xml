@@ -1177,7 +1177,7 @@
   </sMakarovSD>
   <sMeleeBaseBallBat>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeBaseBallBat>
   <s75Rnd_545x39_RPK>
     <Slots>2</Slots>
