@@ -1017,11 +1017,11 @@
   </sMeleeFlashlightRed>
   <sMeleeHatchet>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeHatchet>
   <sMeleeMachete>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeMachete>
   <sMk_48_DZ>
     <Slots>10</Slots>
@@ -1119,6 +1119,10 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sSmokeShellRed>
+  <sSmokeShellYellow>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sSmokeShellYellow>
   <sTrapBear>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1187,6 +1191,10 @@
         <Type>heavyammo</Type>
         <Slots>1</Slots>
     </sFoodCanRusCornEmpty>
+    <sFoodCanRusStew>
+        <Type>heavyammo</Type>
+        <Slots>1</Slots>
+    </sFoodCanRusStew>
     <sFoodCanRusStewEmpty>
         <Type>heavyammo</Type>
         <Slots>1</Slots>

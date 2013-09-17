@@ -100,6 +100,7 @@ INSERT INTO `object_classes` (`Classname`, `Type`) VALUES
 	('SUV_Special','car'),
 	('SUV_White','car'),
 	('SUV_Yellow','car'),
+	('SUV_DZ','car'),
 	('TowingTractor','farmvehicle'),
 	('TT650_Civ','motorcycle'),
 	('TT650_Gue','motorcycle'),
