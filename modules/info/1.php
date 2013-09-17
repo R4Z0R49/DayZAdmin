@@ -24,7 +24,7 @@ foreach($res as $row) {
 	$Inventory = $row['inventory'];
 	$Inventory = str_replace("|", ",", $Inventory);
 	$Inventory  = json_decode($Inventory);
-	
+
 	$Backpack  = $row['backpack'];
 	$Backpack = str_replace("|", ",", $Backpack);
 	$Backpack  = json_decode($Backpack);
@@ -36,6 +36,7 @@ foreach($res as $row) {
 
 	$binocular = array();
 	$rifle = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
+	$carry = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
 	$pistol = '<img style="max-width:92px;max-height:92px;" src="images/gear/pistol.png" title="" alt=""/>';
 	$second = '<img style="max-width:220px;max-height:92px;" src="images/gear/second.png" title="" alt=""/>';
 	$heavyammo = array();
@@ -47,8 +48,9 @@ foreach($res as $row) {
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
 	$items_xml = XML2Array::createArray($xml);
-	
-	$Inventory = (array_merge($Inventory[0], $Inventory[1]));
+
+	$InvCarry = array($Inventory[2], "Placeholder");
+	$Inventory = (array_merge($Inventory[0], $Inventory[1], $InvCarry));
 	
 	for ($i=0; $i<count($Inventory); $i++){
 		if(array_key_exists($i,$Inventory)){
@@ -57,6 +59,9 @@ foreach($res as $row) {
 			if (is_array($curitem)){$curitem = $Inventory[$i][0]; $icount = ' - '.$Inventory[$i][1].' rounds'; }
 			if(array_key_exists('s'.$curitem,$items_xml['items'])){
 				switch($items_xml['items']['s'.$curitem]['Type']){
+					case 'carry':
+						$carry = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+						break;
 					case 'binocular':
 						$binocular[] = '<img style="max-width:78px;max-height:78px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
 						break;
@@ -79,7 +84,7 @@ foreach($res as $row) {
 						break;
 					default:
 						$s = '';
-				}
+				} 
 			} else {
 				$debug .= 'Unknown item:&nbsp;'.$curitem.';<br />';
 			}
@@ -147,7 +152,7 @@ foreach($res as $row) {
 						</div>
 					</div>
 					<div class="gear_inventory">
-						<div class="gear_slot" style="margin-left:1px;margin-top:48px;width:80px;height:80px;">
+						<div class="gear_slot" style="margin-left:295px;margin-top:350px;width:80px;height:80px;">
 						<?php
 							if(array_key_exists(0,$binocular)){
 								echo $binocular[0];
@@ -156,7 +161,7 @@ foreach($res as $row) {
 							}
 						?>
 						</div>
-						<div class="gear_slot" style="margin-left:292px;margin-top:48px;width:80px;height:80px;">
+						<div class="gear_slot" style="margin-left:295px;margin-top:448px;width:80px;height:80px;">
 						<?php
 							if(array_key_exists(1,$binocular)){
 								echo $binocular[1];
@@ -165,12 +170,17 @@ foreach($res as $row) {
 							}
 						?>
 						</div>
-						<div class="gear_slot" style="margin-left:0px;margin-top:130px;width:224px;height:96px;">
+						<div class="gear_slot" style="margin-left:99px;margin-top:146px;width:224px;height:96px;">
 							<?php
 								echo $rifle;
 							?>
 						</div>
-						<div class="gear_slot" style="margin-left:0px;margin-top:228px;width:224px;height:96px;">
+						<div class="gear_slot" style="margin-left:99px;margin-top:244px;width:224px;height:96px;">
+							<?php
+								echo $carry;
+							?>
+						</div>
+						<div class="gear_slot" style="margin-left:99px;margin-top:48px;width:224px;height:96px;">
 						<?php					
 							if(array_key_exists(0, $Backpack)){
 								echo '<img style="max-width:220px; max-height:92px;" src="images/thumbs/'.$Backpack[0].'.png" title="'.$Backpack[0].'" alt="'.$Backpack[0].'"/>';
@@ -179,19 +189,19 @@ foreach($res as $row) {
 							}
 						?>
 						</div>
-						<div class="gear_slot" style="margin-left:30px;margin-top:326px;width:96px;height:96px;">
+						<div class="gear_slot" style="margin-left:1px;margin-top:342px;width:96px;height:96px;">
 						<?php
 							echo $pistol;
 						?>
 						</div>
 						<?php					
-							$jx = 226;
-							$jy = 130;
+							$jx = 1;
+							$jy = 48;
 							$jk = 0;
 							$jl = 0;
 							$maxslots = 12;
 							for ($j=0; $j<$maxslots; $j++){
-								if ($jk > 2){ $jk = $jk - 3;$jl++;}
+								if ($jk > 1){ $jk = $jk - 2;$jl++;}
 								
 								//big ammo
 								$hammo = '<img style="max-width:43px;max-height:43px;" src="images/gear/heavyammo.png" title="" alt=""/>';
@@ -215,8 +225,8 @@ foreach($res as $row) {
 								$jk++;
 								
 							}
-							$jx = 128;
-							$jy = 326;
+							$jx = 99;
+							$jy = 342;
 							$jk = 0;
 							$jl = 0;
 							for ($j=0; $j<8; $j++){
@@ -230,8 +240,8 @@ foreach($res as $row) {
 								</div>';								
 								$jk++;
 							}
-							$jx = 30;
-							$jy = 424;
+							$jx = 1;
+							$jy = 440;
 							$jk = 0;
 							$jl = 0;
 							for ($j=0; $j<12; $j++){
@@ -289,6 +299,9 @@ foreach($res as $row) {
 											$backpackitem[] = array('image' => '<img style="max-width:43px;max-height:43px;" src="images/thumbs/'.$Backpack[$i].'.png" title="'.$Backpack[$i].'" alt="'.$Backpack[$i].'"/>', 'slots' => $items_xml['items']['s'.$Backpack[$i]]['Slots']);
 											break;
 										case 'rifle':
+											$bpweapons[] = array('image' => '<img style="max-width:124px;max-height:92px;" src="images/thumbs/'.$Backpack[$i].'.png" title="'.$Backpack[$i].'" alt="'.$Backpack[$i].'"/>', 'slots' => $items_xml['items']['s'.$Backpack[$i]]['Slots']);
+											break;
+										case 'carry':
 											$bpweapons[] = array('image' => '<img style="max-width:124px;max-height:92px;" src="images/thumbs/'.$Backpack[$i].'.png" title="'.$Backpack[$i].'" alt="'.$Backpack[$i].'"/>', 'slots' => $items_xml['items']['s'.$Backpack[$i]]['Slots']);
 											break;
 										case 'pistol':

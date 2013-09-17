@@ -1017,11 +1017,11 @@
   </sMeleeFlashlightRed>
   <sMeleeHatchet>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeHatchet>
   <sMeleeMachete>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeMachete>
   <sMk_48_DZ>
     <Slots>10</Slots>
