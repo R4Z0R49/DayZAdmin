@@ -49,9 +49,8 @@ foreach($res as $row) {
 	require_once('modules/xml2array.php');
 	$items_xml = XML2Array::createArray($xml);
 
-	$InvCarry = array($Inventory[2], "Placeholder");
+	$InvCarry = array($Inventory[2], "Placeholder"); 
 	$Inventory = (array_merge($Inventory[0], $Inventory[1], $InvCarry));
-	
 	for ($i=0; $i<count($Inventory); $i++){
 		if(array_key_exists($i,$Inventory)){
 			$curitem = $Inventory[$i];
@@ -59,14 +58,14 @@ foreach($res as $row) {
 			if (is_array($curitem)){$curitem = $Inventory[$i][0]; $icount = ' - '.$Inventory[$i][1].' rounds'; }
 			if(array_key_exists('s'.$curitem,$items_xml['items'])){
 				switch($items_xml['items']['s'.$curitem]['Type']){
-					case 'carry':
-						$carry = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
-						break;
 					case 'binocular':
 						$binocular[] = '<img style="max-width:78px;max-height:78px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
 						break;
 					case 'rifle':
 						$rifle = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+						break;
+					case 'carry':
+						$carry = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
 						break;
 					case 'pistol':
 						$pistol = '<img style="max-width:92px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
@@ -260,7 +259,11 @@ foreach($res as $row) {
 					<!-- Backpack -->
 					<div class="gear_backpack">						
 						<?php
-							$maxmagazines = 24;
+							if(count($Backpack[1][0]) == NULL){
+								$maxmagazines = 0;
+							} else {
+								$maxmagazines = 26;
+							}
 							$BackpackName = $Backpack[0];
 							if(array_key_exists('s'.$Backpack[0],$items_xml['items'])){
 								$maxmagazines = $items_xml['items']['s'.$Backpack[0]]['maxmagazines'];
