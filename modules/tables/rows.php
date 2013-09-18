@@ -208,8 +208,8 @@ function row_online_player($row, $player){
 				<td align=\"center\" class=\"gear_preview\">".$uid."</td>
 
 				<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
-				<td align=\"center\" class=\"gear_preview\">".$InventoryPreview."</td>
-				<td align=\"center\" class=\"gear_preview\">".$BackpackPreview."</td>
+				<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
+				<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview."</td>
 				<tr>";
 	return $tablerow;	
 }
@@ -289,8 +289,8 @@ function row_vehicle($row, $chbox){
 		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['id']."</a></td>
 		<td align=\"center\" class=\"gear_preview\" style=\"background-color: rgba(100,".round((255/100)*(100 - ($row['damage']*100))).",0,0.8);\">".substr($row['damage'], 0, 6)."</td>
 		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
-		<td align=\"center\" class=\"gear_preview\">".$InventoryPreview."</td>
-		<td align=\"center\" class=\"gear_preview\">".$HitpointsPreview. "</td>
+		<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
+		<td align=\"center\" class=\"gear_preview_green\">".$HitpointsPreview. "</td>
 	</tr>";
 	return $tablerow;
 }

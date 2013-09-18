@@ -11,7 +11,7 @@ foreach($res as $row) {
 	$MapCoords = worldspaceToMapCoords($row['worldspace']);
 ?>	
 	<div id="page-heading">
-		<h1><?php echo $row['otype']; ?> - <?php echo $row['id']; ?></h1>
+		<h3><?php echo $row['otype']; ?> - <?php echo $row['id']; ?></h3>
 	</div>
 	<!-- end page-heading -->
 
