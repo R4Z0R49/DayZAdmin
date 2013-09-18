@@ -199,9 +199,9 @@ foreach($res as $row) {
 								if ($jk > 1){ $jk = $jk - 2;$jl++;}
 								
 								//big ammo
-								$hammo = '<img style="max-width:43px;max-height:43px;" src="images/gear/heavyammo.png" title="" alt=""/>';
+								$hammo = '';
 								if ($j > 5){
-									$hammo = '<img style="max-width:43px;max-height:43px;" src="images/gear/grenade.png" title="" alt=""/>';
+									$hammo = '';
 								}
 								if(array_key_exists($j,$heavyammo)){
 									$hammo = $heavyammo[$j]['image'];									
