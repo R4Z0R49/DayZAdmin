@@ -218,7 +218,7 @@ foreach($res as $row) {
 									}
 									$heavyammoslots++;
 									
-									echo '<div class="gear_slot" style="margin-left:50px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$hammo.'
+									echo '<div class="gear_slot" style="margin-left:'.($jx+(49*$jk)).'px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$hammo.'
 								</div>';
 								}
 								$jk++;
