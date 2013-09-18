@@ -615,10 +615,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaCoke>
-  <sItemSodaCoke>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sItemSodaCoke>
   <sItemSodaCokeEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -886,10 +882,6 @@
   <sItemWaterbottle>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
-  </sItemWaterbottle>
-  <sItemWaterbottle>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
   </sItemWaterbottle>
   <sItemWaterbottleBoiled>
     <Slots>1</Slots>
