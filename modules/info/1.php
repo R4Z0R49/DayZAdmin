@@ -45,7 +45,12 @@ foreach($res as $row) {
 	require_once('modules/xml2array.php');
 	$items_xml = XML2Array::createArray($xml);
 
-	$InvCarry = array($Inventory[2]); 
+	if ($Inventory[2] != ''){
+		$InvCarry = array($Inventory[2]); 
+	} else {
+		$InvCarry = array();
+	}
+
 	$Inventory = (array_merge($Inventory[0], $Inventory[1], $InvCarry));
 	for ($i=0; $i<count($Inventory); $i++){
 		if(array_key_exists($i,$Inventory)){
