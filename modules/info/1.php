@@ -45,7 +45,7 @@ foreach($res as $row) {
 	require_once('modules/xml2array.php');
 	$items_xml = XML2Array::createArray($xml);
 
-	$InvCarry = array($Inventory[2], "Placeholder"); 
+	$InvCarry = array($Inventory[2]); 
 	$Inventory = (array_merge($Inventory[0], $Inventory[1], $InvCarry));
 	for ($i=0; $i<count($Inventory); $i++){
 		if(array_key_exists($i,$Inventory)){
@@ -196,8 +196,9 @@ foreach($res as $row) {
 							$jl = 0;
 							$maxslots = 12;
 							for ($j=0; $j<$maxslots; $j++){
-								if ($jk > 1){ $jk = $jk - 2;$jl++;}
-								
+								if ($jk > 1){ $jk = $jk - 2; $jl++;
+									if($jk > 1) { $jk = $jk - 2; $jl++; }
+								}
 								//big ammo
 								$hammo = '';
 								if ($j > 5){
@@ -227,7 +228,7 @@ foreach($res as $row) {
 							for ($j=0; $j<8; $j++){
 								if ($jk > 3){ $jk = 0;$jl++;}
 								//small ammo
-								$sammo = '<img style="max-width:43px;max-height:43px;" src="images/gear/smallammo.png" title="" alt=""/>';
+								$sammo = '';
 								if(array_key_exists($j,$smallammo)){
 									$sammo = $smallammo[$j];
 								}
