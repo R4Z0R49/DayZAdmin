@@ -7,9 +7,11 @@ if ($pageNum > 1)
 }
 else
 {
-   $prev  = '&nbsp;'; // we're on page one, don't print previous link
-   $first = '&nbsp;'; // nor the first page link
+   $page  = $pageNum;
+   $prev  = "$self"; // we're on page one, don't print previous link
+   $first = "$self"; // nor the first page link
 }
+
 if ($pageNum < $maxPage)
 {
    $page = $pageNum + 1;

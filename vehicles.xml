@@ -2400,6 +2400,16 @@
         <transportmaxbackpacks>2</transportmaxbackpacks>
         <cargo>5</cargo>
     </sSUV_TK_CIV_EP1>
+	<sSUV_DZ>
+        <Type>Car</Type>
+        <Side>CIV</Side>
+        <Faction>BIS_TK_CIV</Faction>
+        <Name>SUV</Name>
+        <transportmaxweapons>10</transportmaxweapons>
+        <transportmaxmagazines>50</transportmaxmagazines>
+        <transportmaxbackpacks>2</transportmaxbackpacks>
+        <cargo>5</cargo>
+    </sSUV_DZ>
     <sTT650_TK_CIV_EP1>
         <Type>Car</Type>
         <Side>CIV</Side>

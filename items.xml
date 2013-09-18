@@ -615,10 +615,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSodaCoke>
-  <sItemSodaCoke>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sItemSodaCoke>
   <sItemSodaCokeEmpty>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -887,10 +883,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemWaterbottle>
-  <sItemWaterbottle>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
-  </sItemWaterbottle>
   <sItemWaterbottleBoiled>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1017,11 +1009,11 @@
   </sMeleeFlashlightRed>
   <sMeleeHatchet>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeHatchet>
   <sMeleeMachete>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeMachete>
   <sMk_48_DZ>
     <Slots>10</Slots>
@@ -1177,7 +1169,7 @@
   </sMakarovSD>
   <sMeleeBaseBallBat>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeBaseBallBat>
   <s75Rnd_545x39_RPK>
     <Slots>2</Slots>
