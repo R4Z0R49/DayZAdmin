@@ -35,10 +35,6 @@ foreach($res as $row) {
 	$Medical = json_decode($Medical);
 
 	$binocular = array();
-	$rifle = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
-	$carry = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
-	$pistol = '<img style="max-width:92px;max-height:92px;" src="images/gear/pistol.png" title="" alt=""/>';
-	$second = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
 	$heavyammo = array();
 	$heavyammoslots = 0;
 	$smallammo = array();
@@ -59,7 +55,7 @@ foreach($res as $row) {
 			if(array_key_exists('s'.$curitem,$items_xml['items'])){
 				switch($items_xml['items']['s'.$curitem]['Type']){
 					case 'binocular':
-						$binocular[] = '<img style="max-width:78px;max-height:78px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+						$binocular[] = '<img style="margin-left: 2px;margin-top: 12px;max-width:76px;max-height:76px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
 						break;
 					case 'rifle':
 						$rifle = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
@@ -68,7 +64,7 @@ foreach($res as $row) {
 						$carry = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
 						break;
 					case 'pistol':
-						$pistol = '<img style="max-width:92px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+						$pistol = '<img style="margin-top: 10px;max-width:76px;max-height:76px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
 						break;
 					case 'backpack':
 						break;
@@ -107,10 +103,10 @@ foreach($res as $row) {
 		
 			<!--  start table-content  -->
 			<div id="table-content">
-				<div id="gear_player" style="margin-left: 10px;">	
+				<div id="gear_player" style="margin-left: 64px; margin-bottom: 10px;">	
 					<div class="gear_info">
 						<img class="playermodel" src='images/models/<?php echo str_replace('"', '', $model); ?>.png'/>
-						<div id="gps" style="margin-left:10px;margin-top:54px">
+						<div id="gps" style="margin-left:120px;margin-top:323px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
 								echo $MapCoords[0];
@@ -128,30 +124,30 @@ foreach($res as $row) {
 							?>
 							</div>							
 						</div>
-						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-120px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-120px">
 							<?php echo 'Zed kills:&nbsp;'.$row['zombie_kills'].' / '.$row['total_zombie_kills'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-105px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-105px">
 							<?php echo 'Zed headshots:&nbsp;'.$row['headshots'].' / '.$row['total_headshots'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-90px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-90px">
 							<?php echo 'Human killed:&nbsp;'.$row['survivor_kills'].' / '.$row['total_survivor_kills'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-75px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-75px">
 							<?php echo 'Bandit killed:&nbsp;'.$row['bandit_kills'].' / '.$row['total_bandit_kills'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-60px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-60px">
 							<?php echo 'Survival Attempts:&nbsp;'.$row['survival_attempts'];?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-45px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-45px">
 							<?php echo 'Survival Time:&nbsp;'.$survival_time;?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:170px;margin-top:-30px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-30px">
 							<?php echo 'Humanity:&nbsp;'.$row['humanity'];?>
 						</div>
 					</div>
 					<div class="gear_inventory">
-						<div class="gear_slot" style="margin-left:295px;margin-top:350px;width:80px;height:80px;">
+						<div class="gear_bino1_slot" style="margin-left:295px;margin-top:340px;width:100px;height:100px;">
 						<?php
 							if(array_key_exists(0,$binocular)){
 								echo $binocular[0];
@@ -160,7 +156,7 @@ foreach($res as $row) {
 							}
 						?>
 						</div>
-						<div class="gear_slot" style="margin-left:295px;margin-top:448px;width:80px;height:80px;">
+						<div class="gear_bino2_slot" style="margin-left:295px;margin-top:438px;width:100px;height:100px;">
 						<?php
 							if(array_key_exists(1,$binocular)){
 								echo $binocular[1];
@@ -169,17 +165,17 @@ foreach($res as $row) {
 							}
 						?>
 						</div>
-						<div class="gear_slot" style="margin-left:99px;margin-top:146px;width:224px;height:96px;">
+						<div class="gear_holding_slot" style="margin-left:99px;margin-top:146px;width:249px;height:97px;">
 							<?php
 								echo $rifle;
 							?>
 						</div>
-						<div class="gear_slot" style="margin-left:99px;margin-top:244px;width:224px;height:96px;">
+						<div class="gear_carry_slot" style="margin-left:99px;margin-top:244px;width:249px;height:97px;">
 							<?php
 								echo $carry;
 							?>
 						</div>
-						<div class="gear_slot" style="margin-left:99px;margin-top:48px;width:224px;height:96px;">
+						<div class="gear_bag_slot" style="margin-left:99px;margin-top:48px;width:249px;height:97px;">
 						<?php					
 							if($Backpack[0] != ''){
 								echo '<img style="max-width:220px; max-height:92px;" src="images/thumbs/'.$Backpack[0].'.png" title="'.$Backpack[0].'" alt="'.$Backpack[0].'"/>';
@@ -188,7 +184,7 @@ foreach($res as $row) {
 							}
 						?>
 						</div>
-						<div class="gear_slot" style="margin-left:1px;margin-top:342px;width:96px;height:96px;">
+						<div class="gear_pistol_slot" style="margin-left:1px;margin-top:342px;width:100px;height:100px;">
 						<?php
 							echo $pistol;
 						?>
@@ -235,7 +231,7 @@ foreach($res as $row) {
 								if(array_key_exists($j,$smallammo)){
 									$sammo = $smallammo[$j];
 								}
-								echo '<div class="gear_slot" style="margin-left:'.($jx+(49*$jk)).'px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$sammo.'
+								echo '<div class="gear_pistol_slots" style="margin-left:'.($jx+(49*$jk)).'px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$sammo.'
 								</div>';								
 								$jk++;
 							}
@@ -349,7 +345,7 @@ foreach($res as $row) {
 							$jl = 0;
 
 							for ($j=0; $j<$magazines; $j++){
-								if ($jk > 6){ $jk = 0;$jl++;}
+								if ($jk > 8){ $jk = 0;$jl++;}
 								if ($j<count($backpackitem)){
 									echo '<div class="gear_slot" style="margin-left:'.($jx+(49*$jk)).'px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$backpackitem[$j]['image'].'</div>';
 									$jk = $jk - 1 + $backpackitem[$j]['slots'];
