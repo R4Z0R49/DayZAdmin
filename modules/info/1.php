@@ -246,7 +246,7 @@ foreach($res as $row) {
 								if(array_key_exists($j,$usableitems)){
 									$uitem = $usableitems[$j];
 								}
-								echo '<div class="gear_slot" style="margin-left:'.($jx+(49*$jk)).'px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$uitem.'
+								echo '<div class="gear_item_slots" style="margin-left:'.($jx+(49*$jk)).'px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$uitem.'
 								</div>';								
 								$jk++;
 							}
@@ -258,7 +258,7 @@ foreach($res as $row) {
 							if(count($Backpack[1][0]) == NULL){
 								$maxmagazines = 0;
 							} else {
-								$maxmagazines = 26;
+								$maxmagazines = 24;
 							}
 							$BackpackName = $Backpack[0];
 							if(array_key_exists('s'.$Backpack[0],$items_xml['items'])){

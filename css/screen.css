@@ -188,6 +188,16 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	position: absolute;
 	background-image: url(../images/gear/InventoryUI/binocular_2.png);
 }
+.gear_item_slots {
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	position: absolute;
+	background-image: url(../images/gear/InventoryUI/gear_ui_brown_full.png);
+	-moz-opacity: 0.50;
+	opacity: 0.50;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=50);
+}
 img.playermodel {
   position: relative;
   top: 120px;
