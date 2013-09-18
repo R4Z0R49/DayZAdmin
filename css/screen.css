@@ -38,7 +38,7 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	height: 566px;
 	}
 .gear_preview {
-	background-color: rgba(78,57,19,0.8);
+	background-color: rgba(187,187,187,0.8);
 	padding: 0;
 	margin: 0;
 	min-height: 47px;
@@ -57,8 +57,8 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	display:table-cell;
 	vertical-align:middle;
 	text-align:center;
-	background-color: rgba(155,146,107,0.8);
-	border: 1px solid rgba(78,57,19,0.8);
+	background-color: rgba(136,153,102,1);
+	border: 1px solid rgba(78,57,19,1);
 }
 .gear_info{
 	position: absolute;
