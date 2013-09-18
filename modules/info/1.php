@@ -38,7 +38,7 @@ foreach($res as $row) {
 	$rifle = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
 	$carry = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
 	$pistol = '<img style="max-width:92px;max-height:92px;" src="images/gear/pistol.png" title="" alt=""/>';
-	$second = '<img style="max-width:220px;max-height:92px;" src="images/gear/second.png" title="" alt=""/>';
+	$second = '<img style="max-width:220px;max-height:92px;" src="images/gear/rifle.png" title="" alt=""/>';
 	$heavyammo = array();
 	$heavyammoslots = 0;
 	$smallammo = array();
@@ -181,9 +181,9 @@ foreach($res as $row) {
 						</div>
 						<div class="gear_slot" style="margin-left:99px;margin-top:48px;width:224px;height:96px;">
 						<?php					
-							if(array_key_exists(0, $Backpack)){
+							if($Backpack[0] != ''){
 								echo '<img style="max-width:220px; max-height:92px;" src="images/thumbs/'.$Backpack[0].'.png" title="'.$Backpack[0].'" alt="'.$Backpack[0].'"/>';
-							} else {
+							} elseif($Backpack[0] == '') {
 								echo $second;
 							}
 						?>
@@ -218,7 +218,7 @@ foreach($res as $row) {
 									}
 									$heavyammoslots++;
 									
-									echo '<div class="gear_slot" style="margin-left:'.($jx+(49*$jk)).'px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$hammo.'
+									echo '<div class="gear_slot" style="margin-left:50px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$hammo.'
 								</div>';
 								}
 								$jk++;
@@ -495,21 +495,21 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 
 if ($_POST['submit_inv']) {
 	$inv =  mysql_real_escape_string($_POST['inv']);
-	$dbQuery="UPDATE survivor SET inventory = '$inv' WHERE id = $cid AND is_dead = 0";
+	$dbQuery="UPDATE survivor SET inventory = '$inv' WHERE id = $cid";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited inventory of user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 }
 
 if ($_POST['submit_bck']) {
 	$bck =  mysql_real_escape_string($_POST['bck']);
-	$dbQuery="UPDATE survivor SET backpack = '$bck' WHERE id = $cid AND is_dead = 0";
+	$dbQuery="UPDATE survivor SET backpack = '$bck' WHERE id = $cid";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited backpack of user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 }
 
 if ($_POST['submit_loc']) {
 	$loc =  mysql_real_escape_string($_POST['loc']);
-	$dbQuery="UPDATE survivor SET worldspace = '$loc' WHERE id = $cid AND is_dead = 0";
+	$dbQuery="UPDATE survivor SET worldspace = '$loc' WHERE id = $cid";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited location of user: $cid',?,NOW())", $_SESSION['login']);
 	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
 } 
