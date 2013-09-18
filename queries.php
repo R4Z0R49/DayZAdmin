@@ -29,6 +29,7 @@ switch($sql)
 		$info7 = array("SELECT * FROM instance");
 	//Maps
 		$map0 = array("select s.id AS cid, p.*, 'Player' as type, s.worldspace as worldspace, s.survival_time as survival_time, s.model as model, s.survivor_kills as survivor_kills, s.zombie_kills as zombie_kills, s.bandit_kills as bandit_kills, s.is_dead as is_dead, s.unique_id as unique_id from profile p join survivor s on p.unique_id = s.unique_id where s.is_dead = 0 and s.world_id = ? and last_updated > now() - interval 1 minute", $world);
+		$map1 = array("select s.id AS cid, p.*, 'Player' as type, s.worldspace as worldspace, s.survival_time as survival_time, s.model as model, s.survivor_kills as survivor_kills, s.zombie_kills as zombie_kills, s.bandit_kills as bandit_kills, s.is_dead as is_dead, s.unique_id as unique_id from profile p join survivor s on p.unique_id = s.unique_id where s.is_dead = 0 and s.world_id = $world");
 		$map4 = array("SELECT iv.*, v.class_name, oc.Type FROM instance_vehicle iv inner join  world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on wv.vehicle_id = v.id inner join object_classes oc on oc.Classname = v.class_name WHERE iv.instance_id = ? AND wv.world_id = ?", array($iid, $world));
         $map5 = array("select wv.*, v.*, oc.* from world_vehicle wv inner join vehicle v on wv.vehicle_id = v.id inner join object_classes oc on v.class_name = oc.classname where wv.world_id = ?", $world);
 		$map6 = array("select id.id,id.unique_id as idid,id.worldspace,id.inventory,id.last_updated,instance_id,oc.Classname,oc.Type,p.name,p.unique_id from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname join survivor s on s.id = id.owner_id join profile p on p.unique_id = s.unique_id where d.class_name = 'TentStorage' and id.instance_id = ?", $iid);
@@ -48,7 +49,7 @@ switch($sql)
         $check_deployable = "SELECT * FROM v_deployable";
         $check_vehicle = "SELECT * FROM v_vehicle";
     //Leaderboard
-        $leaderboard = "profile";
+        $leaderboard_query = "SELECT * FROM profile";
         $leaderboard_Playername = "name";
         $leaderboard_Deaths = "survival_attempts";
         $leaderboard_KillsZ = "total_zombie_kills";
@@ -205,7 +206,7 @@ and Character_DATA.last_updated >= NOW() - INTERVAL 1 minute");
         $check_deployable = array("SELECT od.ObjectID as id, od.ObjectUID as instance_deployable_id, od.Classname AS class_name, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace, pd.playerName AS owner_name, pd.playerUID AS owner_unique_id FROM Object_DATA od LEFT OUTER JOIN Character_DATA cd ON cd.CharacterID = od.CharacterID LEFT OUTER JOIN Player_DATA pd ON pd.PlayerUID = cd.playerUID WHERE od.Classname IN ('TentStorage','SmallStash','MediumStash') AND od.Instance = ?", $iid);
         $check_vehicle = array("SELECT od.ObjectID as id, od.ObjectUID as instance_vehicle_id, od.Classname AS class_name, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace FROM Object_DATA od JOIN Object_CLASSES oc on oc.Classname = od.Classname WHERE oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck') AND od.Instance = ?", $iid);
     //Leaderboard
-        $leaderboard = "Character_DATA";
+        $leaderboard_query = "SELECT pd.playerName,cd.Generation,cd.KillsZ,cd.KillsB,cd.KillsH,cd.HeadshotsZ,Humanity FROM Character_DATA cd LEFT JOIN Player_DATA pd ON pd.playerUID = cd.playerUID";
         $leaderboard_Playername = "playerName";
         $leaderboard_Deaths = "Generation";
         $leaderboard_KillsZ = "KillsZ";
