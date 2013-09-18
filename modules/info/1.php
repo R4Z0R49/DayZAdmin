@@ -196,9 +196,10 @@ foreach($res as $row) {
 							$jl = 0;
 							$maxslots = 12;
 							for ($j=0; $j<$maxslots; $j++){
-								if ($jk > 1){ $jk = $jk - 2; $jl++;
-									if($jk > 1) { $jk = $jk - 2; $jl++; }
-								}
+	                                while($jk > 1){
+                                    $jk -= 2;
+                                    $jl++;
+                                }
 								//big ammo
 								$hammo = '';
 								if ($j > 5){
