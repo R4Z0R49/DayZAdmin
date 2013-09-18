@@ -46,8 +46,10 @@ $owneruid = "";
 	$vehicles_xml = XML2Array::createArray($xml);
 ?>	
 	<div id="page-heading">
-		<h1><?php echo "<title>".$row['class_name']." - ".$sitename."</title>"; ?></h1>
-		<h1 class="custom-h1"><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<center>
+			<h3><?php echo "<title>".$row['class_name']." - ".$sitename."</title>"; ?></h3>
+			<h3 class="custom-h3"><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
+		</center>
 	</div>
 	<!-- end page-heading -->
 

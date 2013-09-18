@@ -94,8 +94,10 @@ foreach($res as $row) {
 
 ?>	
 	<div id="page-heading">
-		<h1><?php echo "<title>".htmlspecialchars($row['name'])." - ".$sitename."</title>"; ?></h1>
-		<h1 class="custom-h1"><?php echo htmlspecialchars($row['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<center>
+			<h3><?php echo "<title>".htmlspecialchars($row['name'])." - ".$sitename."</title>"; ?></h3>
+			<h3 class="custom-h3"><?php echo htmlspecialchars($row['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
+		</center>
 	</div>
 	<!-- end page-heading -->
 
