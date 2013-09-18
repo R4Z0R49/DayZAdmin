@@ -38,7 +38,7 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	height: 566px;
 	}
 .gear_preview {
-	background-color: rgba(187,187,187,0.8);
+	background-color: rgba(119,102,68,1);
 	padding: 0;
 	margin: 0;
 	min-height: 47px;
