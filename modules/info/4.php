@@ -61,7 +61,7 @@ $owneruid = "";
 			<div id="table-content">
 				<div id="gear_vehicle" style="margin-left: 10px;">
 					<div class="gear_info">
-						<img class="playermodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
+						<img class="vehiclemodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
 						<div id="gps" style="margin-left:46px;margin-top:54px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php

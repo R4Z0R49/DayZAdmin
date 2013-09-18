@@ -109,8 +109,8 @@ function row_player($row){
 		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".htmlspecialchars($row['name'])."</a></td>
 		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".$row['unique_id']."</a></td>
 		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['id']."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
-		<td align=\"center\" class=\"gear_preview\">".$InventoryPreview."</td>
-		<td align=\"center\" class=\"gear_preview\">".$BackpackPreview. "</td>
+		<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
+		<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview. "</td>
 	</tr>";
 	return $tablerow;	
 }

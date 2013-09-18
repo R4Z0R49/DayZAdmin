@@ -44,6 +44,14 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	min-height: 47px;
 	height: 47px;
 	}
+.gear_preview_green {
+	background-color: rgba(136,153,102,1);
+	border: 1px solid rgba(78,57,19,1);
+	padding: 0;
+	margin: 0;
+	min-height: 47px;
+	height: 47px;
+	}
 .gear_preview a {
 	color: #fff;
 	font-weight: bold;
@@ -58,7 +66,6 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	vertical-align:middle;
 	text-align:center;
 	background-color: rgba(136,153,102,1);
-	border: 1px solid rgba(78,57,19,1);
 }
 .gear_info{
 	position: absolute;
@@ -196,7 +203,13 @@ img.playermodel {
   width: 282px;
   height: 349px;
 }
-
+img.vehiclemodel {
+  position: relative;
+  top: 24px;
+  left: 46px;
+  width: 282px;
+  height: 349px;
+}
 #gps {
 	background: transparent url(../images/gps/gps_ui.png) no-repeat;
 	width: 148px;
