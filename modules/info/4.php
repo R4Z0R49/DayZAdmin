@@ -46,8 +46,10 @@ $owneruid = "";
 	$vehicles_xml = XML2Array::createArray($xml);
 ?>	
 	<div id="page-heading">
-		<h1><?php echo "<title>".$row['class_name']." - ".$sitename."</title>"; ?></h1>
-		<h1 class="custom-h1"><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h1>
+		<center>
+			<h3><?php echo "<title>".$row['class_name']." - ".$sitename."</title>"; ?></h3>
+			<h3 class="custom-h3"><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
+		</center>
 	</div>
 	<!-- end page-heading -->
 
@@ -61,7 +63,7 @@ $owneruid = "";
 			<div id="table-content">
 				<div id="gear_vehicle" style="margin-left: 10px;">
 					<div class="gear_info">
-						<img class="playermodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
+						<img class="vehiclemodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
 						<div id="gps" style="margin-left:46px;margin-top:54px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
