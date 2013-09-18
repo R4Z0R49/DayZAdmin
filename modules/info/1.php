@@ -352,7 +352,7 @@ foreach($res as $row) {
 							$jl = 0;
 
 							for ($j=0; $j<$magazines; $j++){
-								if ($jk > 8){ $jk = 0;$jl++;}
+								if ($jk > 7){ $jk = 0;$jl++;}
 								if ($j<count($backpackitem)){
 									echo '<div class="gear_slot" style="margin-left:'.($jx+(49*$jk)).'px;margin-top:'.($jy+(49*$jl)).'px;width:47px;height:47px;">'.$backpackitem[$j]['image'].'</div>';
 									$jk = $jk - 1 + $backpackitem[$j]['slots'];
