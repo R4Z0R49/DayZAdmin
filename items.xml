@@ -533,11 +533,11 @@
   </sItemFlashlightRed>
   <sItemFuelcan>
     <Slots>1</Slots>
-    <Type>smallammo</Type>
+    <Type>heavyammo</Type>
   </sItemFuelcan>
   <sItemFuelcanEmpty>
     <Slots>1</Slots>
-    <Type>smallammo</Type>
+    <Type>heavyammo</Type>
   </sItemFuelcanEmpty>
   <sItemGPS>
     <Slots>1</Slots>
@@ -886,10 +886,6 @@
   <sItemWaterbottleBoiled>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
-  </sItemWaterbottleBoiled>
-  <sItemWaterbottleBoiled>
-    <Slots>1</Slots>
-    <Type>smallammo</Type>
   </sItemWaterbottleBoiled>
   <sItemWaterbottleUnfilled>
     <Slots>1</Slots>

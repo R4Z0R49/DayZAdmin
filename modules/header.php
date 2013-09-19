@@ -45,7 +45,7 @@ if (isset($_SESSION['user_id'])) {
 <div id="logo-stats-bg">
 	<div id="logo-stats-centerer">
 		<div id="logo-stats-left">
-			<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
+			<img src="images/DayZAdmin.png" width="250px" height="80px" alt=""></a>
 		</div>
 		<div id="top-search">
 		<?php

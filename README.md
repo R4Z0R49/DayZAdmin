@@ -1,7 +1,7 @@
-BlissAdmin for the Reality private-hive & DayZ hive
+DayZAdmin for the DayZ hive and the Reality private hive
 =========
 
-BlissAdmin is a DayZ Administration panel that was originally coded for the server pack Bliss. Bliss then got abandoned and Reality was born. We now use reality as a base but however are planning to add support for the regular DayZ hive structure.
+DayZAdmin is a DayZ Administration panel that was originally coded for the server pack Bliss. Bliss then got abandoned and Reality was born. Not all features of the panel currently support the DayZMod but we are working on it as Reality is switching their database around to be similar to the DayZMod database.
 
 Requirements
 =========
