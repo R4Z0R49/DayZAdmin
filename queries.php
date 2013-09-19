@@ -57,6 +57,11 @@ switch($sql)
         $leaderboard_Headshots = "total_headshots";
         $leaderboard_KillsH = "total_survivor_kills";
         $leaderboard_Humanity = "humanity";
+    // Search
+        $search_query_player = "select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and name LIKE ? ORDER BY last_updated DESC";
+        $search_query_item = "SELECT * from (SELECT profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id) as T where inventory LIKE ? OR backpack LIKE ? ORDER BY last_updated DESC";
+        $search_query_vehicle = "select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on v.id = wv.vehicle_id inner join object_classes oc on v.class_name = oc.classname where v.class_name LIKE ? OR oc.type LIKE ?";
+        $search_query_container = "select * from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname where d.class_name = 'TentStorage' and id.inventory LIKE ?";
 
 	break;
 	
@@ -214,6 +219,11 @@ and Character_DATA.last_updated >= NOW() - INTERVAL 1 minute");
         $leaderboard_KillsH = "KillsH";
         $leaderboard_Headshots = "HeadshotsZ";
         $leaderboard_Humanity = "Humanity";
+    // Search
+        $search_query_player = "SELECT pd.playerName as name, pd.playerUID as unique_id, cd.CharacterID as id, cd.Backpack as backpack, cd.Inventory as inventory, cd.Worldspace as worldspace FROM Player_DATA pd JOIN Character_DATA cd ON cd.PlayerUID = pd.PlayerUID WHERE cd.Alive = 1 AND pd.playerName LIKE ?";
+        $search_query_item = "SELECT pd.playerName as name, pd.playerUID as unique_id, cd.CharacterID as id, cd.Backpack as backpack, cd.Inventory as inventory, cd.Worldspace as worldspace FROM Player_DATA pd JOIN Character_DATA cd ON cd.PlayerUID = pd.PlayerUID WHERE cd.Alive = 1 AND (Inventory LIKE ? OR Backpack LIKE ?)";
+        $search_query_vehicle = "SELECT od.ObjectID as id, od.ObjectUID as unique_id, od.Classname AS class_name, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace FROM Object_DATA od JOIN Object_CLASSES oc on oc.Classname = od.Classname WHERE oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck') AND od.Instance = ? AND od.Classname LIKE ?";
+        $search_query_container = "SELECT od.ObjectID as id, od.ObjectUID as unique_id, od.Classname AS class_name, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace FROM Object_DATA od JOIN Object_CLASSES oc on oc.Classname = od.Classname WHERE od.Instance = ? AND od.Inventory LIKE ?";
 
 	break;
 };

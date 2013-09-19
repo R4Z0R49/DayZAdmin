@@ -15,6 +15,7 @@ if (isset($_SESSION['user_id']))
 ?>
 </div>
 		<?php
+        require_once('queries.php');
 		include ('searchbar.php');
 		?><br/><?php
 		if (!empty($_POST))
@@ -29,7 +30,7 @@ if (isset($_SESSION['user_id']))
 				case 'player':
 					$tableheader = header_player(0);
 					echo $tableheader;
-					$res = $db->GetAll("select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and name LIKE ? ORDER BY last_updated DESC", $search);
+					$res = $db->GetAll($search_query_player, $search);
 					$tablerows = "";
 					foreach($res as $row) {
 						$tablerows .= row_player($row);
@@ -39,7 +40,7 @@ if (isset($_SESSION['user_id']))
 				case 'item':
 					$tableheader = header_player(0);
 					echo $tableheader;
-					$res = $db->GetAll("SELECT * from (SELECT profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id) as T where inventory LIKE ? OR backpack LIKE ? ORDER BY last_updated DESC", array($search, $search));
+					$res = $db->GetAll($search_query_item, array($search, $search));
 					$tablerows = "";
 					foreach($res as $row) {
 						$tablerows .= row_player($row);
@@ -50,7 +51,7 @@ if (isset($_SESSION['user_id']))
 					$chbox = "";
 					$tableheader = header_vehicle(0, $chbox);
 					echo $tableheader;
-					$res = $db->GetAll("select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on v.id = wv.vehicle_id inner join object_classes oc on v.class_name = oc.classname where v.class_name LIKE ? OR oc.type LIKE ?", array($search, $search));
+					$res = $db->GetAll($search_query_vehicle, array($iid, $search));
 					$chbox = "";
 					foreach($res as $row) {
 							$tablerows .= row_vehicle($row, $chbox);
@@ -61,7 +62,7 @@ if (isset($_SESSION['user_id']))
 					$chbox = "";
 					$tableheader = header_vehicle(0, $chbox);
 					echo $tableheader;
-					$res = $db->GetAll("select * from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname where d.class_name = 'TentStorage' and id.inventory LIKE ?", $search);
+					$res = $db->GetAll($search_query_container, array($iid, $search));
 					$chbox = "";
 					foreach($res as $row) {
 							$tablerows .= row_vehicle($row, $chbox);
@@ -71,7 +72,7 @@ if (isset($_SESSION['user_id']))
 				default:
 					$tableheader = header_player(0);
 					echo $tableheader;
-					$res = $db->GetAll("select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and name LIKE ? OR name LIKE ? ORDER BY lastupdate DESC", array($search, $search));
+                    $res = $db->GetAll($search_query_player, $search);
 					$tablerows = "";
 					foreach($res as $row) {
 						$tablerows .= row_player($row);
