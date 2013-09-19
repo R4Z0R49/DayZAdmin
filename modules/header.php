@@ -13,10 +13,10 @@ if (isset($_SESSION['user_id'])) {
 	<script type="text/javascript" src="js/jquery.fullscreen.js"></script>
 
 	<!-- New design (Bootstrap - font-awesome) -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 	
 	<script src="js/modalpopup.js" type="text/javascript"></script>
 	<?php if($enableclock) { ?>
@@ -45,7 +45,7 @@ if (isset($_SESSION['user_id'])) {
 <div id="logo-stats-bg">
 	<div id="logo-stats-centerer">
 		<div id="logo-stats-left">
-			<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
+			<img src="images/DayZAdmin.png" width="250px" height="80px" alt=""></a>
 		</div>
 		<div id="top-search">
 		<?php
