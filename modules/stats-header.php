@@ -18,7 +18,7 @@
 <div id="logo-stats-bg">
 	<div id="logo-stats-centerer">
 		<div id="logo-stats-left">
-			<img src="images/Blissadmin.png" width="250px" height="80px" alt=""></a>
+			<img src="images/DayZAdmin.png" width="250px" height="80px" alt=""></a>
 		</div>
 		<div id="logo-stats-right">
 			<a href="<?php echo($rightlogoLink); ?>"><img src="<?php echo($rightlogoImg); ?>" width="<?php echo($rightlogoWidth); ?>" height="<?php echo($rightlogoHeight); ?>" style="margin-top: <?php echo ($rightlogoMarginTop); ?>;" alt=""></img></a>
