@@ -17,6 +17,7 @@
 	$enableTracking = 1; // show tracks of player/vehicle movement on the map, green dot = start of track, yellow dot = end
 	$maxTrackingPositions = 50; // how many positions to keep per player/vehicle when tracking
 	$keepTracksAfterLogout = 0; // 0 - remove player tracks after they logout, 1 - keep showing tracks
+    $refreshPlayersOnline = 60; // seconds, set to 0 to disable
 	
 	//security
 	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**
