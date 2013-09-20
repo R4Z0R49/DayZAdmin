@@ -5,6 +5,11 @@ if (isset($_SESSION['user_id'])) {
 <html lang="EN">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;" />
+<?php
+if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $_GET["show"] == 0 && isset($refreshPlayersOnline) && $refreshPlayersOnline >= 15) {
+    printf("\t<META HTTP-EQUIV=\"refresh\" CONTENT=\"%d\">\n", $refreshPlayersOnline);
+}
+?>
 	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
 	<link rel="stylesheet" href="css/watch.css" />	
 	<link rel="stylesheet" href="css/flexcrollstyles.css" />	
@@ -63,6 +68,10 @@ include ('navbar.php');
 <div class="container custom-container">
 <div class="content" id="content">
 <?php
+
+    if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $_GET["show"] == 0 && isset($refreshPlayersOnline) && $refreshPlayersOnline >= 15) {
+        printf("Refreshing every %d seconds<br>\n", $refreshPlayersOnline);
+    }
 }else{
 	header('Location: admin.php');
 }
