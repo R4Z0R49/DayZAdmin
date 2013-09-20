@@ -90,6 +90,18 @@ $rpt = $argv[1];
 // path to Pal2PacE.exe for converting thumbnails
 $convertcmd = "\"c:\Program Files (x86)\Bohemia Interactive\Tools\TexView 2\Pal2PacE.exe\"";
 
+// These weapons are able to be carried on the back
+$carry = array(
+    'MeleeHatchet',
+    'MeleeCrowbar',
+    'MeleeMachete',
+    'MeleeBaseBallBat',
+    'MeleeBaseBallBatBarbed',
+    'MeleeBaseBallBatNails',
+    'MeleeFishingPole',
+);
+
+// Ignore these classes
 $ignore = array(
 '10Rnd_9x19_Compact',
 '10Rnd_762x51_CZ750',
@@ -233,7 +245,11 @@ foreach($lines as $line) {
             $type = "pistol";
             $slots = 5;
         } elseif($type_raw >= 1) {
-            $type = "rifle";
+            if(array_search($class, $carry) !== false) {
+                $type = "carry";
+            } else {
+                $type = "rifle";
+            }
             $slots = 10;
         } else {
             $type = "UNKNOWN";

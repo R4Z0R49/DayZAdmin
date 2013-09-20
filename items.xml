@@ -1638,23 +1638,23 @@
   </sMakarovSD>
   <sMeleeBaseBallBat>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeBaseBallBat>
   <sMeleeBaseBallBatBarbed>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeBaseBallBatBarbed>
   <sMeleeBaseBallBatNails>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeBaseBallBatNails>
   <sMeleeCrowbar>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeCrowbar>
   <sMeleeFishingPole>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeFishingPole>
   <sMeleeFlashlight>
     <Slots>5</Slots>
@@ -1666,11 +1666,11 @@
   </sMeleeFlashlightRed>
   <sMeleeHatchet>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeHatchet>
   <sMeleeMachete>
     <Slots>10</Slots>
-    <Type>rifle</Type>
+    <Type>carry</Type>
   </sMeleeMachete>
   <sMetis_TK_Bag_EP1>
     <Slots>2</Slots>
