@@ -33,9 +33,9 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	height: 849px;
 	}
 #gear_vehicle{
-	background: transparent url(../images/gear/vehicle_ui.png) no-repeat;
-	width: 1125px;
-	height: 566px;
+	background: transparent url(../images/gear/InventoryUI/gear_bg.png) no-repeat;
+	width: 1024px;
+	height: 849px;
 	}
 .gear_preview {
 	background-color: rgba(119,102,68,1);
@@ -82,8 +82,8 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 
 .vehicle_gear{
 	position: absolute;
-	margin-top: 0px;
-	margin-left: 376px;
+	margin-top: 75px;
+	margin-left: 520px;
 	width: 375px;
 	height: 566px;
 }
@@ -93,14 +93,14 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	margin-top: 48px;
 	margin-left: 0px;
 	width: 374px;
-	height: 473px;
+	height: 500px;
 	overflow: auto;
 	
 }
 .vehicle_hitpoints{
 	position: absolute;
-	margin-top: 0px;
-	margin-left: 752px;
+	margin-top: 375px;
+	margin-left: 520px;
 	width: 375px;
 	height: 566px;
 }
@@ -197,18 +197,18 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	background-image: url(../images/gear/InventoryUI/gear_ui_brown_full.png);
 }
 img.playermodel {
-  position: relative;
-  top: 120px;
-  left: 125px;
-  width: 282px;
-  height: 349px;
+  	position: relative;
+ 	top: 120px;
+  	left: 125px;
+ 	width: 282px;
+    height: 349px;
 }
 img.vehiclemodel {
-  position: relative;
-  top: 24px;
-  left: 46px;
-  width: 282px;
-  height: 349px;
+  	position: relative;
+ 	top: 120px;
+  	left: 125px;
+ 	width: 282px;
+    height: 349px;
 }
 #gps {
 	background: transparent url(../images/gps/gps_ui.png) no-repeat;
@@ -1266,7 +1266,7 @@ label	{
 }
 
 #vehicleString  textarea{
-	width: 600px;
+	width: 580px;
 	height: 125px;
 }
 
@@ -1374,6 +1374,7 @@ label	{
 }
 
 .stats-search{
+	padding-top: 10px;
 	margin: 0 auto;
 	width: 275px;
 }
