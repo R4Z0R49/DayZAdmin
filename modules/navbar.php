@@ -54,19 +54,8 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 				<li>
 					<a href="#">Entities <i class="icon-arrow-right"></i></a>
 					<ul class="dropdown-menu sub-menu">
-						<li>
-							<a href="#">Players <i class="icon-arrow-right"></i></a>
-							<ul class="dropdown-menu sub-menu">
-								<li><a href="admin.php?view=table&show=0">Online</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="#">Vehicles <i class="icon-arrow-right"></i></a>
-							<ul class="dropdown-menu sub-menu">
-								<li><a href="#"><br></a></li>
-								<li><a href="admin.php?view=table&show=4">Ingame</a></li>
-							</ul>
-						</li>
+					    <li><a href="admin.php?view=table&show=0">Online Players</a></li>
+						<li><a href="admin.php?view=table&show=4">Vehicles Ingame</a></li>
 					</ul>
 				</li>
 				<li>
@@ -91,6 +80,7 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 								<li><a href="admin.php?view=table&show=5">Spawn Locations</a></li>
 							</ul>
 						</li>
+                        <li><a href="admin.php?view=table&show=6">Tents/Stashes</a></li>
 					</ul>
 				</li>
 				<li class="divider"></li>
@@ -110,24 +100,10 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 					<a href="#">Instance ID: <?php echo $iid?> <i class="icon-arrow-right"></i></a>
 						<ul class="dropdown-menu sub-menu">
 							<li>
-								<li>
-								<a href="#">Recent Players <i class="icon-arrow-right"></i></a>
-								<ul class="dropdown-menu sub-menu">
-									<li><a href="admin.php?view=map&show=0">Within 1 Min</a></li>
-								</ul>
-								</li>
-								<li>
-								<a href="#">Deployables <i class="icon-arrow-right"></i></a>
-								<ul class="dropdown-menu sub-menu">
-									<li><a href="#"><br></li>
-									<li><a href="admin.php?view=map&show=4">Vehicles Ingame</a></li>
-									<li><a href="admin.php?view=map&show=6">All Ingame Tents/Stashes</a></li>
-									<li><a href="admin.php?view=map&show=7">Other Deployables</a></li>
-								</ul>
-								</li>
-								<li>
-									<a href="admin.php?view=map&show=8">Everything</a>
-								</li>
+								<li><a href="admin.php?view=map&show=0">Active Players</a></li>
+								<li><a href="admin.php?view=map&show=4">Vehicles</a></li>
+    							<li><a href="admin.php?view=map&show=6">Tents/Stashes</a></li>
+								<li><a href="admin.php?view=map&show=8">Everything</a></li>
 							</li>
 						</ul>
 					</li>
@@ -145,14 +121,7 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 										<li><a href="admin.php?view=map&show=3">All</a></li>
 									</ul>
 								</li>
-								<li>
-									<a href="#">Deployables <i class="icon-arrow-right"></i></a>
-									<ul class="dropdown-menu sub-menu">
-										<li><a href="#"><br></a></li>
-										<li><a href="#"><br></a></li>
-										<li><a href="admin.php?view=map&show=5">Spawn Locations</a></li>
-									</ul>
-								</li>
+								<li><a href="admin.php?view=map&show=5">Vehicle Spawn Locations</a></li>
 							</li>
 						</ul>
 					</li>

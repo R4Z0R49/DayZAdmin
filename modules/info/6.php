@@ -51,13 +51,6 @@ foreach($res as $row) {
 
 	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
 	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
 		<td id="tbl-border-left"></td>
 		<td>
 		<!--  start content-table-inner ...................................................................... START -->
@@ -87,7 +80,7 @@ foreach($res as $row) {
 						</div>
 
 						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-95px">
-							Owner:&nbsp;<a href="admin.php?view=info&show=1&id=<?php echo $row['player_unique_id'];?>"><?php echo htmlspecialchars($row['name']);?></a>
+							Owner:&nbsp;<a href="admin.php?view=info&show=1&id=<?php echo $row['unique_id'];?>"><?php echo htmlspecialchars($row['name']);?></a>
 						</div>
 					</div>
 					<!-- Backpack -->
@@ -238,11 +231,6 @@ foreach($res as $row) {
 		<!--  end content-table-inner ............................................END  -->
 		</td>
 		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
 	</tr>
 	</table>
 <?php } ?>

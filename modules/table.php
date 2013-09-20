@@ -39,13 +39,13 @@ if (isset($_SESSION['user_id']))
 			$pagetitle = "All players";	
 			break;
 		case 4:
-			$pagetitle = "All Ingame Objects";	
+			$pagetitle = "Vehicles";	
 			break;
 		case 5:
 			$pagetitle = "Vehicle spawn locations";	
 			break;
 		case 6:
-			$pagetitle = "TEST Online Players";	
+			$pagetitle = "Tents/Stashes";	
 			break;
 		default:
 			$pagetitle = "Online players";

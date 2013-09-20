@@ -198,8 +198,8 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 }
 img.playermodel {
   position: relative;
-  top: 120px;
-  left: 125px;
+  top: 24px;
+  left: 46px;
   width: 282px;
   height: 349px;
 }
