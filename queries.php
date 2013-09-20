@@ -89,7 +89,7 @@ switch($sql)
 	Character_DATA.Inventory as inventory,
 	Character_DATA.Backpack as backpack,
 	Character_DATA.Model as model,
-	Character_DATA.Alive,
+	(CASE Character_DATA.Alive WHEN '1' THEN '0' ELSE '1' END) AS is_dead,
 	Character_DATA.Medical as medical,
 	Character_DATA.distanceFoot as DistanceFoot,
 	Character_DATA.duration as survival_time,
@@ -108,7 +108,7 @@ switch($sql)
 	Character_DATA.Humanity as humanity
 from Player_DATA, Character_DATA 
 where Character_DATA.playerUID = Player_DATA.playerUID
-and Character_DATA.Alive = '1' and Player_DATA.PlayerUID like ?", array($_GET["id"])); 
+and Player_DATA.PlayerUID = ? AND Character_DATA.CharacterID = ?", array($_GET["id"], $_GET["cid"])); 
 		$info4 = array("SELECT Object_CLASSES.*,
         Object_DATA.ObjectID as id,
         Object_DATA.Hitpoints as parts,
