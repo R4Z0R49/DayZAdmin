@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 		$title = 'Vehicle Spawns';
 		break;
 	case 6:
-		$title = 'Tents';
+		$title = 'Tents / Stashes';
 		break;
 	case 7:
 		$title = 'Deployables';
