@@ -875,7 +875,7 @@ font-family: Tahoma;
 
 .step-light-left {
 	float:left;
-	 	height:27px;
+	height:27px;
 	padding:12px 15px 0 25px;
 	font-size: 13px;
 	background: url(../images/forms/step_light_left.gif) no-repeat;
@@ -1284,6 +1284,7 @@ label	{
 .stats-bg {
 	background-color: #1d1d1d;
 	background-image: url(images/bg.jpg);
+	background-image: url('../images/bg.png');
 }
 
 #logo-stats-bg {
@@ -1405,16 +1406,14 @@ label	{
 	background-color: #1b1b1b;
 	border: 1px solid #050505; 
 	color: grey;
-	width: 1170px;
 	margin: 0 auto;
 	margin-top: 10px;
 	margin-bottom: 30px;
-	height: 40px;
+	min-height: 40px;
 }
 
 .footer-left{
 	margin-left: 10px;
-	padding-top: 10px;
 }
 
 /* MULTI-LEVEL DROPDOWNS FOR BOOTSTRAP */
@@ -1474,4 +1473,15 @@ label	{
 .custom-h2-string {
 	color: #fff;
 	font-size: 19px;
+}
+.table td {
+	border-bottom: 1px solid #000;
+}
+.table thead {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+.table tbody{
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
 }
