@@ -500,6 +500,10 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sDMR_DZ>
+  <sDMR>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sDMR>
   <sDSHkM_Mini_TriPod_TK_GUE_Bag_EP1>
     <Slots>2</Slots>
     <Type>Backpacks</Type>
