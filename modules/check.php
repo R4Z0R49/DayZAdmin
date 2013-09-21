@@ -216,9 +216,8 @@ if (!isset($_SESSION['user_id'])) {
 	}
 ?>
 </div>
-<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+<table border="0" width="100%" class="product-table">
 	<tr>
-		<td id="tbl-border-left"></td>
 		<td>
 		<!--  start content-table-inner ...................................................................... START -->
 			<div id="content-table-inner">	
@@ -240,7 +239,7 @@ if (!isset($_SESSION['user_id'])) {
 					</div>			
 					<!--  end message-red -->
 					<!--  start product-table ..................................................................................... -->
-					<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+					<table border="0" width="100%" id="product-table">
 						<tr>
 							<th class="table-header-repeat line-left minwidth-1" width="5px"><a href="">Remove</a>	</th>
 							<th class="table-header-repeat line-left minwidth-1" width="5px"><a href="">Status</a></th>
@@ -269,11 +268,10 @@ if (!isset($_SESSION['user_id'])) {
 					<?php } ?>
 				</div>
 				<!--  end content-table  -->					
-				<div class="clear"></div>
 			</div>
 		<!--  end content-table-inner ............................................END  -->
 		</td>
 	</tr>
 </table>
-<div class="clear">&nbsp;</div>
+</div>
 <?php } ?>

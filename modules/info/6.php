@@ -58,10 +58,10 @@ foreach($res as $row) {
 		
 			<!--  start table-content  -->
 			<div id="table-content">
-				<div id="gear_vehicle">
+				<div id="gear_vehicle" style="margin-left: 64px; margin-bottom: 10px;">	
 					<div class="gear_info">
 						<img class="playermodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
-						<div id="gps" style="margin-left:46px;margin-top:54px">
+						<div id="gps" style="margin-left:120px;margin-top:323px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
 								echo $MapCoords[0];
@@ -79,7 +79,7 @@ foreach($res as $row) {
 							</div>							
 						</div>
 
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-95px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-75px">
 							Owner:&nbsp;<a href="admin.php?view=info&show=1&id=<?php echo $row['unique_id'];?>"><?php echo htmlspecialchars($row['name']);?></a>
 						</div>
 					</div>
@@ -88,9 +88,9 @@ foreach($res as $row) {
 						<div id="vehicle_inventory">	
 						<?php
 							
-							$maxmagazines = 24;
-							$maxweaps = 3;
-							$maxbacks = 0;
+							$maxmagazines = 50;
+							$maxweaps = 10;
+							$maxbacks = 3;
 							$freeslots = 0;
 							$freeweaps = 0;
 							$freebacks = 0;

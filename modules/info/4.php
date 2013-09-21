@@ -61,10 +61,10 @@ $owneruid = "";
 		
 			<!--  start table-content  -->
 			<div id="table-content">
-				<div id="gear_vehicle" style="margin-left: 10px;">
+				<div id="gear_vehicle" style="margin-left: 64px; margin-bottom: 10px;">	
 					<div class="gear_info">
 						<img class="vehiclemodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
-						<div id="gps" style="margin-left:46px;margin-top:54px">
+						<div id="gps" style="margin-left:120px;margin-top:323px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
 								echo $MapCoords[0];
@@ -82,10 +82,10 @@ $owneruid = "";
 							</div>							
 						</div>
 
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-95px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-85px">
 							<?php echo 'Damage:&nbsp;'.sprintf("%d%%", round($row['damage'] * 100));?>
 						</div>
-						<div class="statstext" style="width:180px;margin-left:205px;margin-top:-75px">
+						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-65px">
 							<?php echo 'Fuel:&nbsp;'.sprintf("%d%%", round($row['fuel'] * 100));?>
 						</div>
 					</div>
@@ -254,31 +254,30 @@ $owneruid = "";
 				</div>
 			</div>
 <?php if($sql == 'Bliss') { ?>
-<div id="repair">
-<table>
-<tr>
-	<th class="custom-th">
-	Options
-	</th>
-</tr>
-<tr>
-<td>
+<div id="medical">
+	<table id="medical">
+		<tr>
+			<th class="custom-th">
+			Options
+			</th>
+		</tr>
+		<tr>
+			<td>
 				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['id']; ?>">Repair Vehicle</a>
-</td>
-</tr>
-<tr>
-<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row['id']; ?>">Destroy Vehicle</a>
-</td>
-</tr>
-<tr>
-<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<a href="admin.php?view=actions&refuelVehicle=<?php echo $row['id']; ?>">Refuel Vehicle</a>
-</td>
-</tr>
-</table>
+			</td>
+		</tr>
+	</table>
 </div>
-			<div class="clear"></div>
 			
 			
 <?php
@@ -311,7 +310,7 @@ if ($_POST['submit_loc']) {
 echo $row['worldspace'];
 ?>
 		</textarea><br>
-	<br><input name="submit_loc" class="submit-login" type="submit" value="Submit" />
+	<br><input name="submit_loc" class="btn btn-default" type="submit" value="Submit" />
 	</form>
 </div>
 <?php } ?>
