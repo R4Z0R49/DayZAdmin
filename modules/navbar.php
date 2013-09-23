@@ -41,10 +41,13 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 			<li <?php echo ($page == 'home' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php ' : ' index.php '); ?>"><i class="icon-home"></i> Stats</a></li>
 			<li <?php echo ($page == 'leaderboard' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home"></i> Leaderboard</a></li>
 			<li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Control<b class="caret"></b></a>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
 			<ul class="dropdown-menu">
 				<li><a href="admin.php?view=admin">Admin Options</a></li>
-				<li><a href="admin.php?view=vip">VIP Manager</a></li>
+				<li><a href="admin.php?view=vip">VIP Options</a></li>
+				<li class="divider"></li>
+				<li><a href="admin.php?view=profile">Profile Settings</a></li>
+				<li class="divider"></li>
 				<li><a href="admin.php?view=database">Database Manager</a></li>
 			</ul>
 			</li>
