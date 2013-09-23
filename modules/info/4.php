@@ -77,7 +77,11 @@ $owneruid = "";
 							</div>
 							<div class="gpstext" style="width:120px;margin-left:13px;margin-top:61px">
 							<?php
-								echo sprintf("%03d",$MapCoords[1]).sprintf("%03d",$MapCoords[2]);
+								if ($accesslvl == 'full'){
+									echo sprintf("%03d",$MapCoords[1]).sprintf("%03d",$MapCoords[2]);
+								} else {
+									echo '<h4 style="margin-top: 2px">Classified!</h4>';
+								}
 							?>
 							</div>							
 						</div>
@@ -307,7 +311,11 @@ if ($_POST['submit_loc']) {
 	<br><h2 class="custom-h2-string">Location String</h2>
 		<textarea name="loc" action="">
 <?php 
-echo $row['worldspace'];
+	if ($accesslvl == 'full'){
+		echo $row['worldspace'];
+	} else {
+		echo 'Classified!';
+	}
 ?>
 		</textarea><br>
 	<br><input name="submit_loc" class="btn btn-default" type="submit" value="Submit" />

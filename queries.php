@@ -1,6 +1,9 @@
 <?php
 include ('config.php');
 //include ('querys.php');
+$user_id = $_SESSION['user_id'];
+$accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
+
 switch($sql)
 {
    	case 'Bliss':
