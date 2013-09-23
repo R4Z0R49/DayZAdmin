@@ -1,4 +1,9 @@
 <?php
+if(isset($_POST['user']) && $_POST['Edit']){
+	header('location:admin.php?view=admin&Value='.$_POST['user'][0].'');
+	exit();
+}
+
 if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 {
 	$pagetitle = "Manage admins";
@@ -24,10 +29,6 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 			//echo($aDoor[$i] . " ");
 		}
 		//echo $_GET["deluser"];
-	}
-
-	if(isset($_POST['user']) && $_POST['Edit']){
-		header('location:admin.php?view=admin&Value='.$_POST['user'][0].'');
 	}
 	
 	$res = $db->GetAll("SELECT * FROM users ORDER BY id ASC");
