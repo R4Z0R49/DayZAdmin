@@ -1,147 +1,75 @@
 <?php
-if(isset($_POST['user']) && $_POST['Edit']){
-	header('location:admin.php?view=admin&Value='.$_POST['user'][0].'');
+session_start();
+require_once('config.php');
+require_once('db.php');
+require_once('functions.php');
+require_once('queries.php');
+include_once('modules/FlashMessages.class.php');
+$message = new FlashMessages();
+$page = 'dashboard';
+
+$User = $_SESSION['login'];
+$User_query = $db->GetAll("SELECT * FROM users WHERE login = ?", $User);
+$salt = $User_query[0]['salt'];
+
+if (isset($_GET['logout']))
+{
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('LOGOUT',?,NOW())", $_SESSION['login']);
+	
+	if (isset($_SESSION['user_id']))
+		unset($_SESSION['user_id']);
+		
+	setcookie('login', '', 0, "/");
+	setcookie('password', '', 0, "/");
+	header('Location: admin.php');
+	exit;
 }
 
-if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
+if (isset($_SESSION['user_id']))
 {
-	$pagetitle = "Manage admins";
-	$delresult = "";
-	if (isset($_POST["user"]) && $_POST['Delete']){
-		$aDoor = $_POST["user"];
-		$N = count($aDoor);
-		for($i=0; $i < $N; $i++)
-		{
-			$res2 = $db->GetAll("SELECT * FROM users WHERE id = ?", $aDoor[$i]); 
-			foreach($res2 as $row2) {
-				$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('DELETE ADMIN: ', ?),?,NOW())", array($row2['login'], $_SESSION['login']));
-				$db->Execute("DELETE FROM `users` WHERE id = ?", $aDoor[$i]);
-				$delresult .= '<div id="message-green">
-				<table border="0" width="100%" cellpadding="0" cellspacing="0">
-				<tr>
-					<td class="green-left">Admin '.$row2['login'].' successfully removed!</td>
-					<td class="green-right"><a class="close-green"><img src="images/table/icon_close_green.gif" alt="" /></a></td>
-				</tr>
-				</table>
-				</div>';
-			}		
-			//echo($aDoor[$i] . " ");
-		}
-		//echo $_GET["deluser"];
+	include ('modules/rcon.php');
+	include ('modules/tables/rows.php');
+	function slashes(&$el)
+	{
+		if (is_array($el))
+			foreach($el as $k=>$v)
+				slashes($el[$k]);
+		else $el = stripslashes($el); 
 	}
-	
-	$res = $db->GetAll("SELECT * FROM users ORDER BY id ASC");
-	$number = sizeof($res);
-	
-	$users="";
-	foreach($res as $row) {
-		$users .= "<tr class='custom-tr'><td><input name=\"user[]\" value=\"".$row['id']."\" type=\"checkbox\"/></td><td>".$row['id']."</td><td>".$row['login']."</td><td>".$row['lastlogin']."</td><td>".$row['accesslvl']."</td></tr>";
-	}
-	
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS',?,NOW())", $_SESSION['login']);
 
-	if(isset($_POST['new_aname']) && $_POST['new_aname'] != NULL){
-		$db->Execute("UPDATE users SET login = ? WHERE id = ?", array($_POST['new_aname'], $_GET['Value']));
+	// Start: page-header 
+	include ('modules/header.php');
+	// End page-header
+
+	if (isset($_GET["show"])) {
+		$show = $_GET["show"];
+	} else {
+		$show = 0;
 	}
-	if(isset($_POST['new_apass']) && $_POST['new_apass'] != NULL){
-		if (strlen($_POST['new_apass']) < 6) {
-			$message->add('danger', "Password must be at least 6 characters");
-		} else {
-			$new_pass = md5(md5($_POST['new_apass']) . $salt);
-			$db->Execute("UPDATE users SET password = ? WHERE id = ?", array($new_pass, $_GET['Value']));
-		}
-	}
-	if(isset($_POST['new_access']) && $_POST['new_access'] != 'New Accesslvl'){
-		if($_POST['new_access'] == 'Semi'){
-			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('semi', $_GET['Value']));
-		}
-		if($_POST['new_access'] == 'Full'){
-			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('full', $_GET['Value']));
-		}
+
+	if (isset($_GET['view'])){
+		include ('modules/'.$_GET["view"].'.php');
+	} else {
+		include ('modules/dashboard.php');
 	}
 ?>
-<div id="dvPopup" class="container custom-container" style="display:none; width:900px; height: 600px;">
-	<a id="closebutton" style="float:right;" href="#" onclick="HideModalPopup('dvPopup'); return false;"><img src="images/table/action_delete.gif" alt="" /></a><br />
-	<?php include ('modules/register.php'); ?>
 </div>
-<div id="page-heading">
-	<h1 class="custom-h1"><?php echo $pagetitle; ?></h1>
-	<h1><?php echo "<title>".$pagetitle." - ".$sitename."</title>"; ?></h1>
+<!--  end content -->
 </div>
-<!-- end page-heading -->
+<!--  end content-outer........................................................END -->
 
-<table class="table" style="width: 25%; float: right;">
-<tr>
-	<th class="custom-th"><h4>Related Activities <i class="icon-arrow-down"></i></h4></th>
-</tr>
-<tr class="custom-tr">
-	<td><a href="#" onclick="ShowModalPopup('dvPopup'); return false;"><h4>Add Administrator</h4></a>
-	Adds a new administrator
-	</td>
-</tr>
-<tr class="custom-tr">
-	<td><a href="admin.php?view=actions&clearLogs"><h4>Clear Logs</h4></a>
-	Clears the action logs
-	</td>
-</tr>
-</table>
-
-<div id="table-content">
-<form action="admin.php?view=admin" method="post">
-<table class="table" style="width: 70%;">
-<tr>
-	<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Login <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Access Level <i class="icon-arrow-down"></i></h4></th>
-</tr>
-
-	<?php echo $users; ?>	
-</table>
-<input type="submit" value="Delete" name="Delete" class="btn btn-danger"  />
-<input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
-</div>
-</form>
-
-<?php if(isset($_GET['Value'])){
-$editing= $db->GetOne("SELECT login FROM users WHERE id = ?", array($_GET['Value']));
-echo '<br>';
-$message->display();
+<?php
+	// Start: page-footer 
+	include('modules/footer.php');
+	// End page-footer
 ?>
-<h1 class="custom-h1"><?php echo 'Editing admin, '. $editing; ?></h1>
-<form method="POST">
-	<div class="row" style="margin-bottom: 5px;">
-		<div class="col-lg-4">
-			<input type="text" placeholder="New Username" name="new_aname" class="form-control">
-		</div>
-	</div>
-	<div class="row" style="margin-bottom: 5px;">
-		<div class="col-lg-4">
-			<input type="password" placeholder="New Password" name="new_apass" class="form-control">
-		</div>
-	</div>
-	<div class="row" style="margin-bottom: 5px;">
-		<div class="col-lg-4">
-			<select name="new_access" class="form-control">
-				<option>New Accesslvl</option>
-				<option>Full</option>
-				<option>Semi</option>
-			</select>
-		</div>
-	</div>
-	<input type="submit" class="btn btn-default" name="edit_submit">
-</form>
-<?php } ?>
-
-
+ 
+</body>
+</html>
 <?php
 }
 else
 {
-	if ($accesslvl != 'full') {
-		$message->add('danger', "You dont have enough access to view this");
-		$message->display();
-	}
+	include ('modules/login.php');
 }
 ?>
