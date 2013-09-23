@@ -53,11 +53,9 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 	}
 	if(isset($_POST['new_access']) && $_POST['new_access'] != 'New Accesslvl'){
 		if($_POST['new_access'] == 'Semi'){
-			echo 'cock';
 			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('semi', $_GET['Value']));
 		}
 		if($_POST['new_access'] == 'Full'){
-			echo 'chicken';
 			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('full', $_GET['Value']));
 		}
 	}
