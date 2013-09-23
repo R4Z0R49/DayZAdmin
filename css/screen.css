@@ -95,8 +95,17 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	width: 374px;
 	height: 230px;
 	overflow: auto;
-	
 }
+
+#tents_inventory{
+	position: absolute;
+	margin-top: 48px;
+	margin-left: 0px;
+	width: 374px;
+	height: 400px;
+	overflow: auto;
+}
+
 .vehicle_hitpoints{
 	position: absolute;
 	margin-top: 325px;
