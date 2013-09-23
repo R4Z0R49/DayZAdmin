@@ -1,11 +1,7 @@
 <?php
-if(isset($_POST['user']) && $_POST['Edit']){
-	header('location:admin.php?view=admin&Value='.$_POST['user'][0].'');
-	exit();
-}
-
 if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 {
+	$userid = $_SESSION['userid_edit'];
 	$pagetitle = "Manage admins";
 	$delresult = "";
 	if (isset($_POST["user"]) && $_POST['Delete']){
@@ -41,23 +37,22 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 	
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS',?,NOW())", $_SESSION['login']);
 
-	if(isset($_POST['new_aname']) && $_POST['new_aname'] != NULL){
-		$db->Execute("UPDATE users SET login = ? WHERE id = ?", array($_POST['new_aname'], $_GET['Value']));
+	if(isset($_REQUEST['new_aname']) && $_REQUEST['new_aname'] != NULL){
+		$db->Execute("UPDATE users SET login = ? WHERE id = ?", array($_POST['new_aname'], $userid));
 	}
-	if(isset($_POST['new_apass']) && $_POST['new_apass'] != NULL){
-		if (strlen($_POST['new_apass']) < 6) {
+	if(isset($_REQUEST['new_apass']) && $_REQUEST['new_apass'] != NULL){
+		if (strlen($_REQUEST['new_apass']) < 6) {
 			$message->add('danger', "Password must be at least 6 characters");
 		} else {
-			$new_pass = md5(md5($_POST['new_apass']) . $salt);
-			$db->Execute("UPDATE users SET password = ? WHERE id = ?", array($new_pass, $_GET['Value']));
+			$db->Execute("UPDATE users SET password = ? WHERE id = ?", array(md5(md5($_POST['new_apass']) . $salt), $userid));
 		}
 	}
-	if(isset($_POST['new_access']) && $_POST['new_access'] != 'New Accesslvl'){
-		if($_POST['new_access'] == 'Semi'){
-			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('semi', $_GET['Value']));
+	if(isset($_REQUEST['new_access']) && $_REQUEST['new_access'] != 'New Accesslvl'){
+		if($_REQUEST['new_access'] == 'Semi'){
+			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('semi', $userid));
 		}
-		if($_POST['new_access'] == 'Full'){
-			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('full', $_GET['Value']));
+		if($_REQUEST['new_access'] == 'Full'){
+			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('full', $userid));
 		}
 	}
 ?>
@@ -105,13 +100,17 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 </div>
 </form>
 
-<?php if(isset($_GET['Value'])){
-$editing= $db->GetOne("SELECT login FROM users WHERE id = ?", array($_GET['Value']));
-echo '<br>';
-$message->display();
+<?php if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
+	$editing= $db->GetOne("SELECT login FROM users WHERE id = ?", $userid);
+	echo '<br>';
+	$userid = $_REQUEST['user'][0];
+	$message->display();
 ?>
 <h1 class="custom-h1"><?php echo 'Editing admin, '. $editing; ?></h1>
 <form method="POST">
+	<?php 
+	$_SESSION['userid_edit'] = $userid;
+	?>
 	<div class="row" style="margin-bottom: 5px;">
 		<div class="col-lg-4">
 			<input type="text" placeholder="New Username" name="new_aname" class="form-control">

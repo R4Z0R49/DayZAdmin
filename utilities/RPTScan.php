@@ -145,6 +145,8 @@ $ignore = array(
 'PMC_AS50_TWS_Large',
 'SCAR_L_CQC',
 'SMAW_HEDP_Big',
+'SVD',
+'SVD_CAMO',
 'UK59_ACR',
 );
 
