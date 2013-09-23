@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+require_once('queries.php');
+>>>>>>> 513a52167e957bc0d9c5252a978dbe4d4852d4c9
 function header_player($show){
 	return '<tr>
 		<th width="5%" class="custom-th"><a href=""><h4>Control</h4></a></th>
