@@ -89,7 +89,7 @@ foreach($res as $row) {
 					</div>
 					<!-- Backpack -->
 					<div class="vehicle_gear">	
-						<div id="vehicle_inventory">	
+						<div id="tents_inventory">	
 						<?php
 							
 							$maxmagazines = 50;
