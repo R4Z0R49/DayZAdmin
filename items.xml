@@ -500,10 +500,6 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sDMR_DZ>
-  <sDMR>
-    <Slots>10</Slots>
-    <Type>rifle</Type>
-  </sDMR>
   <sDSHkM_Mini_TriPod_TK_GUE_Bag_EP1>
     <Slots>2</Slots>
     <Type>Backpacks</Type>
@@ -1854,14 +1850,6 @@
     <maxmagazines>0</maxmagazines>
     <maxweapons>0</maxweapons>
   </sSPG9_TK_INS_Bag_EP1>
-  <sSVD>
-    <Slots>10</Slots>
-    <Type>rifle</Type>
-  </sSVD>
-  <sSVD_CAMO>
-    <Slots>10</Slots>
-    <Type>rifle</Type>
-  </sSVD_CAMO>
   <sSVD_CAMO_DZ>
     <Slots>10</Slots>
     <Type>rifle</Type>
