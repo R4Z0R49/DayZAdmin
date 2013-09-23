@@ -7,7 +7,7 @@
 	$salt = $User_query[0]['salt'];
 	$hashed_password = md5(md5($_POST['old_pass']) . $salt);
 
-	if($hashed_password == $Old_passmd5 && $_POST['new_pass'] == $_POST['confirm_pass']){
+	if($hashed_password == $Old_passmd5 && $_POST['new_pass'] == $_POST['confirm_pass'] && strlen($confirm_pass) > 6){
 		$newpass = md5(md5($_POST['new_pass']) . $salt);
 		echo $newpass;
 		$db->Execute("UPDATE users SET password = ? WHERE login = ?", array($newpass, $User));
@@ -22,6 +22,11 @@
 		if(md5(md5($_POST['old_pass']) . $salt) != $Old_passmd5){
 			$message->add('danger', "Old password is incorrect");
 		}
+	}
+
+	if ($_POST['new_pass'] && strlen($new_pass) < 6)
+	{
+		$message->add('danger', "Password must be at least 6 characters");
 	}
 ?>
 
