@@ -3,6 +3,8 @@ session_start();
 require_once('config.php');
 require_once('db.php');
 require_once('functions.php');
+include_once('modules/FlashMessages.class.php');
+$message = new FlashMessages();
 $page = 'dashboard';
 
 if (isset($_GET['logout']))

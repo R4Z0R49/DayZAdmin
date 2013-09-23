@@ -3,9 +3,6 @@ include('config.php');
 mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
 mysql_select_db($dbName);
 
-$user_id = $_SESSION['user_id'];
-$accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
-
 if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 {
 	switch($show) {
@@ -44,7 +41,8 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 else
 {
 	if ($accesslvl != 'full') {
-	echo 'You dont have enough access to view this';
+		$message->add('danger', "You dont have enough access to view this");
+		$message->display();
 	}
 }
 ?>

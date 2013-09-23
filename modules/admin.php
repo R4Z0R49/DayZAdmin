@@ -1,7 +1,4 @@
 <?php
-$user_id = $_SESSION['user_id'];
-$accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
-
 if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 {
 	$pagetitle = "Manage admins";
@@ -88,7 +85,8 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 else
 {
 	if ($accesslvl != 'full') {
-	echo 'You dont have enough access to view this';
+		$message->add('danger', "You dont have enough access to view this");
+		$message->display();
 	}
 }
 ?>
