@@ -1,7 +1,6 @@
 <?php
 if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 {
-	$userid = $_SESSION['userid_edit'];
 	$pagetitle = "Manage admins";
 	$delresult = "";
 	if (isset($_POST["user"]) && $_POST['Delete']){
@@ -26,6 +25,28 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 		}
 		//echo $_GET["deluser"];
 	}
+
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS',?,NOW())", $_SESSION['login']);
+
+    $userid = $_REQUEST['userid'];
+    if(isset($_REQUEST['new_aname']) && $_REQUEST['new_aname'] != NULL){
+        $db->Execute("UPDATE users SET login = ? WHERE id = ?", array($_POST['new_aname'], $userid));
+    }
+    if(isset($_REQUEST['new_apass']) && $_REQUEST['new_apass'] != NULL){
+        if (strlen($_REQUEST['new_apass']) < 6) {
+            $message->add('danger', "Password must be at least 6 characters");
+        } else {
+            $db->Execute("UPDATE users SET password = ? WHERE id = ?", array(md5(md5($_POST['new_apass']) . $salt), $userid));
+        }
+    }
+    if(isset($_REQUEST['new_access']) && $_REQUEST['new_access'] != 'New Accesslvl'){
+        if($_REQUEST['new_access'] == 'Semi'){
+            $db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('semi', $userid));
+        }
+        if($_REQUEST['new_access'] == 'Full'){
+            $db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('full', $userid));
+        }
+    }
 	
 	$res = $db->GetAll("SELECT * FROM users ORDER BY id ASC");
 	$number = sizeof($res);
@@ -35,26 +56,6 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 		$users .= "<tr class='custom-tr'><td><input name=\"user[]\" value=\"".$row['id']."\" type=\"checkbox\"/></td><td>".$row['id']."</td><td>".$row['login']."</td><td>".$row['lastlogin']."</td><td>".$row['accesslvl']."</td></tr>";
 	}
 	
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS',?,NOW())", $_SESSION['login']);
-
-	if(isset($_REQUEST['new_aname']) && $_REQUEST['new_aname'] != NULL){
-		$db->Execute("UPDATE users SET login = ? WHERE id = ?", array($_POST['new_aname'], $userid));
-	}
-	if(isset($_REQUEST['new_apass']) && $_REQUEST['new_apass'] != NULL){
-		if (strlen($_REQUEST['new_apass']) < 6) {
-			$message->add('danger', "Password must be at least 6 characters");
-		} else {
-			$db->Execute("UPDATE users SET password = ? WHERE id = ?", array(md5(md5($_POST['new_apass']) . $salt), $userid));
-		}
-	}
-	if(isset($_REQUEST['new_access']) && $_REQUEST['new_access'] != 'New Accesslvl'){
-		if($_REQUEST['new_access'] == 'Semi'){
-			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('semi', $userid));
-		}
-		if($_REQUEST['new_access'] == 'Full'){
-			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('full', $userid));
-		}
-	}
 ?>
 <div id="dvPopup" class="container custom-container" style="display:none; width:900px; height: 600px;">
 	<a id="closebutton" style="float:right;" href="#" onclick="HideModalPopup('dvPopup'); return false;"><img src="images/table/action_delete.gif" alt="" /></a><br />
@@ -101,19 +102,17 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 </form>
 
 <?php if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
-	$editing= $db->GetOne("SELECT login FROM users WHERE id = ?", $userid);
-	echo '<br>';
 	$userid = $_REQUEST['user'][0];
+	$editing = $db->GetOne("SELECT login FROM users WHERE id = ?", $userid);
+	echo '<br>';
 	$message->display();
 ?>
-<h1 class="custom-h1"><?php echo 'Editing admin, '. $editing; ?></h1>
+<h1 class="custom-h1"><?php echo 'Editing '. $editing; ?></h1>
 <form method="POST">
-	<?php 
-	$_SESSION['userid_edit'] = $userid;
-	?>
+    <input type="hidden" name="userid" value="<?php echo $_REQUEST['user'][0]; ?>">
 	<div class="row" style="margin-bottom: 5px;">
 		<div class="col-lg-4">
-			<input type="text" placeholder="New Username" name="new_aname" class="form-control">
+			<input type="text" value="<?php echo $editing; ?>" name="new_aname" class="form-control">
 		</div>
 	</div>
 	<div class="row" style="margin-bottom: 5px;">
