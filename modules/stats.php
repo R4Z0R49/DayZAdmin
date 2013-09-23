@@ -61,6 +61,13 @@
 				<td align="right"><strong><?php echo $num_totalVehicles;?></strong></td>
 			</tr>
 		</table>
+	</div>
+</div>
+
+</br>
+
+<div class="stats-box">
+	<div class="stats-box-inner">
 		<div class="stats-search">
 			<?php include ('playersearch.php'); ?>	
 		</div>
