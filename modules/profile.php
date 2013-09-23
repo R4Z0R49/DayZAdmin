@@ -1,10 +1,7 @@
 <?php
 	$pagetitle = "Profile Settings";
 
-	$User = $_SESSION['login'];
-	$User_query = $db->GetAll("SELECT * FROM users WHERE login = ?", $User);
 	$Old_passmd5 = $User_query[0]['password'];
-	$salt = $User_query[0]['salt'];
 	$hashed_password = md5(md5($_POST['old_pass']) . $salt);
 
 	if($hashed_password == $Old_passmd5 && $_POST['new_pass'] == $_POST['confirm_pass'] && strlen($confirm_pass) > 6){
