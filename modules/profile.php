@@ -1,30 +1,32 @@
 <?php
 	$pagetitle = "Profile Settings";
 
-	$Old_passmd5 = $User_query[0]['password'];
-	$hashed_password = md5(md5($_POST['old_pass']) . $salt);
+    if(isset($_REQUEST['old_pass']) && isset($_REQUEST['new_pass']) && isset($_REQUEST['confirm_pass'])) {
+	    $old_passmd5 = $User_query[0]['password'];
+	    $hashed_password = md5(md5($_REQUEST['old_pass']) . $salt);
 
-	if($hashed_password == $Old_passmd5 && $_POST['new_pass'] == $_POST['confirm_pass'] && strlen($confirm_pass) > 6){
-		$newpass = md5(md5($_POST['new_pass']) . $salt);
-		echo $newpass;
-		$db->Execute("UPDATE users SET password = ? WHERE login = ?", array($newpass, $User));
-		$message->add('success', "Password successfully changed");
-	}
+    	if($_REQUEST['new_pass'] != $_REQUEST['confirm_pass']) {
+	    	$message->add('danger', "Passwords do not match");
+    	} 
 
-	if($_POST['new_pass'] != $_POST['confirm_pass']) {
-		$message->add('danger', "Passwords do not match");
-	} 
+	    if(isset($_REQUEST['old_pass'])) {
+		    if($hashed_password != $old_passmd5){
+			    $message->add('danger', "Old password is incorrect");
+    		}
+	    }
 
-	if($_POST['old_pass']) {
-		if(md5(md5($_POST['old_pass']) . $salt) != $Old_passmd5){
-			$message->add('danger', "Old password is incorrect");
-		}
-	}
+    	if (isset($_REQUEST['new_pass']) && strlen($_REQUEST['new_pass']) < 6)
+	    {
+		    $message->add('danger', "Password must be at least 6 characters");
+    	}
 
-	if ($_POST['new_pass'] && strlen($new_pass) < 6)
-	{
-		$message->add('danger', "Password must be at least 6 characters");
-	}
+	    if($hashed_password == $old_passmd5 && $_REQUEST['new_pass'] == $_REQUEST['confirm_pass'] && strlen($_REQUEST['confirm_pass']) >= 6){
+		    $newpass = md5(md5($_REQUEST['new_pass']) . $salt);
+	    	$db->Execute("UPDATE users SET password = ? WHERE login = ?", array($newpass, $User));
+    		$message->add('success', "Password successfully changed");
+	    }
+
+    }
 ?>
 
 <div id="page-heading">
