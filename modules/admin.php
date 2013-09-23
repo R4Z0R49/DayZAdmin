@@ -3,7 +3,7 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 {
 	$pagetitle = "Manage admins";
 	$delresult = "";
-	if (isset($_POST["user"])){
+	if (isset($_POST["user"]) && $_POST['Delete']){
 		$aDoor = $_POST["user"];
 		$N = count($aDoor);
 		for($i=0; $i < $N; $i++)
@@ -25,6 +25,10 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 		}
 		//echo $_GET["deluser"];
 	}
+
+	if(isset($_POST['user']) && $_POST['Edit']){
+		header('location:admin.php?view=admin&Value='.$_POST['user'][0].'');
+	}
 	
 	$res = $db->GetAll("SELECT * FROM users ORDER BY id ASC");
 	$number = sizeof($res);
@@ -35,6 +39,28 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 	}
 	
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS',?,NOW())", $_SESSION['login']);
+
+	if(isset($_POST['new_aname']) && $_POST['new_aname'] != NULL){
+		$db->Execute("UPDATE users SET login = ? WHERE id = ?", array($_POST['new_aname'], $_GET['Value']));
+	}
+	if(isset($_POST['new_apass']) && $_POST['new_apass'] != NULL){
+		if (strlen($_POST['new_apass']) < 6) {
+			$message->add('danger', "Password must be at least 6 characters");
+		} else {
+			$new_pass = md5(md5($_POST['new_apass']) . $salt);
+			$db->Execute("UPDATE users SET password = ? WHERE id = ?", array($new_pass, $_GET['Value']));
+		}
+	}
+	if(isset($_POST['new_access']) && $_POST['new_access'] != 'New Accesslvl'){
+		if($_POST['new_access'] == 'Semi'){
+			echo 'cock';
+			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('semi', $_GET['Value']));
+		}
+		if($_POST['new_access'] == 'Full'){
+			echo 'chicken';
+			$db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('full', $_GET['Value']));
+		}
+	}
 ?>
 <div id="dvPopup" class="container custom-container" style="display:none; width:900px; height: 600px;">
 	<a id="closebutton" style="float:right;" href="#" onclick="HideModalPopup('dvPopup'); return false;"><img src="images/table/action_delete.gif" alt="" /></a><br />
@@ -66,7 +92,7 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 <form action="admin.php?view=admin" method="post">
 <table class="table" style="width: 70%;">
 <tr>
-	<th class="custom-th"><h4>Delete <i class="icon-arrow-down"></i></h4></th>
+	<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
 	<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
 	<th class="custom-th"><h4>Login <i class="icon-arrow-down"></i></h4></th>
 	<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
@@ -75,9 +101,40 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 
 	<?php echo $users; ?>	
 </table>
-<input type="submit" class="btn btn-default"  />
+<input type="submit" value="Delete" name="Delete" class="btn btn-danger"  />
+<input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
 </div>
 </form>
+
+<?php if(isset($_GET['Value'])){
+$editing= $db->GetOne("SELECT login FROM users WHERE id = ?", array($_GET['Value']));
+echo '<br>';
+$message->display();
+?>
+<h1 class="custom-h1"><?php echo 'Editing admin, '. $editing; ?></h1>
+<form method="POST">
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="col-lg-4">
+			<input type="text" placeholder="New Username" name="new_aname" class="form-control">
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="col-lg-4">
+			<input type="password" placeholder="New Password" name="new_apass" class="form-control">
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="col-lg-4">
+			<select name="new_access" class="form-control">
+				<option>New Accesslvl</option>
+				<option>Full</option>
+				<option>Semi</option>
+			</select>
+		</div>
+	</div>
+	<input type="submit" class="btn btn-default" name="edit_submit">
+</form>
+<?php } ?>
 
 
 <?php
