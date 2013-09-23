@@ -3,10 +3,7 @@ session_start();
 require_once('config.php');
 require_once('db.php');
 require_once('functions.php');
-<<<<<<< HEAD
 require_once('queries.php');
-=======
->>>>>>> 513a52167e957bc0d9c5252a978dbe4d4852d4c9
 include_once('modules/FlashMessages.class.php');
 $message = new FlashMessages();
 $page = 'dashboard';
