@@ -68,7 +68,7 @@
 
 <div class="stats-box">
 	<div class="stats-box-inner">
-		<div class="stats-search"
+		<div class="stats-search">
 			<?php include ('playersearch.php'); ?>	
 		</div>
 	</div>
