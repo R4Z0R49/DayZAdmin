@@ -47,6 +47,9 @@ if (isset($_SESSION['user_id']))
 		case 6:
 			$pagetitle = "Tents/Stashes";	
 			break;
+		case 7:
+			$pagetitle = "Other Deployables";	
+			break;
 		default:
 			$pagetitle = "Online players";
 		};
