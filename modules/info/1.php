@@ -19,7 +19,6 @@ $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Viewing
 }
 
 foreach($res as $row) {	
-
 	$MapCoords = worldspaceToMapCoords($row['worldspace']);
 	$Inventory = $row['inventory'];
 	$Inventory = str_replace("|", ",", $Inventory);
@@ -51,6 +50,7 @@ foreach($res as $row) {
 		$InvCarry = array();
 	}
 
+    $weaponinhand = $Inventory[0][0];
 	$Inventory = (array_merge($Inventory[0], $Inventory[1], $InvCarry));
 	for ($i=0; $i<count($Inventory); $i++){
 		if(array_key_exists($i,$Inventory)){
@@ -66,7 +66,11 @@ foreach($res as $row) {
 						$rifle = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
 						break;
 					case 'carry':
-						$carry = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+                        if($curitem == $weaponinhand) {
+						    $rifle = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+                        } else {
+						    $carry = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+                        }
 						break;
 					case 'pistol':
 						$pistol = '<img style="margin-top: 10px;max-width:76px;max-height:76px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
