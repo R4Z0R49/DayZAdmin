@@ -84,6 +84,7 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 							</ul>
 						</li>
                         <li><a href="admin.php?view=table&show=6">Tents/Stashes</a></li>
+                        <li><a href="admin.php?view=table&show=7">Other Deployables</a></li>
 					</ul>
 				</li>
 				<li class="divider"></li>
@@ -106,6 +107,7 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 								<li><a href="admin.php?view=map&show=0">Active Players</a></li>
 								<li><a href="admin.php?view=map&show=4">Vehicles</a></li>
     							<li><a href="admin.php?view=map&show=6">Tents/Stashes</a></li>
+								<li><a href="admin.php?view=map&show=7">Other Deployables</a></li>
 								<li><a href="admin.php?view=map&show=8">Everything</a></li>
 							</li>
 						</ul>
