@@ -37,7 +37,9 @@ if (isset($_SESSION['user_id']))
 		StashSmall = new Icon({ iconUrl: 'images/icons/tent.png' }),
 		StashMedium = new Icon({ iconUrl: 'images/icons/tent.png' }),
 		hedgehog = new Icon({ iconUrl: 'images/icons/hedgehog.png' }),
+		Hedgehog = new Icon({ iconUrl: 'images/icons/hedgehog.png' }),
 		sandbag = new Icon({ iconUrl: 'images/icons/sandbag.png' }),
+		Sandbag = new Icon({ iconUrl: 'images/icons/sandbag.png' }),
 		Player = new Icon({ iconUrl: 'images/icons/player.png' }),
 		PlayerDead = new Icon({ iconUrl: 'images/icons/player_dead.png' });
 
