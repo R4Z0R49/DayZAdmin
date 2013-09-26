@@ -32,7 +32,8 @@ switch($sql)
 		$info7 = array("SELECT * FROM instance");
 	//Maps
 		$map0 = array("select s.id AS cid, p.*, 'Player' as type, s.worldspace as worldspace, s.survival_time as survival_time, s.model as model, s.survivor_kills as survivor_kills, s.zombie_kills as zombie_kills, s.bandit_kills as bandit_kills, s.is_dead as is_dead, s.unique_id as unique_id from profile p join survivor s on p.unique_id = s.unique_id where s.is_dead = 0 and s.world_id = ? and last_updated > now() - interval 1 minute", $world);
-		$map1 = array("select s.id AS cid, p.*, 'Player' as type, s.worldspace as worldspace, s.survival_time as survival_time, s.model as model, s.survivor_kills as survivor_kills, s.zombie_kills as zombie_kills, s.bandit_kills as bandit_kills, s.is_dead as is_dead, s.unique_id as unique_id from profile p join survivor s on p.unique_id = s.unique_id where s.is_dead = 0 and s.world_id = $world");
+		$map1 = array("select s.id AS cid, p.*, 'Player' as type, s.worldspace as worldspace, s.survival_time as survival_time, s.model as model, s.survivor_kills as survivor_kills, s.zombie_kills as zombie_kills, s.bandit_kills as bandit_kills, s.is_dead as is_dead, s.unique_id as unique_id from profile p join survivor s on p.unique_id = s.unique_id where s.is_dead = 0 and s.world_id = ?", $world);
+        $map2 = array("SELECT profile.*, survivor.id AS cid, survivor.* FROM `profile`, `survivor` WHERE profile.unique_id = survivor.unique_id AND survivor.is_dead = '1' AND survivor.world_id = ?", $world);
 		$map4 = array("SELECT iv.*, v.class_name, oc.Type FROM instance_vehicle iv inner join  world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on wv.vehicle_id = v.id inner join object_classes oc on oc.Classname = v.class_name WHERE iv.instance_id = ? AND wv.world_id = ?", array($iid, $world));
         $map5 = array("select wv.*, v.*, oc.* from world_vehicle wv inner join vehicle v on wv.vehicle_id = v.id inner join object_classes oc on v.class_name = oc.classname where wv.world_id = ?", $world);
 		$map6 = array("select id.id,id.unique_id as idid,id.worldspace,id.inventory,id.last_updated,instance_id,oc.Classname,oc.Type,p.name,p.unique_id from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname join survivor s on s.id = id.owner_id join profile p on p.unique_id = s.unique_id where d.class_name IN ('TentStorage','StashSmall','StashMedium') and id.instance_id = ?", $iid);
@@ -180,7 +181,7 @@ and Character_DATA.last_updated >= NOW() - INTERVAL 1 minute");
         $map1 = array("
 select Player_DATA.playerName as name, Player_DATA.playerUID,
 Character_DATA.PlayerUID as unique_id,
-Character_DATA.CharacterID as id,
+Character_DATA.CharacterID as cid,
 Character_DATA.Worldspace as worldspace,
 Character_DATA.Model as model,
 Character_DATA.KillsZ as zombie_kills,
@@ -190,6 +191,19 @@ Character_DATA.Humanity as humanity
 from Player_DATA, Character_DATA
 where Player_DATA.PlayerUID = Character_DATA.PlayerUID
 and Character_DATA.Alive = 1");
+        $map2 = array("
+select Player_DATA.playerName as name, Player_DATA.playerUID,
+Character_DATA.PlayerUID as unique_id,
+Character_DATA.CharacterID as cid,
+Character_DATA.Worldspace as worldspace,
+Character_DATA.Model as model,
+Character_DATA.KillsZ as zombie_kills,
+Character_DATA.KillsB as bandit_kills,
+Character_DATA.duration as survival_time,
+Character_DATA.Humanity as humanity
+from Player_DATA, Character_DATA
+where Player_DATA.PlayerUID = Character_DATA.PlayerUID
+and Character_DATA.Alive = 0");
 		$map4 = array("SELECT Object_CLASSES.*,
 		Object_DATA.ObjectID as id,
 		Object_DATA.ObjectUID as uid,
