@@ -1,6 +1,9 @@
 <?php
 
-$res = $db->GetAll("SELECT profile.*, survivor.id AS cid, survivor.* FROM `profile`, `survivor` WHERE profile.unique_id = survivor.unique_id AND survivor.is_dead = '1'");
+include ('queries.php');
+$query = $map2[0];
+$binds = $map2[1];
+$res = $db->GetAll($query, $binds);
 $markers = markers_player($res, $map);
 
 ?>
