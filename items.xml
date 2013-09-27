@@ -1116,6 +1116,10 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sHandGrenade_East>
+  <sHandGrenade_east>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sHandGrenade_east>
   <sHandGrenade_Stone>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1124,6 +1128,10 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sHandGrenade_West>
+  <sHandGrenade_west>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sHandGrenade_west>
   <sHandRoadFlare>
     <Slots>1</Slots>
     <Type>heavyammo</Type>

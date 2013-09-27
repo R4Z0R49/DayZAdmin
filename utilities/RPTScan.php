@@ -150,7 +150,13 @@ $ignore = array(
 'UK59_ACR',
 );
 
-$items = array();
+// define custom items not found in regular classes, like mispelled things,
+// then we'll add the real items below
+$items = array(
+    array("class" => "HandGrenade_west", "type" => "heavyammo", "slots" => 1, "picture" => "\CA\weapons\data\equip\m_M67_CA.paa"),
+    array("class" => "HandGrenade_east", "type" => "heavyammo", "slots" => 1, "picture" => "\CA\weapons\data\equip\m_RGD5_ca.paa"),
+);
+
 $vehicles = array();
 $sides = array(
 	0 => "NONE",
