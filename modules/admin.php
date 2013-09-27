@@ -335,17 +335,17 @@ $hasAccess = array($hasAccess);
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_cansearch"> <font color="<?php if($hasAccess[0][4] == 'true') { echo 'green'; } ?>">Search access?</font>
+     			 	<input type="checkbox" name="alvl_cansearch"> <font color="<?php if($hasAccess[0][4] == 'true') { echo 'green'; } ?>">Has search access</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_checkitems"> <font color="<?php if($hasAccess[0][5] == 'true') { echo 'green'; } ?>">Can check illegal items?</font>
+     			 	<input type="checkbox" name="alvl_checkitems"> <font color="<?php if($hasAccess[0][5] == 'true') { echo 'green'; } ?>">Can check illegal items</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_canviewdbmanager"> <font color="<?php if($hasAccess[0][6] == 'true') { echo 'green'; } ?>">Can use db manager?</font>
+     			 	<input type="checkbox" name="alvl_canviewdbmanager"> <font color="<?php if($hasAccess[0][6] == 'true') { echo 'green'; } ?>">Can use db manager</font>
    				 </label>
   			</div>
 		</div>
