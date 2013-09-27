@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+require_once('config.php');
 require_once('functions.php');
 
 function markers_player($res, $world) {
@@ -11,10 +11,20 @@ function markers_player($res, $world) {
 			$x = 0; if (array_key_exists(1, $Worldspace)) { $x = $Worldspace[1]; }
 			$y = 0; if (array_key_exists(2, $Worldspace)) { $y = $Worldspace[2]; }
 
+            $state = str_replace("[", "", $row['state']);
+            $state = str_replace("]", "", $state);
+            $state = str_replace('"', "", $state);
+            $state = explode(",", $state);
+            if(is_array($state) && $state[0] != "") {
+                $wpnstr = " - " . $state[0];
+            } else {
+                $wpnstr = "";
+            }
+
 			require_once('modules/calc.php');
-			$description = "<strong><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".htmlspecialchars($row['name'], ENT_QUOTES)." - ".$row['unique_id']."</a></strong><br><table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row['id']."<br> <strong>CharacterID:</strong> ".$row['unique_id']."<br> <strong>Zed Kills:</strong> ".$row['zombie_kills']."<br> <strong>Bandit Kills:</strong> ".$row['bandit_kills']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['survival_time'])."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row['humanity']."</td></tr></table>";	
+			$description = "<strong><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".htmlspecialchars($row['name'], ENT_QUOTES)."</a>".$wpnstr."</strong><br><table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row['unique_id']."<br> <strong>CharacterID:</strong> ".$row['cid']."<br> <strong>Zed Kills:</strong> ".$row['zombie_kills']."<br> <strong>Bandit Kills:</strong> ".$row['bandit_kills']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['survival_time'])."<br><strong>Survival Attempts:</strong> ".$row['survival_attempts']."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row['humanity']."</td></tr></table>";	
 			$tmp = array();
-			$tmp["id"] = $row['unique_id'];
+			$tmp["id"] = $row['cid'];
 			$tmp["lat"] = (world_y($y, $world) / 10);
 			$tmp["lng"] = (world_x($x, $world) / 10);
 			$tmp["icon"] = "Player".($row['is_dead'] ? "Dead" : "");
