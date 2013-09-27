@@ -1,7 +1,7 @@
 <?php
 $debug = '';
 //ob_end_clean();
-if (isset($_SESSION['user_id']))
+if (isset($_SESSION['user_id']) && $accesslvls[0][4] != "false")
 {
 	include ('info/'.$show.'.php');
 }

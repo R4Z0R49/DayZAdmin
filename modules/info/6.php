@@ -74,7 +74,7 @@ foreach($res as $row) {
 							</div>
 							<div class="gpstext" style="width:120px;margin-left:13px;margin-top:61px">
 							<?php
-								if ($accesslvl == 'full'){
+								if ($accesslvls[0][3] != 'false') {
 									echo sprintf("%03d",$MapCoords[1]).sprintf("%03d",$MapCoords[2]);
 								} else {
 									echo '<h4 style="margin-top: 2px">Classified!</h4>';

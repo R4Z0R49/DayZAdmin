@@ -1,7 +1,6 @@
 <?php
-if (!isset($_SESSION['user_id'])) {
-	header('Location: admin.php');
-} else {
+if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
+{
 
 	$pagetitle = "Items check (survivors, tents and vehicles)";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK',?,NOW())", $_SESSION['login']);
@@ -274,4 +273,13 @@ if (!isset($_SESSION['user_id'])) {
 	</tr>
 </table>
 </div>
-<?php } ?>
+<?php
+}
+else
+{
+	if ($accesslvls[0][5] != 'true') {
+		$message->add('danger', "You dont have enough access to view this");
+		$message->display();
+	}
+}
+?>
