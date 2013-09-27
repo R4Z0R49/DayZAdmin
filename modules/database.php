@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['user_id']))
+if (isset($_SESSION['user_id']) && $accesslvls[0][6] != 'false')
 {
 	$pagetitle = "Database Admin Coming Soon";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('DATABASE ADMIN',?,NOW())", $_SESSION['login']);
@@ -18,6 +18,9 @@ if (isset($_SESSION['user_id']))
 }
 else
 {
-	header('Location: admin.php');
+	if ($accesslvls[0][6] != 'true') {
+		$message->add('danger', "You dont have enough access to view this");
+		$message->display();
+	}
 }
 ?>

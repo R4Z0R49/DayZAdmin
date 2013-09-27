@@ -2,7 +2,14 @@
 include ('config.php');
 //include ('querys.php');
 $user_id = $_SESSION['user_id'];
-$accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
+
+// Access lvls
+$accesslvlname = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
+$accesslvltable = $db->GetAll("SELECT * FROM accesslvl WHERE name = '$accesslvlname'");
+$accesslvls = $accesslvltable[0]['access'];
+$accesslvls = str_replace("|", ",", $accesslvls);
+$accesslvls = json_decode($accesslvls);
+$accesslvls = array($accesslvls);
 
 switch($sql)
 {

@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_SESSION['user_id']))
+if (isset($_SESSION['user_id']) && $accesslvls[0][4] != 'false')
 {
 	if (isset($_POST['type'])){
 		$pagetitle = "Search for ".$_POST['type'];
@@ -125,6 +125,9 @@ if (isset($_SESSION['user_id']))
 }
 else
 {
-	header('Location: index.php');
+	if ($accesslvls[0][4] != 'true') {
+		$message->add('danger', "You dont have enough access to view this");
+		$message->display();
+	}
 }
 ?>

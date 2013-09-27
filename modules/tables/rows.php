@@ -35,7 +35,7 @@ function header_deployable($show, $chbox){
 }
 
 function row_player($row){
-	global $accesslvl;
+	global $accesslvls;
     global $map;
     $MapCoords = worldspaceToMapCoords($row['worldspace'], $map);
 	$x = 0;
@@ -114,7 +114,7 @@ function row_player($row){
 	}
 	$icon = '<img src="images/icons/player'.($row['is_dead'] ? '_dead' : '').'.png" title="" alt=""/>';
 	
-	if ($accesslvl != 'full') {
+	if ($accesslvls[0][3] != 'true') {
 		$tablerow = "<tr>
 			<td align=\"center\" class=\"gear_preview\">".$icon."</td>
 			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".htmlspecialchars($row['name'])."</a></td>
@@ -137,7 +137,7 @@ function row_player($row){
 }
 
 function row_online_player($row, $player){
-	global $accesslvl;
+	global $accesslvls;
     global $map;
 	$x = 0;
 	$y = 0;
@@ -224,7 +224,7 @@ function row_online_player($row, $player){
 	$ban = '<a href="admin.php?view=actionreason&ban='.$player[0].'&player='.$player[4].'">Ban</a>';
 	$reset = '<a href="admin.php?view=actions&resetlocation='.$row['id'].'">ResetLocation</a>';
 
-	if($accesslvl != 'full'){
+	if ($accesslvls[0][3] != 'true') {
 		$tablerow = "<tr>
 			<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$kick."&nbsp;&nbsp;&nbsp;&nbsp;".$ban."<br><br>".$reset."</td>
 			<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$name."</td>
@@ -316,7 +316,7 @@ function row_vehicle($row, $chbox){
 		}			
 	}	
 	
-	if($accesslvl != 'full'){
+	if ($accesslvls[0][3] != 'true') {
 		$tablerow = "<tr>".$chbox."
 				<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['id']."</a></td>
 				<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&id=".$row['id']."\">".$row['class_name']."</a></td>			
@@ -341,7 +341,7 @@ function row_vehicle($row, $chbox){
 }
 
 function row_deployable($row, $chbox){
-	global $accesslvl;
+	global $accesslvls;
     global $map;
 	$x = 0;
 	$y = 0;
@@ -399,7 +399,7 @@ function row_deployable($row, $chbox){
 		}			
 	}
 	
-	if($accesslvl != 'full'){
+	if ($accesslvls[0][3] != 'true') {
 		$tablerow = "<tr>".$chbox."
 			<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['id']."</a></td>
 			<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=6&id=".$row['id']."\">".$row['class_name']."</a></td>			
