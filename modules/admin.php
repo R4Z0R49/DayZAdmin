@@ -41,13 +41,19 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
         }
     }
     if(isset($_REQUEST['new_access']) && $_REQUEST['new_access'] != 'New Accesslvl'){
-        if($_REQUEST['new_access'] == 'Semi'){
-            $db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('semi', $userid));
-        }
-        if($_REQUEST['new_access'] == 'Full'){
-            $db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array('full', $userid));
+        if($_REQUEST['new_access'] != "Select an accesslvl:"){
+            $new_accesslvl = $_REQUEST['new_access'];
+            $db->Execute("UPDATE users SET accesslvl = ? WHERE id = ?", array($new_accesslvl, $userid));
+        } else {
+          $message->add('danger', "Please select a valid accesslvl!");
         }
     }
+
+  $res_accesslvl = $db->GetAll("SELECT name FROM accesslvl");
+  $accesslvl_list="";
+  foreach($res_accesslvl as $row_accesslvl) {
+    $accesslvl_list .= '<option value="'. $row_accesslvl['name'] .'">' . $row_accesslvl['name'] . '</option>';
+  }
 
   //ACCESSLVL QUERY
   if(isset($_REQUEST['alvl_new_name']) or isset($_REQUEST['alvl_mapview']) or isset($_REQUEST['alvl_editadmin']) or isset($_REQUEST['alvl_editvip']) or isset($_REQUEST['alvl_canseecoords']) or isset($_REQUEST['alvl_cansearch']) or isset($_REQUEST['alvl_checkitems']) or isset($_REQUEST['alvl_canviewdbmanager'])) {
@@ -181,7 +187,6 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 	<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
 	<th class="custom-th"><h4>Access Level <i class="icon-arrow-down"></i></h4></th>
 </tr>
-
 	<?php echo $users; ?>	
 </table>
 <input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
@@ -213,13 +218,12 @@ if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
 	<div class="row" style="margin-bottom: 5px;">
 		<div class="col-lg-4">
 			<select name="new_access" class="form-control">
-				<option>New Accesslvl</option>
-				<option>Full</option>
-				<option>Semi</option>
+        <option>Select an accesslvl:</option>
+        <?php echo $accesslvl_list; ?>
 			</select>
 		</div>
 	</div>
-	<input type="submit" class="btn btn-default" name="alvl_add_submit">
+	<input type="submit" class="btn btn-default" name="alvl_editprofile_submit">
 </form>
 <?php } ?>
 
@@ -285,12 +289,6 @@ if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
 <?php } ?>
 
 <?php if(isset($_REQUEST['EditAccess'])){ 
-$res = $db->GetAll("SELECT name FROM accesslvl");
-$accesslvl_list="";
-foreach($res as $row) {
-	$accesslvl_list .= '<option value="'. $row['name'] .'">' . $row['name'] . '</option>';
-}
-
 $hasAccess = $db->GetAll("SELECT access FROM accesslvl WHERE name = ?", array($_GET['AccessName']));
 $hasAccess = $hasAccess[0]['access'];
 $hasAccess = str_replace("|", ",", $hasAccess);
