@@ -3,7 +3,7 @@ include('config.php');
 mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
 mysql_select_db($dbName);
 
-if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
+if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 {
 	switch($show) {
 	case 0:
@@ -40,7 +40,7 @@ if (isset($_SESSION['user_id']) && $accesslvl != 'semi')
 }
 else
 {
-	if ($accesslvl != 'full') {
+	if ($accesslvls[0][0] != 'true') {
 		$message->add('danger', "You dont have enough access to view this");
 		$message->display();
 	}

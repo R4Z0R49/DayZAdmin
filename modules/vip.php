@@ -1,4 +1,6 @@
 <?php
+if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
+{
 require_once ('queries.php');
 require_once ('config.php');
 
@@ -181,3 +183,14 @@ else
 		include ('modules/vipregister.php'); 
 	?>
 </div>
+
+<?php
+}
+else
+{
+	if ($accesslvls[0][2] != 'true') {
+		$message->add('danger', "You dont have enough access to view this");
+		$message->display();
+	}
+}
+?>
