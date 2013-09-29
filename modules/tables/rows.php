@@ -117,18 +117,18 @@ function row_player($row){
 	if ($accesslvls[0][3] != 'true') {
 		$tablerow = "<tr>
 			<td align=\"center\" class=\"gear_preview\">".$icon."</td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".htmlspecialchars($row['name'])."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".$row['unique_id']."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">Classified!</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".htmlspecialchars($row['name'])."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".$row['unique_id']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">Classified!</a></td>
 			<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
 			<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview. "</td>
 		</tr>";
 	} else {
 		$tablerow = "<tr>
 			<td align=\"center\" class=\"gear_preview\">".$icon."</td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".htmlspecialchars($row['name'])."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".$row['unique_id']."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".htmlspecialchars($row['name'])."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".$row['unique_id']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
 			<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
 			<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview. "</td>
 		</tr>";
@@ -227,27 +227,27 @@ function row_online_player($row, $player){
 	if ($accesslvls[0][3] != 'true') {
 		$tablerow = "<tr>
 			<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$kick."&nbsp;&nbsp;&nbsp;&nbsp;".$ban."<br><br>".$reset."</td>
-			<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$name."</td>
-			<td align=\"center\" class=\"gear_preview\">".$uid."</td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">Classified!</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".htmlspecialchars($row['name'])."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".$row['unique_id']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">Classified</a></td>
 			<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
-			<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview."</td>
+			<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview. "</td>
 			<tr>";
 	} else {
 		$tablerow = "<tr>
 			<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$kick."&nbsp;&nbsp;&nbsp;&nbsp;".$ban."<br><br>".$reset."</td>
-			<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$name."</td>
-			<td align=\"center\" class=\"gear_preview\">".$uid."</td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row['cid']."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".htmlspecialchars($row['name'])."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".$row['unique_id']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."&cid=".$row[$CharacterID]."\">".sprintf("%03d",$y).sprintf("%03d",$x)."</a></td>
 			<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
-			<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview."</td>
+			<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview. "</td>
 			<tr>";
 	}
 	return $tablerow;	
 }
 
 function row_vehicle($row, $chbox){
-	global $accesslvl;
+	global $accesslvls;
     global $map;
 	$x = 0;
 	$y = 0;
