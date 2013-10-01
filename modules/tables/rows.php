@@ -247,7 +247,7 @@ function row_online_player($row, $player){
 }
 
 function row_vehicle($row, $chbox){
-	global $accesslvl;
+	global $accesslvls;
     global $map;
 	$x = 0;
 	$y = 0;
