@@ -49,10 +49,10 @@ switch($sql)
 		$map8_vehicles = array("SELECT iv.*, v.class_name, oc.Type FROM instance_vehicle iv inner join  world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on wv.vehicle_id = v.id inner join object_classes oc on oc.Classname = v.class_name WHERE iv.instance_id = ? AND wv.world_id = ?", array($iid, $world));
 		$map8_objects = array("select id.id,id.unique_id as idid,id.worldspace,id.inventory,id.last_updated,oc.Classname,oc.Type,p.name from instance_deployable id inner join deployable d on id.deployable_id = d.id inner join object_classes oc on d.class_name = oc.classname join survivor s on s.id = id.owner_id join profile p on p.unique_id = s.unique_id where d.class_name in ('Sandbag1_DZ', 'TrapBear', 'Hedgehog_DZ', 'Wire_cat1', 'TentStorage', 'StashSmall', 'StashMedium') and id.instance_id = ?", $iid);
         // Tables
-        $table0 = array("SELECT p.name, s.* FROM profile p, survivor s WHERE p.unique_id = s.unique_id AND p.name = ? ORDER BY s.last_updated DESC LIMIT 1", array($playername));
-        $table1 = array("select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and survivor.is_dead = '0'");
-        $table2 = array("select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and survivor.is_dead = '1'");
-        $table3 = array("select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id");
+        $table0 = array("SELECT p.name, s.id AS cid, s.* FROM profile p, survivor s WHERE p.unique_id = s.unique_id AND p.name = ? ORDER BY s.last_updated DESC LIMIT 1", array($playername));
+        $table1 = array("select profile.name, survivor.id AS cid, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and survivor.is_dead = '0'");
+        $table2 = array("select profile.name, survivor.id AS cid, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and survivor.is_dead = '1'");
+        $table3 = array("select profile.name, survivor.id AS cid, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id");
         $table4 = array("SELECT iv.*, v.class_name from instance_vehicle iv inner join world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on wv.vehicle_id = v.id WHERE instance_id = ?", $iid);
         $table5 = array("select v.class_name as otype,wv.id as id,wv.worldspace as pos from world_vehicle wv join vehicle v on v.id = wv.vehicle_id where world_id = (select id from world where name = ?)", $map);
 		$table6 = array("SELECT id.*,d.class_name,p.name,p.unique_id AS unique_id, s.id AS cid from instance_deployable id JOIN deployable d on d.id = id.deployable_id JOIN survivor s ON s.id = id.owner_id JOIN profile p on p.unique_id = s.unique_id WHERE d.class_name IN ('TentStorage','StashSmall','StashMedium') AND instance_id = ?", $iid);
@@ -71,7 +71,7 @@ switch($sql)
         $leaderboard_KillsH = "total_survivor_kills";
         $leaderboard_Humanity = "humanity";
     // Search
-        $search_query_player = "select profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and name LIKE ? ORDER BY last_updated DESC";
+        $search_query_player = "select profile.name, survivor.id AS cid, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id and name LIKE ? ORDER BY last_updated DESC";
         $search_query_item = "SELECT * from (SELECT profile.name, survivor.* from profile, survivor as survivor where profile.unique_id = survivor.unique_id) as T where inventory LIKE ? OR backpack LIKE ? ORDER BY last_updated DESC";
         $search_query_vehicle = "select iv.id, v.class_name, 0 owner_id, iv.worldspace, iv.inventory, iv.instance_id, iv.parts, fuel, oc.type, damage from instance_vehicle iv inner join world_vehicle wv on iv.world_vehicle_id = wv.id inner join vehicle v on v.id = wv.vehicle_id inner join object_classes oc on v.class_name = oc.classname where iv.instance_id = ? AND v.class_name LIKE ?";
         $search_query_container = "SELECT id.*,d.class_name,p.name,p.unique_id AS unique_id from instance_deployable id JOIN deployable d on d.id = id.deployable_id JOIN survivor s ON s.id = id.owner_id JOIN profile p on p.unique_id = s.unique_id WHERE id.instance_id = ? AND id.inventory LIKE ?";
