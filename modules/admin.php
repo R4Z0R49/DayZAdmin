@@ -236,10 +236,10 @@ if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
 	//echo $accesslvls[0][4]; -> Has search access
 	//echo $accesslvls[0][5]; -> Can check illegal items
 	//echo $accesslvls[0][6]; -> Can use db manager
-	//echo $accesslvls[0][7];
 ?>
 <h1 class="custom-h1">Add an accesslvl</h1>
 <form method="POST">
+	<input type="hidden" name="userid" value="">
 	<div class="row" style="margin-bottom: 5px;">
 		<div class="col-lg-4">
 			<input type="text" placeholder="New accesslvl name" name="alvl_new_name" class="form-control">
@@ -298,6 +298,7 @@ $hasAccess = array($hasAccess);
 ?>
 <h1 class="custom-h1">Edit/Remove an accesslvl</h1>
 <form method="POST">
+	<input type="hidden" name="userid" value="">
 	<div class="row" style="margin-bottom: 15px;">
 		<div class="col-lg-4">
 			<select name="alvl_edit_name" class="form-control" onChange='window.location="admin.php?view=admin&EditAccess&AccessName=" + this.value;'>
