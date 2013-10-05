@@ -29,7 +29,9 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('MANAGE ADMINS',?,NOW())", $_SESSION['login']);
 
 	//USER EDIT
-    $userid = $_REQUEST['userid'];
+    if(isset($_REQUEST['userid'])){
+      $userid = $_REQUEST['userid'];
+    }
     if(isset($_REQUEST['new_aname']) && $_REQUEST['new_aname'] != NULL){
         $db->Execute("UPDATE users SET login = ? WHERE id = ?", array($_POST['new_aname'], $userid));
     }
@@ -97,7 +99,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
     //echo $access_query;
   }
   //ACCESSLVL ADD
-  if($_REQUEST['alvl_add_submit']) {
+  if(isset($_REQUEST['alvl_add_submit'])) {
   	//echo($access_query);
   	if($_REQUEST['alvl_new_name'] == NULL) {
   		$message->add('danger', "You must name your accesslvl");
@@ -108,7 +110,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
   	}
   }
   //ACCESSLVL EDIT
-  if($_REQUEST['alvl_edit_submit']) {
+  if(isset($_REQUEST['alvl_edit_submit'])) {
     if(!isset($_REQUEST['AccessName'])) {
       $message->add('danger', "You must select an accesslvl to edit");
     } elseif($_REQUEST['AccessName'] == 'full') {
@@ -120,7 +122,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
     }
   }
   //ACCESSLVL DELETE
-  if($_REQUEST['alvl_delete_submit']) {
+  if(isset($_REQUEST['alvl_delete_submit'])) {
     if(!isset($_REQUEST['AccessName'])) {
       $message->add('danger', "You must select an accesslvl to delete");
     } elseif($_REQUEST['AccessName'] == 'full') {

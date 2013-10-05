@@ -152,7 +152,7 @@ switch($sql)
                 Character_DATA.Humanity as humanity
             from Player_DATA, Character_DATA
             where Character_DATA.playerUID = Player_DATA.playerUID
-            and Character_DATA.Alive = 1 AND Player_DATA.PlayerUID = ?", $_GET["id"]);
+            and Character_DATA.Alive = 1 AND Player_DATA.PlayerUID = ?", isset($_GET["id"]));
         }
 		$info4 = array("SELECT Object_CLASSES.*,
         Object_DATA.ObjectID as id,
@@ -167,9 +167,9 @@ switch($sql)
         FROM Object_CLASSES, Object_DATA as Object_DATA
         where Object_DATA.Classname = Object_CLASSES.Classname
         AND Object_DATA.ObjectID = ?
-        and Object_DATA.Instance =  ? and CharacterID = 0", array($_GET["id"], $iid) ); 
-		$info5 = array("SELECT * FROM Object_SPAWNS WHERE ObjectUID = ? AND Instance = ?", array($_GET["id"], $iid) ); 
-		$info6 = array("SELECT od.ObjectID as id, od.ObjectUID as idid, od.Classname, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace, od.last_updated,pd.playerName AS name, pd.playerUID AS unique_id,oc.Classname AS class_name, cd.CharacterID AS cid, oc.Type FROM Object_DATA od LEFT OUTER JOIN Character_DATA cd ON cd.CharacterID = od.CharacterID LEFT OUTER JOIN Player_DATA pd ON pd.PlayerUID = cd.playerUID JOIN Object_CLASSES oc on oc.Classname = od.Classname WHERE od.Classname IN ('TentStorage','StashSmall','StashMedium') AND od.ObjectID = ? AND od.Instance = ?", array($_GET["id"], $iid)); 
+        and Object_DATA.Instance =  ? and CharacterID = 0", array(isset($_GET["id"]), $iid)); 
+		$info5 = array("SELECT * FROM Object_SPAWNS WHERE ObjectUID = ? AND Instance = ?", array(isset($_GET["id"]), $iid)); 
+		$info6 = array("SELECT od.ObjectID as id, od.ObjectUID as idid, od.Classname, od.Damage AS damage, od.Inventory AS inventory, od.Worldspace AS worldspace, od.last_updated,pd.playerName AS name, pd.playerUID AS unique_id,oc.Classname AS class_name, cd.CharacterID AS cid, oc.Type FROM Object_DATA od LEFT OUTER JOIN Character_DATA cd ON cd.CharacterID = od.CharacterID LEFT OUTER JOIN Player_DATA pd ON pd.PlayerUID = cd.playerUID JOIN Object_CLASSES oc on oc.Classname = od.Classname WHERE od.Classname IN ('TentStorage','StashSmall','StashMedium') AND od.ObjectID = ? AND od.Instance = ?", array(isset($_GET["id"]), $iid)); 
 	//Map	
 		$map0 = array("
 select Player_DATA.playerName as name, Player_DATA.playerUID, 
