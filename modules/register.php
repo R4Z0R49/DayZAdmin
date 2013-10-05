@@ -1,6 +1,12 @@
 <?php
 if (isset($_SESSION['user_id']))
 {
+
+$res_accesslvl = $db->GetAll("SELECT name FROM accesslvl");
+$accesslvl_list="";
+foreach($res_accesslvl as $row_accesslvl) {
+$accesslvl_list .= '<option value="'. $row_accesslvl['name'] .'">' . $row_accesslvl['name'] . '</option>';
+}
 function GenerateSalt($n=3)
 {
 	$key = '';
@@ -36,8 +42,7 @@ if (empty($_POST))
 						<td>
 						<select name="accesslvl" class="form-control">
 						<option value="" selected="selected">Access Level</option>
-						<option value="full">Full</option>
-						<option value="semi">Semi</option>
+						<?php echo $accesslvl_list; ?>
 						</select>
 						</td>
 						<td></td>
@@ -52,8 +57,7 @@ if (empty($_POST))
 					</table>
 						<h2 class="custom-h2">Access level</h2>
 						<br>
-						* Full = Has access to all of the functions on the control panel.
-						<br>* Semi = Does not have access to admin registration or the map.	
+						* Gives the user the access of the group that you've set up. Full which is one of the default access levels gives full access to the panel, and semi gives access to everything but map, gps co-ords and editing of administrators.
 				</form>	
 		</div>
 			<div id="result"></div>
