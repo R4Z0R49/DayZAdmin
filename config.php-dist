@@ -18,11 +18,18 @@
 	$maxTrackingPositions = 50; // how many positions to keep per player/vehicle when tracking
 	$keepTracksAfterLogout = 0; // 0 - remove player tracks after they logout, 1 - keep showing tracks
     $refreshPlayersOnline = 60; // seconds, set to 0 to disable
+
+    //FTP - Server chat
+    $chat_enabled = 0; // 0(No), 1(Yes)
+    $ftp_host = ""; // FTP server hostname (IP)
+    $ftp_username = ""; // FTP username
+    $ftp_password = ""; // FTP password
+    $path = ""; // Path from FTP root to your BEC server dir (Example: Bec/Log/Server1 / Leave blank if root)
 	
 	//security
 	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**
 	
-	//
+	//MySQL database setup
 	$sql= "Bliss"; //used to support more then one hive (Bliss or DayZ) DayZ isnt fully active yet.
 
 	
@@ -45,7 +52,7 @@
 	$youtube = ""; //YouTube 
 	
 	//Top Links
-	$ManuPanelLink = 1; // Enable the admin panel link? (1 yes, 0 no)
+	$ManuPanelLink = 1; // Enable the dashboard link? (1 yes, 0 no)
 	
 	//Top Right Logo - Leave these settings blank to disable the top right logo
 	$rightlogoImg = ""; // Link to a  logo / image

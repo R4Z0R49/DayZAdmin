@@ -1,7 +1,7 @@
 <?php
 if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 {
-	$pagetitle = "Manage admins";
+  $pagetitle = "Manage admins";
 	$delresult = "";
 	if (isset($_POST["user"]) && $_POST['Delete']){
 		$aDoor = $_POST["user"];
@@ -143,9 +143,20 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 	}
 	
 ?>
-<div id="dvPopup" class="container custom-container" style="display:none; width:900px; height: 600px;">
-	<a id="closebutton" style="float:right;" href="#" onclick="HideModalPopup('dvPopup'); return false;"><img src="images/table/action_delete.gif" alt="" /></a><br />
-	<?php include ('modules/register.php'); ?>
+<div class="modal fade" id="AddAdmin">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">Add an administrator</h4>
+    </div>
+    <div class="modal-body">
+      <p>
+        <?php include ('modules/register.php'); ?>
+      </p>
+    </div>
+  </div>
+</div>
 </div>
 <div id="page-heading">
 	<h1 class="custom-h1"><?php echo $pagetitle; ?></h1>
@@ -158,7 +169,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 	<th class="custom-th"><h4>Related Activities <i class="icon-arrow-down"></i></h4></th>
 </tr>
 <tr class="custom-tr">
-	<td><a href="#" onclick="ShowModalPopup('dvPopup'); return false;"><h4>Add Administrator</h4></a>
+	<td><a data-toggle="modal" href="#AddAdmin"><h4>Add Administrator</h4></a>
 	Adds a new administrator
 	</td>
 </tr>
@@ -181,18 +192,35 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 
 <div id="table-content">
 <form action="admin.php?view=admin" method="post">
-<table class="table" style="width: 70%;">
-<tr>
-	<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Login <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Access Level <i class="icon-arrow-down"></i></h4></th>
-</tr>
-	<?php echo $users; ?>	
-</table>
-<input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
-<input type="submit" value="Delete" name="Delete" class="btn btn-danger"  />
+  <table class="table" style="width: 70%;">
+    <tr>
+    	<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
+    	<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
+    	<th class="custom-th"><h4>Login <i class="icon-arrow-down"></i></h4></th>
+    	<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
+    	<th class="custom-th"><h4>Access Level <i class="icon-arrow-down"></i></h4></th>
+    </tr>
+  	<?php echo $users; ?>	
+  </table>
+  <input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
+  <input type="submit" data-toggle="modal" href="#DeleteModal" value="Delete" class="btn btn-danger"  />
+</div>
+<div class="modal fade" id="DeleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Are you sure?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No!</button>
+        <input type="submit" name="Delete" class="btn btn-primary" value="Yes!">
+      </div>
+    </div>
+  </div>
 </div>
 </form>
 
@@ -354,7 +382,24 @@ $hasAccess = array($hasAccess);
 		</div>
 	</div>
 	<input type="submit" class="btn btn-default" name="alvl_edit_submit" value="Edit" style="margin-bottom: 5px;">
-  <input type="submit" class="btn btn-danger" name="alvl_delete_submit" value="Delete" style="margin-bottom: 5px;">
+  <input type="submit" class="btn btn-danger" data-toggle="modal" href="#DeleteModal_alvl" value="Delete" style="margin-bottom: 5px;">
+    <div class="modal fade" id="DeleteModal_alvl">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Are you sure?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">No!</button>
+          <input type="submit" name="alvl_delete_submit" class="btn btn-primary" value="Yes!">
+        </div>
+      </div>
+    </div>
+    </div>
 	<div class="row" style="margin-bottom: 5px;">
 		<div class="col-lg-12">
 			<b>Remember to re-select even the ones highlighted as green, unless you want to unselect them!</b>
