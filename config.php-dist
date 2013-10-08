@@ -19,12 +19,14 @@
 	$keepTracksAfterLogout = 0; // 0 - remove player tracks after they logout, 1 - keep showing tracks
     $refreshPlayersOnline = 60; // seconds, set to 0 to disable
 
-    //FTP - Server chat
+    //FTP - Server chat (Does not need to be specified if hosted locally, only use $local_path if that's the case!)
     $chat_enabled = 0; // 0(No), 1(Yes)
     $ftp_host = ""; // FTP server hostname (IP)
     $ftp_username = ""; // FTP username
     $ftp_password = ""; // FTP password
-    $path = ""; // Path from FTP root to your BEC server dir (Example: Bec/Log/Server1 / Leave blank if root)
+    //Paths, only use one of these.
+    $ftp_path = ""; // Path from FTP root to your BEC server dir (Example: Bec/Log/Server1 / Leave blank if root)
+    $local_path = ""; // Full path on your local machine to the Bec\Log\Server1 directory. Ex: C:\\DayZServer\\dayz1.Chernarus\\Bec\\Log\\Server1 -- Yes, you do need double backslashes here, php is derpy.
 	
 	//security
 	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**

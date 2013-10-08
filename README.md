@@ -29,7 +29,7 @@ Features
 *Reset Players locations.
 *Leaderboard
 *Stats and player search
-*View player chat/belogs - (Requires FTP)
+*View player chat/belogs - (Requires FTP if panel is not hosted on the same computer as the server)
 
 ==================
 Installation

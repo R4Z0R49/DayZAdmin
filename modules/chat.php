@@ -1,15 +1,24 @@
 <?php
-	$ftp_connect = ftp_connect($ftp_host) or die("Couldn't connect to ".  $ftp_host); 
-	$login_result = ftp_login($ftp_connect, $ftp_username, $ftp_password);
+	if($ftp_path != NULL){
+		$ftp_connect = ftp_connect($ftp_host) or die("Couldn't connect to ".  $ftp_host); 
+		$login_result = ftp_login($ftp_connect, $ftp_username, $ftp_password);
+	}
 
 	$year = date("Y");
 	$month = date("m");
 	$day = date("d");
 
-	$filename_log = "/". $path ."/BeLog/Be_".$year."-".$month."-".$day.".log";
-	$filename_chat = "/". $path ."/Chat/Chat_".$year."-".$month."-".$day.".log";
-	$log_array = file("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_log);
-	$chat_array = file("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_chat);
+	if($local_path != NULL){
+		$filename_log = $local_path .'\\BeLog\\Be_'.$year.'-'.$month.'-'.$day.'.log';
+		$filename_chat = $local_path .'\\Chat\\Chat_'.$year.'-'.$month.'-'.$day.'.log';
+		$log_array = file($filename_log);
+		$chat_array = file($filename_chat);
+	}elseif($ftp_path != NULL){
+		$filename_log = "/". $ftp_path ."/BeLog/Be_".$year."-".$month."-".$day.".log";
+		$filename_chat = "/". $ftp_path ."/Chat/Chat_".$year."-".$month."-".$day.".log";
+		$log_array = file("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_log);
+		$chat_array = file("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_chat);
+	}
 
 	if($chat_view == 'logs'){
 		$array = $log_array;

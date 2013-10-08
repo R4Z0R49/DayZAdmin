@@ -57,7 +57,7 @@ if (!isset($_GET['logs']) && !isset($_GET['chat'])){
 					<?php 
 						include('chat.php');
 						if($chat_array == NULL or $log_array == NULL){
-							echo 'You have not set the chat FTP system up correctly, please correspond to the config file! <br> If that isnt the issue, make sure you have any logs dated '.$year."-".$month."-".$day;
+							echo 'You have not set the chat FTP(Or path directory is wrong) system up correctly, please correspond to the config file! <br> If that isnt the issue, make sure you have any logs dated '.$year."-".$month."-".$day;
 						}
 					?>
 				</div>
