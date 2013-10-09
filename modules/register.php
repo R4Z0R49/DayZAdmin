@@ -25,7 +25,7 @@ if (empty($_POST))
 <div class="custom-container-popup" id="content-table-inner">
 	<div id="table-content">
 				<h2 class="custom-h2">Enter Details</h2><br>
-				<form id="regform" action="admin.php?view=register">
+				<form method="POST" id="regform" action="admin.php?view=admin">
 				<table border="0" id="id-form">
 					<tr>
 						<th class="custom-th-popup">Login:</th>
@@ -50,7 +50,7 @@ if (empty($_POST))
 					<tr>
 						<th>&nbsp;</th>
 						<td>
-							<input type="submit" value="Submit" class="btn btn-default pull-right">
+							<input type="submit" value="Submit" name="regSubmit" class="btn btn-default pull-right">
 						</td>
 						<td></td>
 					</tr>
@@ -62,38 +62,6 @@ if (empty($_POST))
 		</div>
 			<div id="result"></div>
 			</body>
-			<!--  end table-content  -->
-			<script>
-				  /* attach a submit handler to the form */
-				  $("#regform").submit(function(event) {
-
-					/* stop form from submitting normally */
-					event.preventDefault(); 
-						
-					/* get some values from elements on the page: */
-					var $form = $( this ),
-						term = $form.find( 'input[name="login"]' ).val(),
-						term2 = $form.find( 'input[name="password"]' ).val(),
-						term3 = $form.find( 'select[name="accesslvl"]' ).val(),
-						url = $form.attr( 'action' );
-						
-					var d = document.getElementById('content-table-inner');
-					var olddiv = document.getElementById('table-content');
-					d.removeChild(olddiv);
-					
-					var d = document.getElementById('dvPopup');
-					var olddiv = document.getElementById('closebutton');
-					d.removeChild(olddiv);
-
-					/* Send the data using post and put the results in a div */
-					$.post( url, { login: term, password: term2, accesslvl: term3 },
-					  function( data ) {
-						  var content = $( data ).find( '#content' );
-						  $( "#result" ).empty().append( content );
-					  }
-					);
-				  });
-			</script>
 </div>
 <?php
 }
@@ -107,31 +75,31 @@ else
 	$error = false;
 	$errort = '';
 	
-	if(!isset($_POST['accesslvl']))
+	if(isset($_POST['regSubmit']) && !$_POST['accesslvl'] == 'Access Level')
 	{
 		$error = true;
 		$errort .= 'Select the access level of the user! <br />';
 	}
 	
-	if (strlen($login) < 2)
+	if (isset($_POST['regSubmit']) && strlen($login) < 2)
 	{
 		$error = true;
 		$errort .= 'Login must be at least 2х characters.<br />';
 	}
-	if (strlen($password) < 6)
+	if (isset($_POST['regSubmit']) && strlen($password) < 6)
 	{
 		$error = true;
 		$errort .= 'Password must be at least 6 characters.<br />';
 	}
 	
 	$res = $db->GetAll("SELECT `id` FROM `users` WHERE `login` = ?", $login);
-	if (sizeof($res)==1)
+	if (isset($_POST['regSubmit']) && sizeof($res)==1)
 	{
 		$error = true;
 		$errort .= 'Login already used.<br />';
 	}
 	
-	if (!$error)
+	if (!$error && isset($_POST['regSubmit']))
 	{
 		$salt = GenerateSalt();
 		$hashed_password = md5(md5($password) . $salt);
@@ -139,36 +107,16 @@ else
 		$db->Execute("INSERT INTO users SET login = ?, password = ?, accesslvl = ?, salt = ?", array($login, $hashed_password, $accesslvl, $salt));
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`,) VALUES ('REGISTER ADMIN: ?',?,NOW())", array($login, $_SESSION['login']));
 		?>
-		<!--  start message-green -->
-		<div id="msg">
-			<div id="message-green">
-			<table border="0" width="100%" cellpadding="0" cellspacing="0">
-			<tr>
-				<td class="green-left">New admin is succesfully registered!</td>
-				<td class="green-right"><a href="#" onclick="window.location.href = 'admin.php?view=admin';" class="close-green"><img src="<?php echo $path;?>images/table/icon_close_green.gif" alt="" /></a></td>
-			</tr>
-			</table>
-			</div>
-		</div>
-		<!--  end message-green -->
 		<?php
+		$message->add('success', "New administrator successfully registered!");
 	}
 	else
 	{
 		?>
-		<div id="msg">
-			<div id="message-red">
-			<table border="0" width="100%" cellpadding="0" cellspacing="0">
-			<tr>
-				<td class="red-left">Error in registration process!</td>
-				<td class="red-right"><a href="#" onclick="window.location.href = 'admin.php?view=admin';" class="close-red"><img src="<?echo $path;?>images/table/icon_close_red.gif" alt="" /></a></td>
-			</tr>
-			</table>
-			</div>
-			<?php print $errort;?>
-		</div>
 		<?php
-		
+		if(isset($_POST['regSubmit'])){
+			$message->add('danger', "Error in registration proccess!<br>". $errort);
+		}
 	}
 
 }

@@ -1,9 +1,9 @@
 <?php
 if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 {
-	$pagetitle = "Manage admins";
+  $pagetitle = "Manage admins";
 	$delresult = "";
-	if (isset($_POST["user"]) && $_POST['Delete']){
+	if (isset($_POST["user"]) && isset($_POST['Delete'])){
 		$aDoor = $_POST["user"];
 		$N = count($aDoor);
 		for($i=0; $i < $N; $i++)
@@ -143,9 +143,20 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 	}
 	
 ?>
-<div id="dvPopup" class="container custom-container" style="display:none; width:900px; height: 600px;">
-	<a id="closebutton" style="float:right;" href="#" onclick="HideModalPopup('dvPopup'); return false;"><img src="images/table/action_delete.gif" alt="" /></a><br />
-	<?php include ('modules/register.php'); ?>
+<div class="modal fade" id="AddAdmin">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">Add an administrator</h4>
+    </div>
+    <div class="modal-body">
+      <p>
+        <?php include ('modules/register.php'); ?>
+      </p>
+    </div>
+  </div>
+</div>
 </div>
 <div id="page-heading">
 	<h1 class="custom-h1"><?php echo $pagetitle; ?></h1>
@@ -158,7 +169,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 	<th class="custom-th"><h4>Related Activities <i class="icon-arrow-down"></i></h4></th>
 </tr>
 <tr class="custom-tr">
-	<td><a href="#" onclick="ShowModalPopup('dvPopup'); return false;"><h4>Add Administrator</h4></a>
+	<td><a data-toggle="modal" href="#AddAdmin"><h4>Add Administrator</h4></a>
 	Adds a new administrator
 	</td>
 </tr>
@@ -181,18 +192,35 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 
 <div id="table-content">
 <form action="admin.php?view=admin" method="post">
-<table class="table" style="width: 70%;">
-<tr>
-	<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Login <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
-	<th class="custom-th"><h4>Access Level <i class="icon-arrow-down"></i></h4></th>
-</tr>
-	<?php echo $users; ?>	
-</table>
-<input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
-<input type="submit" value="Delete" name="Delete" class="btn btn-danger"  />
+  <table class="table" style="width: 70%;">
+    <tr>
+    	<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
+    	<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
+    	<th class="custom-th"><h4>Login <i class="icon-arrow-down"></i></h4></th>
+    	<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
+    	<th class="custom-th"><h4>Access Level <i class="icon-arrow-down"></i></h4></th>
+    </tr>
+  	<?php echo $users; ?>	
+  </table>
+  <input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
+  <input type="submit" data-toggle="modal" href="#DeleteModal" value="Delete" class="btn btn-danger"  />
+</div>
+<div class="modal fade" id="DeleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Are you sure?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No!</button>
+        <input type="submit" name="Delete" class="btn btn-primary" value="Yes!">
+      </div>
+    </div>
+  </div>
 </div>
 </form>
 
@@ -296,6 +324,16 @@ $hasAccess = $hasAccess[0]['access'];
 $hasAccess = str_replace("|", ",", $hasAccess);
 $hasAccess = json_decode($hasAccess);
 $hasAccess = array($hasAccess);
+$hasAccess = array();
+if(isset($_REQUEST['AccessName'])) {
+    $hasAccess = $db->GetAll("SELECT access FROM accesslvl WHERE name = ?", array($_REQUEST['AccessName']));
+    if(sizeof($hasAccess) > 0) {
+      $hasAccess = $hasAccess[0]['access'];
+      $hasAccess = str_replace("|", ",", $hasAccess);
+      $hasAccess = json_decode($hasAccess);
+      $hasAccess = array($hasAccess);
+   }
+}
 //var_dump($hasAccess);
 ?>
 <h1 class="custom-h1">Edit/Remove an accesslvl</h1>
@@ -318,43 +356,60 @@ $hasAccess = array($hasAccess);
 		<div class="col-lg-6">
 		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_mapview"> <font color="<?php if($hasAccess[0][0] == 'true') { echo 'green'; }?>">Map Access</font>
+     			 <input type="checkbox" name="alvl_mapview"> <font color="<?php if(isset($hasAccess[0][0]) && $hasAccess[0][0] == 'true') { echo 'green'; }?>">Map Access</font>
    				 </label>
   			</div>
   			 <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_editadmin"> <font color="<?php if($hasAccess[0][1] == 'true') { echo 'green'; } ?>">Admin Edit</font>
+     			 	<input type="checkbox" name="alvl_editadmin"> <font color="<?php if(isset($hasAccess[0][1]) && $hasAccess[0][1] == 'true') { echo 'green'; } ?>">Admin Edit</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_editvip"> <font color="<?php if($hasAccess[0][2] == 'true') { echo 'green'; } ?>">VIP Edit</font>
+     			 	<input type="checkbox" name="alvl_editvip"> <font color="<?php if(isset($hasAccess[0][2]) && $hasAccess[0][2] == 'true') { echo 'green'; } ?>">VIP Edit</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_canseecoords"> <font color="<?php if($hasAccess[0][3] == 'true') { echo 'green'; } ?>">Can view co-ords?</font>
+     			 	<input type="checkbox" name="alvl_canseecoords"> <font color="<?php if(isset($hasAccess[0][3]) && $hasAccess[0][3] == 'true') { echo 'green'; } ?>">Can view co-ords?</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_cansearch"> <font color="<?php if($hasAccess[0][4] == 'true') { echo 'green'; } ?>">Has search access</font>
+     			 	<input type="checkbox" name="alvl_cansearch"> <font color="<?php if(isset($hasAccess[0][4]) && $hasAccess[0][4] == 'true') { echo 'green'; } ?>">Has search access</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_checkitems"> <font color="<?php if($hasAccess[0][5] == 'true') { echo 'green'; } ?>">Can check illegal items</font>
+     			 	<input type="checkbox" name="alvl_checkitems"> <font color="<?php if(isset($hasAccess[0][5]) && $hasAccess[0][5] == 'true') { echo 'green'; } ?>">Can check illegal items</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_canviewdbmanager"> <font color="<?php if($hasAccess[0][6] == 'true') { echo 'green'; } ?>">Can use db manager</font>
+     			 	<input type="checkbox" name="alvl_canviewdbmanager"> <font color="<?php if(isset($hasAccess[0][6]) && $hasAccess[0][6] == 'true') { echo 'green'; } ?>">Can use db manager</font>
    				 </label>
   			</div>
 		</div>
 	</div>
 	<input type="submit" class="btn btn-default" name="alvl_edit_submit" value="Edit" style="margin-bottom: 5px;">
-  <input type="submit" class="btn btn-danger" name="alvl_delete_submit" value="Delete" style="margin-bottom: 5px;">
+  <input type="submit" class="btn btn-danger" data-toggle="modal" href="#DeleteModal_alvl" value="Delete" style="margin-bottom: 5px;">
+    <div class="modal fade" id="DeleteModal_alvl">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Are you sure?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">No!</button>
+          <input type="submit" name="alvl_delete_submit" class="btn btn-primary" value="Yes!">
+        </div>
+      </div>
+    </div>
+    </div>
 	<div class="row" style="margin-bottom: 5px;">
 		<div class="col-lg-12">
 			<b>Remember to re-select even the ones highlighted as green, unless you want to unselect them!</b>

@@ -30,6 +30,7 @@ class FlashMessages {
 	{
 		if( !isset($_SESSION['flash_messages']) ) return false;
 
+		$data = "";
 		// Print a certain type of message?
 		if( in_array($type, $this->msgTypes) ) {
 			foreach( $_SESSION['flash_messages'][$type] as $msg ) {

@@ -44,7 +44,7 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
 			<ul class="dropdown-menu">
 				<li><a href="admin.php?view=admin">Admin Options</a></li>
-				<li><a href="admin.php?view=vip">VIP Options</a></li>
+				<!--<li><a href="admin.php?view=vip">VIP Options</a></li>-->
 				<li class="divider"></li>
 				<li><a href="admin.php?view=profile">Profile Settings</a></li>
 				<li class="divider"></li>
