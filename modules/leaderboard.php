@@ -63,17 +63,31 @@
 		        if (sizeof($result) != 0) {
                     foreach($result as $rowl) {
 		            	$points = $rowl[$leaderboard_KillsZ]+$rowl[$leaderboard_KillsB]-$rowl[$leaderboard_KillsH]-$rowl[$leaderboard_Deaths];
-		                echo "<tr>
-		                	  <td>{$rank}</td>
-		                      <td>{$rowl[$leaderboard_Playername]}</td>
-		                      <td>{$rowl[$leaderboard_KillsZ]}</td>
-		                      <td>{$rowl[$leaderboard_KillsH]}</td>
-		                      <td>{$rowl[$leaderboard_KillsB]}</td>
-		                      <td>{$rowl[$leaderboard_Headshots]}</td>
-		                      <td>{$rowl[$leaderboard_Humanity]}</td>
-		                      <td>{$rowl[$leaderboard_Deaths]}</td>
-		                      <td>{$points}</td>
-		                      </tr>";  
+                        if(isset($_SESSION['user_id'])) {
+		                    echo "<tr>
+		                	      <td>{$rank}</td>
+    		                      <td><a href=\"admin.php?view=info&show=1&id={$rowl['playerUID']}&cid={$rowl['CharacterID']}\">{$rowl[$leaderboard_Playername]}</a></td>
+	    	                      <td>{$rowl[$leaderboard_KillsZ]}</td>
+		                          <td>{$rowl[$leaderboard_KillsH]}</td>
+		                          <td>{$rowl[$leaderboard_KillsB]}</td>
+		                          <td>{$rowl[$leaderboard_Headshots]}</td>
+		                          <td>{$rowl[$leaderboard_Humanity]}</td>
+		                          <td>{$rowl[$leaderboard_Deaths]}</td>
+		                          <td>{$points}</td>
+    		                      </tr>";
+                        } else {
+                            echo "<tr>
+                                  <td>{$rank}</td>
+                                  <td>{$rowl[$leaderboard_Playername]}</td>
+                                  <td>{$rowl[$leaderboard_KillsZ]}</td>
+                                  <td>{$rowl[$leaderboard_KillsH]}</td>
+                                  <td>{$rowl[$leaderboard_KillsB]}</td>
+                                  <td>{$rowl[$leaderboard_Headshots]}</td>
+                                  <td>{$rowl[$leaderboard_Humanity]}</td>
+                                  <td>{$rowl[$leaderboard_Deaths]}</td>
+                                  <td>{$points}</td>
+                                  </tr>";
+                        }
 
 		                $rank++;
 		            }

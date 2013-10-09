@@ -17,7 +17,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][4] != 'false')
 </div>
 		<?php
         require_once('queries.php');
-		include ('searchbar.php');
+		require_once('searchbar.php');
 		?><br/><?php
 		if (!empty($_POST))
 		{

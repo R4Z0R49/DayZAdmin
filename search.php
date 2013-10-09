@@ -4,15 +4,55 @@ require_once('db.php');
 require_once('functions.php');
 $page == 'home';
 
-if (isset($_POST['search'])){
-	$pagetitle = "Stats for ".$_POST['search'];
+if (isset($_REQUEST['search'])){
+    $search = '%'.substr($_REQUEST['search'], 0, 64).'%';
+
+    //TODO rewrite this query -wriley
+    $query = "
+SELECT
+    Player_DATA.playerName as name,
+    Character_DATA.CharacterID AS id,
+    Character_DATA.playerUID as unique_id,
+    Character_DATA.Worldspace as worldspace,
+    Character_DATA.Inventory as inventory,
+    Character_DATA.Backpack as backpack,
+    Character_DATA.Model as model,
+    (CASE Character_DATA.Alive WHEN '1' THEN '0' ELSE '1' END) AS is_dead,
+    Character_DATA.Medical as medical,
+    Character_DATA.distanceFoot as DistanceFoot,
+    Character_DATA.duration as survival_time,
+    Character_DATA.last_updated as last_updated,
+    Character_DATA.KillsZ as zombie_kills,
+    Character_DATA.KillsZ as total_zombie_kills,
+    Character_DATA.HeadshotsZ as headshots,
+    Character_DATA.HeadshotsZ as total_headshots,
+    Character_DATA.KillsH as survivor_kills,
+    Character_DATA.KillsH as total_survivor_kills,
+    Character_DATA.KillsB as bandit_kills,
+    Character_DATA.KillsB as total_bandit_kills,
+    Character_DATA.Generation as survival_attempts,
+    Character_DATA.duration as survival_time,
+    Character_DATA.distanceFoot as distance,
+    Character_DATA.Humanity as humanity
+FROM
+    Player_DATA, Character_DATA
+WHERE
+    Character_DATA.playerUID = Player_DATA.playerUID
+AND
+    Player_DATA.playerName LIKE ?
+    ";
+
+    $row = $db->GetRow($query, $search);
+
+    if(sizeof($row) > 0) {
+    	$pagetitle = "Stats for ".$row['name'];
+    } else {
+    	$pagetitle = "Stats for ".$_REQUEST['search'];
+    }
 } else {
 	$pagetitle = "New search";
 }
 
-$search = '%'.substr($_POST['search'], 0, 64).'%';
-
-$row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survivor WHERE profile.unique_id = survivor.unique_id AND name LIKE ? ORDER BY last_updated DESC LIMIT 1", $search);
 
 ?>
 <!DOCTYPE html>

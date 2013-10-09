@@ -55,7 +55,9 @@ FROM
 	Player_DATA, Character_DATA
 WHERE
 	Character_DATA.playerUID = Player_DATA.playerUID
-AND Player_DATA.PlayerUID = ? AND Character_DATA.CharacterID = ?
+AND
+    Player_DATA.PlayerUID = ?
+AND Character_DATA.CharacterID = ?
 ", array($_GET["id"], $_GET["cid"]));
 } else {
 $info1 = array("
@@ -606,6 +608,8 @@ AND od.Instance = ?
 $leaderboard_query = "
 SELECT
 	pd.playerName,
+	pd.playerUID,
+    cd.CharacterID,
 	cd.Generation,
 	cd.KillsZ,
 	cd.KillsB,
@@ -617,7 +621,7 @@ FROM
 LEFT JOIN
 	Player_DATA pd
 ON
-	pd.playerUID = cd.playerUID
+	pd.playerUID = cd.PlayerUID
 ";
 
 $leaderboard_Playername = "playerName";

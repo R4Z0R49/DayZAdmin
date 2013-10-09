@@ -31,10 +31,10 @@
 
 	//$leaderboardplayers .= '<tr><td>'.$kunt.'</td></tr>';
 
-	if(!isset($_GET['leaderboard'])) {
-		$page = 'home';
-	} elseif(isset($_GET['leaderboard'])){
+	if(isset($_GET['leaderboard'])) {
 		$page = 'leaderboard';
+	} else {
+		$page = 'home';
 	}
 ?>
 <!DOCTYPE html>
@@ -44,10 +44,10 @@
 		<div class="content">
 
 			<?php
-				if(!isset($_GET['leaderboard'])) {
-					include('modules/stats.php');
-				} elseif (isset($_GET['leaderboard'])){
+				if(isset($_GET['leaderboard'])) {
 					include('modules/leaderboard.php');
+				} else {
+					include('modules/stats.php');
 				}
 			?>
 
