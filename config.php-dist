@@ -26,7 +26,10 @@
     $ftp_password = ""; // FTP password
     //Paths, only use one of these.
     $ftp_path = ""; // Path from FTP root to your BEC server dir (Example: Bec/Log/Server1 / Leave blank if root)
-    $local_path = ""; // Full path on your local machine to the Bec\Log\Server1 directory. Ex: C:\\DayZServer\\dayz1.Chernarus\\Bec\\Log\\Server1 -- Yes, you do need double backslashes here, php is derpy.
+    // Full path on your local machine to the Bec/Log/Server1 directory. 
+    // Ex for windows: C:\\DayZServer\\dayz1.Chernarus\\Bec\\Log\\Server1
+    // Ex for Linux: /DayZServer/dayz1.Chernarus/Bec/Log/Server1
+    $local_path = "";
 	
 	//security
 	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**

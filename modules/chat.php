@@ -9,8 +9,8 @@
 	$day = date("d");
 
 	if($local_path != NULL){
-		$filename_log = $local_path .'\\BeLog\\Be_'.$year.'-'.$month.'-'.$day.'.log';
-		$filename_chat = $local_path .'\\Chat\\Chat_'.$year.'-'.$month.'-'.$day.'.log';
+        $filename_log = $local_path . DIRECTORY_SEPARATOR . 'BeLog' . DIRECTORY_SEPARATOR . 'Be_'.$year.'-'.$month.'-'.$day.'.log';
+	    $filename_chat = $local_path . DIRECTORY_SEPARATOR . 'Chat' . DIRECTORY_SEPARATOR . 'Chat_'.$year.'-'.$month.'-'.$day.'.log';
 		$log_array = file($filename_log);
 		$chat_array = file($filename_chat);
 	}elseif($ftp_path != NULL){
