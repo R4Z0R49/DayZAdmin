@@ -8,16 +8,35 @@
 	$month = date("m");
 	$day = date("d");
 
+    $log_array = array();
+    $chat_array = array();
+
 	if($local_path != NULL){
         $filename_log = $local_path . DIRECTORY_SEPARATOR . 'BeLog' . DIRECTORY_SEPARATOR . 'Be_'.$year.'-'.$month.'-'.$day.'.log';
 	    $filename_chat = $local_path . DIRECTORY_SEPARATOR . 'Chat' . DIRECTORY_SEPARATOR . 'Chat_'.$year.'-'.$month.'-'.$day.'.log';
-		$log_array = file($filename_log);
-		$chat_array = file($filename_chat);
+		if(file_exists($filename_log)){
+			$log_array = file($filename_log);
+		} else {
+			$log_array = array("There is no log present(It might be empty)");
+		}
+		if(file_exists($filename_chat)){
+			$chat_array = file($filename_chat);
+		} else {
+			$chat_array = array("There is no log present(It might be empty)");
+		}
 	}elseif($ftp_path != NULL){
 		$filename_log = "/". $ftp_path ."/BeLog/Be_".$year."-".$month."-".$day.".log";
 		$filename_chat = "/". $ftp_path ."/Chat/Chat_".$year."-".$month."-".$day.".log";
-		$log_array = file("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_log);
-		$chat_array = file("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_chat);
+		if(file_exists("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_log)){
+			$log_array = file("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_log);
+		} else {
+			$log_array = array("There is no log present(It might be empty)");
+		}
+		if(file_exists("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_chat)){
+			$chat_array = file("ftp://". $ftp_username .":". $ftp_password ."@". $ftp_host . $filename_chat);	
+		} else {
+			$chat_array = array("There is no log present(It might be empty)");
+		}
 	}
 
 	if($chat_view == 'logs'){
