@@ -257,7 +257,6 @@ $owneruid = "";
 			
 				</div>
 			</div>
-<?php if($sql == 'Bliss') { ?>
 <div id="medical">
 	<table id="medical">
 		<tr>
@@ -321,7 +320,6 @@ if ($_POST['submit_loc']) {
 	<br><input name="submit_loc" class="btn btn-default" type="submit" value="Submit" />
 	</form>
 </div>
-<?php } ?>
 		 
 		</div>
 		<!--  end content-table-inner ............................................END  -->
