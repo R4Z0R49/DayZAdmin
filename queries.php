@@ -19,13 +19,9 @@ $stats_totalplayers = "SELECT COUNT(*) FROM Player_DATA";
 $stats_deaths = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 0";
 $stats_alivebandits = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1 AND Model = 'Bandit1_DZ'";
 $stats_aliveheros = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1 AND Model = 'Survivor3_DZ'";
-$stats_totalVehicles = "SELECT COUNT(*) FROM Object_DATA WHERE Instance = " . $iid . " and CharacterID = '0'";
-$stats_Played24h = "select count(*) from (SELECT count(*) from Character_DATA WHERE LastLogin > now() - INTERVAL 1 DAY group by PlayerUID) uniqueplayers";
+$stats_totalVehicles = array("SELECT COUNT(*) FROM Object_DATA WHERE Instance = ? AND CharacterID = '0'", $iid);
+$stats_Played24h = "SELECT COUNT(*) FROM (SELECT COUNT(*) FROM Character_DATA WHERE LastLogin > NOW() - INTERVAL 1 DAY GROUP BY PlayerUID) uniqueplayers";
 $stats_totalkills = "SELECT * FROM Character_DATA";
-$stats_totalkills_KillsZ = 'KillsZ';
-$stats_totalkills_KillsB = 'KillsB';
-$stats_totalkills_KillsH = 'KillsH';
-$stats_totalkills_HeadshotsZ = 'HeadshotsZ';
 
 //Info
 if(isset($_GET['cid']) && $_GET['cid'] > 0) {
@@ -114,7 +110,7 @@ WHERE
 	Object_DATA.Classname = Object_CLASSES.Classname
 AND Object_DATA.ObjectID = ?
 AND Object_DATA.Instance =  ? and CharacterID = 0
-", array($_REQUEST["id"], $iid));
+", array(isset($_REQUEST["id"]) ? $_REQUEST["id"] : 0, $iid));
 
 $info5 = array("
 SELECT
