@@ -56,11 +56,17 @@
 		} elseif (stripos($messages,': Side:')) {
 			echo '<font color="#00FFFF"><b>'. $messages .'</b></font><br>';
 		} elseif (stripos($messages,': Group:')) {
-			echo '<font color="#ffd88d"><b>'. $messages .'</b></font><br>';
+			echo '<font color="#FFD88D"><b>'. $messages .'</b></font><br>';
+		} elseif (stripos($messages,': (Group)')) {
+			echo '<font color="#FFD88D"><b>'. $messages .'</b></font><br>';
 		} elseif (stripos($messages,': Direct:')) {
 			echo '<font color="#FFF"><b>'. $messages .'</b></font><br>';
+		} elseif (stripos($messages,': (Direct)')) {
+			echo '<font color="#FFF"><b>'. $messages .'</b></font><br>';
 		} elseif (stripos($messages,': Vehicle:')) {
-			echo '<font color="#ffd479"><b>'. $messages .'</b></font><br>';
+			echo '<font color="#FFD000"><b>'. $messages .'</b></font><br>';
+		} elseif (stripos($messages,': (Vehicle)')) {
+			echo '<font color="#FFD000"><b>'. $messages .'</b></font><br>';
 		} else {
 			echo $messages . '<br>';
 		}
