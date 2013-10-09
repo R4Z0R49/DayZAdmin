@@ -13,7 +13,7 @@ if(isset($_SESSION['user_id'])) {
     $accesslvls = array($accesslvls);
 }
 
-//Index
+// Stats
 $stats_totalAlive = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1";
 $stats_totalplayers = "SELECT COUNT(*) FROM Player_DATA";
 $stats_deaths = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 0";
@@ -23,7 +23,7 @@ $stats_totalVehicles = array("SELECT COUNT(*) FROM Object_DATA WHERE Instance = 
 $stats_Played24h = "SELECT COUNT(*) FROM (SELECT COUNT(*) FROM Character_DATA WHERE LastLogin > NOW() - INTERVAL 1 DAY GROUP BY PlayerUID) uniqueplayers";
 $stats_totalkills = "SELECT * FROM Character_DATA";
 
-//Info
+// Info
 if(isset($_GET['cid']) && $_GET['cid'] > 0) {
 	$info1 = array("
 SELECT
@@ -60,7 +60,7 @@ AND
 AND Character_DATA.CharacterID = ?
 ", array($_GET["id"], $_GET["cid"]));
 } else {
-$info1 = array("
+    $info1 = array("
 SELECT
 	Player_DATA.playerName as name,
 	Player_DATA.playerUID as uid,
@@ -156,7 +156,7 @@ AND od.ObjectID = ?
 AND od.Instance = ?
 ", array(isset($_GET["id"]) ? $_REQUEST["id"] : 0, $iid));
 
-//Map
+// Map
 $map0 = array("
 SELECT
 	Player_DATA.playerName as name,
@@ -543,7 +543,7 @@ WHERE
 	od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'TrapBear', 'Wire_cat1') AND od.Instance = ?
 ", $iid);
 
-// Check
+// Check Items
 $check_player = "
 SELECT
 	pd.playerName as name,
@@ -604,7 +604,7 @@ WHERE
 AND od.Instance = ?
 ", $iid);
 
-//Leaderboard
+// Leaderboard
 $leaderboard_query = "
 SELECT
 	pd.playerName,
@@ -615,7 +615,7 @@ SELECT
 	cd.KillsB,
 	cd.KillsH,
 	cd.HeadshotsZ,
-	Humanity
+	cd.Humanity
 FROM
 	Character_DATA cd
 LEFT JOIN
@@ -623,20 +623,6 @@ LEFT JOIN
 ON
 	pd.playerUID = cd.PlayerUID
 ";
-
-$leaderboard_Playername = "playerName";
-
-$leaderboard_Deaths = "Generation";
-
-$leaderboard_KillsZ = "KillsZ";
-
-$leaderboard_KillsB = "KillsB";
-
-$leaderboard_KillsH = "KillsH";
-
-$leaderboard_Headshots = "HeadshotsZ";
-
-$leaderboard_Humanity = "Humanity";
 
 // Search
 $search_query_player = "
@@ -655,7 +641,8 @@ ON
 	cd.PlayerUID = pd.PlayerUID
 WHERE
 	cd.Alive = 1
-AND pd.playerName LIKE ?
+AND
+    pd.playerName LIKE ?
 ";
 
 $search_query_item = "
