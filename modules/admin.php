@@ -3,7 +3,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 {
   $pagetitle = "Manage admins";
 	$delresult = "";
-	if (isset($_POST["user"]) && $_POST['Delete']){
+	if (isset($_POST["user"]) && isset($_POST['Delete'])){
 		$aDoor = $_POST["user"];
 		$N = count($aDoor);
 		for($i=0; $i < $N; $i++)
@@ -324,6 +324,16 @@ $hasAccess = $hasAccess[0]['access'];
 $hasAccess = str_replace("|", ",", $hasAccess);
 $hasAccess = json_decode($hasAccess);
 $hasAccess = array($hasAccess);
+$hasAccess = array();
+if(isset($_REQUEST['AccessName'])) {
+    $hasAccess = $db->GetAll("SELECT access FROM accesslvl WHERE name = ?", array($_REQUEST['AccessName']));
+    if(sizeof($hasAccess) > 0) {
+      $hasAccess = $hasAccess[0]['access'];
+      $hasAccess = str_replace("|", ",", $hasAccess);
+      $hasAccess = json_decode($hasAccess);
+      $hasAccess = array($hasAccess);
+   }
+}
 //var_dump($hasAccess);
 ?>
 <h1 class="custom-h1">Edit/Remove an accesslvl</h1>
@@ -346,37 +356,37 @@ $hasAccess = array($hasAccess);
 		<div class="col-lg-6">
 		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_mapview"> <font color="<?php if($hasAccess[0][0] == 'true') { echo 'green'; }?>">Map Access</font>
+     			 <input type="checkbox" name="alvl_mapview"> <font color="<?php if(isset($hasAccess[0][0]) && $hasAccess[0][0] == 'true') { echo 'green'; }?>">Map Access</font>
    				 </label>
   			</div>
   			 <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_editadmin"> <font color="<?php if($hasAccess[0][1] == 'true') { echo 'green'; } ?>">Admin Edit</font>
+     			 	<input type="checkbox" name="alvl_editadmin"> <font color="<?php if(isset($hasAccess[0][1]) && $hasAccess[0][1] == 'true') { echo 'green'; } ?>">Admin Edit</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_editvip"> <font color="<?php if($hasAccess[0][2] == 'true') { echo 'green'; } ?>">VIP Edit</font>
+     			 	<input type="checkbox" name="alvl_editvip"> <font color="<?php if(isset($hasAccess[0][2]) && $hasAccess[0][2] == 'true') { echo 'green'; } ?>">VIP Edit</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_canseecoords"> <font color="<?php if($hasAccess[0][3] == 'true') { echo 'green'; } ?>">Can view co-ords?</font>
+     			 	<input type="checkbox" name="alvl_canseecoords"> <font color="<?php if(isset($hasAccess[0][3]) && $hasAccess[0][3] == 'true') { echo 'green'; } ?>">Can view co-ords?</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_cansearch"> <font color="<?php if($hasAccess[0][4] == 'true') { echo 'green'; } ?>">Has search access</font>
+     			 	<input type="checkbox" name="alvl_cansearch"> <font color="<?php if(isset($hasAccess[0][4]) && $hasAccess[0][4] == 'true') { echo 'green'; } ?>">Has search access</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_checkitems"> <font color="<?php if($hasAccess[0][5] == 'true') { echo 'green'; } ?>">Can check illegal items</font>
+     			 	<input type="checkbox" name="alvl_checkitems"> <font color="<?php if(isset($hasAccess[0][5]) && $hasAccess[0][5] == 'true') { echo 'green'; } ?>">Can check illegal items</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_canviewdbmanager"> <font color="<?php if($hasAccess[0][6] == 'true') { echo 'green'; } ?>">Can use db manager</font>
+     			 	<input type="checkbox" name="alvl_canviewdbmanager"> <font color="<?php if(isset($hasAccess[0][6]) && $hasAccess[0][6] == 'true') { echo 'green'; } ?>">Can use db manager</font>
    				 </label>
   			</div>
 		</div>
