@@ -53,19 +53,15 @@
 			echo '<font color="grey"><b>'. $messages .'</b></font><br>';
 		} elseif (stripos($messages,': Verified GUID')) {
 			echo '<font color="red"><b>'. $messages .'</b></font><br>';
-		} elseif (stripos($messages,': Side:')) {
+		} elseif (stripos($messages,': RCon')) {
+			echo '<font color="red"><b>'. $messages .'</b></font><br>';
+		} elseif (stripos($messages,': Side:' or stripos($messages,': (Side)'))) {
 			echo '<font color="#00FFFF"><b>'. $messages .'</b></font><br>';
-		} elseif (stripos($messages,': Group:')) {
+		} elseif (stripos($messages,': Group:') or stripos($messages,': (Group)')) {
 			echo '<font color="#FFD88D"><b>'. $messages .'</b></font><br>';
-		} elseif (stripos($messages,': (Group)')) {
-			echo '<font color="#FFD88D"><b>'. $messages .'</b></font><br>';
-		} elseif (stripos($messages,': Direct:')) {
+		} elseif (stripos($messages,': Direct:') or stripos($messages,': (Direct)')) {
 			echo '<font color="#FFF"><b>'. $messages .'</b></font><br>';
-		} elseif (stripos($messages,': (Direct)')) {
-			echo '<font color="#FFF"><b>'. $messages .'</b></font><br>';
-		} elseif (stripos($messages,': Vehicle:')) {
-			echo '<font color="#FFD000"><b>'. $messages .'</b></font><br>';
-		} elseif (stripos($messages,': (Vehicle)')) {
+		} elseif (stripos($messages,': Vehicle:') or stripos($messages,': (Vehicle)')) {
 			echo '<font color="#FFD000"><b>'. $messages .'</b></font><br>';
 		} else {
 			echo $messages . '<br>';

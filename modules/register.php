@@ -75,7 +75,7 @@ else
 	$error = false;
 	$errort = '';
 	
-	if(isset($_POST['regSubmit']) && $_POST['accesslvl'] != 'Select Access')
+	if(isset($_POST['regSubmit']) && !$_POST['accesslvl'] == 'Access Level')
 	{
 		$error = true;
 		$errort .= 'Select the access level of the user! <br />';
