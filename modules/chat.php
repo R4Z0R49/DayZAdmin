@@ -47,22 +47,20 @@
 
 	$array = array_reverse($array);
 	foreach ($array as $messages) {
-		if (strpos($messages,'Rcon')) {
+		if (stripos($messages,'BEC :')) {
 			echo '<font color="red"><b>'. $messages .'</b></font><br>';
-		} elseif (strpos($messages,'RCon')) {
-			echo '<font color="red"><b>'. $messages .'</b></font><br>';
-		} elseif (strpos($messages,'BattlEye')) {
-			echo '<font color="red"><b>'. $messages .'</b></font><br>';
-		} elseif (strpos($messages,'Player')) {
+		} elseif (stripos($messages,': Player #')) {
 			echo '<font color="grey"><b>'. $messages .'</b></font><br>';
-		} elseif (strpos($messages,'Verified GUID')) {
+		} elseif (stripos($messages,': Verified GUID')) {
 			echo '<font color="red"><b>'. $messages .'</b></font><br>';
-		} elseif (strpos($messages,'Side')) {
+		} elseif (stripos($messages,': Side:')) {
 			echo '<font color="#00FFFF"><b>'. $messages .'</b></font><br>';
-		} elseif (strpos($messages,'Group')) {
+		} elseif (stripos($messages,': Group:')) {
 			echo '<font color="#ffd88d"><b>'. $messages .'</b></font><br>';
-		} elseif (strpos($messages,'Direct')) {
+		} elseif (stripos($messages,': Direct:')) {
 			echo '<font color="#FFF"><b>'. $messages .'</b></font><br>';
+		} elseif (stripos($messages,': Vehicle:')) {
+			echo '<font color="#ffd479"><b>'. $messages .'</b></font><br>';
 		} else {
 			echo $messages . '<br>';
 		}
