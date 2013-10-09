@@ -4,7 +4,7 @@ if (isset($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html lang="EN">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;" />
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF8">
 <?php
 if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $_GET["show"] == 0 && isset($refreshPlayersOnline) && $refreshPlayersOnline >= 15) {
     printf("\t<META HTTP-EQUIV=\"refresh\" CONTENT=\"%d\">\n", $refreshPlayersOnline);
@@ -23,7 +23,6 @@ if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 	
-	<script src="js/modalpopup.js" type="text/javascript"></script>
 	<?php if($enableclock) { ?>
 	<script type="text/javascript" src="js/jquery.jclock.js"></script>
 	<script type="text/javascript">
