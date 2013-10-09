@@ -17,8 +17,8 @@ if(isset($_SESSION['user_id'])) {
 $stats_totalAlive = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1";
 $stats_totalplayers = "SELECT COUNT(*) FROM Player_DATA";
 $stats_deaths = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 0";
-$stats_alivebandits = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1 AND Model = 'Bandit1_DZ'";
-$stats_aliveheros = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1 AND Model = 'Survivor3_DZ'";
+$stats_alivebandits = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1 AND Humanity < -2000";
+$stats_aliveheros = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1 AND Humanity > 5000";
 $stats_totalVehicles = array("SELECT COUNT(*) FROM Object_DATA WHERE Instance = ? AND CharacterID = '0'", $iid);
 $stats_Played24h = "SELECT COUNT(*) FROM (SELECT COUNT(*) FROM Character_DATA WHERE LastLogin > NOW() - INTERVAL 1 DAY GROUP BY PlayerUID) uniqueplayers";
 $stats_totalkills = "SELECT * FROM Character_DATA";
