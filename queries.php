@@ -91,7 +91,7 @@ FROM
 WHERE
 	Character_DATA.playerUID = Player_DATA.playerUID
 AND	Character_DATA.Alive = 1 AND Player_DATA.PlayerUID = ?
-", isset($_GET["id"]));
+", isset($_GET["id"]) ? $_GET['id'] : 0);
 }
 
 $info4 = array("
@@ -122,7 +122,7 @@ FROM
 WHERE
 	ObjectUID = ?
 AND Instance = ?
-", array(isset($_GET["id"]), $iid));
+", array(isset($_GET["id"]) ? $_REQUEST["id"] : 0, $iid));
 
 $info6 = array("
 SELECT
@@ -154,7 +154,7 @@ WHERE
 	od.Classname IN ('TentStorage','StashSmall','StashMedium')
 AND od.ObjectID = ?
 AND od.Instance = ?
-", array(isset($_GET["id"]), $iid));
+", array(isset($_GET["id"]) ? $_REQUEST["id"] : 0, $iid));
 
 //Map
 $map0 = array("
