@@ -1269,9 +1269,15 @@ label	{
 	height: 125px;
 }
 
+/* TODO */
 #vehicleString {
 	margin-left: 550px;
 	margin-top: -125px;
+}
+
+#deployableString {
+	margin-left: 600px;
+	margin-top: -325px;
 }
 
 #vehicleString  textarea{

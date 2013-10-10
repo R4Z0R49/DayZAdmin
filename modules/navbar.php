@@ -91,10 +91,6 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 				<li>
 					<a href="admin.php?view=check">Check Items</a>
 				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="admin.php?view=search">Search</a>
-				</li>
 			</ul>
 			</li>
 			<li class="dropdown">

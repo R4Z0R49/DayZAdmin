@@ -79,9 +79,9 @@ function distanceToString($feet) {
     if($m > 1000) {
         $r = $m % 1000;
         $km = ($m - $r) / 1000;
-        return sprintf("%d km %d m", $km, $r);
+        return sprintf("%dkm %dm", $km, $r);
     } else {
-        return sprintf("%d m", $m);
+        return sprintf("%dm", $m);
     }
 }
 

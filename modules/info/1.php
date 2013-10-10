@@ -2,34 +2,45 @@
 include ('queries.php');
 require_once ('config.php');
 
-$query = $info1[0];
-$binds = $info1[1];
-$res = $db->GetAll($query, $binds);
-$number = sizeof($res);
-
-	$cid = '';
-	if (isset($_GET['cid']) && $_GET['cid'] > 0){
-		$cid = $_GET['cid'];
-	} else {
-		$cid = $row['cid'];
-	}
-
-if (isset($_SESSION['user_id'])) {
-$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Viewing player: $cid',?,NOW())", $_SESSION['login']);
+$CharacterID = '';
+if (isset($_REQUEST['CharacterID']) && $_REQUEST['CharacterID'] > 0){
+	$CharacterID = $_REQUEST['CharacterID'];
+} else {
+	$CharacterID = 0;
 }
 
-foreach($res as $row) {	
-	$MapCoords = worldspaceToMapCoords($row['worldspace']);
-	$Inventory = $row['inventory'];
+if (isset($_REQUEST['submit_inv']) && isset($_REQUEST['inv'])) {
+	$db->Execute("UPDATE Character_DATA SET Inventory = ? WHERE CharacterID = ?", array($_REQUEST['inv'], $CharacterID));
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set inventory of player: ',?,' (',?,') to ',?),?,NOW())", array($row['playerName'], $CharacterID, $_REQUEST['inv'], $_SESSION['login']));
+}
+
+if (isset($_REQUEST['submit_bck']) && isset($_REQUEST['bck'])) {
+	$db->Execute("UPDATE Character_DATA SET Backpack = ? WHERE CharacterID = ?", array($_POST['bck'], $CharacterID));
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set backpack of player: ',?,' (',?,') to ',?),?,NOW())", array($row['playerName'], $CharacterID, $_POST['bck'], $_SESSION['login']));
+}
+
+if (isset($_REQUEST['submit_loc']) && isset($_REQUEST['loc'])) {
+	$db->Execute("UPDATE Character_DATA SET Worldspace = ? WHERE CharacterID = ?", array($_POST['loc'], $CharacterID));
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set location of player: ',?,' (',?,') to ',?),?,NOW())", array($row['playerName'], $CharacterID, $_POST['loc'], $_SESSION['login']));
+} 
+
+$row = $db->GetRow($info1, $CharacterID);
+
+if (isset($_SESSION['user_id'])) {
+    $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Viewing player: ',?,' (',?,')'),?,NOW())", array($row['playerName'], $CharacterID, $_SESSION['login']));
+}
+
+	$MapCoords = worldspaceToMapCoords($row['Worldspace']);
+	$Inventory = $row['Inventory'];
 	$Inventory = str_replace("|", ",", $Inventory);
 	$Inventory  = json_decode($Inventory);
 
-	$Backpack  = $row['backpack'];
+	$Backpack  = $row['Backpack'];
 	$Backpack = str_replace("|", ",", $Backpack);
 	$Backpack  = json_decode($Backpack);
-	$model = $row['model'];
+	$model = $row['Model'];
 	
-	$Medical = $row['medical'];
+	$Medical = $row['Medical'];
 	$Medical = str_replace("|", ",", $Medical);
 	$Medical = json_decode($Medical);
 
@@ -38,7 +49,8 @@ foreach($res as $row) {
 	$heavyammoslots = 0;
 	$smallammo = array();
 	$usableitems = array();
-	$survival_time = survivalTimeToString($row['survival_time']);
+	$survival_time = survivalTimeToString($row['duration']);
+    $playerSex = $row['playerSex'];
 
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
@@ -99,8 +111,8 @@ foreach($res as $row) {
 ?>	
 	<div id="page-heading">
 		<center>
-			<h3><?php echo "<title>".htmlspecialchars($row['name'])." - ".$sitename."</title>"; ?></h3>
-			<h3 class="custom-h3"><?php echo htmlspecialchars($row['name']); ?> - <?php echo $row['unique_id']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
+			<h3><?php echo "<title>".htmlspecialchars($row['playerName'])." - ".$sitename."</title>"; ?></h3>
+			<h3 class="custom-h3"><?php echo htmlspecialchars($row['playerName']); ?> - <?php echo $row['playerUID']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
 		</center>
 	</div>
 	<!-- end page-heading -->
@@ -139,25 +151,25 @@ foreach($res as $row) {
 							</div>							
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-120px">
-							<?php echo 'Zed kills:&nbsp;'.$row['zombie_kills'].' / '.$row['total_zombie_kills'];?>
+							<?php echo 'Zed kills:&nbsp;'.$row['KillsZ'].' / '.$row['total_zombie_kills'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-105px">
-							<?php echo 'Zed headshots:&nbsp;'.$row['headshots'].' / '.$row['total_headshots'];?>
+							<?php echo 'Zed headshots:&nbsp;'.$row['HeadshotsZ'].' / '.$row['total_headshots'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-90px">
-							<?php echo 'Human killed:&nbsp;'.$row['survivor_kills'].' / '.$row['total_survivor_kills'];?>
+							<?php echo 'Human killed:&nbsp;'.$row['KillsH'].' / '.$row['total_survivor_kills'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-75px">
-							<?php echo 'Bandit killed:&nbsp;'.$row['bandit_kills'].' / '.$row['total_bandit_kills'];?>
+							<?php echo 'Bandit killed:&nbsp;'.$row['KillsB'].' / '.$row['total_bandit_kills'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-60px">
-							<?php echo 'Survival Attempts:&nbsp;'.$row['survival_attempts'];?>
+							<?php echo 'Survival Attempts:&nbsp;'.$row['Generation'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-45px">
 							<?php echo 'Survival Time:&nbsp;'.$survival_time;?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-30px">
-							<?php echo 'Humanity:&nbsp;'.$row['humanity'];?>
+							<?php echo 'Humanity:&nbsp;'.$row['Humanity'];?>
 						</div>
 					</div>
 					<div class="gear_inventory">
@@ -398,7 +410,7 @@ foreach($res as $row) {
 		<th class="custom-th">Leg</th>
 	</tr>
 	<tr>
-		<td><?php echo $row['is_dead'] == 1 ? "No" : "Yes"; ?></td>
+		<td><?php echo $row['Alive'] == 1 ? "Yes" : "No"; ?></td>
 		<td><?php echo $Medical[1] ? "Yes" : "No"; if($Medical[10] > 0) { printf(" (%d)", $Medical[10]); } ?></td>
 		<td><?php echo $Medical[2] ? "Yes" : "No"; ?></td>
 		<td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
@@ -425,70 +437,70 @@ foreach($res as $row) {
 	</tr>
 	<!-- Row 1 -->
 	<tr>
-	<td><a href="admin.php?view=actions&revivePlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Revive Player</a></td>
+	<td><a href="admin.php?view=actions&revivePlayer&CharacterID=<?php echo $CharacterID; ?>">Revive Player</a></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportNE=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North East Airfield</a></td>
+	<td><a href="admin.php?view=actions&teleport=NEAF&CharacterID=<?php echo $CharacterID; ?>">North East Airfield</a></td>
 	<?php } ?>
-	<td><a href="admin.php?view=actions&skinNormal=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Normal Clothing</a></td>
+	<td><a href="admin.php?view=actions&skin=<?php echo $playerSex == 0 ? "Survivor2_DZ" : "SurvivorW2_DZ"; ?>&CharacterID=<?php echo $CharacterID; ?>">Normal Clothing</a></td>
 	</tr>
 	<!-- Row 2 -->
 	<tr>
-	<td><a href="admin.php?view=actions&healPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Heal Player</a></td>
+	<td><a href="admin.php?view=actions&healPlayer&CharacterID=<?php echo $CharacterID; ?>">Heal Player</a></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportNW=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">North West Airfield</a></td>
+	<td><a href="admin.php?view=actions&teleport=NWAF&CharacterID=<?php echo $CharacterID; ?>">North West Airfield</a></td>
 	<?php } ?>
-	<td><a href="admin.php?view=actions&skinCamo=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Camo Clothing</a></td>
+	<td><?php if($playerSex == 0) {?><a href="admin.php?view=actions&skin=Camo1_DZ&CharacterID=<?php echo $CharacterID; ?>">Camo Clothing</a><?php } else {?>Camo Clothing<?php } ?></td>
 	</tr>
 	<!-- Row 3 -->
 	<tr>
-	<td><a href="admin.php?view=actions&killPlayer=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Kill Player</a></td>
+	<td><a href="admin.php?view=actions&killPlayer&CharacterID=<?php echo $CharacterID; ?>">Kill Player</a></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportStary=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Stary Tents</a></td>
+	<td><a href="admin.php?view=actions&teleport=Stary&CharacterID=<?php echo $CharacterID; ?>">Stary Tents</a></td>
 	<?php } ?>
-	<td><a href="admin.php?view=actions&skinGillie=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Ghillie Suit</a></td>
+	<td><?php if($playerSex == 0) {?><a href="admin.php?view=actions&skin=Sniper1_DZ&CharacterID=<?php echo $CharacterID; ?>">Ghillie Suit</a><?php } else {?>Ghillie Suit<?php } ?></td>
 	</tr>
 	<!-- Row 4 -->
 	<tr>
-	<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Reset Humanity</a></td>
+	<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['playerUID']; ?>&CharacterID=<?php echo $CharacterID; ?>">Reset Humanity</a></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportCherno=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Cherno</a></td>
+	<td><a href="admin.php?view=actions&teleport=Chernogorsk&CharacterID=<?php echo $CharacterID; ?>">Chernogorsk</a></td>
 	<?php } ?>
-	<td><a href="admin.php?view=actions&skinSoldier=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Soldier Clothing</a></td>
+	<td><?php if($playerSex == 0) {?><a href="admin.php?view=actions&skin=Soldier1_DZ&CharacterID=<?php echo $CharacterID; ?>">Soldier Clothing</a><?php } else {?>Soldier Clothing<?php } ?></td>
 	</tr>
 	<!-- Row 5 -->
 	<tr>
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportElektro=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Elektro</a></td>
+	<td><a href="admin.php?view=actions&teleport=Elektrozavodsk&CharacterID=<?php echo $CharacterID; ?>">Elektrozavodsk</a></td>
 	<?php } ?>
-	<td><a href="admin.php?view=actions&skinBandit=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Bandit Skin</a></td>
+	<td><a href="admin.php?view=actions&skin=<?php echo $playerSex == 0 ? "Bandit1_DZ" : "BanditW1_DZ"; ?>&CharacterID=<?php echo $CharacterID; ?>">Bandit Skin</a></td>
 	</tr>
 	<!-- Row 6 -->
 	<tr>
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportSkalisty=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Skalisty</a></td>
+	<td><a href="admin.php?view=actions&teleport=Skalisty&CharacterID=<?php echo $CharacterID; ?>">Skalisty Island</a></td>
 	<?php } ?>
 	</tr>
 	<!-- Row 7 -->
 	<tr>
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportBerezino=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Berezino</a></td>
+	<td><a href="admin.php?view=actions&teleport=Berezino&CharacterID=<?php echo $CharacterID; ?>">Berezino</a></td>
 	<?php } ?>
 	</tr>
 	<!-- Row 8 -->
 	<tr>
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportSolnichniy=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Solnichniy</a></td>
+	<td><a href="admin.php?view=actions&teleport=Solnichniy&CharacterID=<?php echo $CharacterID; ?>">Solnichniy</a></td>
 	<?php } ?>
 	</tr>
 	<!-- Row 9 -->
 	<tr>
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleportPolana=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">Polana</a></td>
+	<td><a href="admin.php?view=actions&teleport=Polana&CharacterID=<?php echo $CharacterID; ?>">Polana</a></td>
 	<?php } ?>
 	</tr>
 	</table>
@@ -498,69 +510,43 @@ foreach($res as $row) {
 <!-- Start inventory management -->
 
 <?php
-mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
-mysql_select_db($dbName);
-
-$login = $_SESSION['login'];
 $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
-
-if ($_POST['submit_inv']) {
-	$inv =  mysql_real_escape_string($_POST['inv']);
-	$dbQuery="UPDATE survivor SET inventory = '$inv' WHERE id = $cid";
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited inventory of user: $cid',?,NOW())", $_SESSION['login']);
-	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
-}
-
-if ($_POST['submit_bck']) {
-	$bck =  mysql_real_escape_string($_POST['bck']);
-	$dbQuery="UPDATE survivor SET backpack = '$bck' WHERE id = $cid";
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited backpack of user: $cid',?,NOW())", $_SESSION['login']);
-	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
-}
-
-if ($_POST['submit_loc']) {
-	$loc =  mysql_real_escape_string($_POST['loc']);
-	$dbQuery="UPDATE survivor SET worldspace = '$loc' WHERE id = $cid";
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited location of user: $cid',?,NOW())", $_SESSION['login']);
-	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
-} 
 
 ?>
 
 <div id="inventoryString">
-	<form method="post">
+	<form method="POST">
 	<h2 class="custom-h2-string">Inventory String</h2>
-		<textarea name="inv" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
+		<textarea name="inv">
 <?php
-echo $row['inventory'];
+echo $row['Inventory'];
 ?>
 		</textarea><br>
 	<br><input name="submit_inv" class="btn btn-default" type="submit" value="Submit" />
 	</form>
 
-	<form method="post">
+	<form method="POST">
 	<br><h2 class="custom-h2-string">Backpack String</h2>
-		<textarea name="bck" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
+		<textarea name="bck">
 <?php 
-echo $row['backpack'];
+echo $row['Backpack'];
 ?>
 		</textarea><br>
 	<br><input name="submit_bck" class="btn btn-default" type="submit" value="Submit" />
 	</form>
-
-	<form method="post">
-	<br><h2 class="custom-h2-string">Location String</h2>
-		<textarea name="loc" action="modules/info/1.php=<?php echo $row['unique_id']; ?>&cid=<?php echo $cid; ?>">
-<?php 
+<?php
 if ($accesslvls[0][3] != 'false') {
-	echo $row['worldspace'];
-} else {
-	echo 'Classified!';
-}
 ?>
+	<form method="POST">
+	<br><h2 class="custom-h2-string">Location String</h2>
+		<textarea name="loc">
+<?php echo $row['Worldspace']; ?>
 		</textarea><br>
 	<br><input name="submit_loc" class="btn btn-default" type="submit" value="Submit" />
 	</form>
+<?php
+}
+?>
 </div>
 
 
@@ -574,5 +560,3 @@ if ($accesslvls[0][3] != 'false') {
 		</td>
 	</tr>
 	</table>
-		
-<?php } ?>

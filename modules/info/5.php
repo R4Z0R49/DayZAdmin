@@ -1,17 +1,21 @@
 <?php
 include ('queries.php');
 
-$query = $info5[0];
-$binds = $info5[1];
-$res = $db->GetAll($query, $binds);
+if (isset($_REQUEST['ObjectUID'])){
+    $ObjectUID = $_REQUEST['ObjectUID'];
+} else {
+    $ObjectID = 0;
+}
+
+$res = $db->GetAll($info5, $ObjectUID);
 $number = sizeof($res);
 
 foreach($res as $row) {
 
-	$MapCoords = worldspaceToMapCoords($row['worldspace']);
+	$MapCoords = worldspaceToMapCoords($row['Worldspace']);
 ?>	
 	<div id="page-heading">
-		<h3><?php echo $row['otype']; ?> - <?php echo $row['id']; ?></h3>
+		<h3><?php echo $row['Classname']; ?> - <?php echo $row['ObjectUID']; ?></h3>
 	</div>
 	<!-- end page-heading -->
 
@@ -38,7 +42,7 @@ foreach($res as $row) {
 				<th class="table-header-repeat line-left minwidth-1"><a href="">Info</a></th>
 			</tr>
 			<tr>
-				<td align="center"><img src='images/vehicles/<?php echo $row['otype']; ?>.png'></td>
+				<td align="center"><img src='images/vehicles/<?php echo $row['Classname']; ?>.png'></td>
 				<td>
 					<h2>Position:</h2><h3><?php echo "left:".$MapCoords[1]." top:".$MapCoords[2]; ?></h3>
 				</td>	

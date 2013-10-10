@@ -24,119 +24,54 @@ $stats_Played24h = "SELECT COUNT(*) FROM (SELECT COUNT(*) FROM Character_DATA WH
 $stats_totalkills = "SELECT * FROM Character_DATA";
 
 // Info
-if(isset($_GET['cid']) && $_GET['cid'] > 0) {
-	$info1 = array("
+$info1 = "
 SELECT
-	Player_DATA.playerName as name,
-	Player_DATA.playerUID as uid,
-	Character_DATA.playerUID as unique_id,
-	Character_DATA.Worldspace as worldspace,
-	Character_DATA.Inventory as inventory,
-	Character_DATA.Backpack as backpack,
-	Character_DATA.Model as model,
-	(CASE Character_DATA.Alive WHEN '1' THEN '0' ELSE '1' END) AS is_dead,
-	Character_DATA.Medical as medical,
-	Character_DATA.distanceFoot as DistanceFoot,
-	Character_DATA.duration as survival_time,
-	Character_DATA.last_updated as last_updated,
-	Character_DATA.KillsZ as zombie_kills,
-	Character_DATA.KillsZ as total_zombie_kills,
-	Character_DATA.HeadshotsZ as headshots,
-	Character_DATA.HeadshotsZ as total_headshots,
-	Character_DATA.KillsH as survivor_kills,
-	Character_DATA.KillsH as total_survivor_kills,
-	Character_DATA.KillsB as bandit_kills,
-	Character_DATA.KillsB as total_bandit_kills,
-	Character_DATA.Generation as survival_attempts,
-	Character_DATA.duration as survival_time,
-	Character_DATA.distanceFoot as distance,
-	Character_DATA.Humanity as humanity
+    pd.playerName,
+    pd.playerUID,
+    pd.playerSex,
+    cd.*
 FROM
-	Player_DATA, Character_DATA
+    Character_DATA cd
+JOIN
+    Player_DATA pd
+ON
+    cd.playerUID = pd.playerUID
 WHERE
-	Character_DATA.playerUID = Player_DATA.playerUID
-AND
-    Player_DATA.PlayerUID = ?
-AND Character_DATA.CharacterID = ?
-", array($_GET["id"], $_GET["cid"]));
-} else {
-    $info1 = array("
-SELECT
-	Player_DATA.playerName as name,
-	Player_DATA.playerUID as uid,
-	Character_DATA.playerUID as unique_id,
-	Character_DATA.Worldspace as worldspace,
-	Character_DATA.Inventory as inventory,
-	Character_DATA.Backpack as backpack,
-	Character_DATA.Model as model,
-	(CASE Character_DATA.Alive WHEN '1' THEN '0' ELSE '1' END) AS is_dead,
-	Character_DATA.Medical as medical,
-	Character_DATA.distanceFoot as DistanceFoot,
-	Character_DATA.duration as survival_time,
-	Character_DATA.last_updated as last_updated,
-	Character_DATA.KillsZ as zombie_kills,
-	Character_DATA.KillsZ as total_zombie_kills,
-	Character_DATA.HeadshotsZ as headshots,
-	Character_DATA.HeadshotsZ as total_headshots,
-	Character_DATA.KillsH as survivor_kills,
-	Character_DATA.KillsH as total_survivor_kills,
-	Character_DATA.KillsB as bandit_kills,
-	Character_DATA.KillsB as total_bandit_kills,
-	Character_DATA.Generation as survival_attempts,
-	Character_DATA.duration as survival_time,
-	Character_DATA.distanceFoot as distance,
-	Character_DATA.Humanity as humanity
-FROM
-	Player_DATA, Character_DATA
-WHERE
-	Character_DATA.playerUID = Player_DATA.playerUID
-AND	Character_DATA.Alive = 1 AND Player_DATA.PlayerUID = ?
-", isset($_GET["id"]) ? $_GET['id'] : 0);
-}
+    cd.CharacterID = ?
+";
 
-$info4 = array("
+$info4 = "
 SELECT
-	Object_CLASSES.*,
-	Object_DATA.ObjectID as id,
-	Object_DATA.Hitpoints as parts,
-	Object_DATA.Inventory as inventory,
-	Object_DATA.ObjectUID as uid,
-	Object_DATA.Classname as class_name,
-	Object_DATA.Worldspace as worldspace,
-	Object_DATA.Damage as damage,
-	Object_DATA.last_updated,
-	Object_DATA.Fuel as fuel
+	od.*,
+    oc.*
 FROM
-	Object_CLASSES, Object_DATA as Object_DATA
+	Object_DATA od
+JOIN
+    Object_CLASSES oc
+ON
+    od.Classname = oc.Classname
 WHERE
-	Object_DATA.Classname = Object_CLASSES.Classname
-AND Object_DATA.ObjectID = ?
-AND Object_DATA.Instance =  ? and CharacterID = 0
-", array(isset($_REQUEST["id"]) ? $_REQUEST["id"] : 0, $iid));
+    od.ObjectID = ?
+AND od.Instance =  ?
+AND od.CharacterID = 0
+";
 
-$info5 = array("
+$info5 = "
 SELECT
 	*
 FROM
 	Object_SPAWNS
 WHERE
 	ObjectUID = ?
-AND Instance = ?
-", array(isset($_GET["id"]) ? $_REQUEST["id"] : 0, $iid));
+";
 
-$info6 = array("
+$info6 = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as idid,
-	od.Classname,
-	od.Damage AS damage,
-	od.Inventory AS inventory,
-	od.Worldspace AS worldspace,
-	od.last_updated,
-	pd.playerName AS name,
-	pd.playerUID AS unique_id,
-	oc.Classname AS class_name,
-	cd.CharacterID AS cid,
+	od.*,
+	pd.playerName,
+	pd.playerUID,
+	oc.Classname,
+	cd.CharacterID,
 	oc.Type
 FROM
 	Object_DATA od
@@ -154,106 +89,107 @@ WHERE
 	od.Classname IN ('TentStorage','StashSmall','StashMedium')
 AND od.ObjectID = ?
 AND od.Instance = ?
-", array(isset($_GET["id"]) ? $_REQUEST["id"] : 0, $iid));
+";
 
 // Map
-$map0 = array("
+$map0 = "
 SELECT
-	Player_DATA.playerName as name,
+	Player_DATA.playerName AS name,
 	Player_DATA.playerUID,
-	Character_DATA.PlayerUID as unique_id,
+	Character_DATA.PlayerUID AS unique_id,
 	Character_DATA.CharacterID AS cid,
-	Character_DATA.Worldspace as worldspace,
-	Character_DATA.Model as model,
-	Character_DATA.KillsZ as zombie_kills,
-	Character_DATA.KillsB as bandit_kills,
-	Character_DATA.duration as survival_time,
-	Character_DATA.Generation as survival_attempts,
+	Character_DATA.Worldspace AS worldspace,
+	Character_DATA.Model AS model,
+	Character_DATA.KillsZ AS zombie_kills,
+	Character_DATA.KillsB AS bandit_kills,
+	Character_DATA.duration AS survival_time,
+	Character_DATA.Generation AS survival_attempts,
 	Character_DATA.currentState AS state,
-	Character_DATA.Humanity as humanity
+	Character_DATA.Humanity AS humanity
 FROM
 	Player_DATA, Character_DATA
 WHERE
 	Player_DATA.PlayerUID = Character_DATA.PlayerUID
 AND Character_DATA.Alive = 1
 AND Character_DATA.last_updated >= NOW() - INTERVAL 1 minute
-");
+";
 
-$map1 = array("
+$map1 = "
 SELECT
-	Player_DATA.playerName as name,
+	Player_DATA.playerName AS name,
 	Player_DATA.playerUID,
-	Character_DATA.PlayerUID as unique_id,
-	Character_DATA.CharacterID as cid,
-	Character_DATA.Worldspace as worldspace,
-	Character_DATA.Model as model,
-	Character_DATA.KillsZ as zombie_kills,
-	Character_DATA.KillsB as bandit_kills,
-	Character_DATA.duration as survival_time,
-	Character_DATA.Generation as survival_attempts,
+	Character_DATA.PlayerUID AS unique_id,
+	Character_DATA.CharacterID AS cid,
+	Character_DATA.Worldspace AS worldspace,
+	Character_DATA.Model AS model,
+	Character_DATA.KillsZ AS zombie_kills,
+	Character_DATA.KillsB AS bandit_kills,
+	Character_DATA.duration AS survival_time,
+	Character_DATA.Generation AS survival_attempts,
 	Character_DATA.currentState AS state,
-	Character_DATA.Humanity as humanity
+	Character_DATA.Humanity AS humanity
 FROM
 	Player_DATA, Character_DATA
 WHERE
 	Player_DATA.PlayerUID = Character_DATA.PlayerUID
 AND Character_DATA.Alive = 1
-");
+";
 
-$map2 = array("
+$map2 = "
 SELECT
-	Player_DATA.playerName as name, Player_DATA.playerUID,
-	Character_DATA.PlayerUID as unique_id,
-	Character_DATA.CharacterID as cid,
-	Character_DATA.Worldspace as worldspace,
-	Character_DATA.Model as model,
-	Character_DATA.KillsZ as zombie_kills,
-	Character_DATA.KillsB as bandit_kills,
-	Character_DATA.duration as survival_time,
-	Character_DATA.Generation as survival_attempts,
+	Player_DATA.playerName AS name, Player_DATA.playerUID,
+	Character_DATA.PlayerUID AS unique_id,
+	Character_DATA.CharacterID AS cid,
+	Character_DATA.Worldspace AS worldspace,
+	Character_DATA.Model AS model,
+	Character_DATA.KillsZ AS zombie_kills,
+	Character_DATA.KillsB AS bandit_kills,
+	Character_DATA.duration AS survival_time,
+	Character_DATA.Generation AS survival_attempts,
 	Character_DATA.currentState AS state,
-	Character_DATA.Humanity as humanity
+	Character_DATA.Humanity AS humanity
 FROM
 	Player_DATA, Character_DATA
 WHERE
 	Player_DATA.PlayerUID = Character_DATA.PlayerUID
 AND Character_DATA.Alive = 0
-");
+";
 
-$map4 = array("
+$map4 = "
 SELECT
 	Object_CLASSES.*,
-	Object_DATA.ObjectID as id,
-	Object_DATA.ObjectUID as uid,
-	Object_DATA.Classname as class_name,
-	Object_DATA.Worldspace as worldspace,
-	Object_DATA.Damage as damage,
+	Object_DATA.ObjectID AS id,
+	Object_DATA.ObjectUID AS uid,
+	Object_DATA.Classname AS class_name,
+	Object_DATA.Worldspace AS worldspace,
+	Object_DATA.Damage AS damage,
 	Object_DATA.last_updated,
-	Object_DATA.Fuel as fuel
+	Object_DATA.Fuel AS fuel
 FROM
-	Object_CLASSES, Object_DATA as Object_DATA
+	Object_CLASSES, Object_DATA AS Object_DATA
 WHERE
 	Object_DATA.Classname = Object_CLASSES.Classname
-AND Object_DATA.Instance =  " . $iid . " and CharacterID = 0");
+AND Object_DATA.Instance = ? and CharacterID = 0
+";
 
-$map5 = array("
+$map5 = "
 SELECT
 	Object_CLASSES.*,
-	Object_SPAWNS.ObjectUID as id,
-	Object_SPAWNS.Hitpoints as parts,
-	Object_SPAWNS.Inventory as inventory,
-	Object_SPAWNS.Classname as class_name,
-	Object_SPAWNS.Worldspace as worldspace
+	Object_SPAWNS.ObjectUID AS id,
+	Object_SPAWNS.Hitpoints AS parts,
+	Object_SPAWNS.Inventory AS inventory,
+	Object_SPAWNS.Classname AS class_name,
+	Object_SPAWNS.Worldspace AS worldspace
 FROM
-	Object_CLASSES, Object_SPAWNS as Object_SPAWNS
+	Object_CLASSES, Object_SPAWNS AS Object_SPAWNS
 WHERE
 	Object_SPAWNS.Classname = Object_CLASSES.Classname
-");
+";
 
-$map6 = array("
+$map6 = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as idid,
+	od.ObjectID AS id,
+	od.ObjectUID AS idid,
 	od.Classname,
 	od.Damage AS damage,
 	od.Inventory AS inventory,
@@ -277,12 +213,12 @@ JOIN
 ON
 	oc.Classname = od.Classname
 WHERE od.Classname IN ('TentStorage','StashSmall','StashMedium') AND od.Instance = ?
-", $iid);
+";
 
-$map7 = array("
+$map7 = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as idid,
+	od.ObjectID AS id,
+	od.ObjectUID AS idid,
 	od.Classname,
 	od.Damage AS damage,
 	od.Inventory AS inventory,
@@ -306,51 +242,51 @@ JOIN
 ON
 	oc.Classname = od.Classname
 WHERE od.Classname IN ('Hedgehog_DZ','Sandbag1_DZ','TrapBear','Wire_cat1') AND od.Instance = ?
-", $iid);
+";
 
-$map8_players = array("
+$map8_players = "
 SELECT
-	Player_DATA.playerName as name,
+	Player_DATA.playerName AS name,
 	Player_DATA.playerUID,
-	Character_DATA.PlayerUID as unique_id,
-	Character_DATA.CharacterID as cid,
-	Character_DATA.Worldspace as worldspace,
-	Character_DATA.Model as model,
-	Character_DATA.KillsZ as zombie_kills,
-	Character_DATA.KillsB as bandit_kills,
-	Character_DATA.duration as survival_time,
-	Character_DATA.Generation as survival_attempts,
+	Character_DATA.PlayerUID AS unique_id,
+	Character_DATA.CharacterID AS cid,
+	Character_DATA.Worldspace AS worldspace,
+	Character_DATA.Model AS model,
+	Character_DATA.KillsZ AS zombie_kills,
+	Character_DATA.KillsB AS bandit_kills,
+	Character_DATA.duration AS survival_time,
+	Character_DATA.Generation AS survival_attempts,
 	Character_DATA.currentState AS state,
-	Character_DATA.Humanity as humanity
+	Character_DATA.Humanity AS humanity
 FROM
 	Player_DATA, Character_DATA
 WHERE
 	Player_DATA.PlayerUID = Character_DATA.PlayerUID
 AND Character_DATA.Alive = 1
 AND Character_DATA.last_updated >= NOW() - INTERVAL 1 minute
-");
+";
 
-$map8_vehicles = array("
+$map8_vehicles = "
 SELECT
 	Object_CLASSES.*,
-	Object_DATA.ObjectID as id,
-	Object_DATA.ObjectUID as uid,
-	Object_DATA.Classname as class_name,
-	Object_DATA.Worldspace as worldspace,
-	Object_DATA.Damage as damage,
+	Object_DATA.ObjectID AS id,
+	Object_DATA.ObjectUID AS uid,
+	Object_DATA.Classname AS class_name,
+	Object_DATA.Worldspace AS worldspace,
+	Object_DATA.Damage AS damage,
 	Object_DATA.last_updated,
-	Object_DATA.Fuel as fuel
+	Object_DATA.Fuel AS fuel
 FROM
-	Object_CLASSES, Object_DATA as Object_DATA
+	Object_CLASSES, Object_DATA AS Object_DATA
 WHERE
 	Object_DATA.Classname = Object_CLASSES.Classname
-AND Object_DATA.Instance =  " . $iid . " and CharacterID = 0
-");
+AND Object_DATA.Instance = ? and CharacterID = 0
+";
 
-$map8_objects = array("
+$map8_objects = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as idid,
+	od.ObjectID AS id,
+	od.ObjectUID AS idid,
 	od.Classname,
 	od.Damage AS damage,
 	od.Inventory AS inventory,
@@ -370,18 +306,15 @@ LEFT OUTER JOIN
 JOIN
 	Object_CLASSES oc on oc.Classname = od.Classname
 WHERE
-	od.Classname IN ('Sandbag1_DZ', 'TrapBear', 'Hedgehog_DZ', 'Wire_cat1', 'TentStorage','StashSmall','StashMedium') AND od.Instance = ". $iid
-);
+	od.Classname IN ('Sandbag1_DZ', 'TrapBear', 'Hedgehog_DZ', 'Wire_cat1', 'TentStorage','StashSmall','StashMedium') AND od.Instance = ?
+";
 
 // Tables
-$table0 = array("
+$table0 = "
 SELECT
-	pd.playerName as name,
-	pd.playerUID as unique_id,
-	cd.CharacterID AS cid,
-	cd.Backpack as backpack,
-	cd.Inventory as inventory,
-	cd.Worldspace as worldspace
+	pd.playerName,
+	pd.playerUID,
+	cd.*
 FROM
 	Player_DATA pd
 JOIN
@@ -393,69 +326,80 @@ WHERE
 ORDER BY
 	cd.last_updated DESC
 LIMIT 1
-");
+";
 
-$table1 = array("
+$table1 = "
 SELECT
-	pd.playerName as name,
-	pd.playerUID as unique_id,
-	cd.CharacterID AS cid,
-	cd.Backpack as backpack,
-	cd.Inventory as inventory,
-	cd.Worldspace as worldspace
+	pd.playerName,
+	pd.playerUID,
+	cd.*
 FROM
 	Player_DATA pd
 JOIN
 	Character_DATA cd
 ON
-	cd.PlayerUID = pd.PlayerUID
+	cd.PlayerUID = pd.playerUID
 WHERE
 	cd.Alive = 1
-");
+";
 
-$table2 = array("
+$table2 = "
 SELECT
-	pd.playerName as name,
-	pd.playerUID as unique_id,
-	cd.CharacterID AS cid,
-	cd.Backpack as backpack,
-	cd.Inventory as inventory,
-	cd.Worldspace as worldspace
+    pd.playerName,
+    pd.playerUID,
+    cd.*
 FROM
-	Player_DATA pd
+    Player_DATA pd
 JOIN
-	Character_DATA cd
+    Character_DATA cd
 ON
-	cd.PlayerUID = pd.PlayerUID
+    cd.PlayerUID = pd.playerUID
 WHERE
-	cd.Alive = 0
-");
-
-$table3 = array("
+    cd.Alive = 0
+UNION
 SELECT
-	pd.playerName as name,
-	pd.playerUID as unique_id,
-	cd.CharacterID AS cid,
-	cd.Backpack as backpack,
-	cd.Inventory as inventory,
-	cd.Worldspace as worldspace
+    pd.playerName,
+    pd.playerUID,
+    cdd.*
 FROM
-	Player_DATA pd
+    Player_DATA pd
 JOIN
-	Character_DATA cd
+    Character_DEAD cdd
 ON
-	cd.PlayerUID = pd.PlayerUID
-");
+    cdd.PlayerUID = pd.playerUID
+WHERE
+    cdd.Alive = 0
+";
 
-$table4 = array("
+$table3 = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as unique_id,
-	od.Classname AS class_name,
-	od.Damage AS damage,
-	od.Hitpoints AS parts,
-	od.Inventory AS inventory,
-	od.Worldspace AS worldspace
+    pd.playerName,
+    pd.playerUID,
+    cd.*
+FROM
+    Player_DATA pd
+JOIN
+    Character_DATA cd
+ON
+    cd.PlayerUID = pd.playerUID
+UNION
+SELECT
+    pd.playerName,
+    pd.playerUID,
+    cdd.*
+FROM
+    Player_DATA pd
+JOIN
+    Character_DEAD cdd
+ON
+    cdd.PlayerUID = pd.playerUID
+WHERE
+    cdd.Alive = 0
+";
+
+$table4 = "
+SELECT
+	od.*
 FROM
 	Object_DATA od
 JOIN
@@ -464,38 +408,30 @@ ON
 	oc.Classname = od.Classname
 WHERE
 	oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
-AND od.Instance = ?
-", $iid);
+AND
+    od.Instance = ?
+";
 
-$table5 = array("
+$table5 = "
 SELECT
-	od.Classname as otype,
-	oc.Type as type,
-	od.ObjectID as id,
-	od.Worldspace as pos
+    os.*
 FROM
-	Object_DATA od
+    Object_SPAWNS os
 JOIN
-	Object_CLASSES oc
+    Object_CLASSES oc
 ON
-	oc.Classname = od.Classname
+    os.Classname = oc.Classname
 WHERE
-	oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck') AND od.Instance = ?
-", $iid);
+    oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
+";
 
-$table6 = array("
+$table6 = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as idid,
-	od.Classname AS class_name,
-	od.Damage AS damage,
-	od.Inventory AS inventory,
-	od.Worldspace AS worldspace,
-	od.last_updated,
-	pd.playerName AS name,
-	pd.playerUID AS unique_id,
+	od.*,
+	pd.playerName,
+	pd.playerUID,
 	oc.Type,
-	cd.CharacterID AS cid
+	cd.CharacterID
 FROM
 	Object_DATA od
 LEFT OUTER JOIN
@@ -503,28 +439,24 @@ LEFT OUTER JOIN
 ON
 	cd.CharacterID = od.CharacterID
 LEFT OUTER JOIN
-	Player_DATA pd ON pd.PlayerUID = cd.playerUID
+	Player_DATA pd
+ON
+    pd.PlayerUID = cd.playerUID
 JOIN
 	Object_CLASSES oc
 ON
 	oc.Classname = od.Classname
 WHERE
 	od.Classname IN ('TentStorage','StashSmall','StashMedium') AND od.Instance = ?
-", $iid);
+";
 
-$table7 = array("
+$table7 = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as idid,
-	od.Classname AS class_name,
-	od.Damage AS damage,
-	od.Inventory AS inventory,
-	od.Worldspace AS worldspace,
-	od.last_updated,
-	pd.playerName AS name,
-	pd.playerUID AS unique_id,
+	od.*
+	pd.playerName,
+	pd.playerUID,
 	oc.Type,
-	cd.CharacterID AS cid
+	cd.CharacterID
 FROM
 	Object_DATA od
 LEFT OUTER JOIN
@@ -541,17 +473,17 @@ ON
 	oc.Classname = od.Classname
 WHERE
 	od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'TrapBear', 'Wire_cat1') AND od.Instance = ?
-", $iid);
+";
 
 // Check Items
 $check_player = "
 SELECT
-	pd.playerName as name,
-	pd.playerUID as unique_id,
-	cd.CharacterID AS cid,
-	cd.Backpack as backpack,
-	cd.Inventory as inventory,
-	cd.Worldspace as worldspace
+	pd.playerName,
+	pd.playerUID,
+	cd.CharacterID,
+	cd.Backpack,
+	cd.Inventory,
+	cd.Worldspace
 FROM
 	Player_DATA pd
 JOIN
@@ -560,16 +492,11 @@ ON
 	cd.PlayerUID = pd.PlayerUID
 ";
 
-$check_deployable = array("
+$check_deployable = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as instance_deployable_id,
-	od.Classname AS class_name,
-	od.Damage AS damage,
-	od.Inventory AS inventory,
-	od.Worldspace AS worldspace,
-	pd.playerName AS owner_name,
-	pd.playerUID AS owner_unique_id
+	od.*,
+	pd.playerName,
+	pd.playerUID
 FROM
 	Object_DATA od
 LEFT OUTER JOIN
@@ -583,16 +510,11 @@ ON
 WHERE
 	od.Classname IN ('TentStorage','SmallStash','MediumStash')
 AND od.Instance = ?
-", $iid);
+";
 
-$check_vehicle = array("
+$check_vehicle = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as instance_vehicle_id,
-	od.Classname AS class_name,
-	od.Damage AS damage,
-	od.Inventory AS inventory,
-	od.Worldspace AS worldspace
+	od.*
 FROM
 	Object_DATA od
 JOIN
@@ -602,7 +524,7 @@ ON
 WHERE
 	oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
 AND od.Instance = ?
-", $iid);
+";
 
 // Leaderboard
 $leaderboard_query = "
@@ -627,12 +549,12 @@ ON
 // Search
 $search_query_player = "
 SELECT
-	pd.playerName as name,
-	pd.playerUID as unique_id,
-	cd.CharacterID AS cid,
-	cd.Backpack as backpack,
-	cd.Inventory as inventory,
-	cd.Worldspace as worldspace
+	pd.playerName,
+	pd.playerUID,
+	cd.CharacterID,
+	cd.Backpack,
+	cd.Inventory,
+	cd.Worldspace
 FROM
 	Player_DATA pd
 JOIN
@@ -647,12 +569,12 @@ AND
 
 $search_query_item = "
 SELECT
-	pd.playerName as name,
-	pd.playerUID as unique_id,
-	cd.CharacterID AS cid,
-	cd.Backpack as backpack,
-	cd.Inventory as inventory,
-	cd.Worldspace as worldspace
+	pd.playerName,
+	pd.playerUID,
+	cd.CharacterID,
+	cd.Backpack,
+	cd.Inventory,
+	cd.Worldspace
 FROM
 	Player_DATA pd
 JOIN
@@ -666,13 +588,7 @@ AND (Inventory LIKE ? OR Backpack LIKE ?)
 
 $search_query_vehicle = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as unique_id,
-	od.Classname AS class_name,
-	od.Damage AS damage,
-	od.Inventory AS inventory,
-	od.Worldspace AS worldspace,
-	od.Hitpoints AS parts
+	od.*
 FROM
 	Object_DATA od
 JOIN
@@ -687,16 +603,10 @@ AND od.Classname LIKE ?
 
 $search_query_container = "
 SELECT
-	od.ObjectID as id,
-	od.ObjectUID as unique_id,
-	od.Classname AS class_name,
-	od.Damage AS damage,
-	od.Inventory AS inventory,
-	od.Hitpoints AS parts,
-	od.Worldspace AS worldspace,
-	pd.playerName AS name,
-	pd.playerUID AS unique_id,
-	cd.CharacterID AS cid
+	od.*,
+	pd.playerName,
+	pd.playerUID,
+	cd.CharacterID
 FROM
 	Object_DATA od
 JOIN

@@ -2,8 +2,8 @@
 
 if (isset($_SESSION['user_id']) && $accesslvls[0][4] != 'false')
 {
-	if (isset($_POST['type'])){
-		$pagetitle = "Search for ".$_POST['type'];
+	if (isset($_REQUEST['type'])){
+		$pagetitle = "Search for ".$_REQUEST['type'];
 	} else {
 		$pagetitle = "New search";
 	}
@@ -17,18 +17,17 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][4] != 'false')
 </div>
 		<?php
         require_once('queries.php');
-		require_once('searchbar.php');
 		?><br/><?php
-		if (!empty($_POST))
+		if (isset($_REQUEST['type']))
 		{
 			error_reporting (E_ALL ^ E_NOTICE);
-			$search = '%'.substr($_POST['search'], 0, 64).'%';
+			$search = '%'.substr($_REQUEST['search'], 0, 64).'%';
 
 			?>
 			<table border="0" width="100%">
 			<?php
     		$chbox = "";
-			switch ($_POST['type']) {
+			switch ($_REQUEST['type']) {
 				case 'player':
 					$tableheader = header_player(0);
 					echo $tableheader;
@@ -64,7 +63,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][4] != 'false')
     				$tablerows = "";
 	    			$tablerows_veh = "";
    					foreach($res as $row) {
-                        if($row['class_name'] == "TentStorage" || $row['class_name'] == "StashSmall" || $row['class_name'] == "StashMedium") {
+                        if($row['Classname'] == "TentStorage" || $row['Classname'] == "StashSmall" || $row['Classname'] == "StashMedium") {
            				    $tablerows .= row_deployable($row, $chbox);
                         } else {
    			    			$tablerows_veh .= row_vehicle($row, $chbox);
