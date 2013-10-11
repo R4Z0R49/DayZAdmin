@@ -73,7 +73,7 @@ function rcon($serverip,$serverport,$rconpassword,$cmd){
 	$loginmsg = $head.$checksum.$pass;
 
 	$rcon = fsockopen("udp://".$serverip, $serverport, $errno, $errstr, 1);
-	stream_set_timeout($rcon, 1);
+	stream_set_timeout($rcon, 5);
 
 	if (!$rcon) {
 		echo "ERROR: $errno - $errstr<br />\n";
