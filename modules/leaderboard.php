@@ -26,7 +26,7 @@
 	<table class="table">
 		<thead>
 			<th class="custom-th"># Rank</th>
-			<th class="custom-th"><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img>playerName</th>
+			<th class="custom-th"><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img>Name</th>
 			<th class="custom-th"><img src="images/icons/statspage/infectedkilled1.png" width="25px" height="25px" class="table-img"></img> Zombie Kills</th>
 			<th class="custom-th"><img src="images/icons/statspage/murders.png" width="25px" height="25px" class="table-img"></img> Human Kills</th>
 			<th class="custom-th"><img src="images/icons/statspage/banditskilled1.png" width="25px" height="25px" class="table-img"></img> Bandit Kills</th>
