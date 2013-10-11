@@ -15,10 +15,10 @@
 
 	$res = $db->Execute($stats_totalkills);
 	foreach($res as $row) {
-		$KillsZ += $row[$stats_totalkills_KillsZ];
-		$KillsB += $row[$stats_totalkills_KillsB];
-		$KillsH += $row[$stats_totalkills_KillsH];
-		$HeadshotsZ += $row[$stats_totalkills_HeadshotsZ];
+		$KillsZ += $row['KillsZ'];
+		$KillsB += $row['KillsB'];
+		$KillsH += $row['KillsH'];
+		$HeadshotsZ += $row['HeadshotsZ'];
 	}
 		
 	$totalAlive = $db->GetOne($stats_totalAlive);
@@ -26,15 +26,15 @@
 	$num_deaths = $db->GetOne($stats_deaths);
 	$num_alivebandits = $db->GetOne($stats_alivebandits);
 	$num_aliveheros = $db->GetOne($stats_aliveheros);
-	$num_totalVehicles = $db->GetOne($stats_totalVehicles);
+	$num_totalVehicles = $db->GetOne($stats_totalVehicles[0], $stats_totalVehicles[1]);
 	$num_Played24h = $db->GetOne($stats_Played24h);
 
 	//$leaderboardplayers .= '<tr><td>'.$kunt.'</td></tr>';
 
-	if(!isset($_GET['leaderboard'])) {
-		$page = 'home';
-	} elseif(isset($_GET['leaderboard'])){
+	if(isset($_GET['leaderboard'])) {
 		$page = 'leaderboard';
+	} else {
+		$page = 'home';
 	}
 ?>
 <!DOCTYPE html>
@@ -44,10 +44,10 @@
 		<div class="content">
 
 			<?php
-				if(!isset($_GET['leaderboard'])) {
-					include('modules/stats.php');
-				} elseif (isset($_GET['leaderboard'])){
+				if(isset($_GET['leaderboard'])) {
 					include('modules/leaderboard.php');
+				} else {
+					include('modules/stats.php');
 				}
 			?>
 

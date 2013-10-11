@@ -51,10 +51,9 @@
 				$k = strrpos($players[$i][4], " (Lobby)");
 				$playername = str_replace(" (Lobby)", "", $players[$i][4]);
 				
-                $query = $table0[0];
-                $res = $db->GetRow($query, array($playername));
-				$name = $res['name'];
-				$id = $res['unique_id'];
+                $res = $db->GetRow($table0, $playername);
+				$name = $res['playerName'];
+				$id = $res['CharacterID'];
 				$dead = "";
 				$x = 0;
 				$y = 0;

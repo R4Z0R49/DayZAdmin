@@ -1,41 +1,40 @@
 <?php
 include ('queries.php');
-$id = '';
-if (isset($_GET['id'])){
-	$id = " AND id ='".$_GET['id']."'";
+
+if (isset($_REQUEST['ObjectID'])){
+	$ObjectID = $_REQUEST['ObjectID'];
+} else {
+    $ObjectID = 0;
 }
 
-$query = $info4[0];
-$binds = $info4[1];
-$res = $db->GetAll($query, $binds);
-$number = sizeof($res);
+if (isset($_REQUEST['submit_inv']) && isset($_REQUEST['inv'])) {
+    $db->Execute("UPDATE Object_DATA SET Inventory = ? WHERE ObjectID = ?", array($_REQUEST['inv'], $ObjectID));
+    $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set inventory of vehicle: ',?,' (',?,') to ',?),?,NOW())", array($row['Classname'], $ObjectID, $_REQUEST['inv'], $_SESSION['login']));
+}
+
+if (isset($_REQUEST['submit_loc']) && isset($_REQUEST['loc'])){
+	$loc =  mysql_real_escape_string($_POST['loc']);
+	$db->Execute("UPDATE Object_DATA SET Worldspace = ? WHERE ObjectID = ?", array($loc, $ObjectID));
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Edited location of Object: ',?),?,NOW())", array($ObjectID, $_SESSION['login']));
+} 
+
+$res = $db->GetAll($info4, array($ObjectID, $iid));
 
 foreach($res as $row) {
 
-    $MapCoords = worldspaceToMapCoords($row['worldspace']);
-	/* $Inventory = $row['inventory'];
-	$Inventory = str_replace("[", "", $Inventory);
-	$Inventory = str_replace("]", "", $Inventory);
-	$Inventory = str_replace('"', "", $Inventory);
-	$Inventory = str_replace("|", ",", $Inventory);
-	$Inventory = explode(",", $Inventory); */
+    $MapCoords = worldspaceToMapCoords($row['Worldspace']);
 	
-	$Backpack  = $row['inventory'];
+	$Backpack  = $row['Inventory'];
 	$Backpack = str_replace("|", ",", $Backpack);
-	//$Backpack  = str_replace('"', "", $Backpack );
 	$Backpack  = json_decode($Backpack);
 
 	$owner = "";
-$ownerid = "";
-$owneruid = "";
-
+    $ownerid = "";
+    $owneruid = "";
 	
-	
-	$Hitpoints  = $row['parts'];
-	//$Hitpoints  ='[["wheel_1_1_steering",0.2],["wheel_2_1_steering",0],["wheel_1_4_steering",1],["wheel_2_4_steering",1],["wheel_1_3_steering",1],["wheel_2_3_steering",1],["wheel_1_2_steering",0],["wheel_2_2_steering",1],["motor",0.1],["karoserie",0.4]]';
+	$Hitpoints = $row['Hitpoints'];
 	$Hitpoints = str_replace("|", ",", $Hitpoints);
-	//$Backpack  = str_replace('"', "", $Backpack );
-	$Hitpoints  = json_decode($Hitpoints);
+	$Hitpoints = json_decode($Hitpoints);
 	
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
@@ -47,8 +46,8 @@ $owneruid = "";
 ?>	
 	<div id="page-heading">
 		<center>
-			<h3><?php echo "<title>".$row['class_name']." - ".$sitename."</title>"; ?></h3>
-			<h3 class="custom-h3"><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
+			<h3><?php echo "<title>".$row['Classname']." - ".$sitename."</title>"; ?></h3>
+			<h3 class="custom-h3"><?php echo $row['Classname']; ?> - <?php echo $row['ObjectID']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
 		</center>
 	</div>
 	<!-- end page-heading -->
@@ -63,7 +62,7 @@ $owneruid = "";
 			<div id="table-content">
 				<div id="gear_vehicle" style="margin-left: 64px; margin-bottom: 10px;">	
 					<div class="gear_info">
-						<img class="vehiclemodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
+						<img class="vehiclemodel" src='images/vehicles/<?php echo $row['Classname']; ?>.png'/>
 						<div id="gps" style="margin-left:120px;margin-top:323px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
@@ -78,7 +77,7 @@ $owneruid = "";
 							<div class="gpstext" style="width:120px;margin-left:13px;margin-top:61px">
 							<?php
 								if ($accesslvls[0][3] != 'false') {
-									echo sprintf("%03d",$MapCoords[1]).sprintf("%03d",$MapCoords[2]);
+									echo sprintf("%03d%03d",$MapCoords[1],$MapCoords[2]);
 								} else {
 									echo '<h4 style="margin-top: 2px">Classified!</h4>';
 								}
@@ -87,10 +86,10 @@ $owneruid = "";
 						</div>
 
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-85px">
-							<?php echo 'Damage:&nbsp;'.sprintf("%d%%", round($row['damage'] * 100));?>
+							<?php echo 'Damage:&nbsp;'.sprintf("%d%%", round($row['Damage'] * 100));?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-65px">
-							<?php echo 'Fuel:&nbsp;'.sprintf("%d%%", round($row['fuel'] * 100));?>
+							<?php echo 'Fuel:&nbsp;'.sprintf("%d%%", round($row['Fuel'] * 100));?>
 						</div>
 					</div>
 					<!-- Backpack -->
@@ -104,12 +103,12 @@ $owneruid = "";
 							$freeslots = 0;
 							$freeweaps = 0;
 							$freebacks = 0;
-							$BackpackName = $row['class_name'];
-							if(array_key_exists('s'.$row['class_name'],$vehicles_xml['vehicles'])){
-								$maxmagazines = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxmagazines'];
-								$maxweaps = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxweapons'];
-								$maxbacks = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxbackpacks'];
-								$BackpackName = $vehicles_xml['vehicles']['s'.$row['class_name']]['Name'];
+							$BackpackName = $row['Classname'];
+							if(array_key_exists('s'.$row['Classname'],$vehicles_xml['vehicles'])){
+								$maxmagazines = $vehicles_xml['vehicles']['s'.$row['Classname']]['transportmaxmagazines'];
+								$maxweaps = $vehicles_xml['vehicles']['s'.$row['Classname']]['transportmaxweapons'];
+								$maxbacks = $vehicles_xml['vehicles']['s'.$row['Classname']]['transportmaxbackpacks'];
+								$BackpackName = $vehicles_xml['vehicles']['s'.$row['Classname']]['Name'];
 							}
 							if (count($Backpack) >0){
 							$bpweaponscount = count($Backpack[0][0]);
@@ -257,7 +256,6 @@ $owneruid = "";
 			
 				</div>
 			</div>
-<?php if($sql == 'Bliss') { ?>
 <div id="medical">
 	<table id="medical">
 		<tr>
@@ -267,52 +265,39 @@ $owneruid = "";
 		</tr>
 		<tr>
 			<td>
-				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['id']; ?>">Repair Vehicle</a>
+				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['ObjectID']; ?>">Repair Vehicle</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row['id']; ?>">Destroy Vehicle</a>
+				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row['ObjectID']; ?>">Destroy Vehicle</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="admin.php?view=actions&refuelVehicle=<?php echo $row['id']; ?>">Refuel Vehicle</a>
+				<a href="admin.php?view=actions&refuelVehicle=<?php echo $row['ObjectID']; ?>">Refuel Vehicle</a>
 			</td>
 		</tr>
 	</table>
 </div>
-			
-			
-<?php
-mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
-mysql_select_db($dbName);
-
-$login = $_SESSION['login'];
-
-	$id = '';
-	if (isset($_GET['id']) && $_GET['id'] > 0){
-		$id = $_GET['id'];
-	} else {
-		$id = $row['id'];
-	}
-
-if ($_POST['submit_loc']) {
-	$loc =  mysql_real_escape_string($_POST['loc']);
-	$dbQuery="UPDATE instance_vehicle SET worldspace = '$loc' WHERE id = $id";
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Edited location of user: $cid',?,NOW())", $_SESSION['login']);
-	mysql_query($dbQuery) or die ('Error updating database' . mysql_error());
-} 
-
-?>
 
 <div id="vehicleString">
+    <form method="POST">
+    <h2 class="custom-h2-string">Inventory String</h2>
+        <textarea name="inv">
+<?php
+echo $row['Inventory'];
+?>
+        </textarea><br>
+    <br><input name="submit_inv" class="btn btn-default" type="submit" value="Submit" />
+    </form>
+
 	<form method="post">
 	<br><h2 class="custom-h2-string">Location String</h2>
 		<textarea name="loc" action="">
 <?php 
 	if ($accesslvls[0][3] != 'false') {
-		echo $row['worldspace'];
+		echo $row['Worldspace'];
 	} else {
 		echo 'Classified!';
 	}
@@ -321,7 +306,6 @@ if ($_POST['submit_loc']) {
 	<br><input name="submit_loc" class="btn btn-default" type="submit" value="Submit" />
 	</form>
 </div>
-<?php } ?>
 		 
 		</div>
 		<!--  end content-table-inner ............................................END  -->

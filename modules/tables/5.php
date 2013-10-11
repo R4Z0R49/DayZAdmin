@@ -1,10 +1,8 @@
 <?php
 	error_reporting (E_ALL ^ E_NOTICE);
 	
-	$binds = $table5[1];
-    $query = $table5[0];
-    $res = $db->GetAll($query, $binds);
-    $pnumber = sizeof($res);
+    $res = $db->GetAll($table5 );
+    $pnumber = is_array($res) ? count($res) : 0;
 
 	if(isset($_GET['page']))
 	{
@@ -26,9 +24,8 @@
 	}
 
 			
-	$query = $query." LIMIT ".$offset.",".$rowsPerPage;
-    $res = $db->GetAll($query, $binds);
-    $number = sizeof($res);
+	$query = $table5." LIMIT ".$offset.",".$rowsPerPage;
+    $res = $db->GetAll($query);
 
 	$tableheader = '
 		<tr>
@@ -37,15 +34,15 @@
 		<th class="table-header-repeat line-left"><a href="">Position</a></th>
 		</tr>';
 		foreach($res as $row) {
-		$Worldspace = str_replace("[", "", $row['pos']);
+		$Worldspace = str_replace("[", "", $row['Worldspace']);
 		$Worldspace = str_replace("]", "", $Worldspace);
 		$Worldspace = str_replace("|", ",", $Worldspace);
 		$Worldspace = explode(",", $Worldspace);
 
 		$tablerows .= "<tr>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".$row['otype']."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".$row['id']."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&id=".$row['id']."\">".sprintf("%03d",round($Worldspace[1]/100)).sprintf("%03d",round((154-($Worldspace[2]/100))))."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".$row['Classname']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".$row['ObjectUID']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".sprintf("%03d%03d",round($Worldspace[1]/100),round((154-($Worldspace[2]/100))))."</a></td>
 		</tr>";
 		}
 	include ('paging.php');

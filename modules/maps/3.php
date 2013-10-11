@@ -1,6 +1,7 @@
 <?php
 
-$res = $db->GetAll("SELECT profile.*, survivor.* FROM `profile`, `survivor` WHERE profile.unique_id = survivor.unique_id");
+include ('queries.php');
+$res = $db->GetAll($map3);
 $markers = markers_player($res, $map);
 
 ?>

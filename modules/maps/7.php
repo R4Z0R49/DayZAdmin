@@ -1,9 +1,7 @@
 <?php
 
 include ('queries.php');
-$query = $map7[0];
-$binds = $map7[1];
-$res = $db->GetAll($query, $binds);
+$res = $db->GetAll($map7, $iid);
 $markers = markers_deployable($res, $map);
 
 ?>

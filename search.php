@@ -2,17 +2,23 @@
 require_once('config.php');
 require_once('db.php');
 require_once('functions.php');
+require_once('queries.php');
 $page == 'home';
 
-if (isset($_POST['search'])){
-	$pagetitle = "Stats for ".$_POST['search'];
+if (isset($_REQUEST['search'])){
+    $search = '%'.substr($_REQUEST['search'], 0, 64).'%';
+
+    $row = $db->GetRow($search_query_player, $search);
+
+    if(count($row) > 0) {
+    	$pagetitle = "Stats for ".$row['playerName'];
+    } else {
+    	$pagetitle = "Stats for ".$_REQUEST['search'];
+    }
 } else {
 	$pagetitle = "New search";
 }
 
-$search = '%'.substr($_POST['search'], 0, 64).'%';
-
-$row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survivor WHERE profile.unique_id = survivor.unique_id AND name LIKE ? ORDER BY last_updated DESC LIMIT 1", $search);
 
 ?>
 <!DOCTYPE html>
@@ -52,47 +58,47 @@ $row = $db->GetRow("SELECT profile.*, survivor.* FROM profile, survivor AS survi
 		<table border="0" cellpadding="4" cellspacing="0">
 		<td width="26"><img src="images/icons/statspage/alivecharacters1.png" width="36" height="36" /></td>
 			<td width="184"><strong>Latest id:</strong></td>
-			<td width="12" align="right"><?php echo $row['id'];?></td>
+			<td width="12" align="right"><?php echo $row['CharacterID'];?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/totalplayers1.png" width="36" height="36" /></td>
 			<td><strong>UID:</strong></td>
-			<td align="right"><?php echo $row['unique_id'];?></td>
+			<td align="right"><?php echo $row['PlayerUID'];?></td>
 		  </tr>
 			<tr>
 			<td><img src="images/icons/statspage/totalplayers1.png" width="36" height="36" /></td>
 			<td><strong>Humanity:</strong></td>
-			<td align="right"><?php echo $row['humanity'];?></td>
+			<td align="right"><?php echo $row['Humanity'];?></td>
 		  </tr>
 		  <tr>
 			  <td><img src="images/icons/statspage/playerdeaths1.png" width="24" height="36" /></td>
 			<td><strong>Survival Attempts:</strong></td>
-			<td align="right"><?php echo $row['survival_attempts'];?></td>
+			<td align="right"><?php echo $row['Generation'];?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/totalplayerin24h.png" width="36" height="36" /></td>
-			<td><strong>Total Survival Time:</strong></td>
-			<td align="right"><?php echo survivalTimeToString($row['total_survival_time']);?></td>
-		  </tr>
-		  <tr>
-			<td><img src="images/icons/statspage/infectedheadshots1.png" width="24" height="36" /></td>
-			<td><strong>Total Headshots:</strong></td>
-			<td align="right"><?php echo $row['total_headshots'];?></td>
+			<td><strong>Survival Time:</strong></td>
+			<td align="right" width="120px"><?php echo survivalTimeToString($row['duration']);?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/banditskilled1.png" width="36" height="36" /></td>
-			<td><strong>Total Bandit Kills:</strong></td>
-			<td align="right"><?php echo $row['total_bandit_kills'];?></td>
+			<td><strong>Bandit Kills:</strong></td>
+			<td align="right"><?php echo $row['KillsB'];?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/infectedkilled1.png" width="36" height="36" /></td>
-			<td><strong>Total Zombie Kills:</strong></td>
-			<td align="right"><?php echo $row['total_zombie_kills'];?></td>
+			<td><strong>Zombie Kills:</strong></td>
+			<td align="right"><?php echo $row['KillsZ'];?></td>
+		  </tr>
+		  <tr>
+			<td><img src="images/icons/statspage/infectedheadshots1.png" width="24" height="36" /></td>
+			<td><strong>Headshots:</strong></td>
+			<td align="right"><?php echo $row['HeadshotsZ'];?></td>
 		  </tr>
 		  <tr>
 			<td><img src="images/icons/statspage/murders.png" width="36" height="36" /></td>
-				<td><strong>Total Survivor Kills:</strong></td>
-			<td align="right"><?php echo $row['total_survivor_kills'];?></td>
+				<td><strong>Survivor Kills:</strong></td>
+			<td align="right"><?php echo $row['KillsH'];?></td>
 		  </tr>
 		</table>
 		<?php } else {  echo "No results found\n"; } ?>

@@ -1,9 +1,7 @@
 <?php
 
 include ('queries.php');
-$query = $map0[0];
-$binds = $map0[1];
-$res = $db->GetAll($query, $binds);
+$res = $db->GetAll($map0);
 $markers = markers_player($res, $map);
 
 ?>

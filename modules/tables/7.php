@@ -2,10 +2,8 @@
 		
 	error_reporting (E_ALL ^ E_NOTICE);
 	
-	$binds = $table7[1];
-	$query = $table7[0];
-	$res = $db->GetAll($query, $binds);
-	$pnumber = sizeof($res);
+	$res = $db->GetAll($table7, $iid);
+	$pnumber = is_array($res) ? count($res) : 0;
 
 	if(isset($_GET['page']))
 	{
@@ -27,14 +25,15 @@
 	}
 
 			
-	$query = $query." LIMIT ".$offset.",".$rowsPerPage;
-	$res = $db->GetAll($query, $binds);
-	$number = sizeof($res);
+	$query = $table7." LIMIT ".$offset.",".$rowsPerPage;
+	$res = $db->GetAll($query, $iid);
 	
-	$tableheader = header_deployable(0, $chbox);
+    if(is_array($res)) {
+    	$tableheader = header_deployable(0, $chbox);
 	
-	foreach($res as $row) {
-		$tablerows .= row_deployable($row, $chbox);
-	}
-	include ('paging.php');
+	    foreach($res as $row) {
+		    $tablerows .= row_deployable($row, $chbox);
+    	}
+	    include ('paging.php');
+    }
 ?>

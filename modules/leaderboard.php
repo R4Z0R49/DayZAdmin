@@ -1,44 +1,24 @@
 <?php
-	//Sortby
-	if(!isset($_GET['value'])){
-		$sortby = $leaderboard_KillsZ;
-	}elseif($_GET['value'] == 'Human Kills') {
-		$sortby = $leaderboard_KillsH;
-	}elseif($_GET['value'] == 'Bandit Kills') {
-		$sortby = $leaderboard_KillsB;
-	}elseif($_GET['value'] == 'Zombie Kills') {
-		$sortby = $leaderboard_KillsZ;
-	}elseif($_GET['value'] == 'Headshots') {
-		$sortby = $leaderboard_Headshots;
-	}elseif($_GET['value'] == 'Humanity') {
-		$sortby = $leaderboard_Humanity;
-	}elseif($_GET['value'] == 'Deaths') {
-		$sortby = $leaderboard_Deaths;
+	// Sortby
+	if(isset($_REQUEST['sortby'])) {
+		$sortby = $_REQUEST['sortby'];
+	} else {
+		$sortby = 'KillsZ';
 	}
 
-	//Sorttype
-	if(!isset($_GET['sorttype'])){
-		$sorttype = 'DESC';
-	}elseif($_GET['sorttype'] == 'Ascending'){
-		$sorttype = 'ASC';
-	}elseif($_GET['sorttype'] == 'Descending'){
+	// Sorttype
+	if(isset($_REQUEST['sorttype'])) {
+		$sorttype = $_REQUEST['sorttype'];
+	} else {
 		$sorttype = 'DESC';
 	}
 
-	//Limit
-	if(!isset($_GET['limit'])){
+	// Limit
+	if(isset($_REQUEST['limit'])) {
+		$limit =  $_REQUEST['limit'];
+	} else {
 		$limit = 10;
-	}elseif($_GET['limit'] == 10){
-		$limit = 10;
-	}elseif($_GET['limit'] == 20){
-		$limit = 20;
-	}elseif($_GET['limit'] == 30){
-		$limit = 30;
-	}elseif($_GET['limit'] == 40){
-		$limit = 40;
-	}elseif($_GET['limit'] == 50){
-		$limit = 50;
-	}
+    }
 
 ?>
 
@@ -46,7 +26,7 @@
 	<table class="table">
 		<thead>
 			<th class="custom-th"># Rank</th>
-			<th class="custom-th"><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img>Playername</th>
+			<th class="custom-th"><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img>Name</th>
 			<th class="custom-th"><img src="images/icons/statspage/infectedkilled1.png" width="25px" height="25px" class="table-img"></img> Zombie Kills</th>
 			<th class="custom-th"><img src="images/icons/statspage/murders.png" width="25px" height="25px" class="table-img"></img> Human Kills</th>
 			<th class="custom-th"><img src="images/icons/statspage/banditskilled1.png" width="25px" height="25px" class="table-img"></img> Bandit Kills</th>
@@ -62,18 +42,33 @@
 
 		        if (sizeof($result) != 0) {
                     foreach($result as $rowl) {
-		            	$points = $rowl[$leaderboard_KillsZ]+$rowl[$leaderboard_KillsB]-$rowl[$leaderboard_KillsH]-$rowl[$leaderboard_Deaths];
-		                echo "<tr>
-		                	  <td>{$rank}</td>
-		                      <td>{$rowl[$leaderboard_Playername]}</td>
-		                      <td>{$rowl[$leaderboard_KillsZ]}</td>
-		                      <td>{$rowl[$leaderboard_KillsH]}</td>
-		                      <td>{$rowl[$leaderboard_KillsB]}</td>
-		                      <td>{$rowl[$leaderboard_Headshots]}</td>
-		                      <td>{$rowl[$leaderboard_Humanity]}</td>
-		                      <td>{$rowl[$leaderboard_Deaths]}</td>
-		                      <td>{$points}</td>
-		                      </tr>";  
+		            	$points = $rowl['KillsZ']+$rowl['KillsB']-$rowl['KillsH']-($rowl['Generation'] - 1);
+                        $deaths = $rowl['Generation'] - 1;
+                        if(isset($_SESSION['user_id'])) {
+		                    echo "<tr>
+		                	      <td>{$rank}</td>
+    		                      <td><a href=\"admin.php?view=info&show=1&CharacterID={$rowl['CharacterID']}\">{$rowl['playerName']}</a></td>
+	    	                      <td>{$rowl['KillsZ']}</td>
+		                          <td>{$rowl['KillsH']}</td>
+		                          <td>{$rowl['KillsB']}</td>
+		                          <td>{$rowl['HeadshotsZ']}</td>
+		                          <td>{$rowl['Humanity']}</td>
+		                          <td>{$deaths}</td>
+		                          <td>{$points}</td>
+    		                      </tr>";
+                        } else {
+                            echo "<tr>
+                                  <td>{$rank}</td>
+                                  <td>{$rowl['playerName']}</td>
+                                  <td>{$rowl['KillsZ']}</td>
+                                  <td>{$rowl['KillsH']}</td>
+                                  <td>{$rowl['KillsB']}</td>
+                                  <td>{$rowl['HeadshotsZ']}</td>
+                                  <td>{$rowl['Humanity']}</td>
+                                  <td>{$deaths}</td>
+                                  <td>{$points}</td>
+                                  </tr>";
+                        }
 
 		                $rank++;
 		            }
@@ -81,7 +76,7 @@
 		    ?>
 		</tbody>
 	</table>
-	<select class="form-control pull-left" style="width:100px; margin-top: 20px; margin-bottom: 20px;" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['value'])) { echo '&value=' . $_GET['value']; } ?><?php if(isset($_GET['sorttype'])) { echo '&sorttype=' . $_GET['sorttype']; } ?>&limit=" + this.value;'>
+	<select class="form-control pull-left" style="width:100px; margin-top: 20px; margin-bottom: 20px;" name="limit" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sortby'])) { echo '&sortby=' . $_GET['sortby']; } ?><?php if(isset($_GET['sorttype'])) { echo '&sorttype=' . $_GET['sorttype']; } ?>&limit=" + this.value;'>
 		<option>Show</option>
 		<option>10</option>
 		<option>20</option>
@@ -89,18 +84,18 @@
 		<option>40</option>
 		<option>50</option>
 	</select>
-	<select class="form-control pull-right" style="width:150px; margin-top: 20px; margin-bottom: 20px;" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['value'])) { echo '&value=' . $_GET['value']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sorttype=" + this.value;'>
-		<option>Sort type:</option>
-		<option>Descending</option>
-		<option>Ascending</option>
-	</select>
-	<select class="form-control pull-right" style="width:200px; margin-top: 20px; margin-bottom: 20px;" name="by" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sorttype'])) { echo '&sorttype=' . $_GET['sorttype']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&value=" + this.value;'>
+	<select class="form-control pull-right" style="width:200px; margin-top: 20px; margin-bottom: 20px;" name="sortby" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sorttype'])) { echo '&sorttype=' . $_GET['sorttype']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sortby=" + this.value;'>
 		<option>Sort by:</option>
-		<option>Zombie Kills</option>
-		<option>Human Kills</option>
-		<option>Bandit Kills</option>
-		<option>Headshots</option>
-		<option>Humanity</option>
-		<option>Deaths</option>
+		<option value="KillsZ">Zombie Kills</option>
+		<option value="KillsH">Human Kills</option>
+		<option value="KillsB">Bandit Kills</option>
+		<option value="HeadshotsZ">Headshots</option>
+		<option value="Humanity">Humanity</option>
+		<option value="Generation">Deaths</option>
+	</select>
+	<select class="form-control pull-right" style="width:150px; margin-top: 20px; margin-bottom: 20px;" name="sorttype" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sortby'])) { echo '&sortby=' . $_GET['sortby']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sorttype=" + this.value;'>
+		<option>Sort type:</option>
+		<option value="DESC">Descending</option>
+		<option value="ASC">Ascending</option>
 	</select>
 </div>

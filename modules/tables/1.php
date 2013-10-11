@@ -1,9 +1,8 @@
 <?php
 	error_reporting (E_ALL ^ E_NOTICE);
 	
-    $query = $table1[0];
-	$res = $db->GetAll($query);
-	$pnumber = sizeof($res);
+	$res = $db->GetAll($table1);
+    $pnumber = is_array($res) ? count($res) : 0;
 
 	if(isset($_GET['page']))
 	{
@@ -24,9 +23,8 @@
 	   }
 	}
 
-	$query = $query." LIMIT ".$offset.",".$rowsPerPage;
+    $query = $table1." LIMIT ".$offset.",".$rowsPerPage;
 	$res = $db->GetAll($query);
-	$number = sizeof($res);
 
 	$tableheader = header_player(0);
 		

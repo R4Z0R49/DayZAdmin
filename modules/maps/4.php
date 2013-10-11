@@ -1,9 +1,7 @@
 <?php
 
 include ('queries.php');
-$query = $map4[0];
-$binds = $map4[1];
-$res = $db->GetAll($query, $binds);
+$res = $db->GetAll($map4, $iid);
 $markers = markers_vehicle($res, $map);
 
 ?>

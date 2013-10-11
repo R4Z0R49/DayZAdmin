@@ -29,11 +29,11 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 	  	echo "<CENTER>\n";
 	} else {
 		foreach($res as $row) {
-			$Inventory = $row['inventory'];	
+			$Inventory = $row['Inventory'];	
 			$Inventory = str_replace(",", ",", $Inventory);
 			$Inventory = json_decode($Inventory);
 		
-			$Backpack = $row['backpack'];
+			$Backpack = $row['Backpack'];
 			$Backpack = str_replace(",", ",", $Backpack);
 			$Backpack = json_decode($Backpack);
 
@@ -82,20 +82,20 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 				}
 			}
 			
-			$name = htmlspecialchars($row['name']);	
+			$name = htmlspecialchars($row['playerName']);	
 			$icon1 = '<a href="admin.php?view=actions&deletecheck='.$row['id'].'"><img src="'.$path.'images/icons/player_dead.png" title="Delete '.$name.'" alt="Delete '.$name.'"/></a>';		
-			if ($row['is_dead'] == 1) {
+			if ($row['Alive'] == 0) {
 					$status = '<img src="'.$path.'images/icons/player_dead.png" title="'.$name.' is Dead" alt="'.$name.' is Dead"/>';
 			}
-			if ($row['is_dead'] == 0) {
+			if ($row['Alive'] == 1) {
 					$status = '<img src="'.$path.'images/icons/player.png" title="'.$name.' is Alive" alt="'.$name.' is Alive"/>';
 			}
 			if (count($Unknown)>0) {
 				$rows .= "<tr>
-					<td align=\"center\" class=\"gear_preview\"><a href=\"amin.php?view=actions&deletecheck=".$row['unique_id']."\">".$icon1."</td>
+					<td align=\"center\" class=\"gear_preview\"><a href=\"amin.php?view=actions&deletecheck=".$row['CharacterID']."\">".$icon1."</td>
 					<td align=\"center\" class=\"gear_preview\">".$status."</td>
-					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."\">".$name."</a></td>
-					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&id=".$row['unique_id']."\">".$row['unique_id']."</a></td>
+					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$name."</a></td>
+					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$row['CharacterID']."</a></td>
 					<td align=\"center\" class=\"gear_preview\">";
 					foreach($Unknown as $uitem => $uval) {
 						$rows .= $uval."; ";
@@ -106,12 +106,10 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 		}
 	}
 	
-    $query = $check_deployable[0];
-    $binds = $check_deployable[1];
-	$res = $db->GetAll($query, $binds);
+	$res = $db->GetAll($check_deployable, $iid);
     if (sizeof($res) > 0) {
 		foreach($res as $row) {
-			$Inventory = $row['inventory'];
+			$Inventory = $row['Inventory'];
 			$Inventory = json_decode($Inventory);
 			$Unknown = array();
 
@@ -147,9 +145,9 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 			if (count($Unknown) > 0) {
 				$rows .= '<tr>
 					<td class="gear_preview">&nbsp;</td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=6&id='.$row['instance_deployable_id'].'"><img src="images/icons/tent.png"></a></td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=1&id='.$row['owner_unique_id'].'">'.$row['owner_name'].'</a></td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=6&id='.$row['instance_deployable_id'].'">'.$row['instance_deployable_id'].'</a></td>
+					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=6&ObjectID='.$row['ObjectID'].'"><img src="images/icons/tent.png"></a></td>
+					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=1&CharacterID='.$row['CharacterID'].'">'.$row['playerName'].'</a></td>
+					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=6&ObjectID='.$row['ObjectID'].'">'.$row['ObjectID'].'</a></td>
 					<td align="center" class="gear_preview">';
 
 				foreach ($Unknown as $item) {
@@ -162,12 +160,10 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 		}
 	}
 
-    $query = $check_vehicle[0];
-    $binds = $check_vehicle[1];
-	$res = $db->GetAll($query, $binds);
+	$res = $db->GetAll($check_vehicle, $iid);
     if (sizeof($res) > 0) {
         foreach($res as $row) {
-            $Inventory = $row['inventory'];
+            $Inventory = $row['Inventory'];
             $Inventory = json_decode($Inventory);
             $Unknown = array();
 
@@ -199,9 +195,9 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 			if (count($Unknown) > 0) {
 				$rows .= '<tr>
 					<td class="gear_preview">&nbsp;</td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row['instance_vehicle_id'].'"><img src="images/icons/car.png" /></a></td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row['instance_vehicle_id'].'">'.$row['class_name'].'</a></td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&id='.$row['instance_vehicle_id'].'">'.$row['instance_vehicle_id'].'</a></td>
+					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&ObjectID='.$row['ObjectID'].'"><img src="images/icons/car.png" /></a></td>
+					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$row['Classname'].'</a></td>
+					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$row['ObjectID'].'</a></td>
 					<td align="center" class="gear_preview">';
 
 				foreach ($Unknown as $item) {

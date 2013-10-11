@@ -69,7 +69,7 @@
 <div class="stats-box">
 	<div class="stats-box-inner">
 		<div class="stats-search">
-			<?php include ('playersearch.php'); ?>	
+			<?php require_once('playersearch.php'); ?>	
 		</div>
 	</div>
 </div>
