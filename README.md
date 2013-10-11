@@ -1,7 +1,7 @@
-DayZAdmin for the DayZ hive and the Reality private hive
+DayZAdmin for the DayZ hive
 ==================
 
-DayZAdmin is a DayZ Administration panel that was originally coded for the server pack Bliss. Bliss then got abandoned and Reality was born. Not all features of the panel currently support the DayZMod but we are working on it as Reality is switching their database around to be similar to the DayZMod database.
+DayZAdmin is a DayZ Administration panel that was originally coded for the server pack Bliss. Bliss then got abandoned and Reality was born. Reality has now switched to the DayZMod database and DayZAdmin supports all features using the DayZMod schema.
 
 ==================
 Requirements
@@ -10,7 +10,6 @@ Requirements
 *Apache 2.2 or higher
 *PHP 5.3 
 *Correctly installed and configured Battleye RCON
-*Linux Support - (Close pending path issues)
 *FTP Access to your server - (OPTIONAL)
 
 ==================
@@ -20,7 +19,6 @@ Features
 *Player/vehicle inventory, states and position.
 *Inventory and backpack string editors.
 *Teleportation, skin changes, reset humanity, reviving, killing, healing and medical status options via the panel.
-*Reset humanity, reviving, killing, healing and medical status options via the panel - (Only Reality at the moment).
 *Configurable administrator access levels to the panel.
 *Google maps API based map with players, vehicles and deployables - (optional tracking of players and vehicles).
 *Inventory check for unknown items.
@@ -44,5 +42,3 @@ Updating
 ==================
 *Check for any new files to run in the sql/updates folder.
 *Check that your config.php is up to date with the new config.php-dist if it has been edited
-
-
