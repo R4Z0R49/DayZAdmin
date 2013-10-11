@@ -16,13 +16,13 @@ function markers_player($res, $world) {
             $state = str_replace('"', "", $state);
             $state = explode(",", $state);
             if(is_array($state) && $state[0] != "") {
-                $wpnstr = " - " . $state[0];
+                $wpnstr = $state[0];
             } else {
                 $wpnstr = "";
             }
 
 			require_once('modules/calc.php');
-			$description = "<strong><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".htmlspecialchars($row['playerName'], ENT_QUOTES)."</a>".$wpnstr."</strong><br><table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['Model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row['PlayerUID']."<br> <strong>CharacterID:</strong> ".$row['CharacterID']."<br> <strong>Zed Kills:</strong> ".$row['KillsZ']."<br> <strong>Bandit Kills:</strong> ".$row['KillsB']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['duration'])."<br><strong>Survival Attempts:</strong> ".$row['Generation']."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row['Humanity']."</td></tr></table>";	
+			$description = "<strong><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".htmlspecialchars($row['playerName'], ENT_QUOTES)." (".$row['CharacterID'].")</a> - ".$wpnstr."</strong><br><table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['Model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerID:</strong> ".$row['PlayerUID']."<br> <strong>CharacterID:</strong> ".$row['CharacterID']."<br> <strong>Zed Kills:</strong> ".$row['KillsZ']."<br> <strong>Bandit Kills:</strong> ".$row['KillsB']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['duration'])."<br><strong>Survival Attempts:</strong> ".$row['Generation']."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row['Humanity']."</td></tr></table>";	
 			$tmp = array();
 			$tmp["id"] = $row['CharacterID'];
 			$tmp["lat"] = (world_y($y, $world) / 10);
