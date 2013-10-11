@@ -94,12 +94,12 @@ function survivalTimeToString($minutes) {
             $r = $hours % 24;
             $days = ($hours - $r) / 24;
             $hours = $r;
-            return sprintf("%d d %d h %d m", $days, $hours, $minutes);
+            return sprintf("%dd %dh %dm", $days, $hours, $minutes);
         } else {
-            return sprintf("%d h %d m", $hours, $minutes);
+            return sprintf("%dh %dm", $hours, $minutes);
         }
     } else {
-        return sprintf("%d m", $minutes);
+        return sprintf("%dm", $minutes);
     }
 }
 

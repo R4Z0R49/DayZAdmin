@@ -39,6 +39,12 @@ if (isset($_SESSION['user_id'])) {
 	$Backpack = str_replace("|", ",", $Backpack);
 	$Backpack  = json_decode($Backpack);
 	$model = $row['Model'];
+    // PlayerDATA.playerSex isn't used
+    if($model == 'SurvivorW2_DZ' || $model == 'BanditW1_DZ') {
+        $playerSex = 1;
+    } else {
+        $playerSex = 0;
+    }
 	
 	$Medical = $row['Medical'];
 	$Medical = str_replace("|", ",", $Medical);
@@ -50,7 +56,6 @@ if (isset($_SESSION['user_id'])) {
 	$smallammo = array();
 	$usableitems = array();
 	$survival_time = survivalTimeToString($row['duration']);
-    $playerSex = $row['playerSex'];
 
 	$xml = file_get_contents('items.xml', true);
 	require_once('modules/xml2array.php');
@@ -112,7 +117,7 @@ if (isset($_SESSION['user_id'])) {
 	<div id="page-heading">
 		<center>
 			<h3><?php echo "<title>".htmlspecialchars($row['playerName'])." - ".$sitename."</title>"; ?></h3>
-			<h3 class="custom-h3"><?php echo htmlspecialchars($row['playerName']); ?> - <?php echo $row['playerUID']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
+			<h3 class="custom-h3"><?php echo htmlspecialchars($row['playerName']); ?> - <?php echo $row['CharacterID']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
 		</center>
 	</div>
 	<!-- end page-heading -->

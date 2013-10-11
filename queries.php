@@ -509,16 +509,13 @@ $search_query_player = "
 SELECT
 	pd.playerName,
 	pd.playerUID,
-	cd.CharacterID,
-	cd.Backpack,
-	cd.Inventory,
-	cd.Worldspace
+	cd.*
 FROM
 	Player_DATA pd
 JOIN
 	Character_DATA cd
 ON
-	cd.PlayerUID = pd.PlayerUID
+	cd.PlayerUID = pd.playerUID
 WHERE
 	cd.Alive = 1
 AND

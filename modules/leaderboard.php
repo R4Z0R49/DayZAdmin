@@ -47,7 +47,7 @@
                         if(isset($_SESSION['user_id'])) {
 		                    echo "<tr>
 		                	      <td>{$rank}</td>
-    		                      <td><a href=\"admin.php?view=info&show=1&id={$rowl['playerUID']}&cid={$rowl['CharacterID']}\">{$rowl['playerName']}</a></td>
+    		                      <td><a href=\"admin.php?view=info&show=1&CharacterID={$rowl['CharacterID']}\">{$rowl['playerName']}</a></td>
 	    	                      <td>{$rowl['KillsZ']}</td>
 		                          <td>{$rowl['KillsH']}</td>
 		                          <td>{$rowl['KillsB']}</td>
