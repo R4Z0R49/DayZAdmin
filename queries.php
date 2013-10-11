@@ -151,6 +151,30 @@ WHERE
     cdd.Alive = 0
 ";
 
+$map3 = "
+SELECT
+    pd.playerName,
+    pd.playerUID,
+    cd.*
+FROM
+    Player_DATA pd
+JOIN
+    Character_DATA cd
+ON
+    cd.PlayerUID = pd.playerUID
+UNION
+SELECT
+    pd.playerName,
+    pd.playerUID,
+    cdd.*
+FROM
+    Player_DATA pd
+JOIN
+    Character_DEAD cdd
+ON
+    cdd.PlayerUID = pd.playerUID
+";
+
 $map4 = "
 SELECT
     od.*,
