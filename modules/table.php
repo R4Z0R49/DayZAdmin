@@ -77,7 +77,7 @@ if (isset($_SESSION['user_id']))
 				<div id="message-blue">
 				<table border="0" width="100%" cellpadding="0" cellspacing="0">
 				<tr>
-					<td class="blue-left"><?php echo $pagetitle.": ".$pnumber; ?>. </td>
+					<td class="blue-left"><?php echo $pagetitle.": ".$pnumber; ?></td>
 				</tr>
 				</table>
 				</div>

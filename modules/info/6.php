@@ -1,18 +1,23 @@
 <?php
 include ('queries.php');
-$id = '';
-if (isset($_GET['id'])){
-	$id = " AND id ='".$_GET['id']."'";
+
+if (isset($_REQUEST['ObjectID'])){
+    $ObjectID = $_REQUEST['ObjectID'];
+} else {
+    $ObjectID = 0;
 }
 
-$query = $info6[0];
-$binds = $info6[1];
-$res = $db->GetAll($query, $binds);
+if (isset($_REQUEST['submit_inv']) && isset($_REQUEST['inv'])) {
+    $db->Execute("UPDATE Object_DATA SET Inventory = ? WHERE ObjectID = ?", array($_REQUEST['inv'], $ObjectID));
+    $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set inventory of vehicle: ',?,' (',?,') to ',?),?,NOW())", array($row['Classname'], $ObjectID, $_REQUEST['inv'], $_SESSION['login']));
+}
+
+$res = $db->GetAll($info6, array($ObjectID, $iid));
 $number = sizeof($res);
 
 foreach($res as $row) {
 
-    $MapCoords = worldspaceToMapCoords($row['worldspace']);
+    $MapCoords = worldspaceToMapCoords($row['Worldspace']);
 	/* $Inventory = $row['inventory'];
 	$Inventory = str_replace("[", "", $Inventory);
 	$Inventory = str_replace("]", "", $Inventory);
@@ -20,7 +25,7 @@ foreach($res as $row) {
 	$Inventory = str_replace("|", ",", $Inventory);
 	$Inventory = explode(",", $Inventory); */
 	
-	$Backpack  = $row['inventory'];
+	$Backpack  = $row['Inventory'];
 	$Backpack = str_replace("|", ",", $Backpack);
 	//$Backpack  = str_replace('"', "", $Backpack );
 	$Backpack  = json_decode($Backpack);
@@ -43,8 +48,8 @@ foreach($res as $row) {
 ?>	
 	<div id="page-heading">
 		<center>
-			<h3><?php echo "<title>".$row['class_name']." - ".$sitename."</title>"; ?></h3>
-			<h3 class="custom-h3"><?php echo $row['class_name']; ?> - <?php echo $row['id']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
+			<h3><?php echo "<title>".$row['Classname']." - ".$sitename."</title>"; ?></h3>
+			<h3 class="custom-h3"><?php echo $row['Classname']; ?> - <?php echo $row['ObjectID']; ?> - Last save: <?php echo $row['last_updated']; ?></h3>
 		</center>
 	</div>
 	<!-- end page-heading -->
@@ -60,7 +65,7 @@ foreach($res as $row) {
 			<div id="table-content">
 				<div id="gear_vehicle" style="margin-left: 64px; margin-bottom: 10px;">	
 					<div class="gear_info">
-						<img class="playermodel" src='images/vehicles/<?php echo $row['class_name']; ?>.png'/>
+						<img class="playermodel" src='images/vehicles/<?php echo $row['Classname']; ?>.png'/>
 						<div id="gps" style="margin-left:120px;margin-top:323px">
 							<div class="gpstext" style="font-size: 22px;width:60px;text-align: left;margin-left:47px;margin-top:13px">
 							<?php
@@ -84,7 +89,7 @@ foreach($res as $row) {
 						</div>
 
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-75px">
-							Owner:&nbsp;<a href="admin.php?view=info&show=1&id=<?php echo $row['unique_id'];?>"><?php echo htmlspecialchars($row['name']);?></a>
+							Owner:&nbsp;<a href="admin.php?view=info&show=1&CharacterID=<?php echo $row['CharacterID'];?>"><?php echo htmlspecialchars($row['playerName']);?></a>
 						</div>
 					</div>
 					<!-- Backpack -->
@@ -98,12 +103,12 @@ foreach($res as $row) {
 							$freeslots = 0;
 							$freeweaps = 0;
 							$freebacks = 0;
-							$BackpackName = $row['class_name'];
-							if(array_key_exists('s'.$row['class_name'],$vehicles_xml['vehicles'])){
-								$maxmagazines = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxmagazines'];
-								$maxweaps = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxweapons'];
-								$maxbacks = $vehicles_xml['vehicles']['s'.$row['class_name']]['transportmaxbackpacks'];
-								$BackpackName = $vehicles_xml['vehicles']['s'.$row['class_name']]['Name'];
+							$BackpackName = $row['Classname'];
+							if(array_key_exists('s'.$row['Classname'],$vehicles_xml['vehicles'])){
+								$maxmagazines = $vehicles_xml['vehicles']['s'.$row['Classname']]['transportmaxmagazines'];
+								$maxweaps = $vehicles_xml['vehicles']['s'.$row['Classname']]['transportmaxweapons'];
+								$maxbacks = $vehicles_xml['vehicles']['s'.$row['Classname']]['transportmaxbackpacks'];
+								$BackpackName = $vehicles_xml['vehicles']['s'.$row['Classname']]['Name'];
 							}
 							if (count($Backpack) >0){
 							$bpweaponscount = count($Backpack[0][0]);
@@ -224,8 +229,19 @@ foreach($res as $row) {
 						?>
 						</div>
 					</div>
-					<!-- Backpack -->
 				</div>
+					<!-- Backpack -->
+<!-- <div id="deployableString">
+    <form method="POST">
+    <h2 class="custom-h2-string">Inventory String</h2>
+        <textarea name="inv">
+<?php
+echo $row['Inventory'];
+?>
+        </textarea><br>
+    <br><input name="submit_inv" class="btn btn-default" type="submit" value="Submit" />
+    </form>
+</div> -->
 			</div>
 			<!--  end table-content  -->
 	

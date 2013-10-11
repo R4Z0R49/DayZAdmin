@@ -2,10 +2,8 @@
 		
 	error_reporting (E_ALL ^ E_NOTICE);
 	
-	$binds = $table4[1];
-	$query = $table4[0];
-	$res = $db->GetAll($query, $binds);
-	$pnumber = sizeof($res);
+	$res = $db->GetAll($table4, $iid);
+    $pnumber = is_array($res) ? count($res) : 0;
 
 	if(isset($_GET['page']))
 	{
@@ -27,9 +25,8 @@
 	}
 
 			
-	$query = $query." LIMIT ".$offset.",".$rowsPerPage;
-	$res = $db->GetAll($query, $binds);
-	$number = sizeof($res);
+	$query = $table4." LIMIT ".$offset.",".$rowsPerPage;
+	$res = $db->GetAll($query, $iid);
 	
 	$tableheader = header_vehicle(0, $chbox);
 	

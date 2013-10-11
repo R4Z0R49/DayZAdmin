@@ -54,13 +54,7 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 			<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Entities<b class="caret"></b></a>
 			<ul class="dropdown-menu">
-				<li>
-					<a href="#">Entities <i class="icon-arrow-right"></i></a>
-					<ul class="dropdown-menu sub-menu">
-					    <li><a href="admin.php?view=table&show=0">Online Players</a></li>
-						<li><a href="admin.php?view=table&show=4">Vehicles Ingame</a></li>
-					</ul>
-				</li>
+				<li><a href="admin.php?view=table&show=0">Online Players</a></li>
 				<li>
 					<a href="#">Database <i class="icon-arrow-right"></i></a>
 					<ul class="dropdown-menu sub-menu">
@@ -90,10 +84,6 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 				<li class="divider"></li>
 				<li>
 					<a href="admin.php?view=check">Check Items</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="admin.php?view=search">Search</a>
 				</li>
 			</ul>
 			</li>
