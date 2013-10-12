@@ -19,6 +19,14 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 		unlink('mission'. DIRECTORY_SEPARATOR .'mission.sqf');
 	}
 
+	if(isset($_REQUEST['chance']) && $_REQUEST['chance'] <= 1 && $_REQUEST['chance'] >= 0){
+		$chance = $_REQUEST['chance'];
+		//echo $chance;
+	} elseif (!isset($_REQUEST['chance'])){
+		$chance = 0.50;
+		//$message->Add('danger', 'Chance can not be less than 0 or greater than 1!');
+	}
+
 	if(isset($_REQUEST['addVehsSQF_submit'])){
 		$missionfile = file_get_contents('mission'. DIRECTORY_SEPARATOR .'mission.sqf');
 		$mission_rows = explode("\n",$missionfile);
@@ -72,7 +80,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 					}
 					if($matchFound == 0)
 					{
-						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, 0.50, 10, 0.05000, '')", array($strings[1]));
+						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, ?, 10, 0.05000, '')", array($strings[1], $chance));
 						//echo 'Veh inserted<br>';
 					}
 
@@ -129,7 +137,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 					}
 					if($matchFound == 0)
 					{
-						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, 0.50, 10, 0.05000, '')", array($strings[1]));
+						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, ?, 10, 0.05000, '')", array($strings[1], $chance));
 					}
 					
 					$vehicle_id = rand(100000, 99999999);
@@ -175,6 +183,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
       <input type="checkbox" name="spawn_checkbox"> Create vehicle at location
     </label>
   </div>
+  <input name="chance" class="form-control" style="width: 250px; margin-bottom: 10px;" type="text" placeholder="Type a number from 0.00 to 1">
 
   <button type="submit" class="btn btn-default" name="addVehsSQF_submit">Submit</button>
   <button type="submit" class="btn btn-danger" name="addVehsSQF_delete">Delete mission.sqf</button>
