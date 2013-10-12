@@ -42,8 +42,7 @@ WHERE
 
 $info4 = "
 SELECT
-	od.*,
-    oc.*
+	od.*
 FROM
 	Object_DATA od
 JOIN
