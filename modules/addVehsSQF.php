@@ -19,13 +19,13 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 		unlink('mission'. DIRECTORY_SEPARATOR .'mission.sqf');
 	}
 
-	if(isset($_REQUEST['chance']) && $_REQUEST['chance'] <= 1 && $_REQUEST['chance'] >= 0){
+	if(isset($_REQUEST['chance']) && $_REQUEST['chance'] <= 1 && $_REQUEST['chance'] >= 0 && is_numeric($_REQUEST['chance'])){
 		$chance = $_REQUEST['chance'];
-		//echo $chance;
-	} elseif (!isset($_REQUEST['chance'])){
+	} elseif (!isset($_REQUEST['chance']) or !is_numeric($_REQUEST['chance'])){
 		$chance = 0.50;
 		//$message->Add('danger', 'Chance can not be less than 0 or greater than 1!');
-	}
+	} 
+	//echo $chance;
 
 	if(isset($_REQUEST['addVehsSQF_submit'])){
 		$missionfile = file_get_contents('mission'. DIRECTORY_SEPARATOR .'mission.sqf');
