@@ -72,7 +72,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 					}
 					if($matchFound == 0)
 					{
-						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, '0.50', '10', '0.05000', '')", array($strings[1]));
+						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, 0.50, 10, 0.05000, '')", array($strings[1]));
 						//echo 'Veh inserted<br>';
 					}
 
@@ -129,12 +129,12 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 					}
 					if($matchFound == 0)
 					{
-						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, '0.50', '10', '0.05000', '')", array($strings[1]));
+						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, 0.50, 10, 0.05000, '')", array($strings[1]));
 					}
 					
 					$vehicle_id = rand(100000, 99999999);
 					$db->Execute("INSERT INTO `object_data`(`ObjectUID`, `Instance`, `Classname`, `Datestamp`, `Worldspace`, `Inventory`, `last_updated`) 
-					VALUES (?, ?, ?, ?, ?, ?, ?);", array($vehicle_id, '1', $strings[1], date("Y-m-d H:i:s"), $pos, '[]', date("Y-m-d H:i:s")));
+					VALUES (?, ?, ?, ?, ?, ?, ?);", array($vehicle_id, $iid, $strings[1], date("Y-m-d H:i:s"), $pos, '[]', date("Y-m-d H:i:s")));
 					$vehiclecount++;
 				}
 			}
