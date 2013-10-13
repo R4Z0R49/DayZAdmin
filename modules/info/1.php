@@ -156,16 +156,16 @@ if (isset($_SESSION['user_id'])) {
 							</div>							
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-120px">
-							<?php echo 'Zed kills:&nbsp;'.$row['KillsZ'].' / '.$row['total_zombie_kills'];?>
+							<?php echo 'Zed kills:&nbsp;'.$row['KillsZ'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-105px">
-							<?php echo 'Zed headshots:&nbsp;'.$row['HeadshotsZ'].' / '.$row['total_headshots'];?>
+							<?php echo 'Zed headshots:&nbsp;'.$row['HeadshotsZ'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-90px">
-							<?php echo 'Human killed:&nbsp;'.$row['KillsH'].' / '.$row['total_survivor_kills'];?>
+							<?php echo 'Human killed:&nbsp;'.$row['KillsH'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-75px">
-							<?php echo 'Bandit killed:&nbsp;'.$row['KillsB'].' / '.$row['total_bandit_kills'];?>
+							<?php echo 'Bandit killed:&nbsp;'.$row['KillsB'];?>
 						</div>
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-60px">
 							<?php echo 'Survival Attempts:&nbsp;'.$row['Generation'];?>
