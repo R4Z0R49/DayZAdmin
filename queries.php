@@ -525,6 +525,8 @@ LEFT JOIN
 	Player_DATA pd
 ON
 	pd.playerUID = cd.PlayerUID
+where
+	Alive like 1
 ";
 
 // Search
