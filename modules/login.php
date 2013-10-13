@@ -59,8 +59,8 @@ $page = 'dashboard';
 	</script>
 	
 	<!-- New design (Bootstrap - font-awesome) -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="css/font-awesome.css" rel="stylesheet">
 </head>
 <body class="stats-bg"> 
 <?php include('modules/stats-header.php'); ?>
