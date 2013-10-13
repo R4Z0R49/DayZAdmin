@@ -6,11 +6,14 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
     if (isset($_REQUEST['upload_submit'])){
     	if($_FILES["UploadFile"]["name"] != "mission.sqf"){
     		$message->Add('danger', 'File is not named mission.sqf!');
-    	}else {
+    	} else {
 			{
 			$message->Add('success', 'File successfully uploaded!');
-			move_uploaded_file($_FILES["UploadFile"]["tmp_name"],
+			$movefile = move_uploaded_file($_FILES["UploadFile"]["tmp_name"], 
 			"mission". DIRECTORY_SEPARATOR . $_FILES["UploadFile"]["name"]);
+			}
+			if($movefile == false){
+				$message->Add('danger', 'Path is not writeable!');
 			}
 		}
 	}
@@ -63,7 +66,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 						$pos = str_replace(array(' '), '',$pos);
 					}
 					
-					$resultClassNameQuery = $db->Execute("SELECT * FROM object_classes");
+					$resultClassNameQuery = $db->Execute("SELECT * FROM Object_CLASSES");
 					$userDataClassNameQuery;
 					$userDataVehicleIDs;
 					while ($row = $resultClassNameQuery->FetchRow()){ 
@@ -80,12 +83,12 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 					}
 					if($matchFound == 0)
 					{
-						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, ?, 10, 0.05000, '')", array($strings[1], $chance));
+						$rs = $db->Execute("INSERT INTO `Object_CLASSES`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, ?, 10, 0.05000, '')", array($strings[1], $chance));
 						//echo 'Veh inserted<br>';
 					}
 
 					$vehicle_id = rand(100000, 99999999);
-					$db->Execute("INSERT INTO `object_spawns`(`ObjectUID`, `Classname`, `Inventory`, `Worldspace`) VALUES (?, ?, ?, ?)", array($vehicle_id, $strings[1], '[]', $pos));
+					$rs = $db->Execute("INSERT INTO `Object_SPAWNS`(`ObjectUID`, `Classname`, `Inventory`, `Worldspace`) VALUES (?, ?, ?, ?)", array($vehicle_id, $strings[1], '[]', $pos));
 					$message->Add('success', 'Successfully added '. $strings[1] .' vehicles to normal chance spawn');
 				}
 			}
@@ -120,7 +123,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 						$pos = str_replace(array(' '), '',$pos);
 					}
 					
-					$resultClassNameQuery = $db->Execute("SELECT * FROM object_classes");
+					$resultClassNameQuery = $db->Execute("SELECT * FROM Object_CLASSES");
 					$userDataClassNameQuery;
 					$userDataVehicleIDs;
 					while ($row = $resultClassNameQuery->FetchRow()){ 
@@ -137,16 +140,19 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 					}
 					if($matchFound == 0)
 					{
-						$db->Execute("INSERT INTO `object_classes`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, ?, 10, 0.05000, '')", array($strings[1], $chance));
+						$rs = $db->Execute("INSERT INTO `Object_CLASSES`(`Classname`, `Chance`, `MaxNum`, `Damage`, `Type`) VALUES (?, ?, 10, 0.05000, '')", array($strings[1], $chance));
 					}
 					
 					$vehicle_id = rand(100000, 99999999);
-					$db->Execute("INSERT INTO `object_data`(`ObjectUID`, `Instance`, `Classname`, `Datestamp`, `Worldspace`, `Inventory`, `last_updated`) 
+					$rs = $db->Execute("INSERT INTO `Object_DATA`(`ObjectUID`, `Instance`, `Classname`, `Datestamp`, `Worldspace`, `Inventory`, `last_updated`) 
 					VALUES (?, ?, ?, ?, ?, ?, ?);", array($vehicle_id, $iid, $strings[1], date("Y-m-d H:i:s"), $pos, '[]', date("Y-m-d H:i:s")));
 					$vehiclecount++;
 				}
 			}
 			$message->Add('success', $vehiclecount.' vehicles successfully spawned');
+		}
+		if($rs == false) {
+			$message->Add('danger', 'MySQL query failed! (Or no option selected)');
 		}
 	}
 ?>
