@@ -51,6 +51,9 @@ if (isset($_SESSION['user_id'])) {
 	$Medical = json_decode($Medical);
 
 	$binocular = array();
+    $rifle = "";
+    $carry = "";
+    $pistol = "";
 	$heavyammo = array();
 	$heavyammoslots = 0;
 	$smallammo = array();
@@ -61,13 +64,16 @@ if (isset($_SESSION['user_id'])) {
 	require_once('modules/xml2array.php');
 	$items_xml = XML2Array::createArray($xml);
 
-	if ($Inventory[2] != ''){
+	if (isset($Inventory[2]) && $Inventory[2] != ''){
 		$InvCarry = array($Inventory[2]); 
 	} else {
 		$InvCarry = array();
 	}
 
-    $weaponinhand = $Inventory[0][0];
+    $weaponinhand = "";
+    if(isset($Inventory[0][0])) {
+        $weaponinhand = $Inventory[0][0];
+    }
 	$Inventory = (array_merge($Inventory[0], $Inventory[1], $InvCarry));
 	for ($i=0; $i<count($Inventory); $i++){
 		if(array_key_exists($i,$Inventory)){
@@ -208,10 +214,8 @@ if (isset($_SESSION['user_id'])) {
 						</div>
 						<div class="gear_bag_slot" style="margin-left:99px;margin-top:48px;width:249px;height:97px;">
 						<?php					
-							if($Backpack[0] != ''){
+							if(isset($Backpack[0]) && $Backpack[0] != ''){
 								echo '<img style="max-width:220px; max-height:92px;" src="images/thumbs/'.$Backpack[0].'.png" title="'.$Backpack[0].'" alt="'.$Backpack[0].'"/>';
-							} elseif($Backpack[0] == '') {
-								echo $second;
 							}
 						?>
 						</div>
@@ -288,7 +292,7 @@ if (isset($_SESSION['user_id'])) {
 					<!-- Backpack -->
 					<div class="gear_backpack">						
 						<?php
-							if(count($Backpack[1][0]) == NULL){
+							if(isset($Backpack[1][0]) && count($Backpack[1][0]) == NULL){
 								$maxmagazines = 0;
 							} else {
 								$maxmagazines = 24;
