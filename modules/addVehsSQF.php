@@ -166,7 +166,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 <form role="form" method="POST" action="admin.php?view=addVehsSQF" name="uploadform" enctype="multipart/form-data">
   <div class="form-group">
     <input type="file" name="UploadFile" id="UploadFile">
-    <p class="help-block">Upload your mission.sqf made in the ArmA 2 editor with vehicles placed around the map.<br> Keep in mind only DayZ allowed vehicles will work. <br>If it gives you a file move error, make sure your chmod for your DayZAdmin directory and /mission directory is 777.</p>
+    <p class="help-block">Upload your mission.sqf made in the ArmA 2 editor with vehicles placed around the map.<br> Keep in mind only DayZ allowed vehicles will work. <br>If it gives you a file move error, make sure the mission directory is read/write for your web server user.</p>
   </div>
   <button type="submit" class="btn btn-default" name="upload_submit">Submit</button>
 </form>
