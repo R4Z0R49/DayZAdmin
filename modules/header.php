@@ -19,9 +19,9 @@ if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 	<!-- New design (Bootstrap - font-awesome) -->
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
 	
 	<?php if($enableclock) { ?>
 	<script type="text/javascript" src="js/jquery.jclock.js"></script>

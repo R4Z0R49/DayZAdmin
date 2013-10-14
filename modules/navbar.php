@@ -2,8 +2,6 @@
 include ('config.php');
 if (isset($_SESSION['user_id']))
 {
-mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
-mysql_select_db($dbName);
 
 $user_id = $_SESSION['user_id'];
 $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");

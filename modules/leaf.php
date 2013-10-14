@@ -5,9 +5,9 @@ if (isset($_SESSION['user_id']))
 	?>
 
 	<head>
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" type="text/css" />
+		<link rel="stylesheet" href="css/leaflet.css" type="text/css" />
 		<link rel="stylesheet" href="css/map.css" type="text/css" />
-		<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js" type="text/javascript"></script>
+		<script src="js/leaflet.js" type="text/javascript"></script>
 		<script src="js/map.js" type="text/javascript"></script>
 		<script src="js/map/<?php echo $map; ?>.js"></script>
 	</head>

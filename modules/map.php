@@ -1,7 +1,5 @@
 <?php
 include('config.php');
-mysql_connect ($hostname, $username, $password) or die ('Error: ' . mysql_error());
-mysql_select_db($dbName);
 
 if (isset($_SESSION['user_id']) && $accesslvls[0][0] != 'false')
 {
