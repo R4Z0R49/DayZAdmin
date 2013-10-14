@@ -69,10 +69,10 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
     } else {
       $alvl_editadmin = 'true';
     }
-    if(!isset($_REQUEST['alvl_editvip'])){
-      $alvl_editvip = 'false';
+    if(!isset($_REQUEST['alvl_addvehsqf'])){
+      $alvl_addvehsqf = 'false';
     } else {
-      $alvl_editvip = 'true';
+      $alvl_addvehsqf = 'true';
     }
     if(!isset($_REQUEST['alvl_canseecoords'])){
       $alvl_canseecoords = 'false';
@@ -94,7 +94,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
     } else {
       $alvl_canviewdbmanager = 'true';
     }
-    $access_query = ("['". $alvl_mapview ."', '". $alvl_editadmin ."', '". $alvl_editvip ."', '". $alvl_canseecoords ."', '". $alvl_cansearch ."', '". $alvl_checkitems ."', '". $alvl_canviewdbmanager ."']");
+    $access_query = ("['". $alvl_mapview ."', '". $alvl_editadmin ."', '". $alvl_addvehsqf ."', '". $alvl_canseecoords ."', '". $alvl_cansearch ."', '". $alvl_checkitems ."', '". $alvl_canviewdbmanager ."']");
     $access_query = str_replace("'", '"', $access_query);
     //echo $access_query;
   }
@@ -261,7 +261,7 @@ if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
  	//var_dump($accesslvls);
 	//echo $accesslvls[0][0]; -> Map Access
 	//echo $accesslvls[0][1]; -> Admin Edit
-	//echo $accesslvls[0][2]; -> VIP Edit
+	//echo $accesslvls[0][2]; -> Add vehicles from sqf
 	//echo $accesslvls[0][3]; -> Can view co-ords/gridrefs
 	//echo $accesslvls[0][4]; -> Has search access
 	//echo $accesslvls[0][5]; -> Can check illegal items
@@ -289,7 +289,7 @@ if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_editvip"> VIP Edit
+     			 	<input type="checkbox" name="alvl_addvehsqf"> Can add vehicles by .sqf?
    				 </label>
   			</div>
   		    <div class="checkbox">
@@ -366,7 +366,7 @@ if(isset($_REQUEST['AccessName'])) {
   			</div>
   		    <div class="checkbox">
     			<label>
-     			 	<input type="checkbox" name="alvl_editvip"> <font color="<?php if(isset($hasAccess[0][2]) && $hasAccess[0][2] == 'true') { echo 'green'; } ?>">VIP Edit</font>
+     			 	<input type="checkbox" name="alvl_addvehsqf"> <font color="<?php if(isset($hasAccess[0][2]) && $hasAccess[0][2] == 'true') { echo 'green'; } ?>">Can add Vehicles by .sqf?</font>
    				 </label>
   			</div>
   		    <div class="checkbox">
