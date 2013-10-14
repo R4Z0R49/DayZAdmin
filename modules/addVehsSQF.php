@@ -13,7 +13,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 			"mission". DIRECTORY_SEPARATOR . $_FILES["UploadFile"]["name"]);
 			}
 			if($movefile == false){
-				$message->Add('danger', 'Path is not writeable!');
+				$message->Add('danger', 'Path is not writeable! Check that your webserver user has write permissions to the mission folder');
 			}
 		}
 	}
@@ -89,7 +89,12 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 
 					$vehicle_id = rand(100000, 99999999);
 					$rs = $db->Execute("INSERT INTO `Object_SPAWNS`(`ObjectUID`, `Classname`, `Inventory`, `Worldspace`) VALUES (?, ?, ?, ?)", array($vehicle_id, $strings[1], '[]', $pos));
+				
+					if($rs == false) {
+						$message->Add('danger', 'MySQL query failed for adding a normal chance spawn!');
+					} else {
 					$message->Add('success', 'Successfully added '. $strings[1] .' vehicles to normal chance spawn');
+					}
 				}
 			}
 		}
@@ -147,12 +152,16 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 					$rs = $db->Execute("INSERT INTO `Object_DATA`(`ObjectUID`, `Instance`, `Classname`, `Datestamp`, `Worldspace`, `Inventory`, `last_updated`) 
 					VALUES (?, ?, ?, ?, ?, ?, ?);", array($vehicle_id, $iid, $strings[1], date("Y-m-d H:i:s"), $pos, '[]', date("Y-m-d H:i:s")));
 					$vehiclecount++;
+					if($rs == false) {
+						$message->Add('danger', 'MySQL query failed for spawning a vehicle!');
+					} else {
+					$message->Add('success', 'Successfully spawned '. $strings[1]);
+					}
 				}
 			}
-			$message->Add('success', $vehiclecount.' vehicles successfully spawned');
 		}
 		if($rs == false) {
-			$message->Add('danger', 'MySQL query failed! (Or no option selected)');
+			$message->Add('danger', 'No option selected');
 		}
 	}
 ?>
