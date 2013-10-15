@@ -117,7 +117,7 @@ function row_player($row){
 	if ($accesslvls[0][3] != 'true') {
         $loc = "Classified!";
     } else {
-        $loc = sprintf("%03d%03d",$x,$y);
+        $loc = sprintf("%03d%03d",$y,$x);
     }
 
 	$tablerow = "<tr>
@@ -224,7 +224,7 @@ function row_online_player($row, $player){
 	if ($accesslvls[0][3] != 'true') {
         $loc = 'Classified';
     } else {
-        $loc = sprintf("%03d",$y).sprintf("%03d",$x);
+        $loc = sprintf("%03d%03d",$y,$x);
     }
 	$tablerow = "<tr>
 		<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$kick."&nbsp;&nbsp;&nbsp;&nbsp;".$ban."<br><br>".$reset."</td>
@@ -310,7 +310,7 @@ function row_vehicle($row, $chbox){
 	if ($accesslvls[0][3] != 'true') {
         $loc = 'Classified!';
     } else {
-        $loc = sprintf("%03d%03d",$x, $y);
+        $loc = sprintf("%03d%03d",$y, $x);
     }
 		$tablerow = "<tr>".$chbox."
 				<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$row['ObjectID']."</a></td>
@@ -386,7 +386,7 @@ function row_deployable($row, $chbox){
 	if ($accesslvls[0][3] != 'true') {
         $loc = 'Classified!';
     } else {
-        $loc = sprintf("%03d%03d",$x, $y);
+        $loc = sprintf("%03d%03d",$y, $x);
     }
 	$tablerow = "<tr>".$chbox."
 		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=6&ObjectID=".$row['ObjectID']."\">".$row['ObjectID']."</a></td>
