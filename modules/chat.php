@@ -45,7 +45,6 @@
 		$array = $chat_array;
 	}
 
-	$array = array_reverse($array);
 	foreach ($array as $messages) {
 		if (stripos($messages,'BEC :')) {
 			echo '<font color="red"><b>'. $messages .'</b></font><br>';
@@ -68,3 +67,7 @@
 		}
 	}
 ?>
+<script>
+var chatDiv = document.getElementById("chatbox");
+chatDiv.scrollTop = chatDiv.scrollHeight;
+</script>

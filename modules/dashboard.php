@@ -53,7 +53,7 @@ if (!isset($_GET['logs']) && !isset($_GET['chat'])){
 		</tr>
 		<tr>
 			<td>
-				<div class="chat" style="height: 300px; overflow:auto;">
+				<div id="chatbox" class="chat" style="height: 300px; overflow:auto;">
 					<?php 
 						include('chat.php');
 					?>
