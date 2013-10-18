@@ -27,18 +27,18 @@ Features
 - Reset Players locations.
 - Leaderboard
 - Stats and player search
-- View player chat/belogs - (Requires FTP if panel is not hosted on the same computer as the server)
+- View player Chat/BeLogs - (Requires FTP if panel is not hosted on the same computer as the server)
 
 ==================
 Installation
 ==================
-- Import dayz.sql in the sql folder to your database.
-- Rename config.php-dist to config.php.
-- Edit config.php and set to the right values. This is highly important!
-- The default login is: admin/123456
+- 1: Import the sql file called dayz.sql located in the folder called sql to the same MySQL database as your server.
+- 2: Rename the file called config.php-dist in the main directory to config.php.
+- 3: Edit config.php and set it to the right values. This is highly important!
+- The default credentials are: admin/123456
 
 ==================
 Updating
 ==================
 - Check for any new files to run in the sql/updates folder.
-- Check that your config.php is up to date with the new config.php-dist if it has been edited
+- Check that your config.php is up to date with newer versions of the config.php-dist.
