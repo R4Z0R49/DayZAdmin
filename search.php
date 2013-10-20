@@ -8,7 +8,7 @@ $page == 'home';
 if (isset($_REQUEST['search'])){
     $search = '%'.substr($_REQUEST['search'], 0, 64).'%';
 
-    $row = $db->GetRow($search_query_player, $search);
+    $row = $db->GetRow($search_query_player, array($search, $search));
 
     if(count($row) > 0) {
     	$pagetitle = "Stats for ".$row['playerName'];

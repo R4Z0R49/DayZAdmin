@@ -31,7 +31,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][4] != 'false')
 				case 'player':
 					$tableheader = header_player(0);
 					echo $tableheader;
-					$res = $db->GetAll($search_query_player, $search);
+					$res = $db->GetAll($search_query_player, array($search, $search));
 					$tablerows = "";
 					foreach($res as $row) {
 						$tablerows .= row_player($row);
