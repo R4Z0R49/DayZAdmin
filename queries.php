@@ -532,18 +532,29 @@ where
 // Search
 $search_query_player = "
 SELECT
-	pd.playerName,
-	pd.playerUID,
-	cd.*
+    pd.playerName,
+    pd.playerUID,
+    cd.*
 FROM
-	Player_DATA pd
+    Player_DATA pd
 JOIN
-	Character_DATA cd
+    Character_DATA cd
 ON
-	cd.PlayerUID = pd.playerUID
+    cd.PlayerUID = pd.playerUID
 WHERE
-	cd.Alive = 1
-AND
+    pd.playerName LIKE ?
+UNION
+SELECT
+    pd.playerName,
+    pd.playerUID,
+    cdd.*
+FROM
+    Player_DATA pd
+JOIN
+    Character_DEAD cdd
+ON
+    cdd.PlayerUID = pd.playerUID
+WHERE
     pd.playerName LIKE ?
 ";
 
