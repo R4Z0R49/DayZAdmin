@@ -86,17 +86,17 @@ if (isset($_SESSION['user_id'])) {
 						$binocular[] = '<img style="margin-left: 2px;margin-top: 12px;max-width:76px;max-height:76px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
 						break;
 					case 'rifle':
-                        if($curitem == $weaponinhand) {
-						    $rifle = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
-                        } else {
+                        if($curitem == $InvCarry[0]) {
 						    $carry = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+                        } else {
+						    $rifle = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
                         }
 						break;
 					case 'carry':
-                        if($curitem == $weaponinhand) {
-						    $rifle = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
-                        } else {
+                        if($curitem == $InvCarry[0]) {
 						    $carry = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
+                        } else {
+						    $rifle = '<img style="max-width:220px;max-height:92px;" src="images/thumbs/'.$curitem.'.png" title="'.$curitem.'" alt="'.$curitem.'"/>';
                         }
 						break;
 					case 'pistol':
