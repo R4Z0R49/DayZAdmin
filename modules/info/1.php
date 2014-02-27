@@ -411,7 +411,8 @@ if (isset($_SESSION['user_id'])) {
 					<!-- Backpack -->
 				</div>			
 			</div>
-	<div id="medical">
+    <div id="table-content-extra">
+	<div id="table-content-extra-left">
 	<table id="medical">
 	<tr>
 		<th class="custom-th">Alive</th>
@@ -434,7 +435,7 @@ if (isset($_SESSION['user_id'])) {
 	<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
 	<tr><td colspan="7">&nbsp;</td></tr>
 	</table>
-	<table>
+	<table id="playeractions">
 	<tr>
 		<th class="custom-th">
 		Options
@@ -516,10 +517,31 @@ if (isset($_SESSION['user_id'])) {
 	<td><a href="admin.php?view=actions&teleport=Polana&CharacterID=<?php echo $CharacterID; ?>">Polana</a></td>
 	<?php } ?>
 	</tr>
+    <tr><td>&nbsp;</td></tr>
 	</table>
-	</div>
 <!--  end table-content  -->
 
+<!-- Start name change log -->
+<table id="namechanges">
+<?php
+if($enableNameLog) {
+    $PlayerUID = $db->GetOne("SELECT pd.PlayerUID FROM Player_DATA pd JOIN Character_DATA cd ON cd.PlayerUID = pd.PlayerUID WHERE cd.CharacterID = ?", $CharacterID);
+    $nickrows = $db->GetAll("SELECT * FROM nickchanges WHERE puid = ? ORDER BY `timestamp` DESC", $PlayerUID);
+    if(sizeof($nickrows) > 0) {
+?>
+<tr><th class="custom-th">Old Name</th><th class="custom-th">New Name</th><th class="custom-th">Time</th></tr>
+<?php
+        foreach ($nickrows as $nickrow) {
+            printf("<tr><td>%s</td><td>%s</td><td>%s</td></tr>\n", $nickrow['oldname'], $nickrow['newname'],$nickrow['timestamp']);
+        }
+    }
+?>
+<tr><td colspan="3">&nbsp;</td></tr>
+<?php } ?>
+</table>
+<!-- End name change log -->
+
+	</div>
 <!-- Start inventory management -->
 
 <?php
@@ -527,7 +549,9 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 
 ?>
 
-<div id="inventoryString">
+<div id="table-content-extra-right">
+<table id="inventoryString">
+<tr><td>
 	<form method="POST">
 	<h2 class="custom-h2-string">Inventory String</h2>
 		<textarea name="inv">
@@ -560,8 +584,11 @@ if ($accesslvls[0][3] != 'false') {
 <?php
 }
 ?>
+</td></tr>
+</table>
 </div>
-
+<div id="table-content-extra-clear"></div>
+</div>
 
 <!-- End inventory management -->
 			<?php

@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `logs` (
   `user` varchar(255) NOT NULL DEFAULT '',
   `timestamp` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=221 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` smallint(8) unsigned NOT NULL AUTO_INCREMENT,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastlogin` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 INSERT INTO `users` (`id`, `login`, `password`, `accesslvl`, `salt`, `lastlogin`) VALUES
 (1, 'admin', 'e818f0d38a7dadb1ec1d839d46e0b5ca', 'full','5yu', NULL);
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `accesslvl` (
   `name` varchar(50) NOT NULL,
   `access` varchar(128) NOT NULL DEFAULT '[]',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `accesslvl` (`id`, `name`, `access`) VALUES
 	(1, 'full', '["true", "true", "true", "true", "true", "true", "true"]'),
