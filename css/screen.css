@@ -1242,26 +1242,35 @@ label	{
 	}
 
 /* Survivor page misc */
-#medical table {
+#table-content-extra {
+}
+
+#table-content-extra-left {
+    float: left;
+    width: 500px;
+    margin-top: 20px;
+}
+
+#table-content-extra-right {
+    float: left;
+    width: 500px;
+    margin-left: 10px;
+}
+
+#medical {
 	width: 500px;
-	position: relative;
-	top: 5px;
-	left: 10px;
 }
 
-#medical th {
-	text-align: left;
-	border-bottom: 1px #000000 solid;
+#playeractions {
+	width: 500px;
 }
 
-#medical td {
-	text-align: left;
-	padding-top: 3px;
+#namechanges {
+    width: 500px;
 }
 
-#inventoryString {
-	margin-left: 550px;
-	margin-top: -300px;
+#table-content-extra-clear {
+    clear: both;
 }
 
 #inventoryString  textarea{
