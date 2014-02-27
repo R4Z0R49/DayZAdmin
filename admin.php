@@ -8,9 +8,11 @@ include_once('modules/FlashMessages.class.php');
 $message = new FlashMessages();
 $page = 'dashboard';
 
-$User = $_SESSION['login'];
-$User_query = $db->GetAll("SELECT * FROM users WHERE login = ?", $User);
-$salt = $User_query[0]['salt'];
+if(isset($_SESSION['login'])) {
+    $User = $_SESSION['login'];
+    $User_query = $db->GetAll("SELECT * FROM users WHERE login = ?", $User);
+    $salt = $User_query[0]['salt'];
+}
 
 if (isset($_GET['logout']))
 {
