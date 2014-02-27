@@ -18,7 +18,7 @@
 	$maxTrackingPositions = 50; // how many positions to keep per player/vehicle when tracking
 	$keepTracksAfterLogout = 0; // 0 - remove player tracks after they logout, 1 - keep showing tracks
 	$refreshPlayersOnline = 60; // seconds, set to 0 to disable
-    $enableNameLog = 0; // optional player name log, requires sql/namechange.sql
+    $enableNameLog = 0; // optional player name log, requires sql/optional/namechange.sql
 
 	//FTP - Server chat (Does not need to be specified if hosted locally, only use $local_path if that's the case!)
 	$chat_enabled = 0; // 0(No), 1(Yes)
