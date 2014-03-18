@@ -58,7 +58,7 @@ function markers_vehicle($res, $world) {
 		$description = '<strong><a href="admin.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$class.' ('.$row['ObjectID'].')</a></strong><br><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Damage:</strong>&nbsp;'.sprintf("%d%%", round($row['Damage'] * 100))."<br><strong>Fuel:</strong>&nbsp;".sprintf("%d%%", round($row['Fuel'] * 100)).'</td></tr></table><br>';
 		
 		$tmp = array();
-		$tmp["id"] = $row['ObjectID'];
+		$tmp["id"] = $row['ObjectUID'];
 		$tmp["lat"] = (world_y($y, $world) / 10);
 		$tmp["lng"] = (world_x($x, $world) / 10);
 		$tmp["icon"] = $type;
@@ -103,7 +103,7 @@ function markers_deployable($res, $world) {
 		$description = '<strong><a href="admin.php?view=info&show=6&ObjectID='.$row['ObjectID'].'">'.$class.' ('.$row['ObjectID'].')</a> - '.htmlspecialchars($row['playerName']).'</strong><br><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br>'.$contents.'</td></tr></table>';
 		
 		$tmp = array();
-		$tmp["id"] = $row['ObjectID'];
+		$tmp["id"] = $row['ObjectUID'];
 		$tmp["lat"] = (world_y($y, $world) / 10);
 		$tmp["lng"] = (world_x($x, $world) / 10);
 		$tmp["icon"] = $type;
