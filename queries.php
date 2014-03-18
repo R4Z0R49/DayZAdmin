@@ -571,7 +571,7 @@ ON
 WHERE
     pd.playerName LIKE ?
 ORDER BY
-    last_updated
+    last_updated DESC
 ";
 
 $search_query_item = "
