@@ -24,7 +24,7 @@ if (isset($_REQUEST['submit_loc']) && isset($_REQUEST['loc'])) {
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set location of player: ',?,' (',?,') to ',?),?,NOW())", array($row['playerName'], $CharacterID, $_POST['loc'], $_SESSION['login']));
 } 
 
-$row = $db->GetRow($info1, $CharacterID);
+$row = $db->GetRow($info1, array($CharacterID, $CharacterID));
 
 if (isset($_SESSION['user_id'])) {
     $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Viewing player: ',?,' (',?,')'),?,NOW())", array($row['playerName'], $CharacterID, $_SESSION['login']));

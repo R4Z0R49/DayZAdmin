@@ -38,6 +38,20 @@ ON
     cd.playerUID = pd.playerUID
 WHERE
     cd.CharacterID = ?
+UNION
+SELECT
+    pd.playerName,
+    pd.playerUID,
+    pd.playerSex,
+    cdd.*
+FROM
+    Character_DEAD cdd
+JOIN
+    Player_DATA pd
+ON
+    cdd.playerUID = pd.playerUID
+WHERE
+    cdd.CharacterID = ?
 ";
 
 $info4 = "
@@ -556,6 +570,8 @@ ON
     cdd.PlayerUID = pd.playerUID
 WHERE
     pd.playerName LIKE ?
+ORDER BY
+    last_updated
 ";
 
 $search_query_item = "
