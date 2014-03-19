@@ -413,6 +413,13 @@ if (isset($_SESSION['user_id'])) {
 			</div>
     <div id="table-content-extra">
 	<div id="table-content-extra-left">
+<?php
+    $notindeadtable = true;
+    $charcount = $db->GetOne("SELECT COUNT(*) FROM Character_DATA WHERE CharacterID = ?", $CharacterID);
+    if($charcount == null || $charcount == 0) {
+        $notindeadtable = false;
+    }
+?>
 	<table id="medical">
 	<tr>
 		<th class="custom-th">Alive</th>
@@ -435,6 +442,7 @@ if (isset($_SESSION['user_id'])) {
 	<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
 	<tr><td colspan="7">&nbsp;</td></tr>
 	</table>
+<?php if($notindeadtable) { ?>
 	<table id="playeractions">
 	<tr>
 		<th class="custom-th">
@@ -519,6 +527,7 @@ if (isset($_SESSION['user_id'])) {
 	</tr>
     <tr><td>&nbsp;</td></tr>
 	</table>
+<?php } ?>
 <!--  end table-content  -->
 
 <!-- Start name change log -->
