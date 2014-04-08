@@ -752,7 +752,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1100px;
   }
 }
 .container-fluid {
@@ -5943,7 +5943,7 @@ h1 {
 	text-align: center;
 }
 #page-heading{
-	width: 1140px;
+	width: 1070px;
 	height: 60px;
 	background-color: #428bca;
 	color: #fff;
