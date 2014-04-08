@@ -268,7 +268,7 @@ JOIN
 ON
     oc.Classname = od.Classname
 WHERE
-    od.Classname IN  ('Hedgehog_DZ', 'Sandbag1_DZ', 'BearTrap_DZ', 'Wire_cat1', 'TrapBearTrapFlare', 'TrapBearTrapSmoke', 'TrapTripwireCans', 'TrapTripwireFlare', 'TrapTripwireGrenade', 'TrapTripwireSmoke')
+    od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'BearTrap_DZ', 'Wire_cat1', 'TrapBearTrapFlare', 'TrapBearTrapSmoke', 'TrapTripwireCans', 'TrapTripwireFlare', 'TrapTripwireGrenade', 'TrapTripwireSmoke')
 AND od.Instance = ?
 ";
 
@@ -300,6 +300,7 @@ ON
 WHERE
     od.Classname IN ('TentStorage','StashSmall','StashMedium', 'Hedgehog_DZ', 'Sandbag1_DZ', 'BearTrap_DZ', 'Wire_cat1', 'TrapBearTrapFlare', 'TrapBearTrapSmoke', 'TrapTripwireCans', 'TrapTripwireFlare', 'TrapTripwireGrenade', 'TrapTripwireSmoke')
 AND od.Instance = ?
+
 ";
 
 // Tables

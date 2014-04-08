@@ -1,36 +1,36 @@
 <?php
 function header_player($show){
 	return '<tr>
-		<th width="5%" class="custom-th"><a href=""><h4>Control</h4></a></th>
-		<th width="13%" class="custom-th"><a href=""><h4>Player Name</h4></a></th>
-		<th width="7%" class="custom-th"><a href=""><h4>UID</h4></a></th>
-		<th width="10%" class="custom-th"><a href=""><h4>Position</h4></a></th>
-		<th width="22%" class="custom-th"><a href=""><h4>Inventory preview</h4></a></th>
-		<th width="22%" class="custom-th"><a href=""><h4>Backpack preview</h4></a></th>
+		<th width="5%" class="custom-th" style="text-align: center;"><a href=""><h4>Control</h4></a></th>
+		<th width="13%" class="custom-th" style="text-align: center;"><a href=""><h4>Player Name</h4></a></th>
+		<th width="7%" class="custom-th" style="text-align: center;"><a href=""><h4>UID</h4></a></th>
+		<th width="10%" class="custom-th" style="text-align: center;"><a href=""><h4>Position</h4></a></th>
+		<th width="22%" class="custom-th" style="text-align: center;"><a href=""><h4>Inventory preview</h4></a></th>
+		<th width="22%" class="custom-th" style="text-align: center;"><a href=""><h4>Backpack preview</h4></a></th>
 		</tr>';
 }
 
 function header_vehicle($show, $chbox){
 	return '
 		<tr>'.$chbox.'
-		<th width="5%" class="custom-th"><a href=""><h4>ID</h4></a></th>
-		<th width="13%" class="custom-th"><a href=""><h4>Classname</h4></a></th>
-		<th width="7%" class="custom-th"><a href=""><h4>UID</h4></a></th>
-		<th width="5%" class="custom-th"><a href=""><h4>Damage</h4></a></th>
-		<th width="10%" class="custom-th"><a href=""><h4>Position</h4></a></th>
-		<th width="22%" class="custom-th"><a href=""><h4>Inventory</h4></a></th>
-		<th width="22%" class="custom-th"><a href=""><h4>Hitpoints</h4></a></th>
+		<th width="5%" class="custom-th" style="text-align: center;"><a href=""><h4>ID</h4></a></th>
+		<th width="13%" class="custom-th" style="text-align: center;"><a href=""><h4>Classname</h4></a></th>
+		<th width="7%" class="custom-th" style="text-align: center;"><a href=""><h4>UID</h4></a></th>
+		<th width="5%" class="custom-th" style="text-align: center;"><a href=""><h4>Damage</h4></a></th>
+		<th width="10%" class="custom-th" style="text-align: center;"><a href=""><h4>Position</h4></a></th>
+		<th width="22%" class="custom-th" style="text-align: center;"><a href=""><h4>Inventory</h4></a></th>
+		<th width="22%" class="custom-th" style="text-align: center;"><a href=""><h4>Hitpoints</h4></a></th>
 		</tr>';
 }
 
 function header_deployable($show, $chbox){
 	return '
 		<tr>'.$chbox.'
-		<th width="5%" class="custom-th"><a href=""><h4>ID</h4></a></th>
-		<th width="13%" class="custom-th"><a href=""><h4>Classname</h4></a></th>
-		<th width="22%" class="custom-th"><a href=""><h4>Owner</h4></a></th>
-		<th width="10%" class="custom-th"><a href=""><h4>Position</h4></a></th>
-		<th width="34%" class="custom-th"><a href=""><h4>Inventory</h4></a></th>
+		<th width="5%" class="custom-th" style="text-align: center;"><a href=""><h4>ID</h4></a></th>
+		<th width="13%" class="custom-th" style="text-align: center;"><a href=""><h4>Classname</h4></a></th>
+		<th width="22%" class="custom-th" style="text-align: center;"><a href=""><h4>Owner</h4></a></th>
+		<th width="10%" class="custom-th" style="text-align: center;"><a href=""><h4>Position</h4></a></th>
+		<th width="34%" class="custom-th" style="text-align: center;"><a href=""><h4>Inventory</h4></a></th>
 		</tr>';
 }
 

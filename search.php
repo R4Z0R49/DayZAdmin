@@ -38,12 +38,12 @@ if (isset($_REQUEST['search'])){
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link href="css/font-awesome.css" rel="stylesheet">
 </head>
-<body class="stats-bg"> 
+<body> 
 <?php include('modules/stats-header.php'); ?>
 
 
-	<div class="container custom-container">
-	<div class="content">
+	<div class="container">
+	<div class="stats-content">
 		<div class="gametracker">
 			<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_560_95_1.png" border="0" alt=""/></a>
 		</div>	
@@ -105,6 +105,17 @@ if (isset($_REQUEST['search'])){
 		</div>
 		</div>
 		
+		
+		</br>
+
+		<div class="stats-box">
+			<div class="stats-box-inner">
+				<div class="stats-search">
+					<?php require_once('playersearch.php'); ?>	
+				</div>
+			</div>
+		</div>
+			
 		<?php if ($EnableSocialMedia == 1) { ?> 
 		<div class="social-box">
 			<!--  start social-center -->

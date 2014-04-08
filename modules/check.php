@@ -5,13 +5,12 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 	$pagetitle = "Items check (survivors, tents and vehicles)";
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('ITEMS CHECK',?,NOW())", $_SESSION['login']);
 ?>
-<div id="page-heading">
 <?php
     include('queries.php');
 	//ini_set('max_execution_time', 300);
-	echo "<div id=\"page-heading\">";
+	echo "<div id='page-heading'>";
 	echo "<title>".$pagetitle." - ".$sitename."</title>";
-	echo "<h1 class='custom-h1'>".$pagetitle."</h1>";
+	echo "<h1 class='custom-h1'>".$pagetitle."</h1></div>";
 	
 	error_reporting (E_ALL ^ E_NOTICE);
 	
@@ -210,8 +209,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 		}
 	}
 ?>
-</div>
-<table border="0" width="100%" class="product-table">
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="table">
 	<tr>
 		<td>
 		<!--  start content-table-inner ...................................................................... START -->
@@ -236,11 +234,11 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 					<!--  start product-table ..................................................................................... -->
 					<table border="0" width="100%" id="product-table">
 						<tr>
-							<th class="table-header-repeat line-left minwidth-1" width="5px"><a href="">Remove</a>	</th>
-							<th class="table-header-repeat line-left minwidth-1" width="5px"><a href="">Status</a></th>
-							<th class="table-header-repeat line-left minwidth-1" width="5px"><a href="">Name</a>	</th>
-							<th class="table-header-repeat line-left minwidth-1" width="5px"><a href="">ID</a></th>
-							<th class="table-header-repeat line-left minwidth-1"><a href="">Unknown items</a></th>
+							<th width="8%" class="custom-th" style="text-align: center;"><a href=""><h4>Remove</h4></a></th>
+							<th width="8%" class="custom-th" style="text-align: center;"><a href=""><h4>Status</h4></a></th>
+							<th width="20%" class="custom-th" style="text-align: center;"><a href=""><h4>Name</h4></a></th>
+							<th width="10%" class="custom-th" style="text-align: center;"><a href=""><h4>UID</h4></a></th>
+							<th width="56%" class="custom-th" style="text-align: center;"><a href=""><h4>Unknown items</h4></a></th>
 						</tr>
 						<?php
 							echo $rows;

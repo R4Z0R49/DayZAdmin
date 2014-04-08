@@ -263,17 +263,17 @@ foreach($res as $row) {
 			Options
 			</th>
 		</tr>
-		<tr>
+		<tr style="text-align: center;">
 			<td>
 				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['ObjectID']; ?>">Repair Vehicle</a>
 			</td>
 		</tr>
-		<tr>
+		<tr style="text-align: center;">
 			<td>
 				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row['ObjectID']; ?>">Destroy Vehicle</a>
 			</td>
 		</tr>
-		<tr>
+		<tr style="text-align: center;">
 			<td>
 				<a href="admin.php?view=actions&refuelVehicle=<?php echo $row['ObjectID']; ?>">Refuel Vehicle</a>
 			</td>
@@ -289,7 +289,7 @@ foreach($res as $row) {
 echo $row['Inventory'];
 ?>
         </textarea><br>
-    <br><input name="submit_inv" class="btn btn-default" type="submit" value="Submit" />
+    <br><input name="submit_inv" class="btn btn-primary" type="submit" value="Submit" />
     </form>
 
 	<form method="post">
@@ -303,15 +303,13 @@ echo $row['Inventory'];
 	}
 ?>
 		</textarea><br>
-	<br><input name="submit_loc" class="btn btn-default" type="submit" value="Submit" />
+	<br><input name="submit_loc" class="btn btn-primary" type="submit" value="Submit" />
 	</form>
 </div>
 		 
 		</div>
 		<!--  end content-table-inner ............................................END  -->
 		</td>
-		<td id="tbl-border-right"></td>
 	</tr>
 	</table>
 <?php } ?>
-	<div class="clear">&nbsp;</div>

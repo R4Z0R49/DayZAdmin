@@ -67,5 +67,5 @@
 			<input type="password" class="form-control" placeholder="Confirm Password" name="confirm_pass">
 		</div>
 	</div>
-	<input type="submit" class="btn btn-default">
+	<input type="submit" class="btn btn-primary" value="Submit">
 </form>

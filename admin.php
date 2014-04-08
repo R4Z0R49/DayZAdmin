@@ -59,6 +59,8 @@ if (isset($_SESSION['user_id']))
 <!--  end content -->
 </div>
 <!--  end content-outer........................................................END -->
+</div>
+<!-- end wrapper -->
 
 <?php
 	// Start: page-footer 

@@ -66,7 +66,6 @@ if (isset($_SESSION['user_id']))
 </div>
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="table">
 	<tr>
-		<td id="tbl-border-left"></td>
 		<td>
 		<!--  start content-table-inner ...................................................................... START -->
 		<div id="content-table-inner">		

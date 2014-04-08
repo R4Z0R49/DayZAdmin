@@ -32,7 +32,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][0] != 'false')
 		$title = 'Recent Players, Vehicles and Deployables';
 		break;
 	}
-	echo '<div id="page-heading"><title>'.$title.' - '.$sitename.'</title><h2 class="custom-h2">'.$title.'&nbsp;(<span id="count">0</span>)</h2></div>';
+	echo '<div id="page-heading"><title>'.$title.' - '.$sitename.'</title><h1>'.$title.'&nbsp;(<span id="count">0</span>)</h1></div>';
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Viewing map',?,NOW())", $_SESSION['login']);
 	include('modules/leaf.php');
 }

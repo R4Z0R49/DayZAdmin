@@ -143,6 +143,15 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 	}
 	
 ?>
+
+<div id="page-heading">
+<?php
+	echo "<title>".$pagetitle." - ".$sitename."</title>";
+	echo "<h1>".$pagetitle."</h1>";
+
+?>
+</div>
+
 <div class="modal fade" id="AddAdmin">
 <div class="modal-dialog">
   <div class="modal-content">
@@ -158,71 +167,71 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
   </div>
 </div>
 </div>
-<div id="page-heading">
-	<h1 class="custom-h1"><?php echo $pagetitle; ?></h1>
-	<h1><?php echo "<title>".$pagetitle." - ".$sitename."</title>"; ?></h1>
-</div>
-<!-- end page-heading -->
 
-<table class="table" style="width: 25%; float: right;">
-<tr>
-	<th class="custom-th"><h4>Related Activities <i class="icon-arrow-down"></i></h4></th>
-</tr>
-<tr class="custom-tr">
-	<td><a data-toggle="modal" href="#AddAdmin"><h4>Add Administrator</h4></a>
-	Adds a new administrator
-	</td>
-</tr>
-<tr class="custom-tr">
-	<td><a href="admin.php?view=actions&clearLogs"><h4>Clear Logs</h4></a>
-	Clears the action logs
-	</td>
-</tr>
-<tr class="custom-tr">
-	<td><a href="admin.php?view=admin&AddAccess"><h4>Add Accesslvl</h4></a>
-	Adds an accesslvl
-	</td>
-</tr>
-<tr class="custom-tr">
-	<td><a href="admin.php?view=admin&EditAccess"><h4>Edit/Delete Accesslvl</h4></a>
-	Lets you edit/delete an accesslvl
-	</td>
-</tr>
-</table>
-
-<div id="table-content">
-<form action="admin.php?view=admin" method="post">
-  <table class="table" style="width: 70%;">
-    <tr>
-    	<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
-    	<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
-    	<th class="custom-th"><h4>Login <i class="icon-arrow-down"></i></h4></th>
-    	<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
-    	<th class="custom-th"><h4>Access Level <i class="icon-arrow-down"></i></h4></th>
-    </tr>
-  	<?php echo $users; ?>	
-  </table>
-  <input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
-  <input type="submit" data-toggle="modal" href="#DeleteModal" value="Delete" class="btn btn-danger"  />
+<div class="row">
+	<div class="col-xs-9">
+		<div id="table-content">
+		<form action="admin.php?view=admin" method="post">
+		  <table class="table">
+			<tr>
+				<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
+				<th class="custom-th"><h4>Id <i class="icon-arrow-down"></i></h4></th>
+				<th class="custom-th"><h4>Login <i class="icon-arrow-down"></i></h4></th>
+				<th class="custom-th"><h4>Last Access <i class="icon-arrow-down"></i></h4></th>
+				<th class="custom-th"><h4>Access Level <i class="icon-arrow-down"></i></h4></th>
+			</tr>
+			<?php echo $users; ?>	
+		  </table>
+		  <input type="submit" value="Edit" name="Edit" class="btn btn-default"  />
+		  <input type="button" class="btn btn-danger" data-toggle="modal" href="#DeleteModal" value="Remove">
+		</div>
+		<div class="modal fade" id="DeleteModal">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Are you sure?</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>Are you sure you want to delete this?</p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">No!</button>
+				<input type="submit" name="Delete" class="btn btn-primary" value="Yes!">
+			  </div>
+			</div>
+		  </div>
+		</div>
+		</form>
+	</div>
+	<div class="col-xs-3">
+		<table class="table">
+			<tr>
+				<th class="custom-th"><h4>Related Activities <i class="icon-arrow-down"></i></h4></th>
+			</tr>
+			<tr class="custom-tr">
+				<td><a data-toggle="modal" href="#AddAdmin"><h4>Add Administrator</h4></a>
+				Adds a new administrator
+				</td>
+			</tr>
+			<tr class="custom-tr">
+				<td><a href="admin.php?view=actions&clearLogs"><h4>Clear Logs</h4></a>
+				Clears the action logs
+				</td>
+			</tr>
+			<tr class="custom-tr">
+				<td><a href="admin.php?view=admin&AddAccess"><h4>Add Accesslvl</h4></a>
+				Adds an accesslvl
+				</td>
+			</tr>
+			<tr class="custom-tr">
+				<td><a href="admin.php?view=admin&EditAccess"><h4>Edit/Delete Accesslvl</h4></a>
+				Lets you edit/delete an accesslvl
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
-<div class="modal fade" id="DeleteModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Are you sure?</h4>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete this?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">No!</button>
-        <input type="submit" name="Delete" class="btn btn-primary" value="Yes!">
-      </div>
-    </div>
-  </div>
-</div>
-</form>
 
 <?php 
 echo '<br>';
@@ -232,7 +241,7 @@ if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
 	$editing = $db->GetOne("SELECT login FROM users WHERE id = ?", $userid);
 	echo '<br>';
 ?>
-<h1 class="custom-h1"><?php echo 'Editing '. $editing; ?></h1>
+<h1 style="margin-top: -200px;"><?php echo 'Editing '. $editing; ?></h1>
 <form method="POST">
     <input type="hidden" name="userid" value="<?php echo $_REQUEST['user'][0]; ?>">
 	<div class="row" style="margin-bottom: 5px;">
@@ -267,7 +276,7 @@ if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
 	//echo $accesslvls[0][5]; -> Can check illegal items
 	//echo $accesslvls[0][6]; -> Can use db manager
 ?>
-<h1 class="custom-h1">Add an accesslvl</h1>
+<h1 style="margin-top: -190px;">Add an accesslvl</h1>
 <form method="POST">
 	<input type="hidden" name="userid" value="">
 	<div class="row" style="margin-bottom: 5px;">
@@ -314,7 +323,7 @@ if(isset($_REQUEST['Edit']) && isset($_REQUEST['user'])){
   			</div>
 		</div>
 	</div>
-	<input type="submit" class="btn btn-default" value="Add" name="alvl_add_submit">
+	<input type="submit" class="btn btn-primary" value="Add" name="alvl_add_submit">
 </form>
 <?php } ?>
 
@@ -336,7 +345,7 @@ if(isset($_REQUEST['AccessName'])) {
 }
 //var_dump($hasAccess);
 ?>
-<h1 class="custom-h1">Edit/Remove an accesslvl</h1>
+<h1>Edit/Remove an accesslvl</h1>
 <form method="POST">
 	<input type="hidden" name="userid" value="">
 	<div class="row" style="margin-bottom: 15px;">

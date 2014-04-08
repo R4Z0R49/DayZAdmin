@@ -45,62 +45,44 @@ if (!empty($_POST))
 
 $page = 'dashboard';
 ?>
-<!DOCTYPE html>
-<html lang="EN">
-<head>
-	<title><?php echo $sitename ?></title>
-	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
-	<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
-	<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-		$(document).pngFix( );
-		});
-	</script>
-	
-	<!-- New design (Bootstrap - font-awesome) -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href="css/font-awesome.css" rel="stylesheet">
-</head>
-<body class="stats-bg"> 
+
 <?php include('modules/stats-header.php'); ?>
 
-
-	<div class="container custom-container">
-	<div class="content">
+	<div class="container">
+	<div class="login-content">
 		<form action="admin.php" method="post">
 			<div class="login-box">	
 				<div class="login-box-inner">
 					<table border="0" cellpadding="0" cellspacing="0">
 					<tr>
 						<th>Username: </th>
-						<td><input type="text" name="login" value="Username" onfocus="this.value=''" class="form-control" /></td>
+						<td><input type="text" style="margin-left: 5px;" name="login" value="Username" onfocus="this.value=''" class="form-control" /></td>
 					</tr>
 					<tr>
 						<td><br></td>
 					</tr>
 					<tr>
-						<th>Password: </th>
-						<td><input type="password" name="password" value="Password" onfocus="this.value=''" class="form-control" /></td>
+						<th>Password:</th>
+						<td><input type="password" style="margin-left: 5px;" name="password" value="Password" onfocus="this.value=''" class="form-control" /></td>
 					</tr>
 					<tr>
 						<td><br></td>
 					</tr>
 					<tr>
 						<th></th>
-						<td valign="top"><input type="checkbox" name="remember" class="checkbox-size" id="login-check" /><label for="login-check">Remember me</label></td>
+						<td valign="top"><input type="checkbox" name="remember" class="checkbox-size" id="login-check" /><label for="login-check" style="margin-left: 5px;">Remember me</label></td>
 					</tr>
 					<tr>
 						<th></th>
-						<td><input type="submit" class="btn btn-default"  /></td>
+						<td><input type="submit" class="btn btn-primary" value="Submit"/></td>
 					</tr>
 					</table>
 				</div>
-				<div class="clear"></div>
 			</div>
 		</form>
 	</div>
 	<!--  end content -->
+	</div>
 	</div>
 
 		<!-- start footer -->         

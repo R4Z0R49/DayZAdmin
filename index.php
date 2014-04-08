@@ -3,9 +3,7 @@
 	require_once('config.php');
 	require_once('db.php');
 	include('queries.php');
-	//ini_set( "display_errors", 0);
-	error_reporting (E_ALL ^ E_NOTICE);
-	$page == 'home';
+	$page = 'home';
 
 	$KillsZ = 0;
 	$KillsB = 0;
@@ -37,22 +35,18 @@
 		$page = 'home';
 	}
 ?>
-<!DOCTYPE html>
-<html lang="EN">
 <?php include('modules/stats-header.php'); ?>
-	<div class="container custom-container">
-		<div class="content">
+		<div class="container">
 
-			<?php
-				if(isset($_GET['leaderboard'])) {
-					include('modules/leaderboard.php');
-				} else {
-					include('modules/stats.php');
-				}
-			?>
+				<?php
+					if(isset($_GET['leaderboard'])) {
+						include('modules/leaderboard.php');
+					} else {
+						include('modules/stats.php');
+					}
+				?>
 
 		</div>
-	</div>
         
 	<?php
 		include('modules/footer.php');

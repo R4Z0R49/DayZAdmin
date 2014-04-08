@@ -10,7 +10,6 @@ if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $
     printf("\t<META HTTP-EQUIV=\"refresh\" CONTENT=\"%d\">\n", $refreshPlayersOnline);
 }
 ?>
-	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
 	<link rel="stylesheet" href="css/watch.css" />	
 	<link rel="stylesheet" href="css/flexcrollstyles.css" />	
 	<script src="js/flexcroll.js" type="text/javascript"></script>
@@ -40,31 +39,19 @@ if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $
 <body> 
 
 <?php if($enableclock) { ?>
-<div id="clock" style=" font-size: 10pt; color: #ffffff; position: absolute; top: 8px; left: 2px; margin: 0 0 0 0;">
-    <span class="jclock">11:11:11</span>
+<div id="clock" style="text-align: center; font-size: 10pt; color: #000; position: absolute; top: 8px; right: 8px; margin: 0 0 0 0; z-index: 1000;">
+    Server time:<br>
+	<span class="jclock">11:11:11</span>
 </div>
 <?php } // end if($enableclock) ?>  
-
-<div id="logo-stats-bg">
-	<div id="logo-stats-centerer">
-		<div id="logo-stats-left">
-			<img src="images/DayZAdmin.png" width="250px" height="80px" alt=""></a>
-		</div>
-		<div id="top-search">
-		<?php
-			include ('searchbar.php');
-		?>
-		</div>
-	</div>
-</div>
  
 <?php
 include ('navbar.php');
 ?>
  
-<body class="stats-bg">
-<div class="container custom-container">
-<div class="content" id="content">
+<body>
+<div class="container">
+<div class="content">
 <?php
 
     if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $_GET["show"] == 0 && isset($refreshPlayersOnline) && $refreshPlayersOnline >= 15) {
