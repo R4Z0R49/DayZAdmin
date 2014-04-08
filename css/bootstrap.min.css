@@ -739,8 +739,6 @@ pre code {
 .container {
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
 }
 @media (min-width: 768px) {
   .container {
@@ -5957,23 +5955,43 @@ h1 {
 	border-left: 1px solid #eaeaea;
 	border-top: 1px solid #eaeaea;
 }
-.login-content {
-	margin: 0 auto;
+#page-heading-login{
 	width: 560px;
-	margin-top: 65px;
+	height: 60px;
+	background-color: #428bca;
+	color: #fff;
+	margin-top: -70px;
+	margin-left: -1px;
+	position: absolute;
+	padding-left: 10px;
+	border: 1px solid #eaeaea;
+}
+#page-heading-leaderboard{
+	width: 960px;
+	height: 60px;
+	background-color: #428bca;
+	color: #fff;
+	margin-top: -70px;
+	margin-left: -11px;
+	position: absolute;
+	padding-left: 10px;
+	border: 1px solid #eaeaea;
+}
+.login-content {
+	width: 560px;
+	margin-top: 75px;
 }
 .content {
 	width: 100%;
-	margin-top: 65px;
+	margin-top: 75px;
 	background-color: #fff;
 	border: 1px solid #eaeaea;
 	padding: 10px;
 	margin-bottom: 70px;
 }
 .stats-content {
-	margin: 0 auto;
 	width: 560px;
-	margin-top: 65px;
+	margin-top: 15px;
 }
 .gametracker{
 	background-color: #000;
@@ -5994,9 +6012,8 @@ h1 {
 	text-align: center;
 }
 .leaderboard-content {
-	margin: 0 auto;
 	width: 960px;
-	margin-top: 65px;
+	margin-top: 75px;
 }
 .leaderboard-box{
 	background-color: #fff;

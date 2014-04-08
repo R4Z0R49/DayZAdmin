@@ -44,6 +44,7 @@ if (!empty($_POST))
 }
 
 $page = 'dashboard';
+$pagetitle = 'Login';
 ?>
 
 <?php include('modules/stats-header.php'); ?>
@@ -52,6 +53,13 @@ $page = 'dashboard';
 	<div class="login-content">
 		<form action="admin.php" method="post">
 			<div class="login-box">	
+				<div id="page-heading-login">
+					<?php
+						echo "<title>".$pagetitle." - ".$sitename."</title>";
+						echo "<h1>".$pagetitle."</h1>";
+
+					?>
+				</div>
 				<div class="login-box-inner">
 					<table border="0" cellpadding="0" cellspacing="0">
 					<tr>
@@ -74,7 +82,7 @@ $page = 'dashboard';
 					</tr>
 					<tr>
 						<th></th>
-						<td><input type="submit" class="btn btn-primary" value="Submit"/></td>
+						<td><input type="submit" class="btn btn-primary" value="Submit" style="margin-top: 5px;"/></td>
 					</tr>
 					</table>
 				</div>

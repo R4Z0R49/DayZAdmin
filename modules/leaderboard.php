@@ -19,11 +19,20 @@
 	} else {
 		$limit = 10;
     }
+	
+	$pagetitle = 'Leaderboard';
 
 ?>
 
 <div class="leaderboard-content">
 	<div class="leaderboard-box">	
+		<div id="page-heading-leaderboard">
+			<?php
+				echo "<title>".$pagetitle." - ".$sitename."</title>";
+				echo "<h1>".$pagetitle."</h1>";
+
+			?>
+		</div>
 		<table class="table">
 			<thead>
 				<th># Rank</th>
