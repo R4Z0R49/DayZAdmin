@@ -39,7 +39,7 @@ if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $
 <body> 
 
 <?php if($enableclock) { ?>
-<div id="clock" style="text-align: center; font-size: 10pt; color: #000; position: absolute; top: 8px; right: 8px; margin: 0 0 0 0; z-index: 1000;">
+<div id="clock" style="text-align: center; font-size: 10pt; color: #fff; position: absolute; top: 23px; right: 24px; margin: 0 0 0 0; z-index: 1000; background-color: rgba(0,0,0,0.2); padding: 5px;">
     Server time:<br>
 	<span class="jclock">11:11:11</span>
 </div>
@@ -53,10 +53,6 @@ include ('navbar.php');
 <div class="container">
 <div class="content">
 <?php
-
-    if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $_GET["show"] == 0 && isset($refreshPlayersOnline) && $refreshPlayersOnline >= 15) {
-        printf("Refreshing every %d seconds<br>\n", $refreshPlayersOnline);
-    }
 }else{
 	header('Location: admin.php');
 }

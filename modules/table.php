@@ -64,6 +64,11 @@ if (isset($_SESSION['user_id']))
 	echo "<h1 class='custom-h1'>".$pagetitle."</h1>";
 ?>
 </div>
+<?php
+	if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $_GET["show"] == 0 && isset($refreshPlayersOnline) && $refreshPlayersOnline >= 15) {
+        printf("Refreshing every %d seconds<br>\n", $refreshPlayersOnline);
+    }
+?>
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="table">
 	<tr>
 		<td>
