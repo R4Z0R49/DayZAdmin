@@ -60,7 +60,7 @@ foreach($res as $row) {
 		
 			<!--  start table-content  -->
 			<div id="table-content">
-				<div id="gear_vehicle" style="margin-left: 64px; margin-bottom: 10px;">	
+				<div id="gear_vehicle" style="margin-bottom: 10px;">	
 					<div class="gear_info">
 						<img class="vehiclemodel" src='images/vehicles/<?php echo $row['Classname']; ?>.png'/>
 						<div id="gps" style="margin-left:120px;margin-top:323px">
