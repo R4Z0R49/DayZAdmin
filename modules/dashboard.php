@@ -66,8 +66,8 @@ if (!isset($_GET['logs']) && !isset($_GET['chat'])){
 				<tr>
 					<td>
 						<form action="admin.php?view=actions" method="post">
-							<textarea name="say" style="width: 80%; height: 50px;">Type something to Global Chat</textarea>
-							<input type="submit" class="btn btn-primary" value="Submit" style="margin-top: -40px;"/>
+							<textarea name="say" style="width: 100%; height: 50px;">Type something to Global Chat</textarea>
+							<input type="submit" class="btn btn-primary" value="Submit"/>
 						</form>
 					</td>
 				</tr>
