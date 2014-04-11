@@ -1,6 +1,3 @@
-<div class="gametracker">
-	<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_560_95_1.png" border="0" alt=""/></a>
-</div>
 <div class="stats-content">	
 	<div id="page-heading">
 		<h1>Statistics</h1>

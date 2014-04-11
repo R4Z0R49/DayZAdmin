@@ -127,5 +127,8 @@
 					</li>
 					<?php } ?>
 				</ul>
-			</div>
-        </div>
+				<div class="gametracker">
+					<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_160_400_1_ffffff_c5c5c5_ffffff_000000_0_1_0.png" border="0" width="160" height="248" alt=""/></a>
+				</div>
+			</div>       
+		</div>

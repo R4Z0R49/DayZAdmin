@@ -24,10 +24,7 @@ if (isset($_REQUEST['search'])){
 <?php include('modules/stats-header.php'); ?>
 	<div class="container">
 
-	<div class="stats-content-search">
-		<div class="gametracker-search">
-			<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_560_95_1.png" border="0" alt=""/></a>
-		</div>	
+	<div class="stats-content-search">	
 		<div class="stats-box-search">	
 		<div class="stats-box-inner-search">
 		<?php
