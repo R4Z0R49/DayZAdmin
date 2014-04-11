@@ -20,8 +20,8 @@ if ($pageNum < $maxPage)
 }
 else
 {
-   $next = '#'; // we're on the last page, don't print next link
-   $last = '#'; // nor the last page link
+   $next = "$self&page=$pageNum"; // we're on the last page, don't print next link
+   $last = "$self&page=$pageNum"; // nor the last page link
 }
 $paging = '
 <table border="0" cellpadding="0" cellspacing="0" id="paging-table">

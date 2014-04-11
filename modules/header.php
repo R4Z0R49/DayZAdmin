@@ -39,7 +39,7 @@ if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $
 <body> 
 
 <?php if($enableclock) { ?>
-<div id="clock" style="text-align: center; font-size: 10pt; color: #fff; position: absolute; top: 23px; right: 24px; margin: 0 0 0 0; z-index: 1000; background-color: rgba(0,0,0,0.2); padding: 5px;">
+<div id="clock" style="text-align: center; font-size: 10pt; border: 1px solid #000; color: #fff; position: absolute; top: 23px; right: 24px; margin: 0 0 0 0; z-index: 1000; background-color: rgba(0,0,0,0.2); padding: 5px;">
     Server time:<br>
 	<span class="jclock">11:11:11</span>
 </div>
@@ -48,8 +48,9 @@ if(isset($_GET["view"]) && $_GET["view"] == "table" && isset($_GET["show"]) && $
 <?php
 include ('navbar.php');
 ?>
- 
+
 <body>
+
 <div class="container">
 <div class="content">
 <?php

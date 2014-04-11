@@ -255,7 +255,7 @@ th {
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important;
+    border: 1px solid #000 !important;
   }
 }
 * {
@@ -280,7 +280,7 @@ body {
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
-  background-image: url(../images/background/greyzz.png);
+  background-image: url(../images/background/wood_1.png);
 }
 input,
 button,
@@ -329,7 +329,7 @@ img {
   padding: 4px;
   line-height: 1.42857143;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #000;
   border-radius: 4px;
   -webkit-transition: all .2s ease-in-out;
           transition: all .2s ease-in-out;
@@ -735,25 +735,6 @@ pre code {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
-}
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1100px;
-  }
 }
 .container-fluid {
   padding-right: 15px;
@@ -1421,11 +1402,11 @@ th {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #000;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #000;
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
@@ -1436,7 +1417,7 @@ th {
   border-top: 0;
 }
 .table > tbody + tbody {
-  border-top: 2px solid #ddd;
+  border-top: 2px solid #000;
 }
 .table .table {
   background-color: #fff;
@@ -1450,7 +1431,7 @@ th {
   padding: 5px;
 }
 .table-bordered {
-  border: 1px solid #ddd;
+  border: 1px solid #000;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -1458,7 +1439,7 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #ddd;
+  border: 1px solid #000;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
@@ -1591,7 +1572,7 @@ table th[class*="col-"] {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
+    border: 1px solid #000;
   }
   .table-responsive > .table {
     margin-bottom: 0;
@@ -5797,7 +5778,7 @@ button.close {
   overflow-y: auto;
   z-index: 999;
   transition: all 0.4s ease 0s;
-  border-right: 2px solid #eaeaea;
+  border-right: 2px solid #000;
 }
 
 #page-content-wrapper {
@@ -5846,7 +5827,7 @@ button.close {
   height: 65px;
   line-height: 60px;
   font-size: 18px;
-  background: #000;
+  background: #1d1d1d;
   padding-top: 2px;
 }
 
@@ -5916,8 +5897,9 @@ button.close {
 	width: 100%;
 	height: 40px;
 	text-align: right;
-	background-color: #000;
-	padding-top: 11px;
+	background-color: #1d1d1d;
+	border-top: 2px solid #000;
+	padding-top: 10px;
 	padding-right: 10px;
 	color: grey;
 	bottom: 0;
@@ -5936,8 +5918,9 @@ h1 {
   margin-top: 13px;
 }
 .custom-th{
-	border: 1px solid #eaeaea;
+	border: 1px solid #000;
 	background-color: #fff;
+	color: #428bca;
 	padding-right: 5px;
 	height: 50px;
 	text-align: center;
@@ -5951,9 +5934,7 @@ h1 {
 	margin-left: -11px;
 	position: absolute;
 	padding-left: 10px;
-	border-right: 1px solid #eaeaea;
-	border-left: 1px solid #eaeaea;
-	border-top: 1px solid #eaeaea;
+	border: 1px solid #000;
 }
 #page-heading-login{
 	width: 560px;
@@ -5964,7 +5945,7 @@ h1 {
 	margin-left: -1px;
 	position: absolute;
 	padding-left: 10px;
-	border: 1px solid #eaeaea;
+	border: 1px solid #000;
 }
 #page-heading-leaderboard{
 	width: 960px;
@@ -5975,7 +5956,7 @@ h1 {
 	margin-left: -11px;
 	position: absolute;
 	padding-left: 10px;
-	border: 1px solid #eaeaea;
+	border: 1px solid #000;
 }
 @media (min-width: 768px) {
   #page-heading {
@@ -5987,9 +5968,28 @@ h1 {
     width: 940px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1360px) {
   #page-heading {
     width: 1070px;
+  }
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1360px) {
+  .container {
+    width: 1100px;
   }
 }
 .login-content {
@@ -6000,31 +6000,34 @@ h1 {
 	width: 100%;
 	margin-top: 75px;
 	background-color: #fff;
-	border: 1px solid #eaeaea;
+	border: 1px solid #000;
 	padding: 10px;
 	margin-bottom: 70px;
 }
 .stats-content {
-	width: 560px;
 	margin-top: 15px;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #000;
 }
 .gametracker{
-	background-color: #000;
+	width: 560px;
+	margin-top: 15px;
+	margin-bottom: 75px;
 }
 .stats-box {
-	background-color: #fff;
-	border: 1px solid #eaeaea;
-	width: 560px;
+	width: 500px;
 	height: auto;
 	padding: 10px;
 }
-.stats-box-inner{
-	margin: 0 auto;
-	width: 250px;
-}
 .social-box{
-	width: 560px;
+	width: 1100px;
+	margin-bottom: 40px;
+}
+.social-box-inner{
+	width: 500px;
 	text-align: center;
+	margin: 0 auto;
 }
 .leaderboard-content {
 	width: 960px;
@@ -6032,7 +6035,7 @@ h1 {
 }
 .leaderboard-box{
 	background-color: #fff;
-	border: 1px solid #eaeaea;
+	border: 1px solid #000;
 	width: 960px;
 	height: auto;
 	padding: 10px;
@@ -6042,7 +6045,7 @@ h1 {
 	margin-top: 65px;
 	width: 560px;
 	background-color: #fff;
-	border: 1px solid #eaeaea;
+	border: 1px solid #000;
 	color: grey;
 	padding-bottom: 10px;
 	padding-top: 10px;
@@ -6051,6 +6054,37 @@ h1 {
 .login-box-inner{
 	margin: 0 auto;
 	width: 300px;
+}
+
+
+/* SEARCH */
+.gametracker-search{
+	width: 560px;
+}
+.stats-content-search {
+	margin-top: 15px;
+	padding: 10px;
+	width: 560px;
+}
+.stats-box-search {
+	width: 560px;
+	height: auto;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #000;
+}
+.stats-box-inner-search{
+	width: 275px;
+	margin: 0 auto;
+}
+.social-box-search{
+	width: 560px;
+	margin: 0 auto;
+}
+.social-box-inner-search{
+	width: 500px;
+	text-align: center;
+	margin: 0 auto;
 }
 
 #clockcanvas {background: transparent url(../images/clock/clock.png) no-repeat;}
@@ -6070,10 +6104,10 @@ div#clockcanvas_div {background: transparent url(../images/clock/clock.png) no-r
 	background-color: #fff;
 	min-height: 47px;
 	height: 47px;
-	border: 1px solid #eaeaea;
+	border: 1px solid #000;
 	}
 .gear_preview_green {
-	border: 1px solid #eaeaea;
+	border: 1px solid #000;
 	padding: 0;
 	margin: 0;
 	min-height: 47px;

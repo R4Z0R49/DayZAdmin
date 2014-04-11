@@ -35,15 +35,15 @@
 		</div>
 		<table class="table">
 			<thead>
-				<th># Rank</th>
-				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img>Name</th>
-				<th><img src="images/icons/statspage/infectedkilled1.png" width="25px" height="25px" class="table-img"></img> Zombie Kills</th>
-				<th><img src="images/icons/statspage/murders.png" width="25px" height="25px" class="table-img"></img> Human Kills</th>
-				<th><img src="images/icons/statspage/banditskilled1.png" width="25px" height="25px" class="table-img"></img> Bandit Kills</th>
-				<th><img src="images/icons/statspage/infectedheadshots1.png" width="25px" height="25px" class="table-img"></img> Headshots</th>
-				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img> Humanity</th>
-				<th><img src="images/icons/statspage/playerdeaths1.png" width="25px" height="25px" class="table-img"></img> Deaths</th>
-				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img> Points</th>
+				<th>#</th>
+				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img> Name</th>
+				<th><img src="images/icons/statspage/infectedkilled1.png" width="25px" height="25px" class="table-img"></img> Z Kills</th>
+				<th><img src="images/icons/statspage/murders.png" width="25px" height="25px" class="table-img"></img> Murders</th>
+				<th><img src="images/icons/statspage/banditskilled1.png" width="25px" height="25px" class="table-img"> B Kills</img></th>
+				<th><img src="images/icons/statspage/infectedheadshots1.png" width="25px" height="25px" class="table-img"> Z Headshots</img></th>
+				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"> Humanity</img></th>
+				<th><img src="images/icons/statspage/playerdeaths1.png" width="25px" height="25px" class="table-img"> Deaths</img></th>
+				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"> Points</img></th>
 			</thead>
 			<tbody>
 				<?php

@@ -22,6 +22,19 @@ $stats_aliveheros = "SELECT COUNT(*) FROM Character_DATA WHERE Alive = 1 AND Hum
 $stats_totalVehicles = array("SELECT COUNT(*) FROM Object_DATA WHERE Instance = ? AND CharacterID = '0'", $iid);
 $stats_Played24h = "SELECT COUNT(*) FROM (SELECT COUNT(*) FROM Character_DATA WHERE LastLogin > NOW() - INTERVAL 1 DAY GROUP BY PlayerUID) uniqueplayers";
 $stats_totalkills = "SELECT * FROM Character_DATA";
+$stats_totalwalked = "SELECT SUM(distanceFoot),(SELECT SUM(distanceFoot) FROM Character_DATA) FROM Character_DEAD";
+$stats_duration = "
+SELECT 
+	CONCAT(FLOOR(AVG(`duration`)/60), 'h ', MOD(ROUND(AVG(`duration`)),60),'m')
+FROM
+	Character_DEAD 
+UNION ALL
+	SELECT CONCAT(FLOOR(AVG(`duration`)/60), 'h ', MOD(ROUND(AVG(`duration`)),60),'m')
+FROM
+	Character_DATA
+WHERE 
+	duration > 15 AND Alive = 0;
+";
 
 // Info
 $info1 = "

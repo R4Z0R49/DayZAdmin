@@ -21,34 +21,15 @@ if (isset($_REQUEST['search'])){
 
 
 ?>
-<!DOCTYPE html>
-<html lang="EN">
-<head>
-	<title><?php echo $sitename ?></title>
-	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
-	<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
-	<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-		$(document).pngFix( );
-		});
-	</script>
-	
-	<!-- New design (Bootstrap - font-awesome) -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href="css/font-awesome.css" rel="stylesheet">
-</head>
-<body> 
 <?php include('modules/stats-header.php'); ?>
-
-
 	<div class="container">
-	<div class="stats-content">
-		<div class="gametracker">
+
+	<div class="stats-content-search">
+		<div class="gametracker-search">
 			<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_560_95_1.png" border="0" alt=""/></a>
 		</div>	
-		<div class="stats-box">	
-		<div class="stats-box-inner">
+		<div class="stats-box-search">	
+		<div class="stats-box-inner-search">
 		<?php
 			echo "<center><h1>".$pagetitle."</h1></center>";
 			echo "<br />";
@@ -101,23 +82,17 @@ if (isset($_REQUEST['search'])){
 			<td align="right"><?php echo $row['KillsH'];?></td>
 		  </tr>
 		</table>
-		<?php } else {  echo "No results found\n"; } ?>
+		<?php } else {  echo "No results found<br>"; } ?>
+		<br>
+		<?php require_once('playersearch.php'); ?>	
+		<br>
 		</div>
 		</div>
+	
 		
-		
-		</br>
-
-		<div class="stats-box">
-			<div class="stats-box-inner">
-				<div class="stats-search">
-					<?php require_once('playersearch.php'); ?>	
-				</div>
-			</div>
-		</div>
-			
 		<?php if ($EnableSocialMedia == 1) { ?> 
-		<div class="social-box">
+		<div class="social-box-search">
+		<div class="social-box-inner-search">
 			<!--  start social-center -->
 			<h1 class="Topleveltext"><?php echo $socialheader ?></h1>
 		<p>
@@ -139,6 +114,7 @@ if (isset($_REQUEST['search'])){
 		</p>
 		<?php } ?>
 			<!--  end social-center -->
+		</div>
 		</div>
 	</div>
 	<!--  end content -->
