@@ -20,6 +20,56 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>1</cargo>
   </sAH6X_DZ>
+  <sAmmoBoxBig>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Ammo Medium</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sAmmoBoxBig>
+  <sAmmoBoxMedium>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Ammo Medium</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sAmmoBoxMedium>
+  <sAmmoBoxSmall>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Ammo Small</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sAmmoBoxSmall>
+  <sAmmoBoxSmall_556>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Ammo 5.56</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sAmmoBoxSmall_556>
+  <sAmmoBoxSmall_762>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Ammo 7.62</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sAmmoBoxSmall_762>
   <sAN2_DZ>
     <Type>Air</Type>
     <Side>EAST</Side>
@@ -80,6 +130,26 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sBIS_Steerable_Parachute>
+  <sBlood_Trail_DZ>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Blood Trail</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sBlood_Trail_DZ>
+  <sBoltSteelF>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Steel Bolt</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sBoltSteelF>
   <scar_hatchback>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -130,6 +200,76 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>1</cargo>
   </sdatsun1_civil_3_open>
+  <sDomeTentStorage>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Dome Tent</Name>
+    <transportmaxweapons>15</transportmaxweapons>
+    <transportmaxmagazines>150</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sDomeTentStorage>
+  <sDomeTentStorage0>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Dome Tent +</Name>
+    <transportmaxweapons>20</transportmaxweapons>
+    <transportmaxmagazines>100</transportmaxmagazines>
+    <transportmaxbackpacks>6</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sDomeTentStorage0>
+  <sDomeTentStorage1>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Dome Tent ++</Name>
+    <transportmaxweapons>25</transportmaxweapons>
+    <transportmaxmagazines>125</transportmaxmagazines>
+    <transportmaxbackpacks>7</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sDomeTentStorage1>
+  <sDomeTentStorage2>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Dome Tent +++</Name>
+    <transportmaxweapons>30</transportmaxweapons>
+    <transportmaxmagazines>150</transportmaxmagazines>
+    <transportmaxbackpacks>8</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sDomeTentStorage2>
+  <sDomeTentStorage3>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Dome Tent ++++</Name>
+    <transportmaxweapons>35</transportmaxweapons>
+    <transportmaxmagazines>175</transportmaxmagazines>
+    <transportmaxbackpacks>9</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sDomeTentStorage3>
+  <sDomeTentStorage4>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Dome Tent +++++</Name>
+    <transportmaxweapons>40</transportmaxweapons>
+    <transportmaxmagazines>200</transportmaxmagazines>
+    <transportmaxbackpacks>10</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sDomeTentStorage4>
+  <sDomeTentStorage_base>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Dome Tent</Name>
+    <transportmaxweapons>15</transportmaxweapons>
+    <transportmaxmagazines>150</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sDomeTentStorage_base>
   <sFishing_Boat>
     <Type>Ship</Type>
     <Side>GUER</Side>
@@ -140,6 +280,36 @@
     <transportmaxbackpacks>8</transportmaxbackpacks>
     <cargo>7</cargo>
   </sFishing_Boat>
+  <sFoodBox0>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Cardboard Box (Food)</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sFoodBox0>
+  <sFoodBox1>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Cardboard Box (Food)</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sFoodBox1>
+  <sFoodBox2>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Cardboard Box (Food)</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sFoodBox2>
   <shilux1_civil_1_open>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -190,6 +360,16 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>3</cargo>
   </sHMMWV_DZ>
+  <sIC_Tent>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Old camping tent</Name>
+    <transportmaxweapons>10</transportmaxweapons>
+    <transportmaxmagazines>50</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sIC_Tent>
   <sIkarus>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -320,6 +500,36 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
   </sM1030_US_DES_EP1>
+  <sMedBox0>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Cardboard Box (Medical)</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sMedBox0>
+  <sMedBox1>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Cardboard Box (Medical)</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sMedBox1>
+  <sMedBox2>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Cardboard Box (Medical)</Name>
+    <transportmaxweapons>5000</transportmaxweapons>
+    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxbackpacks>1</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sMedBox2>
   <sMH6J_DZ>
     <Type>Air</Type>
     <Side>EAST</Side>
@@ -490,6 +700,56 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>3</cargo>
   </spolicecar>
+  <sRubbish1>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Garbage1</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sRubbish1>
+  <sRubbish2>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Garbage2</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sRubbish2>
+  <sRubbish3>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Garbage3</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sRubbish3>
+  <sRubbish4>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Garbage4</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sRubbish4>
+  <sRubbish5>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Garbage5</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sRubbish5>
   <sS1203_TK_CIV_EP1>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -560,6 +820,126 @@
     <transportmaxbackpacks>4</transportmaxbackpacks>
     <cargo>5</cargo>
   </ssmallboat_2>
+  <sStashMedium>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Stash Medium</Name>
+    <transportmaxweapons>1</transportmaxweapons>
+    <transportmaxmagazines>25</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashMedium>
+  <sStashMedium1>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Medium Stash+</Name>
+    <transportmaxweapons>2</transportmaxweapons>
+    <transportmaxmagazines>50</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashMedium1>
+  <sStashMedium2>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Medium Stash++</Name>
+    <transportmaxweapons>4</transportmaxweapons>
+    <transportmaxmagazines>75</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashMedium2>
+  <sStashMedium3>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Medium Stash+++</Name>
+    <transportmaxweapons>8</transportmaxweapons>
+    <transportmaxmagazines>100</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashMedium3>
+  <sStashMedium4>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Medium Stash++++</Name>
+    <transportmaxweapons>16</transportmaxweapons>
+    <transportmaxmagazines>125</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashMedium4>
+  <sStashMedium_base>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Stash Medium</Name>
+    <transportmaxweapons>1</transportmaxweapons>
+    <transportmaxmagazines>25</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashMedium_base>
+  <sStashSmall>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Stash</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>12</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashSmall>
+  <sStashSmall1>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>SmallStash+</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>14</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashSmall1>
+  <sStashSmall2>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>SmallStash++</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>16</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashSmall2>
+  <sStashSmall3>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>SmallStash+++</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>18</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashSmall3>
+  <sStashSmall4>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>SmallStash++++</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>20</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashSmall4>
+  <sStashSmall_base>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Stash</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>12</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sStashSmall_base>
   <sSUV_DZ>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -600,6 +980,76 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>5</cargo>
   </sSUV_TK_EP1>
+  <sTentStorage>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Old camping tent</Name>
+    <transportmaxweapons>10</transportmaxweapons>
+    <transportmaxmagazines>130</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sTentStorage>
+  <sTentStorage0>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Old Camping Tent +</Name>
+    <transportmaxweapons>12</transportmaxweapons>
+    <transportmaxmagazines>140</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sTentStorage0>
+  <sTentStorage1>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Old Camping Tent ++</Name>
+    <transportmaxweapons>14</transportmaxweapons>
+    <transportmaxmagazines>150</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sTentStorage1>
+  <sTentStorage2>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Old Camping Tent +++</Name>
+    <transportmaxweapons>16</transportmaxweapons>
+    <transportmaxmagazines>160</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sTentStorage2>
+  <sTentStorage3>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Old Camping Tent ++++</Name>
+    <transportmaxweapons>18</transportmaxweapons>
+    <transportmaxmagazines>170</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sTentStorage3>
+  <sTentStorage4>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Old Camping Tent +++++</Name>
+    <transportmaxweapons>20</transportmaxweapons>
+    <transportmaxmagazines>180</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sTentStorage4>
+  <sTentStorage_base>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Old camping tent</Name>
+    <transportmaxweapons>10</transportmaxweapons>
+    <transportmaxmagazines>130</transportmaxmagazines>
+    <transportmaxbackpacks>5</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sTentStorage_base>
   <sTractor>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -840,4 +1290,304 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>3</cargo>
   </sVolhaLimo_TK_CIV_EP1>
+  <sWeaponHolder_Colt1911>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Colt 1911</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_Colt1911>
+  <sWeaponHolder_huntingrifle>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Hunting Rifle</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_huntingrifle>
+  <sWeaponHolder_ItemCamoNet>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>CamoNet</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemCamoNet>
+  <sWeaponHolder_ItemCrowbar>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Crowbar</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemCrowbar>
+  <sWeaponHolder_ItemDomeTent>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Dome Tent</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemDomeTent>
+  <sWeaponHolder_ItemFlashlight>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Flashlight</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemFlashlight>
+  <sWeaponHolder_ItemFlashlightRed>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Flashlight (Military)</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemFlashlightRed>
+  <sWeaponHolder_ItemFuelcan>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Fuelcan (5L)</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemFuelcan>
+  <sWeaponHolder_ItemFuelcanEmpty>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Empty Fuelcan (5L)</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemFuelcanEmpty>
+  <sWeaponHolder_ItemGenerator>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Portable Generator</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemGenerator>
+  <sWeaponHolder_ItemHatchet>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Hatchet</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemHatchet>
+  <sWeaponHolder_ItemJerrycan>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Jerry Can</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemJerrycan>
+  <sWeaponHolder_ItemJerrycanEmpty>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Jerry Can (Empty)</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemJerrycanEmpty>
+  <sWeaponHolder_ItemJerrycanSide>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Jerry Can</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemJerrycanSide>
+  <sWeaponHolder_ItemTent>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Camping Tent</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemTent>
+  <sWeaponHolder_ItemToolbox>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Toolbox</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemToolbox>
+  <sWeaponHolder_ItemWaterbottle>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Water Bottle</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_ItemWaterbottle>
+  <sWeaponHolder_M4A1>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>M4A1</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_M4A1>
+  <sWeaponHolder_MeleeBaseBallBat>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Baseball Bat</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_MeleeBaseBallBat>
+  <sWeaponHolder_MeleeBaseBallBatNails>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Nailed BaseballBat</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_MeleeBaseBallBatNails>
+  <sWeaponHolder_MeleeBatBarbed>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>BaseBallBat Barbed</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_MeleeBatBarbed>
+  <sWeaponHolder_MeleeCrowbar>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Crowbar</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_MeleeCrowbar>
+  <sWeaponHolder_MeleeMachete>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Machete</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_MeleeMachete>
+  <sWeaponHolder_PartEngine>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Engine Parts</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_PartEngine>
+  <sWeaponHolder_PartFueltank>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Fueltank Parts</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_PartFueltank>
+  <sWeaponHolder_PartGeneric>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Scrap Metal</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_PartGeneric>
+  <sWeaponHolder_PartGlass>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Windscreen Glass</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_PartGlass>
+  <sWeaponHolder_PartVRotor>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Main Rotor Assembly</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_PartVRotor>
+  <sWeaponHolder_PartWheel>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Car Wheel</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWeaponHolder_PartWheel>
+  <sWoodenArrowF>
+    <Type>Survival</Type>
+    <Side>GUER</Side>
+    <Faction>Default</Faction>
+    <Name>Wooden Arrow</Name>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
+    <transportmaxbackpacks>0</transportmaxbackpacks>
+    <cargo>0</cargo>
+  </sWoodenArrowF>
 </vehicles>
