@@ -153,8 +153,9 @@ $ignore = array(
 // define custom items not found in regular classes, like mispelled things,
 // then we'll add the real items below
 $items = array(
-    array("class" => "HandGrenade_west", "type" => "heavyammo", "slots" => 1, "picture" => "\CA\weapons\data\equip\m_M67_CA.paa"),
-    array("class" => "HandGrenade_east", "type" => "heavyammo", "slots" => 1, "picture" => "\CA\weapons\data\equip\m_RGD5_ca.paa"),
+    array("class" => "HandGrenade_west", "type" => "heavyammo", "slots" => 1, "picture" => "CA\weapons\data\equip\m_M67_CA.paa"),
+    array("class" => "HandGrenade_east", "type" => "heavyammo", "slots" => 1, "picture" => "CA\weapons\data\equip\m_RGD5_ca.paa"),
+    array("class" => "Pipebomb", "type" => "heavyammo", "slots" => 2, "picture" => "CA\weapons\data\equip\m_satchel_CA.paa"),
 );
 
 $vehicles = array();
