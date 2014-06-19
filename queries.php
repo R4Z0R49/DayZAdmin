@@ -257,7 +257,9 @@ JOIN
 ON
     oc.Classname = od.Classname
 WHERE
-    od.Classname IN ('TentStorage','StashSmall','StashMedium')
+	(od.Classname LIKE '%TentStorage%' OR
+	od.Classname LIKE 'StashSmall%' OR
+	od.Classname LIKE 'StashMedium%')
 AND od.Instance = ?
 ";
 
