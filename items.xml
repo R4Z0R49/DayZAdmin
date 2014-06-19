@@ -2020,6 +2020,10 @@
     <Slots>2</Slots>
     <Type>heavyammo</Type>
   </sPipeBomb>
+  <sPipebomb>
+    <Slots>2</Slots>
+    <Type>heavyammo</Type>
+  </sPipebomb>
   <sPK>
     <Slots>10</Slots>
     <Type>rifle</Type>
