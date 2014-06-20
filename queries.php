@@ -114,7 +114,8 @@ JOIN
 WHERE
 	(od.Classname LIKE '%TentStorage%' OR
 	od.Classname LIKE 'StashSmall%' OR
-	od.Classname LIKE 'StashMedium%')
+	od.Classname LIKE 'StashMedium%' OR
+    od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'BearTrap_DZ', 'Wire_cat1', 'TrapBearTrapFlare', 'TrapBearTrapSmoke', 'TrapTripwireCans', 'TrapTripwireFlare', 'TrapTripwireGrenade', 'TrapTripwireSmoke'))
 AND od.ObjectID = ?
 AND od.Instance = ?
 ";
@@ -285,7 +286,7 @@ JOIN
 ON
     oc.Classname = od.Classname
 WHERE
-    od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'BearTrap_DZ', 'Wire_cat1', 'TrapBearTrapFlare', 'TrapBearTrapSmoke', 'TrapTripwireCans', 'TrapTripwireFlare', 'TrapTripwireGrenade', 'TrapTripwireSmoke')
+	od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'Wire_cat1', 'CamoNet_DZ', 'BearTrap_DZ', 'TrapBearTrapFlare', 'TrapBearTrapSmoke', 'Trap_Cans', 'Trap_Grenade', 'Trap_Smoke', 'TrapTripwireFlare', 'TrapTripwireGrenade', 'TrapTripwireSmoke')
 AND od.Instance = ?
 ";
 
@@ -315,7 +316,10 @@ JOIN
 ON
     oc.Classname = od.Classname
 WHERE
-    od.Classname IN ('TentStorage','StashSmall','StashMedium', 'Hedgehog_DZ', 'Sandbag1_DZ', 'BearTrap_DZ', 'Wire_cat1', 'TrapBearTrapFlare', 'TrapBearTrapSmoke', 'TrapTripwireCans', 'TrapTripwireFlare', 'TrapTripwireGrenade', 'TrapTripwireSmoke')
+	od.Classname LIKE '%TentStorage%' OR
+	od.Classname LIKE 'StashSmall%' OR
+	od.Classname LIKE 'StashMedium%' OR
+	od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'Wire_cat1', 'CamoNet_DZ', 'BearTrap_DZ', 'TrapBearTrapFlare', 'TrapBearTrapSmoke', 'Trap_Cans', 'Trap_Grenade', 'Trap_Smoke', 'TrapTripwireFlare', 'TrapTripwireGrenade', 'TrapTripwireSmoke')
 AND od.Instance = ?
 
 ";
@@ -486,7 +490,8 @@ JOIN
 ON
 	oc.Classname = od.Classname
 WHERE
-	od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'TrapBear', 'Wire_cat1', 'ItemTrapBearTrapFlare', 'ItemTrapBearTrapSmoke', 'ItemTrapTripwireCans', 'ItemTrapTripwireFlare', 'ItemTrapTripwireGrenade', 'ItemTrapTripwireSmoke')
+	(od.Classname IN ('Hedgehog_DZ', 'Sandbag1_DZ', 'Wire_cat1', 'CamoNet_DZ') OR
+    od.Classname LIKE('%trap%'))
 AND od.Instance = ?
 ";
 
