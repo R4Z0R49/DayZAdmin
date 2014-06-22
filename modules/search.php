@@ -63,7 +63,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][4] != 'false')
     				$tablerows = "";
 	    			$tablerows_veh = "";
    					foreach($res as $row) {
-                        if($row['Classname'] == "TentStorage" || $row['Classname'] == "StashSmall" || $row['Classname'] == "StashMedium") {
+                        if(preg_match('/TentStorage|StashSmall|StashMedium/', $row['Classname'])) {
            				    $tablerows .= row_deployable($row, $chbox);
                         } else {
    			    			$tablerows_veh .= row_vehicle($row, $chbox);
