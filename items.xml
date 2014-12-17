@@ -1194,6 +1194,14 @@
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemCrowbar>
+  <sItemDIY_metal>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemDIY_metal>
+  <sItemDIY_wood>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemDIY_wood>
   <sItemDomeTent>
     <Slots>3</Slots>
     <Type>heavyammo</Type>
@@ -1254,6 +1262,26 @@
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemKnife>
+  <sItemKnife1>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemKnife1>
+  <sItemKnife2>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemKnife2>
+  <sItemKnife3>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemKnife3>
+  <sItemKnife4>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemKnife4>
+  <sItemKnife5>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemKnife5>
   <sItemMachete>
     <Slots>1</Slots>
     <Type>item</Type>
@@ -1266,6 +1294,26 @@
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemMatchbox>
+  <sItem1Matchbox>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItem1Matchbox>
+  <sItem2Matchbox>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItem2Matchbox>
+  <sItem3Matchbox>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItem3Matchbox>
+  <sItem4Matchbox>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItem4Matchbox>
+  <sItem5Matchbox>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItem5Matchbox>
   <sItemMorphine>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
