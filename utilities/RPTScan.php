@@ -153,8 +153,9 @@ $ignore = array(
 // define custom items not found in regular classes, like mispelled things,
 // then we'll add the real items below
 $items = array(
-    array("class" => "HandGrenade_west", "type" => "heavyammo", "slots" => 1, "picture" => "\CA\weapons\data\equip\m_M67_CA.paa"),
-    array("class" => "HandGrenade_east", "type" => "heavyammo", "slots" => 1, "picture" => "\CA\weapons\data\equip\m_RGD5_ca.paa"),
+    array("class" => "HandGrenade_west", "type" => "heavyammo", "slots" => 1, "picture" => "CA\weapons\data\equip\m_M67_CA.paa"),
+    array("class" => "HandGrenade_east", "type" => "heavyammo", "slots" => 1, "picture" => "CA\weapons\data\equip\m_RGD5_ca.paa"),
+    array("class" => "Pipebomb", "type" => "heavyammo", "slots" => 2, "picture" => "CA\weapons\data\equip\m_satchel_CA.paa"),
 );
 
 $vehicles = array();
@@ -208,12 +209,18 @@ printf("Read %d lines from %s\n", sizeof($lines), $rpt);
 foreach($lines as $line) {
     $line = trim($line);
 
-// find fakes
-    if(preg_match('/FakeAmmo|FakeWeapon|FakeMagazine/', $line, $matches) == 1) {
+// find fakes and banned
+// Updating base class VehicleMagazine->FakeMagazine, by dayz_anim\config.cpp/CfgMagazines/48Rnd_40mm_MK19/
+// Updating base class AH64_base_EP1->Banned, by dayz_anim\config.cpp/CfgVehicles/AH64D/
+
+    if(preg_match('/FakeAmmo|FakeWeapon|FakeMagazine|->Banned/', $line, $matches) == 1) {
         $tokens = preg_split('/ /', $line);
         $tokens2 = preg_split('/\//', $tokens[sizeof($tokens) - 1]);
         array_push($ignore, $tokens2[sizeof($tokens2) - 2]);
     }
+
+
+
 
 // find weapons/magazines
     if((strpos($line, "WEAPONSLIST") !== false) || (strpos($line, "MAGAZINESLIST") !== false)) {
@@ -456,10 +463,10 @@ foreach($items as $key => $row) {
 array_multisort($pics, SORT_STRING|SORT_FLAG_CASE, $items);
 
 // create bat file for item thumbnail creation
-$piclines = "";
+$piclines = "@echo off\nmkdir thumbs\n";
 foreach($items as $item) {
 	if($item["picture"] != "") {
-		$piclines .= sprintf("%s %s thumbs\%s.png\n", $convertcmd, $item["picture"], $item["class"]);
+		$piclines .= sprintf("%s \"%s\" \"thumbs\%s.png\" >nul || echo Error, couldn't create thumb for %s\n", $convertcmd, $item["picture"], $item["class"], $item["picture"]);
 	}
 }
 
@@ -482,10 +489,10 @@ foreach($vehicles as $key => $row) {
 array_multisort($pics, SORT_STRING|SORT_FLAG_CASE, $vehicles);
 
 // create bat file for vehicle thumbnail creation
-$piclines = "";
+$piclines = "@echo off\nmkdir vehicles\n";
 foreach($vehicles as $vehicle) {
 	if($vehicle["picture"] != "") {
-		$piclines .= sprintf("%s %s vehicles\%s.png\n", $convertcmd, $vehicle["picture"], $vehicle["class"]);
+		$piclines .= sprintf("%s \"%s\" \"vehicles\%s.png\" >nul || echo Error, couldn't create thumb for %s\n", $convertcmd, $vehicle["picture"], $vehicle["class"], $vehicle["picture"]);
 	}
 }
 
