@@ -11,17 +11,17 @@ if (isset($_REQUEST['CharacterID']) && $_REQUEST['CharacterID'] > 0){
 
 if (isset($_REQUEST['submit_inv']) && isset($_REQUEST['inv'])) {
 	$db->Execute("UPDATE Character_DATA SET Inventory = ? WHERE CharacterID = ?", array($_REQUEST['inv'], $CharacterID));
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set inventory of player: ',?,' (',?,') to ',?),?,NOW())", array($row['playerName'], $CharacterID, $_REQUEST['inv'], $_SESSION['login']));
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set inventory of player: ',?,' (',?,') to ',?),?,NOW())", array($_REQUEST['playerName'], $CharacterID, $_REQUEST['inv'], $_SESSION['login']));
 }
 
 if (isset($_REQUEST['submit_bck']) && isset($_REQUEST['bck'])) {
 	$db->Execute("UPDATE Character_DATA SET Backpack = ? WHERE CharacterID = ?", array($_POST['bck'], $CharacterID));
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set backpack of player: ',?,' (',?,') to ',?),?,NOW())", array($row['playerName'], $CharacterID, $_POST['bck'], $_SESSION['login']));
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set backpack of player: ',?,' (',?,') to ',?),?,NOW())", array($_REQUEST['playerName'], $CharacterID, $_REQUEST['bck'], $_SESSION['login']));
 }
 
 if (isset($_REQUEST['submit_loc']) && isset($_REQUEST['loc'])) {
 	$db->Execute("UPDATE Character_DATA SET Worldspace = ? WHERE CharacterID = ?", array($_POST['loc'], $CharacterID));
-	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set location of player: ',?,' (',?,') to ',?),?,NOW())", array($row['playerName'], $CharacterID, $_POST['loc'], $_SESSION['login']));
+	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Set location of player: ',?,' (',?,') to ',?),?,NOW())", array($_REQUEST['playerName'], $CharacterID, $_REQUEST['loc'], $_SESSION['login']));
 } 
 
 $row = $db->GetRow($info1, array($CharacterID, $CharacterID));
@@ -569,6 +569,7 @@ echo $row['Inventory'];
 ?>
 		</textarea><br>
 	<br><input name="submit_inv" class="btn btn-primary" type="submit" value="Submit" />
+    <input type="hidden" name="playerName" value="<?php echo $row['playerName']; ?>">
 	</form>
 
 	<form method="POST">
@@ -579,6 +580,7 @@ echo $row['Backpack'];
 ?>
 		</textarea><br>
 	<br><input name="submit_bck" class="btn btn-primary" type="submit" value="Submit" />
+    <input type="hidden" name="playerName" value="<?php echo $row['playerName']; ?>">
 	</form>
 <?php
 if ($accesslvls[0][3] != 'false') {
@@ -589,6 +591,7 @@ if ($accesslvls[0][3] != 'false') {
 <?php echo $row['Worldspace']; ?>
 		</textarea><br>
 	<br><input name="submit_loc" class="btn btn-primary" type="submit" value="Submit" />
+    <input type="hidden" name="playerName" value="<?php echo $row['playerName']; ?>">
 	</form>
 <?php
 }

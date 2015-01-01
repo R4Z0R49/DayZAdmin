@@ -215,7 +215,7 @@ JOIN
 ON
     oc.Classname = od.Classname
 WHERE
-    oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
+    oc.Type IN ('atv','bike','bus','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
 AND
     od.Instance = ?
 ";
@@ -422,7 +422,7 @@ JOIN
 ON
 	oc.Classname = od.Classname
 WHERE
-	oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
+	oc.Type IN ('atv','bike','bus','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
 AND
     od.Instance = ?
 ";
@@ -628,7 +628,7 @@ JOIN
 ON
 	oc.Classname = od.Classname
 WHERE
-	oc.Type IN ('atv','bike','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
+	oc.Type IN ('atv','bike','bus','car','farmvehicle','helicopter','largeboat','mediumboat','motorcycle','plane','smallboat','truck')
 AND od.Instance = ?
 AND od.Classname LIKE ?
 ";
