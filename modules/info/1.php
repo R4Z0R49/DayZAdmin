@@ -428,6 +428,7 @@ if (isset($_SESSION['user_id'])) {
 		<th class="custom-th">Injured</th>
 		<th class="custom-th">Bleeding</th>
 		<th class="custom-th">Blood</th>
+		<th class="custom-th">Type</th>
 		<th class="custom-th">Leg</th>
 	</tr>
 	<tr style="text-align: center;">
@@ -437,6 +438,7 @@ if (isset($_SESSION['user_id'])) {
 		<td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
 		<td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
 		<td><?php printf("%d (%d%%)", round($Medical[7]), ($Medical[7]/12000) * 100); ?></td>
+		<td><?php echo $Medical[11]; ?></td>
 		<td><?php printf("%d%%", ($Medical[9][0]/1)*100); ?></td>
 	</tr>
 	<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->

@@ -114,7 +114,26 @@ if (isset($_SESSION['user_id'])) {
     }
 //PLAYERS
 	if (isset($_REQUEST["healPlayer"])){
-        $db->Execute("UPDATE Character_DATA SET Medical = '[false,false,false,false,false,false,false,12000,[],[0,0],0,[0,0]]' WHERE CharacterID = ? AND Alive = 1", $CharacterID);
+		$curString = $db->getOne("SELECT Medical FROM Character_DATA WHERE CharacterID = ? AND Alive = 1", $CharacterID);
+		//die(var_dump($curstring));
+		//$curString = '[false,false,false,false,false,false,false,12000,[],[0,0],0,"A",false,[0,0,0]]';
+		$curString = json_decode($curString, true);
+		
+		//die($curString[11]);
+		
+		if(is_string($curString[11])){
+			$bloodType = $curString[11];
+			
+			$newString = '[false,false,false,false,false,false,false,12000,[],[0,0],0,"A",false,[0,0,0]]';
+			$newString = json_decode($newString, true);
+			$newString[11] = $bloodType;
+			
+			$newMedical = json_encode($newString);
+		} else {
+			$newMedical = '[false,false,false,false,false,false,false,12000,[],[0,0],0,"A",false,[0,0,0]]';
+		}
+	
+        $db->Execute("UPDATE Character_DATA SET Medical = ? WHERE CharacterID = ? AND Alive = 1", array($newMedical, $CharacterID));
         $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Healed player ',?),?,NOW())", array($CharacterID, $_SESSION['login']));
         ?>
         <script type="text/javascript">
