@@ -528,7 +528,7 @@ LEFT OUTER JOIN
 ON
 	pd.PlayerUID = cd.playerUID
 WHERE
-	od.Classname IN ('TentStorage','SmallStash','MediumStash')
+	od.Classname IN ('TentStorage%','SmallStash%','MediumStash%')
 AND od.Instance = ?
 ";
 
