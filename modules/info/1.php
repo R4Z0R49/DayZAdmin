@@ -427,9 +427,6 @@ if (isset($_SESSION['user_id'])) {
 		<th class="custom-th">Infected</th>
 		<th class="custom-th">Injured</th>
 		<th class="custom-th">Bleeding</th>
-		<th class="custom-th">Blood</th>
-		<th class="custom-th">Type</th>
-		<th class="custom-th">Leg</th>
 	</tr>
 	<tr style="text-align: center;">
 		<td><?php echo $row['Alive'] == 1 ? "Yes" : "No"; ?></td>
@@ -437,22 +434,24 @@ if (isset($_SESSION['user_id'])) {
 		<td><?php echo $Medical[2] ? "Yes" : "No"; ?></td>
 		<td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
 		<td><?php echo $Medical[3] ? "Yes" : "No"; ?></td>
+	</tr>
+    <tr><td colspan="5">&nbsp;</td></tr>
+    <tr>
+		<th class="custom-th">Blood</th>
+		<th class="custom-th">Type</th>
+		<th class="custom-th">Leg</th>
+        <th class="custom-th">Hunger</th>
+        <th class="custom-th">Thirst</th>
+    </tr>
+	<tr style="text-align: center;">
 		<td><?php printf("%d (%d%%)", round($Medical[7]), ($Medical[7]/12000) * 100); ?></td>
 		<td><?php echo $Medical[11]; ?></td>
 		<td><?php printf("%d%%", ($Medical[9][0]/1)*100); ?></td>
-	</tr>
-    <tr>
-        <th class="custom-th">Hunger</th>
-        <th class="custom-th">Thirst</th>
-        <th colspan="8"></th>
-    </tr>
-	<tr style="text-align: center;">
         <td><?php printf("%d (%d%%)", round($Medical[13][0]), ($Medical[13][0]/2160) * 100); ?></td>
         <td><?php printf("%d (%d%%)", round($Medical[13][1]), ($Medical[13][1]/1440) * 100); ?></td>
-        <td colspan="8"></td>
     </tr>
 	<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
-	<tr><td colspan="7">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
 	</table>
 <?php if($notindeadtable) { ?>
 	<table id="playeractions">
