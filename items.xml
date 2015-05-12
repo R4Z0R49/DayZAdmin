@@ -1094,6 +1094,10 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sIRStrobe>
+  <sItemMatchbox>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemMatchbox>
   <sItem1Matchbox>
     <Slots>1</Slots>
     <Type>item</Type>
