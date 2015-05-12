@@ -441,6 +441,16 @@ if (isset($_SESSION['user_id'])) {
 		<td><?php echo $Medical[11]; ?></td>
 		<td><?php printf("%d%%", ($Medical[9][0]/1)*100); ?></td>
 	</tr>
+    <tr>
+        <th class="custom-th">Hunger</th>
+        <th class="custom-th">Thirst</th>
+        <th colspan="8"></th>
+    </tr>
+	<tr style="text-align: center;">
+        <td><?php printf("%d (%d%%)", round($Medical[13][0]), ($Medical[13][0]/2160) * 100); ?></td>
+        <td><?php printf("%d (%d%%)", round($Medical[13][1]), ($Medical[13][1]/1440) * 100); ?></td>
+        <td colspan="8"></td>
+    </tr>
 	<!-- <tr><td colspan="7">&nbsp;<br><?php print_r_html($Medical); ?></td></tr> -->
 	<tr><td colspan="7">&nbsp;</td></tr>
 	</table>
