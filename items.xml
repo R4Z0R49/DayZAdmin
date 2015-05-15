@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <items>
+  <s100Rnd_556x45_BetaCMag>
+    <Slots>2</Slots>
+    <Type>heavyammo</Type>
+  </s100Rnd_556x45_BetaCMag>
   <s100Rnd_762x51_M240>
     <Slots>2</Slots>
     <Type>heavyammo</Type>
@@ -16,6 +20,14 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </s10Rnd_762x54_SVD>
+  <s10Rnd_9x39_SP5_VSS>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </s10Rnd_9x39_SP5_VSS>
+  <s10Rnd_B_765x17_Ball>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </s10Rnd_B_765x17_Ball>
   <s10x_303>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -40,6 +52,10 @@
     <Slots>1</Slots>
     <Type>smallammo</Type>
   </s17Rnd_9x19_glock17>
+  <s1Rnd_HE_GP25>
+    <Slots>1</Slots>
+    <Type>smallammo</Type>
+  </s1Rnd_HE_GP25>
   <s1Rnd_HE_M203>
     <Slots>1</Slots>
     <Type>smallammo</Type>
@@ -60,6 +76,10 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </s20Rnd_556x45_Stanag>
+  <s20Rnd_762x51_B_SCAR>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </s20Rnd_762x51_B_SCAR>
   <s20Rnd_762x51_DMR>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -68,6 +88,26 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </s20Rnd_762x51_FNFAL>
+  <s20Rnd_762x51_SB_SCAR>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </s20Rnd_762x51_SB_SCAR>
+  <s20Rnd_9x39_SP5_VSS>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </s20Rnd_9x39_SP5_VSS>
+  <s20Rnd_B_AA12_74Slug>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </s20Rnd_B_AA12_74Slug>
+  <s20Rnd_B_AA12_HE>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </s20Rnd_B_AA12_HE>
+  <s20Rnd_B_AA12_Pellets>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </s20Rnd_B_AA12_Pellets>
   <s2b14_82mm_TK_Bag_EP1>
     <Slots>1</Slots>
     <Type>Backpacks</Type>
@@ -126,6 +166,10 @@
     <Slots>1</Slots>
     <Type>smallammo</Type>
   </s30Rnd_9x19_UZI_SD>
+  <s5Rnd_127x108_KSVK>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </s5Rnd_127x108_KSVK>
   <s5Rnd_762x51_M24>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -178,6 +222,74 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </s8Rnd_B_Saiga12_Pellets>
+  <sACE_AKMS_SD>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_AKMS_SD>
+  <sACE_APSB>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </sACE_APSB>
+  <sACE_gr1>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_gr1>
+  <sACE_gr1sd>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_gr1sd>
+  <sACE_M14_ACOG>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_M14_ACOG>
+  <sACE_M4SPR_SD>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_M4SPR_SD>
+  <sACE_Mk12mod1_SD>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_Mk12mod1_SD>
+  <sACE_MP5A4>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_MP5A4>
+  <sACE_MP5A5>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_MP5A5>
+  <sACE_MP5SD>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_MP5SD>
+  <sACE_oc14>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_oc14>
+  <sACE_oc14sp>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_oc14sp>
+  <sACE_SKS>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_SKS>
+  <sACE_TAC50>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_TAC50>
+  <sACE_TAC50_SD>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sACE_TAC50_SD>
+  <sACE_USP>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </sACE_USP>
+  <sACE_USPSD>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </sACE_USPSD>
   <sAK_107_GL_kobra>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -230,6 +342,50 @@
     <Slots>2</Slots>
     <Type>heavyammo</Type>
   </sAmmoBox_300x556>
+  <sastr_AG>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sastr_AG>
+  <sastr_AGM>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sastr_AGM>
+  <sastr_AGM_aim_l>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sastr_AGM_aim_l>
+  <sastr_AGM_aim_sd_l>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sastr_AGM_aim_sd_l>
+  <sastr_Amr>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sastr_Amr>
+  <sastr_m82a1>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sastr_m82a1>
+  <sastr_mg3>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sastr_mg3>
+  <sastr_negev>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sastr_negev>
+  <sastr_p99>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </sastr_p99>
+  <sastr_p99sd>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </sastr_p99sd>
+  <sAT13>
+    <Slots>6</Slots>
+    <Type>heavyammo</Type>
+  </sAT13>
   <sAttachment_AK_107_GL_Kobra>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -254,14 +410,22 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sAttachment_BAF_L85A2_RIS_SUSAT_GL>
+  <sAttachment_BELT>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sAttachment_BELT>
   <sAttachment_bizonSilencer>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sAttachment_bizonSilencer>
-  <sAttachment_Crossbow_CCO>
+  <sAttachment_CCO>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
-  </sAttachment_Crossbow_CCO>
+  </sAttachment_CCO>
+  <sAttachment_FL>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sAttachment_FL>
   <sAttachment_Kobra>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -330,6 +494,18 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sAttachment_SCAR_L_CQC_EGLM_Holo>
+  <sAttachment_SCOPED>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sAttachment_SCOPED>
+  <sBAF_ied_v1>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sBAF_ied_v1>
+  <sBAF_L110A1_Aim>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sBAF_L110A1_Aim>
   <sBAF_L85A2_RIS_Holo>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -430,15 +606,191 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sCrossbow_Stock>
+  <scwr2_AK74>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_AK74>
+  <scwr2_AKM>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_AKM>
+  <scwr2_APS>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_APS>
+  <sCWR2_BIZON>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sCWR2_BIZON>
+  <scwr2_CZ75>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_CZ75>
+  <sCWR2_FAL>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sCWR2_FAL>
+  <sCWR2_G36>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sCWR2_G36>
+  <sCWR2_G3A4>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sCWR2_G3A4>
+  <scwr2_Glock>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_Glock>
+  <scwr2_Glock_SD>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_Glock_SD>
+  <sCWR2_HK>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sCWR2_HK>
+  <sCWR2_HUNTING_RIFLE>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sCWR2_HUNTING_RIFLE>
+  <scwr2_Ingram>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_Ingram>
+  <scwr2_M16A2>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_M16A2>
+  <scwr2_M1911>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_M1911>
+  <sCWR2_M21>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sCWR2_M21>
+  <scwr2_M249>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_M249>
+  <scwr2_M4>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_M4>
+  <scwr2_M60E3>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_M60E3>
+  <sCWR2_M60MG>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sCWR2_M60MG>
+  <scwr2_M9>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_M9>
+  <scwr2_NL_FAL>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_NL_FAL>
+  <scwr2_NL_MAG_GPMG>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_NL_MAG_GPMG>
+  <scwr2_PKM>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_PKM>
+  <scwr2_Revolver>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_Revolver>
+  <scwr2_RPK>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_RPK>
+  <scwr2_RPK74>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_RPK74>
+  <scwr2_Skorpion>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_Skorpion>
+  <scwr2_SVD>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_SVD>
+  <scwr2_Tokarev>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_Tokarev>
+  <scwr2_UK_L1A1>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_UK_L1A1>
+  <scwr2_UK_L1A1_Night>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_UK_L1A1_Night>
+  <scwr2_UK_L1A1_SUIT>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_UK_L1A1_SUIT>
+  <scwr2_UK_L4_LMG>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_UK_L4_LMG>
+  <scwr2_UK_L7_GPMG>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_UK_L7_GPMG>
+  <scwr2_UK_L96>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_UK_L96>
+  <scwr2_UK_L9A1>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_UK_L9A1>
+  <scwr2_UK_L9A1_SD>
+    <Slots>5</Slots>
+    <Type>pistol</Type>
+  </scwr2_UK_L9A1_SD>
+  <scwr2_Uzi>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_Uzi>
+  <scwr2_Uzi_SD>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </scwr2_Uzi_SD>
+  <sCZ_Assault_Pack_ACR>
+    <Slots>1</Slots>
+    <Type>Backpacks</Type>
+    <maxmagazines>8</maxmagazines>
+    <maxweapons>0</maxweapons>
+  </sCZ_Assault_Pack_ACR>
+  <sCZ_Backpack_RPG_ACR>
+    <Slots>1</Slots>
+    <Type>Backpacks</Type>
+    <maxmagazines>6</maxmagazines>
+    <maxweapons>0</maxweapons>
+  </sCZ_Backpack_RPG_ACR>
   <sDMR_DZ>
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sDMR_DZ>
+  <sDragon_EP1>
+    <Slots>6</Slots>
+    <Type>heavyammo</Type>
+  </sDragon_EP1>
   <sDZ_ALICE_Pack_EP1>
     <Slots>1</Slots>
     <Type>Backpacks</Type>
-    <maxmagazines>16</maxmagazines>
-    <maxweapons>2</maxweapons>
+    <maxmagazines>18</maxmagazines>
+    <maxweapons>1</maxweapons>
   </sDZ_ALICE_Pack_EP1>
   <sDZ_Assault_Pack_EP1>
     <Slots>1</Slots>
@@ -570,6 +922,10 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sequip_laser>
+  <sequip_lever>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sequip_lever>
   <sequip_metal_sheet>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1082,6 +1438,12 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </shuntingrifle>
+  <sIED_placement_BAF>
+    <Slots>1</Slots>
+    <Type>Backpacks</Type>
+    <maxmagazines>0</maxmagazines>
+    <maxweapons>0</maxweapons>
+  </sIED_placement_BAF>
   <sIR_Strobe_Marker>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1094,10 +1456,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sIRStrobe>
-  <sItemMatchbox>
-    <Slots>1</Slots>
-    <Type>item</Type>
-  </sItemMatchbox>
   <sItem1Matchbox>
     <Slots>1</Slots>
     <Type>item</Type>
@@ -1170,14 +1528,18 @@
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemCompass>
-  <sItemConcreteBlock>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sItemConcreteBlock>
   <sItemCrowbar>
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemCrowbar>
+  <sItemCrowbarBent>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemCrowbarBent>
+  <sItemDIY_Gate>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemDIY_Gate>
   <sItemDIY_metal>
     <Slots>1</Slots>
     <Type>item</Type>
@@ -1298,14 +1660,14 @@
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemMap>
+  <sItemMatchbox>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemMatchbox>
   <sItemMatchboxEmpty>
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemMatchboxEmpty>
-  <sItemMetalSheet>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sItemMetalSheet>
   <sItemMorphine>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1318,6 +1680,14 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemPainkiller>
+  <sItemPickaxe>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemPickaxe>
+  <sItemPickaxeBroken>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemPickaxeBroken>
   <sItemPlank>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1326,26 +1696,14 @@
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemRadio>
-  <sItemRSJ>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sItemRSJ>
   <sItemSandbag>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemSandbag>
-  <sItemScrews>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sItemScrews>
   <sItemSepsisBandage>
     <Slots>1</Slots>
     <Type>smallammo</Type>
   </sItemSepsisBandage>
-  <sItemShantyHouse>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sItemShantyHouse>
   <sItemSherbet>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1354,6 +1712,18 @@
     <Slots>1</Slots>
     <Type>item</Type>
   </sItemShovel>
+  <sItemShovelBroken>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemShovelBroken>
+  <sItemSledgeHammer>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemSledgeHammer>
+  <sItemSledgeHammerBroken>
+    <Slots>1</Slots>
+    <Type>item</Type>
+  </sItemSledgeHammerBroken>
   <sItemSodaClays>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1594,10 +1964,14 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sItemWorkBench>
-  <sItemWorkshop>
-    <Slots>1</Slots>
+  <sJavelin>
+    <Slots>6</Slots>
     <Type>heavyammo</Type>
-  </sItemWorkshop>
+  </sJavelin>
+  <sksvk>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sksvk>
   <sLeeEnfield>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -1606,10 +1980,18 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sM1014>
+  <sm107>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sm107>
   <sM107_DZ>
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sM107_DZ>
+  <sM136>
+    <Slots>6</Slots>
+    <Type>heavyammo</Type>
+  </sM136>
   <sM14_EP1>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -1722,6 +2104,10 @@
     <Slots>5</Slots>
     <Type>pistol</Type>
   </sM9SD>
+  <sMAAWS_HEDP>
+    <Slots>3</Slots>
+    <Type>heavyammo</Type>
+  </sMAAWS_HEDP>
   <sMakarov>
     <Slots>5</Slots>
     <Type>pistol</Type>
@@ -1766,10 +2152,58 @@
     <Slots>10</Slots>
     <Type>carry</Type>
   </sMeleeMachete>
+  <sMine>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sMine>
+  <sMineE>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sMineE>
   <sMk_48_DZ>
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sMk_48_DZ>
+  <sMosin_Nagant>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant>
+  <sMosin_Nagant_Ammo>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sMosin_Nagant_Ammo>
+  <sMosin_Nagant_Belt>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant_Belt>
+  <sMosin_Nagant_Belt_FL>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant_Belt_FL>
+  <sMosin_Nagant_Belt_Scoped>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant_Belt_Scoped>
+  <sMosin_Nagant_Belt_Scoped_FL>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant_Belt_Scoped_FL>
+  <sMosin_Nagant_broken>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant_broken>
+  <sMosin_Nagant_FL>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant_FL>
+  <sMosin_Nagant_Scoped>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant_Scoped>
+  <sMosin_Nagant_Scoped_FL>
+    <Slots>10</Slots>
+    <Type>rifle</Type>
+  </sMosin_Nagant_Scoped_FL>
   <sMP5A5>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -1782,10 +2216,22 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sMR43>
+  <sNLAW>
+    <Slots>3</Slots>
+    <Type>heavyammo</Type>
+  </sNLAW>
   <sNVGoggles>
     <Slots>1</Slots>
     <Type>binocular</Type>
   </sNVGoggles>
+  <sOG7>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sOG7>
+  <sOG9_HE>
+    <Slots>3</Slots>
+    <Type>heavyammo</Type>
+  </sOG9_HE>
   <sPartEngine>
     <Slots>10</Slots>
     <Type>heavyammo</Type>
@@ -1814,6 +2260,14 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sPartWoodPile>
+  <sPG7V>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sPG7V>
+  <sPG9_AT>
+    <Slots>3</Slots>
+    <Type>heavyammo</Type>
+  </sPG9_AT>
   <sPipeBomb>
     <Slots>2</Slots>
     <Type>heavyammo</Type>
@@ -1826,10 +2280,20 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sPK>
+  <sPMC_ied_v1>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sPMC_ied_v1>
   <sQuiver>
     <Slots>2</Slots>
     <Type>heavyammo</Type>
   </sQuiver>
+  <sRBS70_Bag_ACR>
+    <Slots>1</Slots>
+    <Type>Backpacks</Type>
+    <maxmagazines>0</maxmagazines>
+    <maxweapons>0</maxweapons>
+  </sRBS70_Bag_ACR>
   <sRemington870>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -1842,6 +2306,10 @@
     <Slots>5</Slots>
     <Type>pistol</Type>
   </srevolver_EP1>
+  <sRPG18>
+    <Slots>6</Slots>
+    <Type>heavyammo</Type>
+  </sRPG18>
   <sRPK_74>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -1890,6 +2358,10 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sSkinBase>
+  <sSMAW_HEDP>
+    <Slots>1</Slots>
+    <Type>heavyammo</Type>
+  </sSMAW_HEDP>
   <sSmokeShell>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -1918,6 +2390,14 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sSmokeShellYellow>
+  <sStinger>
+    <Slots>6</Slots>
+    <Type>heavyammo</Type>
+  </sStinger>
+  <sStrela>
+    <Slots>6</Slots>
+    <Type>heavyammo</Type>
+  </sStrela>
   <sSVD_CAMO_DZ>
     <Slots>10</Slots>
     <Type>rifle</Type>
