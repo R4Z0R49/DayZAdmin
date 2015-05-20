@@ -33,7 +33,7 @@
 	$local_path = "";
 
 	//security
-	$security = "admin"; // allows you to rename the admin.php file to secure your install **Not Active Yet**
+	$security = "admin"; // allows you to rename the admin.php file to secure your install (security through obscurity)
 
 	//Social Media
 	$EnableSocialMedia = 1; //Enable social media section (1 yes, 0 no)

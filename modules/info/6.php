@@ -89,7 +89,7 @@ foreach($res as $row) {
 						</div>
 
 						<div class="statstext" style="width:180px;margin-left:280px;margin-top:-75px">
-							Owner:&nbsp;<a href="admin.php?view=info&show=1&CharacterID=<?php echo $row['CharacterID'];?>"><?php echo htmlspecialchars($row['playerName']);?></a>
+							Owner:&nbsp;<a href="<?php echo $security; ?>.php?view=info&show=1&CharacterID=<?php echo $row['CharacterID'];?>"><?php echo htmlspecialchars($row['playerName']);?></a>
 						</div>
 					</div>
 					<!-- Backpack -->

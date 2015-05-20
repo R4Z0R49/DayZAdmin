@@ -11,7 +11,7 @@ if (isset($_SESSION['user_id']))
 	$maxPage = 1;
 	$rowsPerPage = 30;
 	$nav  = '';
-	$self = 'admin.php?view=table&show='.$show;
+	$self = $security.'.php?view=table&show='.$show;
 	$paging = '';
 	
 	$serverrunning = false;
@@ -120,6 +120,6 @@ if (isset($_SESSION['user_id']))
 }
 else
 {
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 }
 ?>

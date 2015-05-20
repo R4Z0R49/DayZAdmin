@@ -171,7 +171,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 <div class="row">
 	<div class="col-xs-9">
 		<div id="table-content">
-		<form action="admin.php?view=admin" method="post">
+		<form action="<?php echo $security; ?>.php?view=admin" method="post">
 		  <table class="table">
 			<tr>
 				<th class="custom-th"><h4>Select <i class="icon-arrow-down"></i></h4></th>
@@ -215,17 +215,17 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 				</td>
 			</tr>
 			<tr class="custom-tr">
-				<td><a href="admin.php?view=actions&clearLogs"><h4>Clear Logs</h4></a>
+				<td><a href="<?php echo $security; ?>.php?view=actions&clearLogs"><h4>Clear Logs</h4></a>
 				Clears the action logs
 				</td>
 			</tr>
 			<tr class="custom-tr">
-				<td><a href="admin.php?view=admin&AddAccess"><h4>Add Accesslvl</h4></a>
+				<td><a href="<?php echo $security; ?>.php?view=admin&AddAccess"><h4>Add Accesslvl</h4></a>
 				Adds an accesslvl
 				</td>
 			</tr>
 			<tr class="custom-tr">
-				<td><a href="admin.php?view=admin&EditAccess"><h4>Edit/Delete Accesslvl</h4></a>
+				<td><a href="<?php echo $security; ?>.php?view=admin&EditAccess"><h4>Edit/Delete Accesslvl</h4></a>
 				Lets you edit/delete an accesslvl
 				</td>
 			</tr>
@@ -350,7 +350,7 @@ if(isset($_REQUEST['AccessName'])) {
 	<input type="hidden" name="userid" value="">
 	<div class="row" style="margin-bottom: 15px;">
 		<div class="col-lg-4">
-			<select name="alvl_edit_name" class="form-control" onChange='window.location="admin.php?view=admin&EditAccess&AccessName=" + this.value;'>
+			<select name="alvl_edit_name" class="form-control" onChange='window.location="<?php echo $security; ?>.php?view=admin&EditAccess&AccessName=" + this.value;'>
 				<option>Select an accesslvl:</option>
 				<?php echo $accesslvl_list; ?>
 			</select>

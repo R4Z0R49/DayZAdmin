@@ -23,7 +23,7 @@ if (isset($_GET['logout']))
 		
 	setcookie('login', '', 0, "/");
 	setcookie('password', '', 0, "/");
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 	exit;
 }
 

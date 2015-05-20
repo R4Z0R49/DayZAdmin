@@ -82,7 +82,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 			}
 			
 			$name = htmlspecialchars($row['playerName']);	
-			$icon1 = '<a href="admin.php?view=actions&deletecheck='.$row['id'].'"><img src="'.$path.'images/icons/player_dead.png" title="Delete '.$name.'" alt="Delete '.$name.'"/></a>';		
+			$icon1 = '<a href="'.$security.'.php?view=actions&deletecheck='.$row['id'].'"><img src="'.$path.'images/icons/player_dead.png" title="Delete '.$name.'" alt="Delete '.$name.'"/></a>';		
 			if ($row['Alive'] == 0) {
 					$status = '<img src="'.$path.'images/icons/player_dead.png" title="'.$name.' is Dead" alt="'.$name.' is Dead"/>';
 			}
@@ -93,8 +93,8 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 				$rows .= "<tr>
 					<td align=\"center\" class=\"gear_preview\"><a href=\"amin.php?view=actions&deletecheck=".$row['CharacterID']."\">".$icon1."</td>
 					<td align=\"center\" class=\"gear_preview\">".$status."</td>
-					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$name."</a></td>
-					<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$row['CharacterID']."</a></td>
+					<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$name."</a></td>
+					<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$row['CharacterID']."</a></td>
 					<td align=\"center\" class=\"gear_preview\">";
 					foreach($Unknown as $uitem => $uval) {
 						$rows .= $uval."; ";
@@ -144,9 +144,9 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 			if (count($Unknown) > 0) {
 				$rows .= '<tr>
 					<td class="gear_preview">&nbsp;</td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=6&ObjectID='.$row['ObjectID'].'"><img src="images/icons/tent.png"></a></td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=1&CharacterID='.$row['CharacterID'].'">'.$row['playerName'].'</a></td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=6&ObjectID='.$row['ObjectID'].'">'.$row['ObjectID'].'</a></td>
+					<td align="center" class="gear_preview"><a href="'.$security.'.php?view=info&show=6&ObjectID='.$row['ObjectID'].'"><img src="images/icons/tent.png"></a></td>
+					<td align="center" class="gear_preview"><a href="'.$security.'.php?view=info&show=1&CharacterID='.$row['CharacterID'].'">'.$row['playerName'].'</a></td>
+					<td align="center" class="gear_preview"><a href="'.$security.'.php?view=info&show=6&ObjectID='.$row['ObjectID'].'">'.$row['ObjectID'].'</a></td>
 					<td align="center" class="gear_preview">';
 
 				foreach ($Unknown as $item) {
@@ -194,9 +194,9 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][5] != 'false')
 			if (count($Unknown) > 0) {
 				$rows .= '<tr>
 					<td class="gear_preview">&nbsp;</td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&ObjectID='.$row['ObjectID'].'"><img src="images/icons/car.png" /></a></td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$row['Classname'].'</a></td>
-					<td align="center" class="gear_preview"><a href="admin.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$row['ObjectID'].'</a></td>
+					<td align="center" class="gear_preview"><a href="'.$security.'.php?view=info&show=4&ObjectID='.$row['ObjectID'].'"><img src="images/icons/car.png" /></a></td>
+					<td align="center" class="gear_preview"><a href="'.$security.'.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$row['Classname'].'</a></td>
+					<td align="center" class="gear_preview"><a href="'.$security.'.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$row['ObjectID'].'</a></td>
 					<td align="center" class="gear_preview">';
 
 				foreach ($Unknown as $item) {

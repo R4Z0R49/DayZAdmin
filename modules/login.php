@@ -2,7 +2,7 @@
 
 if (isset($_SESSION['user_id']))
 {
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 	exit;
 }
 
@@ -29,17 +29,17 @@ if (!empty($_POST))
 			}
 			$db->Execute("UPDATE `users` SET `lastlogin` = NOW() WHERE `login` = ? LIMIT 1", $login);
 			$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('LOGIN', ?, NOW())", $login);
-			header('Location: admin.php');
+			header('Location: '.$security.'.php');
 			exit;
 		}
 		else
 		{
-			header('Location: admin.php');
+			header('Location: '.$security.'.php');
 		}
 	}
 	else
 	{
-		header('Location: admin.php');
+		header('Location: '.$security.'.php');
 	}
 }
 
@@ -51,7 +51,7 @@ $pagetitle = 'Login';
 
 	<div class="container">
 	<div class="login-content">
-		<form action="admin.php" method="post">
+		<form action="<?php echo $security; ?>.php" method="post">
 			<div class="login-box">	
 				<div id="page-heading-login">
 					<?php

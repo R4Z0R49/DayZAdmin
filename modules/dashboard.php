@@ -48,8 +48,8 @@ if (!isset($_GET['logs']) && !isset($_GET['chat'])){
 				<tr>
 					<td>
 						<ul class="nav nav-pills">
-						  <li class="<?php if($chat_view == 'logs') { echo 'active'; }?>"><a href="admin.php?logs">Logs</a></li>
-						  <li class="<?php if($chat_view == 'chat') { echo 'active'; }?>"><a class="" href="admin.php?chat">Chat</a></li>
+						  <li class="<?php if($chat_view == 'logs') { echo 'active'; }?>"><a href="<?php echo $security; ?>.php?logs">Logs</a></li>
+						  <li class="<?php if($chat_view == 'chat') { echo 'active'; }?>"><a class="" href="<?php echo $security; ?>.php?chat">Chat</a></li>
 						</ul>
 					</td>
 				</tr>
@@ -65,7 +65,7 @@ if (!isset($_GET['logs']) && !isset($_GET['chat'])){
 				<?php } ?>
 				<tr>
 					<td>
-						<form action="admin.php?view=actions" method="post">
+						<form action="<?php echo $security; ?>.php?view=actions" method="post">
 							<textarea name="say" style="width: 100%; height: 50px;">Type something to Global Chat</textarea>
 							<input type="submit" class="btn btn-primary" value="Submit"/>
 						</form>
@@ -98,6 +98,6 @@ if (!isset($_GET['logs']) && !isset($_GET['chat'])){
 }
 else
 {
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 }
 ?>

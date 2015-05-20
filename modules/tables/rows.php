@@ -37,6 +37,7 @@ function header_deployable($show, $chbox){
 function row_player($row){
 	global $accesslvls;
     global $map;
+    global $security;
     $MapCoords = worldspaceToMapCoords($row['Worldspace'], $map);
 	$x = 0;
 	$y = 0;
@@ -122,9 +123,9 @@ function row_player($row){
 
 	$tablerow = "<tr>
 		<td align=\"center\" class=\"gear_preview\">".$icon."</td>
-		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".htmlspecialchars($row['playerName'])."</a></td>
-		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&Character=".$row['CharacterID']."\">".$row['playerUID']."</a></td>
-		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$loc."</a></td>
+		<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".htmlspecialchars($row['playerName'])."</a></td>
+		<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=1&Character=".$row['CharacterID']."\">".$row['playerUID']."</a></td>
+		<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$loc."</a></td>
 		<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
 		<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview. "</td>
 	</tr>";
@@ -134,6 +135,7 @@ function row_player($row){
 function row_online_player($row, $player){
 	global $accesslvls;
     global $map;
+    global $security;
 	$x = 0;
 	$y = 0;
     $MapCoords = worldspaceToMapCoords($row['Worldspace'], $map);
@@ -213,13 +215,13 @@ function row_online_player($row, $player){
 			$BackpackPreview .= '<div class="preview_gear_slot" style="margin-top:0px;width:47px;height:47px;"></div>';
 		}			
 	}
-	$name = "<a href=\"admin.php?view=info&show=1&playerUID=".$row['playerUID']."&CharacterID=".$row['CharacterID']."\">".htmlspecialchars($player[4])."</a>";
-	$uid = "<a href=\"admin.php?view=info&show=1&playerUID=".$row['playerUID']."&CharacterID=".$row['CharacterID']."\">".$row["playerUID"]."</a>";
+	$name = "<a href=\"".$security.".php?view=info&show=1&playerUID=".$row['playerUID']."&CharacterID=".$row['CharacterID']."\">".htmlspecialchars($player[4])."</a>";
+	$uid = "<a href=\"".$security.".php?view=info&show=1&playerUID=".$row['playerUID']."&CharacterID=".$row['CharacterID']."\">".$row["playerUID"]."</a>";
 	
 
-	$kick = '<a href="admin.php?view=actionreason&kick='.$player[0].'&player='.$player[4].'">Kick</a>';
-	$ban = '<a href="admin.php?view=actionreason&ban='.$player[0].'&player='.$player[4].'">Ban</a>';
-	$reset = '<a href="admin.php?view=actions&resetlocation='.$row['CharacterID'].'">ResetLocation</a>';
+	$kick = '<a href="'.$security.'.php?view=actionreason&kick='.$player[0].'&player='.$player[4].'">Kick</a>';
+	$ban = '<a href="'.$security.'.php?view=actionreason&ban='.$player[0].'&player='.$player[4].'">Ban</a>';
+	$reset = '<a href="'.$security.'.php?view=actions&resetlocation='.$row['CharacterID'].'">ResetLocation</a>';
 
 	if ($accesslvls[0][3] != 'true') {
         $loc = 'Classified';
@@ -230,7 +232,7 @@ function row_online_player($row, $player){
 		<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$kick."&nbsp;&nbsp;&nbsp;&nbsp;".$ban."<br><br>".$reset."</td>
 		<td align=\"center\" class=\"gear_preview\" style=\"vertical-align:middle;\">".$name."</td>
 		<td align=\"center\" class=\"gear_preview\">".$uid."</td>
-		<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=1&playerUID=".$row['playerUID']."&CharacterID=".$row['CharacterID']."\">".$loc."</a></td>
+		<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=1&playerUID=".$row['playerUID']."&CharacterID=".$row['CharacterID']."\">".$loc."</a></td>
 		<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
 		<td align=\"center\" class=\"gear_preview_green\">".$BackpackPreview."</td>
 		<tr>";
@@ -240,6 +242,7 @@ function row_online_player($row, $player){
 function row_vehicle($row, $chbox){
 	global $accesslvls;
     global $map;
+    global $security;
 	$x = 0;
 	$y = 0;
     $MapCoords = worldspaceToMapCoords($row['Worldspace'], $map);
@@ -313,11 +316,11 @@ function row_vehicle($row, $chbox){
         $loc = sprintf("%03d%03d",$y, $x);
     }
 		$tablerow = "<tr>".$chbox."
-				<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$row['ObjectID']."</a></td>
-				<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$row['Classname']."</a></td>			
-				<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$row['ObjectID']."</a></td>
+				<td align=\"center\" class=\"gear_preview\" ><a href=\"".$security.".php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$row['ObjectID']."</a></td>
+				<td align=\"center\" class=\"gear_preview\" ><a href=\"".$security.".php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$row['Classname']."</a></td>			
+				<td align=\"center\" class=\"gear_preview\" ><a href=\"".$security.".php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$row['ObjectID']."</a></td>
 				<td align=\"center\" class=\"gear_preview\" style=\"background-color: rgba(100,".round((255/100)*(100 - ($row['Damage']*100))).",0,0.8);\">".substr($row['Damage'], 0, 6)."</td>
-				<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$loc."</a></td>
+				<td align=\"center\" class=\"gear_preview\" ><a href=\"".$security.".php?view=info&show=4&ObjectID=".$row['ObjectID']."\">".$loc."</a></td>
 				<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
 				<td align=\"center\" class=\"gear_preview_green\">".$HitpointsPreview."</td>
 			</tr>";
@@ -327,6 +330,7 @@ function row_vehicle($row, $chbox){
 function row_deployable($row, $chbox){
 	global $accesslvls;
     global $map;
+    global $security;
 	$x = 0;
 	$y = 0;
     $MapCoords = worldspaceToMapCoords($row['Worldspace'], $map);
@@ -389,10 +393,10 @@ function row_deployable($row, $chbox){
         $loc = sprintf("%03d%03d",$y, $x);
     }
 	$tablerow = "<tr>".$chbox."
-		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=6&ObjectID=".$row['ObjectID']."\">".$row['ObjectID']."</a></td>
-		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=6&ObjectID=".$row['ObjectID']."\">".$row['Classname']."</a></td>			
-		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$row['playerName']."</a></td>
-		<td align=\"center\" class=\"gear_preview\" ><a href=\"admin.php?view=info&show=6&ObjectID=".$row['ObjectID']."\">".$loc."</a></td>
+		<td align=\"center\" class=\"gear_preview\" ><a href=\"".$security.".php?view=info&show=6&ObjectID=".$row['ObjectID']."\">".$row['ObjectID']."</a></td>
+		<td align=\"center\" class=\"gear_preview\" ><a href=\"".$security.".php?view=info&show=6&ObjectID=".$row['ObjectID']."\">".$row['Classname']."</a></td>			
+		<td align=\"center\" class=\"gear_preview\" ><a href=\"".$security.".php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".$row['playerName']."</a></td>
+		<td align=\"center\" class=\"gear_preview\" ><a href=\"".$security.".php?view=info&show=6&ObjectID=".$row['ObjectID']."\">".$loc."</a></td>
 		<td align=\"center\" class=\"gear_preview_green\">".$InventoryPreview."</td>
 	</tr>";
 

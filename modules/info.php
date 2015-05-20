@@ -7,7 +7,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][4] != "false")
 }
 else
 {
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 }
 //ob_end_clean();
 ?>

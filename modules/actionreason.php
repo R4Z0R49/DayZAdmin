@@ -3,7 +3,7 @@ if (isset($_SESSION['user_id']))
 {
 	if (isset($_GET["ban"])){
 ?>
-<form action="admin.php" method=GET>
+<form action="<?php echo $security; ?>.php" method=GET>
 <input type="hidden" name="view" value="actions">
 <input type="hidden" name="ban" value="<?php echo $_GET["ban"];?>">
 <table>
@@ -16,7 +16,7 @@ if (isset($_SESSION['user_id']))
 <?php
 	} elseif(isset($_GET["kick"])) {
 ?>
-<form action="admin.php" method=GET>
+<form action="<?php echo $security; ?>.php" method=GET>
 <input type="hidden" name="view" value="actions">
 <input type="hidden" name="kick" value="<?php echo $_GET["kick"];?>">
 <table>

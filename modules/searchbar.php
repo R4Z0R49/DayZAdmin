@@ -5,7 +5,7 @@ if (isset($_SESSION['user_id']))
 
 <!--  start top-search -->
 
-	<form action="admin.php?view=search" method="post" style="margin-left: 20px; margin-top: 10px;">
+	<form action="<?php echo $security; ?>.php?view=search" method="post" style="margin-left: 20px; margin-top: 10px;">
 		<table>
 		<tr>
 		<td><input style="margin-bottom: 2px;" name="search" type="text" value="<?php if(isset($_POST['search'])){ echo $_POST['search']; } else { echo 'Search'; }?>" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="form-control" /></td>
@@ -33,6 +33,6 @@ if (isset($_SESSION['user_id']))
 }
 else
 {
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 }
 ?>

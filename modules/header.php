@@ -55,6 +55,6 @@ include ('navbar.php');
 <div class="content">
 <?php
 }else{
-	header('Location: admin.php');
+	header('Location: ' . $security . '.php');
 }
 ?>

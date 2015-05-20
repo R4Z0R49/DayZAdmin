@@ -265,17 +265,17 @@ foreach($res as $row) {
 		</tr>
 		<tr style="text-align: center;">
 			<td>
-				<a href="admin.php?view=actions&repairVehicle=<?php echo $row['ObjectID']; ?>">Repair Vehicle</a>
+				<a href="<?php echo $security; ?>.php?view=actions&repairVehicle=<?php echo $row['ObjectID']; ?>">Repair Vehicle</a>
 			</td>
 		</tr>
 		<tr style="text-align: center;">
 			<td>
-				<a href="admin.php?view=actions&destroyVehicle=<?php echo $row['ObjectID']; ?>">Destroy Vehicle</a>
+				<a href="<?php echo $security; ?>.php?view=actions&destroyVehicle=<?php echo $row['ObjectID']; ?>">Destroy Vehicle</a>
 			</td>
 		</tr>
 		<tr style="text-align: center;">
 			<td>
-				<a href="admin.php?view=actions&refuelVehicle=<?php echo $row['ObjectID']; ?>">Refuel Vehicle</a>
+				<a href="<?php echo $security; ?>.php?view=actions&refuelVehicle=<?php echo $row['ObjectID']; ?>">Refuel Vehicle</a>
 			</td>
 		</tr>
 	</table>
