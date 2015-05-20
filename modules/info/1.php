@@ -477,70 +477,70 @@ if (isset($_SESSION['user_id'])) {
 	</tr>
 	<!-- Row 1 -->
 	<tr style="text-align: center;">
-	<td><a href="admin.php?view=actions&revivePlayer&CharacterID=<?php echo $CharacterID; ?>">Revive Player</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&revivePlayer&CharacterID=<?php echo $CharacterID; ?>">Revive Player</a></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=NEAF&CharacterID=<?php echo $CharacterID; ?>">North East Airfield</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=NEAF&CharacterID=<?php echo $CharacterID; ?>">North East Airfield</a></td>
 	<?php } ?>
-	<td><a href="admin.php?view=actions&skin=<?php echo $playerSex == 0 ? "Survivor2_DZ" : "SurvivorW2_DZ"; ?>&CharacterID=<?php echo $CharacterID; ?>">Normal Clothing</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&skin=<?php echo $playerSex == 0 ? "Survivor2_DZ" : "SurvivorW2_DZ"; ?>&CharacterID=<?php echo $CharacterID; ?>">Normal Clothing</a></td>
 	</tr>
 	<!-- Row 2 -->
 	<tr style="text-align: center;">
-	<td><a href="admin.php?view=actions&healPlayer&CharacterID=<?php echo $CharacterID; ?>">Heal Player</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&healPlayer&CharacterID=<?php echo $CharacterID; ?>">Heal Player</a></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=NWAF&CharacterID=<?php echo $CharacterID; ?>">North West Airfield</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=NWAF&CharacterID=<?php echo $CharacterID; ?>">North West Airfield</a></td>
 	<?php } ?>
-	<td><?php if($playerSex == 0) {?><a href="admin.php?view=actions&skin=Camo1_DZ&CharacterID=<?php echo $CharacterID; ?>">Camo Clothing</a><?php } else {?>Camo Clothing<?php } ?></td>
+	<td><?php if($playerSex == 0) {?><a href="<?php echo $security; ?>.php?view=actions&skin=Camo1_DZ&CharacterID=<?php echo $CharacterID; ?>">Camo Clothing</a><?php } else {?>Camo Clothing<?php } ?></td>
 	</tr style="text-align: center;">
 	<!-- Row 3 -->
 	<tr style="text-align: center;">
-	<td><a href="admin.php?view=actions&killPlayer&CharacterID=<?php echo $CharacterID; ?>">Kill Player</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&killPlayer&CharacterID=<?php echo $CharacterID; ?>">Kill Player</a></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=Stary&CharacterID=<?php echo $CharacterID; ?>">Stary Tents</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=Stary&CharacterID=<?php echo $CharacterID; ?>">Stary Tents</a></td>
 	<?php } ?>
-	<td><?php if($playerSex == 0) {?><a href="admin.php?view=actions&skin=Sniper1_DZ&CharacterID=<?php echo $CharacterID; ?>">Ghillie Suit</a><?php } else {?>Ghillie Suit<?php } ?></td>
+	<td><?php if($playerSex == 0) {?><a href="<?php echo $security; ?>.php?view=actions&skin=Sniper1_DZ&CharacterID=<?php echo $CharacterID; ?>">Ghillie Suit</a><?php } else {?>Ghillie Suit<?php } ?></td>
 	</tr>
 	<!-- Row 4 -->
 	<tr style="text-align: center;">
-	<td><a href="admin.php?view=actions&resetHumanity=<?php echo $row['playerUID']; ?>&CharacterID=<?php echo $CharacterID; ?>">Reset Humanity</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&resetHumanity=<?php echo $row['playerUID']; ?>&CharacterID=<?php echo $CharacterID; ?>">Reset Humanity</a></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=Chernogorsk&CharacterID=<?php echo $CharacterID; ?>">Chernogorsk</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=Chernogorsk&CharacterID=<?php echo $CharacterID; ?>">Chernogorsk</a></td>
 	<?php } ?>
-	<td><?php if($playerSex == 0) {?><a href="admin.php?view=actions&skin=Soldier1_DZ&CharacterID=<?php echo $CharacterID; ?>">Soldier Clothing</a><?php } else {?>Soldier Clothing<?php } ?></td>
+	<td><?php if($playerSex == 0) {?><a href="<?php echo $security; ?>.php?view=actions&skin=Soldier1_DZ&CharacterID=<?php echo $CharacterID; ?>">Soldier Clothing</a><?php } else {?>Soldier Clothing<?php } ?></td>
 	</tr>
 	<!-- Row 5 -->
 	<tr style="text-align: center;">
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=Elektrozavodsk&CharacterID=<?php echo $CharacterID; ?>">Elektrozavodsk</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=Elektrozavodsk&CharacterID=<?php echo $CharacterID; ?>">Elektrozavodsk</a></td>
 	<?php } ?>
-	<td><a href="admin.php?view=actions&skin=<?php echo $playerSex == 0 ? "Bandit1_DZ" : "BanditW1_DZ"; ?>&CharacterID=<?php echo $CharacterID; ?>">Bandit Skin</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&skin=<?php echo $playerSex == 0 ? "Bandit1_DZ" : "BanditW1_DZ"; ?>&CharacterID=<?php echo $CharacterID; ?>">Bandit Skin</a></td>
 	</tr>
 	<!-- Row 6 -->
 	<tr style="text-align: center;">
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=Skalisty&CharacterID=<?php echo $CharacterID; ?>">Skalisty Island</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=Skalisty&CharacterID=<?php echo $CharacterID; ?>">Skalisty Island</a></td>
 	<?php } ?>
 	</tr>
 	<!-- Row 7 -->
 	<tr style="text-align: center;">
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=Berezino&CharacterID=<?php echo $CharacterID; ?>">Berezino</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=Berezino&CharacterID=<?php echo $CharacterID; ?>">Berezino</a></td>
 	<?php } ?>
 	</tr>
 	<!-- Row 8 -->
 	<tr style="text-align: center;">
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=Solnichniy&CharacterID=<?php echo $CharacterID; ?>">Solnichniy</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=Solnichniy&CharacterID=<?php echo $CharacterID; ?>">Solnichniy</a></td>
 	<?php } ?>
 	</tr>
 	<!-- Row 9 -->
 	<tr style="text-align: center;">
 	<td></td>
 	<?php if($map == 'chernarus') {?>
-	<td><a href="admin.php?view=actions&teleport=Polana&CharacterID=<?php echo $CharacterID; ?>">Polana</a></td>
+	<td><a href="<?php echo $security; ?>.php?view=actions&teleport=Polana&CharacterID=<?php echo $CharacterID; ?>">Polana</a></td>
 	<?php } ?>
 	</tr>
     <tr><td>&nbsp;</td></tr>

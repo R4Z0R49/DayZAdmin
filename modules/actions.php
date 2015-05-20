@@ -14,7 +14,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Player ',?,' Kicked'),?,NOW())", array($_REQUEST["kick"], $_SESSION['login']));
 		?>
 		<script type="text/javascript">
-			window.location = 'admin.php?view=table&show=0';
+			window.location = '<?php echo $security; ?>.php?view=table&show=0';
 		</script>
 		<?php
 	}
@@ -24,7 +24,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Player ',?,' Banned'),?,NOW())", array($_REQUEST["ban"], $_SESSION['login']));
 		?>
 		<script type="text/javascript">
-			window.location = 'admin.php?view=table&show=0';
+			window.location = '<?php echo $security; ?>.php?view=table&show=0';
 		</script>
 		<?php
 	}	
@@ -38,7 +38,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Used Global',?,NOW())", $_SESSION['login']);
 		?>
 		<script type="text/javascript">
-			window.location = 'admin.php';
+			window.location = '<?php echo $security; ?>.php';
 		</script>
 		<?php
 	}
@@ -49,7 +49,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Object ',?,' deleted'),?,NOW())", array($_REQUEST["delete"], $_SESSION['login']));
 		?>
 		<script type="text/javascript">
-			window.location = 'admin.php?view=map&show=7';
+			window.location = '<?php echo $security; ?>.php?view=map&show=7';
 		</script>
 		<?php
 	}
@@ -60,7 +60,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Player ',?,' deleted'),?,NOW())", array($_REQUEST["deletecheck"], $_SESSION['login']));
 		?>
 		<script type="text/javascript">
-			window.location = 'admin.php?view=check';
+			window.location = '<?php echo $security; ?>.php?view=check';
 		</script>
 		<?php
 	}
@@ -70,7 +70,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Object spawn location ',?,' deleted'),?,NOW())", array($_REQUEST["deletespawns"], $_SESSION['login']));
 		?>
 		<script type="text/javascript">
-			window.location = 'admin.php?view=map&show=8';
+			window.location = '<?php echo $security; ?>.php?view=map&show=8';
 		</script>
 		<?php
 	}
@@ -80,7 +80,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Reset location for player ',?),?,NOW())", array($_REQUEST["resetlocation"], $_SESSION['login']));
 		?>
 		<script type="text/javascript">
-			window.location = 'admin.php?view=table&show=0';
+			window.location = '<?php echo $security; ?>.php?view=table&show=0';
 		</script>
 		<?php
 	}		
@@ -90,7 +90,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Repaired vehicle ', ?),?,NOW())", array($_REQUEST["repairVehicle"], $_SESSION['login']));
 		?>
 		<script type="text/javascript">
-               window.location = 'admin.php?view=info&show=4&ObjectID=<?php echo $_REQUEST["repairVehicle"]; ?>';
+               window.location = '<?php echo $security; ?>.php?view=info&show=4&ObjectID=<?php echo $_REQUEST["repairVehicle"]; ?>';
            </script>
 		<?php
 	}
@@ -99,7 +99,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Destroyed vehicle ', ?),?,NOW())", array($_REQUEST["destroyVehicle"], $_SESSION['login']));
         ?>
         <script type="text/javascript">
-            window.location = 'admin.php?view=info&show=4&ObjectID=<?php echo $_REQUEST["destroyVehicle"]; ?>';
+            window.location = '<?php echo $security; ?>.php?view=info&show=4&ObjectID=<?php echo $_REQUEST["destroyVehicle"]; ?>';
         </script>
         <?php
     }
@@ -108,7 +108,7 @@ if (isset($_SESSION['user_id'])) {
 		$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Refueled vehicle ', ?),?,NOW())", array($_REQUEST["refuelVehicle"], $_SESSION['login']));
         ?>
         <script type="text/javascript">
-            window.location = 'admin.php?view=info&show=4&ObjectID=<?php echo $_REQUEST["refuelVehicle"]; ?>';
+            window.location = '<?php echo $security; ?>.php?view=info&show=4&ObjectID=<?php echo $_REQUEST["refuelVehicle"]; ?>';
         </script>
         <?php
     }
@@ -137,7 +137,7 @@ if (isset($_SESSION['user_id'])) {
         $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Healed player ',?),?,NOW())", array($CharacterID, $_SESSION['login']));
         ?>
         <script type="text/javascript">
-            window.location = 'admin.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
+            window.location = '<?php echo $security; ?>.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
         </script>
         <?php
     }
@@ -146,7 +146,7 @@ if (isset($_SESSION['user_id'])) {
         $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Killed player ',?),?,NOW())", array($CharacterID, $_SESSION['login']));
         ?>
         <script type="text/javascript">
-            window.location = 'admin.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
+            window.location = '<?php echo $security; ?>.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
         </script>
         <?php
     }
@@ -155,7 +155,7 @@ if (isset($_SESSION['user_id'])) {
         $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Revived player ',?),?,NOW())", array($CharacterID, $_SESSION['login']));
         ?>
         <script type="text/javascript">
-            window.location = 'admin.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
+            window.location = '<?php echo $security; ?>.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
         </script>
         <?php
     }
@@ -164,7 +164,7 @@ if (isset($_SESSION['user_id'])) {
         $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Reset humanity for player ',?),?,NOW())", array($CharacterID, $_SESSION['login']));
         ?>
         <script type="text/javascript">
-            window.location = 'admin.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
+            window.location = '<?php echo $security; ?>.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
         </script>
         <?php
     }
@@ -188,7 +188,7 @@ if (isset($_SESSION['user_id'])) {
         }
         ?>
         <script type="text/javascript">
-            window.location = 'admin.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
+            window.location = '<?php echo $security; ?>.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
         </script>
         <?php
     }
@@ -198,7 +198,7 @@ if (isset($_SESSION['user_id'])) {
         $db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Changed skin to ',?,' for player ',?,' to ',?),?,NOW())", array($_REQUEST['skin'], $CharacterID, $_SESSION['login']));
         ?>
         <script type="text/javascript">
-            window.location = 'admin.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
+            window.location = '<?php echo $security; ?>.php?view=info&show=1&CharacterID=<?php echo $CharacterID; ?>';
         </script>
         <?php
     }
@@ -210,13 +210,13 @@ if (isset($_SESSION['user_id'])) {
 /*
 	?>
 	<script type="text/javascript">
-		window.location = 'admin.php';
+		window.location = '<?php echo $security; ?>.php';
 	</script>
 	<?php
 */
 }
 else
 {
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 }
 ?>

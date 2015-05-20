@@ -3,6 +3,7 @@ require_once('config.php');
 require_once('functions.php');
 
 function markers_player($res, $world) {
+    global $security;
 	$markers = array();
 		foreach($res as $row) {
 			$Worldspace = str_replace("[", "", $row['Worldspace']);
@@ -22,7 +23,7 @@ function markers_player($res, $world) {
             }
 
 			require_once('modules/calc.php');
-			$description = "<strong><a href=\"admin.php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".htmlspecialchars($row['playerName'], ENT_QUOTES)." (".$row['CharacterID'].")</a> - ".$wpnstr."</strong><br><table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['Model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerUID:</strong> ".$row['PlayerUID']."<br> <strong>CharacterID:</strong> ".$row['CharacterID']."<br> <strong>Zed Kills:</strong> ".$row['KillsZ']."<br> <strong>Bandit Kills:</strong> ".$row['KillsB']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['duration'])."<br><strong>Survival Attempts:</strong> ".$row['Generation']."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row['Humanity']."</td></tr></table>";	
+			$description = "<strong><a href=\"".$security.".php?view=info&show=1&CharacterID=".$row['CharacterID']."\">".htmlspecialchars($row['playerName'], ENT_QUOTES)." (".$row['CharacterID'].")</a> - ".$wpnstr."</strong><br><table> <tr> <td><img style=\"width: 100px;\" src=\"images/models/".str_replace('"', '', $row['Model']).".png\"></td> <td>&nbsp;</td> <td style=\"vertical-align:top; \"> <strong>PlayerUID:</strong> ".$row['PlayerUID']."<br> <strong>CharacterID:</strong> ".$row['CharacterID']."<br> <strong>Zed Kills:</strong> ".$row['KillsZ']."<br> <strong>Bandit Kills:</strong> ".$row['KillsB']."<br> <strong>Alive Duration:</strong> ".survivalTimeToString($row['duration'])."<br><strong>Survival Attempts:</strong> ".$row['Generation']."<br><strong>Position:</strong>&nbsp;".sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world)))."<br><strong>Humanity:</strong>&nbsp;".$row['Humanity']."</td></tr></table>";	
 			$tmp = array();
 			$tmp["id"] = $row['CharacterID'];
 			$tmp["lat"] = (world_y($y, $world) / 10);
@@ -39,6 +40,7 @@ function markers_player($res, $world) {
 }
 
 function markers_vehicle($res, $world) {
+    global $security;
 	$markers = array();
 
 	$xml = file_get_contents('vehicles.xml', true);
@@ -55,7 +57,7 @@ function markers_vehicle($res, $world) {
 		$class = $row['Classname'];
 		$type = $row['Type'];
 		require_once('modules/calc.php');
-		$description = '<strong><a href="admin.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$class.' ('.$row['ObjectID'].')</a></strong><br><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Damage:</strong>&nbsp;'.sprintf("%d%%", round($row['Damage'] * 100))."<br><strong>Fuel:</strong>&nbsp;".sprintf("%d%%", round($row['Fuel'] * 100)).'</td></tr></table><br>';
+		$description = '<strong><a href="'.$security.'.php?view=info&show=4&ObjectID='.$row['ObjectID'].'">'.$class.' ('.$row['ObjectID'].')</a></strong><br><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Damage:</strong>&nbsp;'.sprintf("%d%%", round($row['Damage'] * 100))."<br><strong>Fuel:</strong>&nbsp;".sprintf("%d%%", round($row['Fuel'] * 100)).'</td></tr></table><br>';
 		
 		$tmp = array();
 		$tmp["id"] = $row['ObjectUID'];
@@ -73,6 +75,7 @@ function markers_vehicle($res, $world) {
 }
 
 function markers_deployable($res, $world) {
+    global $security;
 	$markers = array();
 
     require_once('modules/xml2array.php');
@@ -100,7 +103,7 @@ function markers_deployable($res, $world) {
 			$counts = inventoryCounts($Inventory, $items_xml, $vehicles_xml);
 			$contents = "<strong>Weapons:</strong>&nbsp;".$counts[0]."<br><strong>Items:</strong>&nbsp;".$counts[1]."<br><strong>Backpacks:</strong>&nbsp;".$counts[2];
 		}
-		$description = '<strong><a href="admin.php?view=info&show=6&ObjectID='.$row['ObjectID'].'">'.$class.' ('.$row['ObjectID'].')</a> - '.htmlspecialchars($row['playerName']).'</strong><br><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br>'.$contents.'</td></tr></table>';
+		$description = '<strong><a href="'.$security.'.php?view=info&show=6&ObjectID='.$row['ObjectID'].'">'.$class.' ('.$row['ObjectID'].')</a> - '.htmlspecialchars($row['playerName']).'</strong><br><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br>'.$contents.'</td></tr></table>';
 		
 		$tmp = array();
 		$tmp["id"] = $row['ObjectUID'];

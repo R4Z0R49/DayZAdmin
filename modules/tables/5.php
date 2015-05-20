@@ -40,9 +40,9 @@
 		$Worldspace = explode(",", $Worldspace);
 
 		$tablerows .= "<tr>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".$row['Classname']."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".$row['ObjectUID']."</a></td>
-			<td align=\"center\" class=\"gear_preview\"><a href=\"admin.php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".sprintf("%03d%03d",round($Worldspace[1]/100),round((154-($Worldspace[2]/100))))."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".$row['Classname']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".$row['ObjectUID']."</a></td>
+			<td align=\"center\" class=\"gear_preview\"><a href=\"".$security.".php?view=info&show=5&ObjectUID=".$row['ObjectUID']."\">".sprintf("%03d%03d",round($Worldspace[1]/100),round((154-($Worldspace[2]/100))))."</a></td>
 		</tr>";
 		}
 	include ('paging.php');

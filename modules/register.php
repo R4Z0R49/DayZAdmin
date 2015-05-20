@@ -25,7 +25,7 @@ if (empty($_POST))
 <div class="custom-container-popup" id="content-table-inner">
 	<div id="table-content">
 				<h2 class="custom-h2">Enter Details</h2><br>
-				<form method="POST" id="regform" action="admin.php?view=admin">
+				<form method="POST" id="regform" action="<?php echo $security; ?>.php?view=admin">
 				<table border="0" id="id-form">
 					<tr>
 						<th class="custom-th-popup">Login:</th>
@@ -123,6 +123,6 @@ else
 }
 else
 {
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 }
 ?>

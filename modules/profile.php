@@ -39,7 +39,7 @@
 <?php 
 	$message->display();
 ?>
-<form method="POST" action="admin.php?view=profile">
+<form method="POST" action="<?php echo $security; ?>.php?view=profile">
 	<div class="row" style="margin-bottom: 5px">
 		<div class="col-lg-4">
 			<b>Change Password</b>

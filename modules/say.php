@@ -3,7 +3,7 @@ if (isset($_SESSION['user_id']))
 {
 ?>
 <!--  start say-box -->
-	<form action="admin.php?view=actions" method="post">
+	<form action="<?php echo $security; ?>.php?view=actions" method="post">
 		<table class="table" width="50%"> 
 			<tr>
 				<td>
@@ -24,6 +24,6 @@ if (isset($_SESSION['user_id']))
 }
 else
 {
-	header('Location: admin.php');
+	header('Location: '.$security.'.php');
 }
 ?>

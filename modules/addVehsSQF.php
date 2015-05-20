@@ -178,7 +178,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 ?>
 
 <?php if (!file_exists('mission'. DIRECTORY_SEPARATOR .'mission.sqf')) {?>
-<form role="form" method="POST" action="admin.php?view=addVehsSQF" name="uploadform" enctype="multipart/form-data">
+<form role="form" method="POST" action="<?php echo $security; ?>.php?view=addVehsSQF" name="uploadform" enctype="multipart/form-data">
   <div class="form-group">
     <input type="file" name="UploadFile" id="UploadFile">
     <p class="help-block">Upload your mission.sqf made in the ArmA 2 editor with vehicles placed around the map.<br> Keep in mind only DayZ allowed vehicles will work. <br>If it gives you a file move error, make sure the mission directory is read/write for your web server user.</p>
@@ -187,7 +187,7 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][2] != 'false')
 </form>
 <?php }?>
 <?php if (file_exists('mission'. DIRECTORY_SEPARATOR .'mission.sqf')) {?>
-<form role="form" method="POST" action="admin.php?view=addVehsSQF" name="addform">
+<form role="form" method="POST" action="<?php echo $security; ?>.php?view=addVehsSQF" name="addform">
   <div class="checkbox">
     <label>
       <input type="checkbox" name="chance_checkbox"> Create a chance to spawn
