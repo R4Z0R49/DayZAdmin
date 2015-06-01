@@ -138,7 +138,7 @@ global $security;
         $class = $row['Classname'];
         $type = $row['Type'];
         require_once('modules/calc.php');
-        $maintenance = $row['Hitpoints'];
+        $maintenance = $row['Hitpoints'] == "[\"Maintenance\"]" ? "Yes" : "No";
         $description = '<strong>'.$class.' ('.$row['ObjectID'].') - '.htmlspecialchars($row['playerName']).'</strong><br><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Needs Maintenance:</strong>&nbsp;'.$maintenance.'</td></tr></table><br>';
 
         $tmp = array();
