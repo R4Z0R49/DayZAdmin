@@ -14,7 +14,7 @@ require_once('modules/maps/markers.php');
 
 if (isset($_GET['id'])) {
 	$tmp = intval($_GET['id']);
-	if ($tmp >= 0 && $tmp <= 8) { $id = $tmp; }
+	if ($tmp >= 0 && $tmp <= 9) { $id = $tmp; }
 }
 
 if (isset($_GET['callback'])) {

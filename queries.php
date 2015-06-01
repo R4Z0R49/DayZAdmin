@@ -324,6 +324,62 @@ AND od.Instance = ?
 
 ";
 
+$map8_buildables = "
+SELECT
+    od.*,
+    pd.playerName,
+    pd.playerUID,
+    oc.Type,
+    cd.CharacterID
+FROM
+    Object_DATA od
+LEFT OUTER JOIN
+    Character_DATA cd
+ON
+    cd.CharacterID = od.CharacterID
+LEFT OUTER JOIN
+    Player_DATA pd
+ON
+    pd.PlayerUID = cd.playerUID
+JOIN
+    Object_CLASSES oc
+ON
+    oc.Classname = od.Classname
+WHERE
+    od.Classname LIKE('WoodenFence%')
+OR
+    od.Classname LIKE('WoodenGate%')
+AND od.Instance = ?
+";
+
+$map9 = "
+SELECT
+    od.*,
+    pd.playerName,
+    pd.playerUID,
+    oc.Type,
+    cd.CharacterID
+FROM
+    Object_DATA od
+LEFT OUTER JOIN
+    Character_DATA cd
+ON
+    cd.CharacterID = od.CharacterID
+LEFT OUTER JOIN
+    Player_DATA pd
+ON
+    pd.PlayerUID = cd.playerUID
+JOIN
+    Object_CLASSES oc
+ON
+    oc.Classname = od.Classname
+WHERE
+    od.Classname LIKE('WoodenFence%')
+OR
+    od.Classname LIKE('WoodenGate%')
+AND od.Instance = ?
+";
+
 // Tables
 $table0 = "
 SELECT

@@ -43,6 +43,8 @@ if (isset($_SESSION['user_id']))
 		Sandbag = new Icon({ iconUrl: 'images/icons/sandbag.png' }),
 		Player = new Icon({ iconUrl: 'images/icons/player.png' }),
 		PlayerDead = new Icon({ iconUrl: 'images/icons/player_dead.png' });
+		fence = new Icon({ iconUrl: 'images/icons/fence.png' });
+		gate = new Icon({ iconUrl: 'images/icons/gate.png' });
 
 	// store player/vehicle path
 	var mapMarkersPolylines = [];
