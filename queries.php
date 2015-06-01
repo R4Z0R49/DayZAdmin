@@ -566,6 +566,20 @@ JOIN
 	Character_DATA cd
 ON
 	cd.PlayerUID = pd.PlayerUID
+UNION
+SELECT
+    pd.playerName,
+    pd.playerUID,
+    cdd.CharacterID,
+    cdd.Backpack,
+    cdd.Inventory,
+    cdd.Worldspace
+FROM
+    Player_DATA pd
+JOIN
+    Character_DEAD cdd
+ON
+    cdd.PlayerUID = pd.PlayerUID
 ";
 
 $check_deployable = "
