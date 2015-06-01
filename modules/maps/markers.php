@@ -120,4 +120,40 @@ function markers_deployable($res, $world) {
 	return $markers;
 }
 
+function markers_buildable($res, $world) {
+global $security;
+    $markers = array();
+
+    $xml = file_get_contents('vehicles.xml', true);
+    require_once('modules/xml2array.php');
+    $vehicles_xml = XML2Array::createArray($xml);
+
+    foreach($res as $row) {
+        $Worldspace = str_replace("[", "", $row['Worldspace']);
+        $Worldspace = str_replace("]", "", $Worldspace);
+        $Worldspace = explode(",", $Worldspace);
+        $x = 0; if (array_key_exists(1, $Worldspace)) { $x = $Worldspace[1]; }
+        $y = 0; if (array_key_exists(2, $Worldspace)) { $y = $Worldspace[2]; }
+
+        $class = $row['Classname'];
+        $type = $row['Type'];
+        require_once('modules/calc.php');
+        $maintenance = $row['Hitpoints'];
+        $description = '<strong>'.$class.' ('.$row['ObjectID'].') - '.htmlspecialchars($row['playerName']).'</strong><br><strong>Last updated:</strong>&nbsp;'.$row['last_updated'].'<br><table><tr><td><img style="width: 100px;" src="images/vehicles/'.$class.'.png"\></td><td>&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top;"><strong>Position:</strong>&nbsp;'.sprintf("%03d%03d", round(world_x($x, $world)), round(world_y($y, $world))).'<br><strong>Needs Maintenance:</strong>&nbsp;'.$maintenance.'</td></tr></table><br>';
+
+        $tmp = array();
+        $tmp["id"] = $row['ObjectUID'];
+        $tmp["lat"] = (world_y($y, $world) / 10);
+        $tmp["lng"] = (world_x($x, $world) / 10);
+        $tmp["icon"] = $type;
+        $tmp["title"] = $class." (".$row['ObjectID'].") - ".htmlspecialchars($row['playerName']);
+        $tmp["description"] = $description;
+        $tmp["zIndexOffset"] = 20000;
+
+        $markers[] = $tmp;
+    };
+
+    return $markers;
+}
+
 ?>

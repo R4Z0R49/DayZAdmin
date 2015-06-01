@@ -29,7 +29,10 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][0] != 'false')
 		$title = 'Other Deployables';
 		break;
 	case 8:
-		$title = 'Recent Players, Vehicles and Deployables';
+		$title = 'Recent Players, Vehicles, Deployables and Buildables';
+		break;
+	case 9:
+		$title = 'Buildables';
 		break;
 	}
 	echo '<div id="page-heading"><title>'.$title.' - '.$sitename.'</title><h1>'.$title.'&nbsp;(<span id="count">0</span>)</h1></div>';

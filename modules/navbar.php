@@ -108,6 +108,7 @@ $accesslvl = $db->GetOne("SELECT accesslvl FROM users WHERE id = '$user_id'");
 									<li><a href="<?php echo $security; ?>.php?view=map&show=4">Vehicles</a></li>
 									<li><a href="<?php echo $security; ?>.php?view=map&show=6">Tents/Stashes</a></li>
 									<li><a href="<?php echo $security; ?>.php?view=map&show=7">Other Deployables</a></li>
+									<li><a href="<?php echo $security; ?>.php?view=map&show=9">Buildables</a></li>
 									<li><a href="<?php echo $security; ?>.php?view=map&show=8">Everything</a></li>
 								</li>
 							</ul>
