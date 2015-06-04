@@ -200,6 +200,16 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sAmmoCrates_NoInteractive_Small>
+  <sAN2_2_DZ>
+    <Type>Air</Type>
+    <Side>EAST</Side>
+    <Faction>Default</Faction>
+    <Name>AN2 Cargo Plane</Name>
+    <transportmaxweapons>10</transportmaxweapons>
+    <transportmaxmagazines>80</transportmaxmagazines>
+    <transportmaxbackpacks>15</transportmaxbackpacks>
+    <cargo>15</cargo>
+  </sAN2_2_DZ>
   <sAN2_DZ>
     <Type>Air</Type>
     <Side>EAST</Side>
@@ -2150,6 +2160,16 @@
     <transportmaxbackpacks>7</transportmaxbackpacks>
     <cargo>6</cargo>
   </sUAZ_Unarmed_UN_EP1>
+  <sUH1H_2_DZ>
+    <Type>Air</Type>
+    <Side>EAST</Side>
+    <Faction>Default</Faction>
+    <Name>UH-1H</Name>
+    <transportmaxweapons>5</transportmaxweapons>
+    <transportmaxmagazines>25</transportmaxmagazines>
+    <transportmaxbackpacks>4</transportmaxbackpacks>
+    <cargo>5</cargo>
+  </sUH1H_2_DZ>
   <sUH1H_DZ>
     <Type>Air</Type>
     <Side>EAST</Side>
