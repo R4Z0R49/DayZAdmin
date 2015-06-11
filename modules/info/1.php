@@ -451,7 +451,7 @@ if (isset($_SESSION['user_id'])) {
     </tr>
 	<tr style="text-align: center;">
 		<td colspan="2"><?php printf("%d (%d%%)", round($Medical[7]), ($Medical[7]/12000) * 100); ?></td>
-		<td><?php echo $Medical[11]; ?></td>
+		<td><?php printf("%s%s", $Medical[11], $Medical[12] == "true" ? "+" : "-"); ?></td>
 		<td><?php printf("%d%%", ($Medical[9][0]/1)*100); ?></td>
         <td><?php printf("%d (%d%%)", round($Medical[13][0]), ($Medical[13][0]/2160) * 100); ?></td>
         <td><?php printf("%d (%d%%)", round($Medical[13][1]), ($Medical[13][1]/1440) * 100); ?></td>
