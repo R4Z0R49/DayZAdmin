@@ -14,7 +14,7 @@ if (isset($_REQUEST['submit_inv']) && isset($_REQUEST['inv'])) {
 
 if (isset($_REQUEST['submit_loc']) && isset($_REQUEST['loc'])){
 	$loc =  mysql_real_escape_string($_POST['loc']);
-	$db->Execute("UPDATE Object_DATA SET Worldspace = ? WHERE ObjectID = ?", array($loc, $ObjectID));
+	$db->Execute("UPDATE Object_DATA SET Worldspace = ? WHERE ObjectID = ?", array($_REQUEST['loc'], $ObjectID));
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES (CONCAT('Edited location of Object: ',?),?,NOW())", array($ObjectID, $_SESSION['login']));
 } 
 
