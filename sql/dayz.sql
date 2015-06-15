@@ -105,6 +105,7 @@ INSERT INTO `Object_CLASSES` VALUES
 ('LandRover_CZ_EP1', '0.59', 3, '0', 'car'),
 ('HMMWV_DZ', '0.21', 2, '0', 'car'),
 ('MH6J_DZ', '0.48', 1, '0.05000', 'helicopter'),
+('Offroad_DSHKM_INS', '0.20', 1, '0.05000', 'car'),
 ('StashSmall', '0', 0, '0', 'StashSmall'),
 ('StashSmall1', '0', 0, '0', 'StashSmall'),
 ('StashSmall2', '0', 0, '0', 'StashSmall'),
