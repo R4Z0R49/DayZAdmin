@@ -9,6 +9,7 @@ Requirements
 - MySQL 5.4 or higher
 - Apache 2.2 or higher
 - PHP 5.3 
+- MySQLi extension enabled in your php.ini
 - Correctly installed and configured Battleye RCON
 - FTP Access to your server - (OPTIONAL)
 
