@@ -104,18 +104,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </s20Rnd_9x39_SP5_VSS>
-  <s20Rnd_B_AA12_74Slug>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </s20Rnd_B_AA12_74Slug>
-  <s20Rnd_B_AA12_HE>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </s20Rnd_B_AA12_HE>
-  <s20Rnd_B_AA12_Pellets>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </s20Rnd_B_AA12_Pellets>
   <s2b14_82mm_TK_Bag_EP1>
     <Slots>1</Slots>
     <Type>Backpacks</Type>
@@ -594,14 +582,6 @@
     <Slots>1</Slots>
     <Type>heavyammo</Type>
   </sAttachment_SupMakarov>
-  <sBAF_ied_v1>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sBAF_ied_v1>
-  <sBAF_L110A1_Aim>
-    <Slots>10</Slots>
-    <Type>rifle</Type>
-  </sBAF_L110A1_Aim>
   <sBAF_L85A2_RIS_Holo>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -870,18 +850,6 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sCZ550_DZ>
-  <sCZ_Assault_Pack_ACR>
-    <Slots>1</Slots>
-    <Type>Backpacks</Type>
-    <maxmagazines>8</maxmagazines>
-    <maxweapons>0</maxweapons>
-  </sCZ_Assault_Pack_ACR>
-  <sCZ_Backpack_RPG_ACR>
-    <Slots>1</Slots>
-    <Type>Backpacks</Type>
-    <maxmagazines>6</maxmagazines>
-    <maxweapons>0</maxweapons>
-  </sCZ_Backpack_RPG_ACR>
   <sDMR_DZ>
     <Slots>10</Slots>
     <Type>rifle</Type>
@@ -1598,12 +1566,6 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </shuntingrifle>
-  <sIED_placement_BAF>
-    <Slots>1</Slots>
-    <Type>Backpacks</Type>
-    <maxmagazines>0</maxmagazines>
-    <maxweapons>0</maxweapons>
-  </sIED_placement_BAF>
   <sIR_Strobe_Marker>
     <Slots>1</Slots>
     <Type>heavyammo</Type>
@@ -2664,10 +2626,6 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sMR43>
-  <sNLAW>
-    <Slots>3</Slots>
-    <Type>heavyammo</Type>
-  </sNLAW>
   <sNVGoggles>
     <Slots>1</Slots>
     <Type>binocular</Type>
@@ -2732,10 +2690,6 @@
     <Slots>10</Slots>
     <Type>rifle</Type>
   </sPK>
-  <sPMC_ied_v1>
-    <Slots>1</Slots>
-    <Type>heavyammo</Type>
-  </sPMC_ied_v1>
   <sQuiver>
     <Slots>2</Slots>
     <Type>heavyammo</Type>
