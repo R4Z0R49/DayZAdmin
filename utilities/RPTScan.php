@@ -153,6 +153,16 @@ $ignore = array(
 'SVD',
 'SVD_CAMO',
 'UK59_ACR',
+'20Rnd_B_AA12_74Slug',
+'20Rnd_B_AA12_HE',
+'20Rnd_B_AA12_Pellets',
+'BAF_ied_v1',
+'BAF_L110A1_Aim',
+'CZ_Assault_Pack_ACR',
+'CZ_Backpack_RPG_ACR',
+'IED_placement_BAF',
+'NLAW',
+'PMC_ied_v1'
 );
 
 // define custom items not found in regular classes, like mispelled things,
