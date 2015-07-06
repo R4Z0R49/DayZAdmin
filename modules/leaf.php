@@ -34,6 +34,7 @@ if (isset($_SESSION['user_id']))
 		trap = new Icon({ iconUrl: 'images/icons/trap.png' }),
 		wire = new Icon({ iconUrl: 'images/icons/wire.png' }),
 		tent = new Icon({ iconUrl: 'images/icons/tent.png' }),
+		DomeTentStorage = new Icon({ iconUrl: 'images/icons/dometent.png' }),
 		CamoNet = new Icon({ iconUrl: 'images/icons/camonet.png' }),
 		StashSmall = new Icon({ iconUrl: 'images/icons/stashsmall.png' }),
 		StashMedium = new Icon({ iconUrl: 'images/icons/stashmedium.png' }),
