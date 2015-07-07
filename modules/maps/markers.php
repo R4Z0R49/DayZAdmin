@@ -96,7 +96,7 @@ function markers_deployable($res, $world) {
 
 		require_once('modules/calc.php');
 		$contents = "";
-		if($type == "tent" || $type == "StashSmall" || $type == "StashMedium") {
+		if($type == "tent" || $type == "StashSmall" || $type == "StashMedium" || $type == "DomeTentStorage") {
 			$Inventory  = $row['Inventory'];
 			$Inventory = str_replace("|", ",", $Inventory);
 			$Inventory  = json_decode($Inventory);
