@@ -638,8 +638,8 @@ LEFT JOIN
 	Player_DATA pd
 ON
 	pd.playerUID = cd.PlayerUID
-where
-	Alive like 1
+WHERE
+	cd.Alive = 1
 ";
 
 // Search
