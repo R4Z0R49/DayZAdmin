@@ -352,6 +352,8 @@ WHERE
     od.Classname LIKE('WoodenFence%')
 OR
     od.Classname LIKE('WoodenGate%')
+OR
+    od.Classname = 'Base_Fire_DZ'
 AND od.Instance = ?
 ";
 
