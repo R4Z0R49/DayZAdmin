@@ -20,23 +20,13 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </s76n6ClamShell_EP1>
-  <sA10>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>A-10</Name>
-    <transportmaxweapons>3</transportmaxweapons>
-    <transportmaxmagazines>20</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sA10>
   <sA10_US_EP1>
     <Type>Air</Type>
     <Side>WEST</Side>
     <Faction>BIS_US</Faction>
     <Name>A-10</Name>
-    <transportmaxweapons>3</transportmaxweapons>
-    <transportmaxmagazines>20</transportmaxmagazines>
+    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxmagazines>0</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sA10_US_EP1>
@@ -60,36 +50,6 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sACamp_EP1>
-  <sAH1Z>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>AH-1Z</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sAH1Z>
-  <sAH64D>
-    <Type>Air</Type>
-    <Side>CIV</Side>
-    <Faction>Default</Faction>
-    <Name>AH-64D</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sAH64D>
-  <sAH64D_EP1>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_US</Faction>
-    <Name>AH-64D</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sAH64D_EP1>
   <sAH6X_DZ>
     <Type>Air</Type>
     <Side>EAST</Side>
@@ -100,16 +60,6 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>1</cargo>
   </sAH6X_DZ>
-  <sAH6X_EP1>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_US</Faction>
-    <Name>AH-6X</Name>
-    <transportmaxweapons>3</transportmaxweapons>
-    <transportmaxmagazines>20</transportmaxmagazines>
-    <transportmaxbackpacks>5</transportmaxbackpacks>
-    <cargo>1</cargo>
-  </sAH6X_EP1>
   <sAmmoBoxBig>
     <Type>Survival</Type>
     <Side>GUER</Side>
@@ -240,46 +190,6 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>1</cargo>
   </sATV_US_EP1>
-  <sAV8B2>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>AV-8B</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sAV8B2>
-  <sAW159_Lynx_BAF>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_BAF</Faction>
-    <Name>Wildcat AH11</Name>
-    <transportmaxweapons>18</transportmaxweapons>
-    <transportmaxmagazines>180</transportmaxmagazines>
-    <transportmaxbackpacks>5</transportmaxbackpacks>
-    <cargo>8</cargo>
-  </sAW159_Lynx_BAF>
-  <sBAF_ATV_D>
-    <Type>CarD</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_BAF</Faction>
-    <Name>Unknown</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sBAF_ATV_D>
-  <sBAF_Merlin_HC3_D>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_BAF</Faction>
-    <Name>Merlin HC3</Name>
-    <transportmaxweapons>18</transportmaxweapons>
-    <transportmaxmagazines>180</transportmaxmagazines>
-    <transportmaxbackpacks>10</transportmaxbackpacks>
-    <cargo>17</cargo>
-  </sBAF_Merlin_HC3_D>
   <sBAF_Offroad_D>
     <Type>CarD</Type>
     <Side>WEST</Side>
@@ -330,16 +240,6 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sBlood_Trail_DZ>
-  <sBoltSteelF>
-    <Type>Survival</Type>
-    <Side>GUER</Side>
-    <Faction>Default</Faction>
-    <Name>Steel Bolt</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sBoltSteelF>
   <sBunker_PMC>
     <Type>Military</Type>
     <Side>GUER</Side>
@@ -350,16 +250,6 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sBunker_PMC>
-  <sC130J>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>C-130J</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>25</cargo>
-  </sC130J>
   <sC130J_static_EP1>
     <Type>Military</Type>
     <Side>GUER</Side>
@@ -476,7 +366,7 @@
     <Faction>Default</Faction>
     <Name>Dome Tent</Name>
     <transportmaxweapons>15</transportmaxweapons>
-    <transportmaxmagazines>150</transportmaxmagazines>
+    <transportmaxmagazines>75</transportmaxmagazines>
     <transportmaxbackpacks>5</transportmaxbackpacks>
     <cargo>0</cargo>
   </sDomeTentStorage>
@@ -550,16 +440,6 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sDZ_storage_base>
-  <sF35B>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>F-35B</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sF35B>
   <sFishing_Boat>
     <Type>Ship</Type>
     <Side>GUER</Side>
@@ -634,22 +514,12 @@
     <Type>Car</Type>
     <Side>GUER</Side>
     <Faction>BIS_TK_CIV</Faction>
-    <Name>Pickup</Name>
+    <Name>Off-road</Name>
     <transportmaxweapons>10</transportmaxweapons>
     <transportmaxmagazines>50</transportmaxmagazines>
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>1</cargo>
   </shilux1_civil_3_open_EP1>
-  <sHMMWV_Avenger>
-    <Type>Car</Type>
-    <Side>CIV</Side>
-    <Faction>Default</Faction>
-    <Name>HMMWV Avenger</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>3</transportmaxbackpacks>
-    <cargo>1</cargo>
-  </sHMMWV_Avenger>
   <sHMMWV_DZ>
     <Type>Car</Type>
     <Side>EAST</Side>
@@ -710,51 +580,11 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>0</cargo>
   </sItemStorage>
-  <sKa52>
-    <Type>Air</Type>
-    <Side>CIV</Side>
-    <Faction>Default</Faction>
-    <Name>Ka-52</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sKa52>
-  <sL159_ACR>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>L-159 ALCA</Name>
-    <transportmaxweapons>3</transportmaxweapons>
-    <transportmaxmagazines>20</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sL159_ACR>
-  <sL39_2_ACR>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>L-39ZA</Name>
-    <transportmaxweapons>3</transportmaxweapons>
-    <transportmaxmagazines>20</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sL39_2_ACR>
-  <sL39_ACR>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>L-39C</Name>
-    <transportmaxweapons>3</transportmaxweapons>
-    <transportmaxmagazines>20</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sL39_ACR>
   <sLada1>
     <Type>Car</Type>
     <Side>GUER</Side>
     <Faction>CIV</Faction>
-    <Name>UAZ (White)</Name>
+    <Name>Lada (White)</Name>
     <transportmaxweapons>10</transportmaxweapons>
     <transportmaxmagazines>50</transportmaxmagazines>
     <transportmaxbackpacks>2</transportmaxbackpacks>
@@ -774,7 +604,7 @@
     <Type>Car</Type>
     <Side>GUER</Side>
     <Faction>CIV</Faction>
-    <Name>UAZ (Red)</Name>
+    <Name>Lada (Red)</Name>
     <transportmaxweapons>10</transportmaxweapons>
     <transportmaxmagazines>50</transportmaxmagazines>
     <transportmaxbackpacks>2</transportmaxbackpacks>
@@ -794,7 +624,7 @@
     <Type>Car</Type>
     <Side>GUER</Side>
     <Faction>CIV</Faction>
-    <Name>UAZ (Militia)</Name>
+    <Name>Lada (Militia)</Name>
     <transportmaxweapons>10</transportmaxweapons>
     <transportmaxmagazines>50</transportmaxmagazines>
     <transportmaxbackpacks>2</transportmaxbackpacks>
@@ -1030,16 +860,6 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sLand_tent_east>
-  <sLandRover_ACR>
-    <Type>CarW</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>Military Offroad</Name>
-    <transportmaxweapons>10</transportmaxweapons>
-    <transportmaxmagazines>50</transportmaxmagazines>
-    <transportmaxbackpacks>2</transportmaxbackpacks>
-    <cargo>7</cargo>
-  </sLandRover_ACR>
   <sLandRover_CZ_EP1>
     <Type>Car</Type>
     <Side>WEST</Side>
@@ -1065,7 +885,7 @@
     <Side>WEST</Side>
     <Faction>USMC</Faction>
     <Name>Motorcycle</Name>
-    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxweapons>1</transportmaxweapons>
     <transportmaxmagazines>5</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
@@ -1075,31 +895,11 @@
     <Side>WEST</Side>
     <Faction>BIS_US</Faction>
     <Name>Motorcycle</Name>
-    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxweapons>1</transportmaxweapons>
     <transportmaxmagazines>5</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
   </sM1030_US_DES_EP1>
-  <sM1114_AGS_ACR>
-    <Type>Car</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>HMMWV (AGS-30)</Name>
-    <transportmaxweapons>10</transportmaxweapons>
-    <transportmaxmagazines>50</transportmaxmagazines>
-    <transportmaxbackpacks>5</transportmaxbackpacks>
-    <cargo>3</cargo>
-  </sM1114_AGS_ACR>
-  <sM1114_DSK_ACR>
-    <Type>Car</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>HMMWV (DShKM)</Name>
-    <transportmaxweapons>10</transportmaxweapons>
-    <transportmaxmagazines>50</transportmaxmagazines>
-    <transportmaxbackpacks>5</transportmaxbackpacks>
-    <cargo>3</cargo>
-  </sM1114_DSK_ACR>
   <sMASH>
     <Type>Military</Type>
     <Side>GUER</Side>
@@ -1150,16 +950,6 @@
     <transportmaxbackpacks>1</transportmaxbackpacks>
     <cargo>0</cargo>
   </sMedBox2>
-  <sMH60S>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>MH-60S</Name>
-    <transportmaxweapons>30</transportmaxweapons>
-    <transportmaxmagazines>150</transportmaxmagazines>
-    <transportmaxbackpacks>10</transportmaxbackpacks>
-    <cargo>13</cargo>
-  </sMH60S>
   <sMH6J_DZ>
     <Type>Air</Type>
     <Side>EAST</Side>
@@ -1170,66 +960,16 @@
     <transportmaxbackpacks>3</transportmaxbackpacks>
     <cargo>5</cargo>
   </sMH6J_DZ>
-  <sMi17_Civilian>
-    <Type>Air</Type>
-    <Side>GUER</Side>
-    <Faction>CIV</Faction>
-    <Name>Mi-17 (Civilian)</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sMi17_Civilian>
   <sMi17_DZ>
     <Type>Air</Type>
     <Side>EAST</Side>
-    <Faction>CDF</Faction>
+    <Faction>Default</Faction>
     <Name>Mi-17</Name>
     <transportmaxweapons>10</transportmaxweapons>
     <transportmaxmagazines>50</transportmaxmagazines>
     <transportmaxbackpacks>10</transportmaxbackpacks>
     <cargo>16</cargo>
   </sMi17_DZ>
-  <sMi17_rockets_RU>
-    <Type>Air</Type>
-    <Side>NONE</Side>
-    <Faction>RU</Faction>
-    <Name>Mi-8MTV-3</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sMi17_rockets_RU>
-  <sMi24_D>
-    <Type>Air</Type>
-    <Side>CIV</Side>
-    <Faction>Default</Faction>
-    <Name>Mi-24D</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sMi24_D>
-  <sMi24_D_CZ_ACR>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>Mi-24V</Name>
-    <transportmaxweapons>30</transportmaxweapons>
-    <transportmaxmagazines>150</transportmaxmagazines>
-    <transportmaxbackpacks>10</transportmaxbackpacks>
-    <cargo>8</cargo>
-  </sMi24_D_CZ_ACR>
-  <sMi24_P>
-    <Type>Air</Type>
-    <Side>CIV</Side>
-    <Faction>Default</Faction>
-    <Name>Mi-24P</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sMi24_P>
   <sMisc_Backpackheap>
     <Type>Military</Type>
     <Side>GUER</Side>
@@ -1340,46 +1080,6 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sMisc_cargo_cont_tiny>
-  <sMQ9PredatorB>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>MQ-9</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sMQ9PredatorB>
-  <sMTVR>
-    <Type>Car</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>MTVR</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>12</cargo>
-  </sMTVR>
-  <sMV22>
-    <Type>Air</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>MV-22</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>24</cargo>
-  </sMV22>
-  <sOctavia_ACR>
-    <Type>Car</Type>
-    <Side>GUER</Side>
-    <Faction>CIV</Faction>
-    <Name>Touring car</Name>
-    <transportmaxweapons>10</transportmaxweapons>
-    <transportmaxmagazines>50</transportmaxmagazines>
-    <transportmaxbackpacks>2</transportmaxbackpacks>
-    <cargo>3</cargo>
-  </sOctavia_ACR>
   <sOffroad_DSHKM_INS>
     <Type>Car</Type>
     <Side>NONE</Side>
@@ -1415,7 +1115,7 @@
     <Side>GUER</Side>
     <Faction>BIS_TK_CIV</Faction>
     <Name>Old moto</Name>
-    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxweapons>1</transportmaxweapons>
     <transportmaxmagazines>5</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
@@ -1510,26 +1210,6 @@
     <transportmaxbackpacks>1</transportmaxbackpacks>
     <cargo>3</cargo>
   </sPBX>
-  <sPBX_ACR>
-    <Type>Ship</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>PBX</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>3</cargo>
-  </sPBX_ACR>
-  <sPchela1T>
-    <Type>Air</Type>
-    <Side>NONE</Side>
-    <Faction>RU</Faction>
-    <Name>Pchela-1T</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sPchela1T>
   <sPickup_PK_INS>
     <Type>Car</Type>
     <Side>NONE</Side>
@@ -1540,16 +1220,6 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>3</cargo>
   </sPickup_PK_INS>
-  <sPickup_PK_TK_GUE_EP1>
-    <Type>Car</Type>
-    <Side>EAST</Side>
-    <Faction>BIS_TK_GUE</Faction>
-    <Name>Pickup (PK)</Name>
-    <transportmaxweapons>10</transportmaxweapons>
-    <transportmaxmagazines>50</transportmaxmagazines>
-    <transportmaxbackpacks>2</transportmaxbackpacks>
-    <cargo>3</cargo>
-  </sPickup_PK_TK_GUE_EP1>
   <spolicecar>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -1580,26 +1250,6 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sPowGen_Big_EP1>
-  <sRHIB>
-    <Type>Ship</Type>
-    <Side>WEST</Side>
-    <Faction>USMC</Faction>
-    <Name>RHIB</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>10</cargo>
-  </sRHIB>
-  <sRM70_ACR>
-    <Type>CarW</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>RM-70</Name>
-    <transportmaxweapons>50</transportmaxweapons>
-    <transportmaxmagazines>200</transportmaxmagazines>
-    <transportmaxbackpacks>8</transportmaxbackpacks>
-    <cargo>1</cargo>
-  </sRM70_ACR>
   <sRubbish1>
     <Type>Survival</Type>
     <Side>GUER</Side>
@@ -1850,16 +1500,6 @@
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>0</cargo>
   </sStove>
-  <sSu34>
-    <Type>Air</Type>
-    <Side>NONE</Side>
-    <Faction>RU</Faction>
-    <Name>Su-34</Name>
-    <transportmaxweapons>3</transportmaxweapons>
-    <transportmaxmagazines>20</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>0</cargo>
-  </sSu34>
   <sSUV_DZ>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -1875,8 +1515,8 @@
     <Side>EAST</Side>
     <Faction>PMC_BAF</Faction>
     <Name>SUV</Name>
-    <transportmaxweapons>5000</transportmaxweapons>
-    <transportmaxmagazines>20000</transportmaxmagazines>
+    <transportmaxweapons>10</transportmaxweapons>
+    <transportmaxmagazines>50</transportmaxmagazines>
     <transportmaxbackpacks>5000</transportmaxbackpacks>
     <cargo>5</cargo>
   </sSUV_PMC>
@@ -1900,66 +1540,6 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>5</cargo>
   </sSUV_TK_EP1>
-  <sT810_ACR>
-    <Type>CarW</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>T810</Name>
-    <transportmaxweapons>50</transportmaxweapons>
-    <transportmaxmagazines>200</transportmaxmagazines>
-    <transportmaxbackpacks>8</transportmaxbackpacks>
-    <cargo>12</cargo>
-  </sT810_ACR>
-  <sT810_Des_ACR>
-    <Type>Car</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>T810</Name>
-    <transportmaxweapons>50</transportmaxweapons>
-    <transportmaxmagazines>200</transportmaxmagazines>
-    <transportmaxbackpacks>8</transportmaxbackpacks>
-    <cargo>12</cargo>
-  </sT810_Des_ACR>
-  <sT810_Open_ACR>
-    <Type>CarW</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>T810 (Open)</Name>
-    <transportmaxweapons>50</transportmaxweapons>
-    <transportmaxmagazines>200</transportmaxmagazines>
-    <transportmaxbackpacks>8</transportmaxbackpacks>
-    <cargo>12</cargo>
-  </sT810_Open_ACR>
-  <sT810_Open_Des_ACR>
-    <Type>Car</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>T810 (Open)</Name>
-    <transportmaxweapons>50</transportmaxweapons>
-    <transportmaxmagazines>200</transportmaxmagazines>
-    <transportmaxbackpacks>8</transportmaxbackpacks>
-    <cargo>12</cargo>
-  </sT810_Open_Des_ACR>
-  <sT810A_Des_MG_ACR>
-    <Type>Car</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>T810 (MG)</Name>
-    <transportmaxweapons>50</transportmaxweapons>
-    <transportmaxmagazines>200</transportmaxmagazines>
-    <transportmaxbackpacks>8</transportmaxbackpacks>
-    <cargo>11</cargo>
-  </sT810A_Des_MG_ACR>
-  <sT810A_MG_ACR>
-    <Type>CarW</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>T810 (MG)</Name>
-    <transportmaxweapons>50</transportmaxweapons>
-    <transportmaxmagazines>200</transportmaxmagazines>
-    <transportmaxbackpacks>8</transportmaxbackpacks>
-    <cargo>11</cargo>
-  </sT810A_MG_ACR>
   <sTentStorage>
     <Type>Survival</Type>
     <Side>GUER</Side>
@@ -2055,7 +1635,7 @@
     <Side>GUER</Side>
     <Faction>CIV</Faction>
     <Name>Motorcycle</Name>
-    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxweapons>1</transportmaxweapons>
     <transportmaxmagazines>5</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
@@ -2065,7 +1645,7 @@
     <Side>EAST</Side>
     <Faction>GUE</Faction>
     <Name>Motorcycle</Name>
-    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxweapons>1</transportmaxweapons>
     <transportmaxmagazines>5</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
@@ -2075,7 +1655,7 @@
     <Side>NONE</Side>
     <Faction>INS</Faction>
     <Name>Yamaha TT650</Name>
-    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxweapons>1</transportmaxweapons>
     <transportmaxmagazines>5</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
@@ -2085,7 +1665,7 @@
     <Side>GUER</Side>
     <Faction>BIS_TK_CIV</Faction>
     <Name>Motorcycle</Name>
-    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxweapons>1</transportmaxweapons>
     <transportmaxmagazines>5</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
@@ -2095,7 +1675,7 @@
     <Side>NONE</Side>
     <Faction>BIS_TK</Faction>
     <Name>Motorcycle</Name>
-    <transportmaxweapons>0</transportmaxweapons>
+    <transportmaxweapons>1</transportmaxweapons>
     <transportmaxmagazines>5</transportmaxmagazines>
     <transportmaxbackpacks>0</transportmaxbackpacks>
     <cargo>1</cargo>
@@ -2120,16 +1700,6 @@
     <transportmaxbackpacks>7</transportmaxbackpacks>
     <cargo>6</cargo>
   </sUAZ_RU>
-  <sUAZ_Unarmed_ACR>
-    <Type>CarW</Type>
-    <Side>WEST</Side>
-    <Faction>BIS_CZ</Faction>
-    <Name>UAZ</Name>
-    <transportmaxweapons>10</transportmaxweapons>
-    <transportmaxmagazines>50</transportmaxmagazines>
-    <transportmaxbackpacks>7</transportmaxbackpacks>
-    <cargo>6</cargo>
-  </sUAZ_Unarmed_ACR>
   <sUAZ_Unarmed_TK_CIV_EP1>
     <Type>Car</Type>
     <Side>GUER</Side>
@@ -2240,6 +1810,16 @@
     <transportmaxbackpacks>8</transportmaxbackpacks>
     <cargo>14</cargo>
   </sUralCivil2>
+  <sUralCivil_DZ>
+    <Type>Car</Type>
+    <Side>GUER</Side>
+    <Faction>CIV</Faction>
+    <Name>Ural (Civil)</Name>
+    <transportmaxweapons>40</transportmaxweapons>
+    <transportmaxmagazines>200</transportmaxmagazines>
+    <transportmaxbackpacks>10</transportmaxbackpacks>
+    <cargo>14</cargo>
+  </sUralCivil_DZ>
   <sUralOpen_INS>
     <Type>Car</Type>
     <Side>NONE</Side>
@@ -2290,16 +1870,6 @@
     <transportmaxbackpacks>2</transportmaxbackpacks>
     <cargo>3</cargo>
   </sVolhaLimo_TK_CIV_EP1>
-  <sVWGolf>
-    <Type>Car</Type>
-    <Side>GUER</Side>
-    <Faction>CIV</Faction>
-    <Name>Hatchback</Name>
-    <transportmaxweapons>0</transportmaxweapons>
-    <transportmaxmagazines>0</transportmaxmagazines>
-    <transportmaxbackpacks>0</transportmaxbackpacks>
-    <cargo>4</cargo>
-  </sVWGolf>
   <sWeaponHolder_Colt1911>
     <Type>Survival</Type>
     <Side>GUER</Side>
